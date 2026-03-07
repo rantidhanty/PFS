@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-label="Product image placeholder">
+  <rect width="1200" height="1500" fill="#f4f4f5"/>
+  <rect x="120" y="140" width="960" height="1220" rx="36" fill="#e4e4e7"/>
+  <circle cx="420" cy="560" r="120" fill="#d4d4d8"/>
+  <path d="M240 1130l220-240 160 160 220-260 120 140v200H240z" fill="#c4c4cb"/>
+  <text x="600" y="1320" font-family="Arial, sans-serif" font-size="52" text-anchor="middle" fill="#71717a">
+    Add Product Photo
+  </text>
+</svg>
