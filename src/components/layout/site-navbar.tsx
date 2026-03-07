@@ -13,12 +13,19 @@ const navLinks = [
 
 export function SiteNavbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const handleBrandClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    setIsOpen(false);
+    if (window.location.pathname === "/") {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-zinc-50/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="relative h-11 w-32 overflow-hidden">
+        <Link href="/" onClick={handleBrandClick} className="flex min-w-0 items-center gap-2 sm:gap-3">
+          <div className="relative h-10 w-24 overflow-hidden sm:h-11 sm:w-32">
             <Image
               src="/images/logo/logo%20pfs.jpg"
               alt="SportEquip Pro Logo"
@@ -27,9 +34,9 @@ export function SiteNavbar() {
               className="object-contain object-left mix-blend-multiply contrast-125 saturate-125"
             />
           </div>
-          <div className="hidden leading-tight sm:block">
-            <p className="text-sm font-bold tracking-tight text-zinc-900">PFS Peralatan Olahraga</p>
-            <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-500">
+          <div className="min-w-0 leading-tight">
+            <p className="truncate text-xs font-bold tracking-tight text-zinc-900 sm:text-[15px]">PFS Peralatan Olahraga</p>
+            <p className="truncate text-[10px] font-medium uppercase tracking-[0.11em] text-zinc-500 sm:text-xs sm:tracking-[0.14em]">
               Peralatan Lapangan Profesional
             </p>
           </div>
@@ -47,10 +54,10 @@ export function SiteNavbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden md:block md:pl-3 lg:pl-4">
           <a
             href="#kontak"
-            className="rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-600"
+            className="whitespace-nowrap rounded-full bg-orange-500 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-orange-600 lg:px-4 lg:py-2 lg:text-sm"
           >
             Minta Penawaran
           </a>
@@ -61,9 +68,14 @@ export function SiteNavbar() {
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
-          className="rounded-md border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-700 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-md border border-zinc-300 text-zinc-700 md:hidden"
         >
-          Menu
+          <span className="sr-only">Menu</span>
+          <span className="flex h-4 w-5 flex-col justify-between">
+            <span className="block h-0.5 w-full rounded-full bg-current" />
+            <span className="block h-0.5 w-full rounded-full bg-current" />
+            <span className="block h-0.5 w-full rounded-full bg-current" />
+          </span>
         </button>
       </div>
 
@@ -83,7 +95,7 @@ export function SiteNavbar() {
             <a
               href="#kontak"
               onClick={() => setIsOpen(false)}
-              className="mt-1 rounded-full bg-orange-500 px-4 py-2 text-center text-sm font-semibold text-white"
+              className="mt-1 inline-flex w-fit whitespace-nowrap rounded-full bg-orange-500 px-3 py-1.5 text-xs font-semibold text-white"
             >
               Minta Penawaran
             </a>

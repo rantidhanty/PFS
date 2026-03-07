@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ProductGalleryCarousel } from "@/components/ui/product-gallery-carousel";
 import { ProductImage } from "@/components/ui/product-image";
 import { SiteNavbar } from "@/components/layout/site-navbar";
@@ -19,13 +20,67 @@ export default function Home() {
     <div className="min-h-screen bg-zinc-50 font-sans text-zinc-900">
       <SiteNavbar />
       <main className="mx-auto w-full max-w-6xl px-6 py-10">
+        <section className="mb-12 rounded-3xl border border-zinc-200 bg-white p-5 sm:p-6 md:p-6 lg:p-8">
+          <div className="grid items-center gap-6 md:grid-cols-2 md:gap-6 lg:gap-10">
+            <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-3 sm:p-4">
+              <div className="mx-auto flex w-full max-w-full items-center justify-center">
+                <Image
+                  src="/images/posters/poster%20PFS.jpg"
+                  alt="Poster ProFabric Steel"
+                  width={1200}
+                  height={1600}
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                  className="h-auto w-full object-contain"
+                  priority
+                />
+              </div>
+            </div>
+            <div>
+              <p className="inline-flex rounded-full border border-zinc-300 bg-zinc-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-zinc-700">
+                Spesialis Besi
+              </p>
+              <h1 className="mt-3 bg-gradient-to-r from-zinc-900 via-zinc-700 to-orange-700 bg-clip-text text-3xl font-extrabold tracking-tight text-transparent sm:text-4xl md:text-5xl">
+                ProFabric Steel
+              </h1>
+              <div className="mt-4 rounded-2xl border border-orange-200 bg-orange-50 px-4 py-3 text-zinc-800">
+                <p className="text-justify text-base font-semibold leading-relaxed">
+                  Solusi jasa las dan fabrikasi untuk kebutuhan personal hingga
+                  proyek.
+                </p>
+                <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-zinc-600">
+                  Melayani untuk
+                </p>
+                <div className="mt-2 grid grid-cols-3 gap-2">
+                  <span className="rounded-md border border-sky-300 bg-gradient-to-b from-sky-100 to-sky-300 px-2 py-1.5 text-center text-[11px] font-extrabold leading-tight text-sky-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_3px_8px_rgba(3,105,161,0.28)] sm:px-2.5 sm:py-1 sm:text-sm">
+                    kebutuhan rumah
+                  </span>
+                  <span className="rounded-md border border-amber-300 bg-gradient-to-b from-amber-100 to-amber-300 px-2 py-1.5 text-center text-[11px] font-extrabold leading-tight text-amber-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_3px_8px_rgba(180,83,9,0.28)] sm:px-2.5 sm:py-1 sm:text-sm">
+                    proyek konstruksi
+                  </span>
+                  <span className="rounded-md border border-emerald-300 bg-gradient-to-b from-emerald-100 to-emerald-300 px-2 py-1.5 text-center text-[11px] font-extrabold leading-tight text-emerald-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_3px_8px_rgba(6,95,70,0.28)] sm:px-2.5 sm:py-1 sm:text-sm">
+                    fasilitas olahraga
+                  </span>
+                </div>
+                <p className="mt-2 text-base font-medium leading-relaxed text-zinc-700">
+                  Dengan hasil kuat, presisi, dan rapi.
+                </p>
+              </div>
+              <a
+                href="https://wa.me/6289673404972"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 text-sm font-bold tracking-wide text-white shadow-[0_8px_20px_rgba(234,88,12,0.35)] transition hover:from-orange-600 hover:to-orange-700"
+              >
+                Hubungi Kami
+              </a>
+            </div>
+          </div>
+        </section>
+
         <section id="produk" className="mb-10 scroll-mt-24">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
-            Sports Store Portfolio
-          </p>
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             Gallery Produk Standar Kompetisi
-          </h1>
+          </h2>
           <p className="mt-2 max-w-2xl text-zinc-600">
             Data produk dirender dari `src/data/products.ts`. Simpan file gambar
             di `public/images/products/&lt;sport&gt;/&lt;product-slug&gt;/`.
@@ -36,7 +91,7 @@ export default function Home() {
           <section key={sport} className="mb-12">
             <div className="mb-5 flex items-center justify-between gap-4">
               <h2 className="text-2xl font-semibold tracking-tight">
-              {sportLabels[sport as SportCategory]}
+                {sportLabels[sport as SportCategory]}
               </h2>
               {sport === "basketball" ? (
                 <div className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-700">
@@ -83,33 +138,54 @@ export default function Home() {
           </section>
         ))}
 
-        <section id="standar" className="mb-12 scroll-mt-24 rounded-2xl border border-zinc-200 bg-white p-6">
-          <h2 className="text-2xl font-semibold tracking-tight">Standar Kompetisi</h2>
+        <section
+          id="standar"
+          className="mb-12 scroll-mt-24 rounded-2xl border border-zinc-200 bg-white p-6"
+        >
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Standar Kompetisi
+          </h2>
           <p className="mt-2 max-w-3xl text-zinc-600">
-            Produk kami dirancang untuk kebutuhan turnamen dan fasilitas olahraga dengan referensi standar FIBA, FIVB, BWF, FIFA, ITF, dan FIP.
+            Produk kami dirancang untuk kebutuhan turnamen dan fasilitas
+            olahraga dengan referensi standar FIBA, FIVB, BWF, FIFA, ITF, dan
+            FIP.
           </p>
         </section>
 
-        <section id="tentang" className="mb-12 scroll-mt-24 rounded-2xl border border-zinc-200 bg-white p-6">
-          <h2 className="text-2xl font-semibold tracking-tight">Tentang Kami</h2>
+        <section
+          id="tentang"
+          className="mb-12 scroll-mt-24 rounded-2xl border border-zinc-200 bg-white p-6"
+        >
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Tentang Kami
+          </h2>
           <p className="mt-2 max-w-3xl text-zinc-600">
-            Kami fokus pada pengadaan alat olahraga kompetisi dengan opsi custom kebutuhan sekolah, klub, venue, dan proyek pemerintah.
+            Kami fokus pada pengadaan alat olahraga kompetisi dengan opsi custom
+            kebutuhan sekolah, klub, venue, dan proyek pemerintah.
           </p>
         </section>
 
-        <section id="kontak" className="scroll-mt-24 rounded-2xl border border-orange-200 bg-orange-50 p-6">
-          <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">Kontak & Penawaran</h2>
+        <section
+          id="kontak"
+          className="scroll-mt-24 rounded-2xl border border-orange-200 bg-orange-50 p-6"
+        >
+          <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">
+            Kontak & Penawaran
+          </h2>
           <p className="mt-2 text-zinc-700">
             Konsultasi spesifikasi dan penawaran harga tersedia via WhatsApp.
           </p>
           <a
-            href="https://wa.me/"
+            href="https://wa.me/6289673404972"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-600"
           >
-            Hubungi via WhatsApp
+            Hubungi WhatsApp 0896-7340-4972
           </a>
+          <p className="mt-3 text-sm text-zinc-700">
+            ProFabric Steel siap melayani custom sesuai kebutuhan Anda.
+          </p>
         </section>
       </main>
     </div>
