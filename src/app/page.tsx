@@ -20,7 +20,7 @@ export default function Home() {
     <div className="min-h-screen bg-zinc-50 font-sans text-zinc-900">
       <SiteNavbar />
       <main className="mx-auto w-full max-w-6xl px-6 py-10">
-        <section className="mb-12 rounded-3xl border border-zinc-200 bg-white p-5 sm:p-6 md:p-6 lg:p-8">
+        <section className="mb-3 rounded-3xl border border-zinc-200 bg-white p-5 sm:p-6 md:p-6 lg:p-8">
           <div className="grid items-center gap-6 md:grid-cols-2 md:gap-6 lg:gap-10">
             <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-3 sm:p-4">
               <div className="mx-auto flex w-full max-w-full items-center justify-center">
@@ -77,14 +77,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="produk" className="mb-10 scroll-mt-24">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Gallery Produk Standar Kompetisi
-          </h2>
-          <p className="mt-2 max-w-2xl text-zinc-600">
-            Data produk dirender dari `src/data/products.ts`. Simpan file gambar
-            di `public/images/products/&lt;sport&gt;/&lt;product-slug&gt;/`.
-          </p>
+        <section id="produk" className="mb-8 scroll-mt-24">
+          <div className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-rose-50 via-orange-50 to-amber-50 px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_8px_24px_rgba(251,146,60,0.14)]">
+            <h2 className="bg-gradient-to-r from-zinc-900 via-orange-700 to-amber-700 bg-clip-text text-center font-[family-name:var(--font-geist-sans)] text-3xl font-bold tracking-tight text-transparent sm:text-4xl">
+              Gallery Produk
+            </h2>
+          </div>
         </section>
 
         {Object.entries(groupedProducts).map(([sport, sportProducts]) => (
@@ -142,13 +140,11 @@ export default function Home() {
           id="standar"
           className="mb-12 scroll-mt-24 rounded-2xl border border-zinc-200 bg-white p-6"
         >
-          <h2 className="text-2xl font-semibold tracking-tight">
-            Standar Kompetisi
-          </h2>
+          <h2 className="text-2xl font-semibold tracking-tight">Kualitas Produk</h2>
           <p className="mt-2 max-w-3xl text-zinc-600">
-            Produk kami dirancang untuk kebutuhan turnamen dan fasilitas
-            olahraga dengan referensi standar FIBA, FIVB, BWF, FIFA, ITF, dan
-            FIP.
+            Produk kami dirancang dengan material besi pilihan dan pengerjaan
+            yang rapi untuk kebutuhan fasilitas olahraga yang awet dan siap
+            pakai.
           </p>
         </section>
 
