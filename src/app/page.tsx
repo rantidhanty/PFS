@@ -271,15 +271,24 @@ export default function Home() {
         </section>
 
         <section
-          id="standar"
+          id="project"
           className="mb-8 scroll-mt-24 rounded-2xl border border-zinc-200 bg-white p-6 sm:mb-9"
         >
-          <h2 className="text-2xl font-semibold tracking-tight">Kualitas Produk</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">Project</h2>
           <p className="mt-2 max-w-3xl text-zinc-600">
-            Produk kami dirancang dengan material besi pilihan dan pengerjaan
-            yang rapi untuk kebutuhan fasilitas olahraga yang awet dan siap
-            pakai.
+            Beberapa proyek yang sudah kami kerjakan untuk kebutuhan fasilitas
+            dan pengadaan besi:
           </p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {["Bank BRI", "Sekolahan", "Pemerintahan", "AEON"].map((project) => (
+              <div
+                key={project}
+                className="rounded-xl border border-zinc-200 bg-gradient-to-br from-zinc-50 to-orange-50 px-4 py-3 text-sm font-semibold text-zinc-800 shadow-sm"
+              >
+                {project}
+              </div>
+            ))}
+          </div>
         </section>
 
         <section
