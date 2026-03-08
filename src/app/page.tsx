@@ -382,7 +382,7 @@ export default function Home() {
             <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-zinc-900 sm:text-3xl">
               Dipercaya Menangani Proyek Instansi & Komersial
             </h2>
-            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-700 sm:text-base">
+            <p className="mt-2 text-sm leading-relaxed text-zinc-700 sm:text-base md:text-justify">
               Portofolio ini menunjukkan pengalaman nyata ProFabric Steel dalam
               pengerjaan fasilitas berbahan besi dengan hasil presisi, rapi,
               dan tepat guna di berbagai sektor.
@@ -404,7 +404,15 @@ export default function Home() {
                 key={project.name}
                 className="inline-flex shrink-0 items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-2 text-xs font-semibold text-zinc-800 shadow-sm"
               >
-                <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-zinc-600">
+                <span
+                  className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide ${
+                    project.tag === "Pendidikan"
+                      ? "bg-sky-100 text-sky-800"
+                      : project.tag === "Komersial"
+                        ? "bg-emerald-100 text-emerald-800"
+                        : "bg-amber-100 text-amber-800"
+                  }`}
+                >
                   {project.tag}
                 </span>
                 <span>{project.name}</span>
@@ -417,13 +425,44 @@ export default function Home() {
           id="tentang"
           className="mb-8 scroll-mt-24 rounded-2xl border border-zinc-200 bg-white p-6 sm:mb-9"
         >
-          <h2 className="text-2xl font-semibold tracking-tight">Tentang Kami</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Tentang{" "}
+            <span className="font-extrabold text-sky-900 underline decoration-orange-400 decoration-2 underline-offset-4">
+              PFS
+            </span>
+          </h2>
           <p className="mt-2 text-justify text-zinc-700">
-            ProFabric Steel adalah spesialis fabrikasi besi profesional dan
-            penjualan alat-alat olahraga yang dipercaya berbagai instansi.
+            ProFabric Steel adalah{" "}
+            <span className="rounded-md bg-sky-100 px-1.5 py-0.5 font-extrabold text-sky-900">
+              spesialis fabrikasi besi
+            </span>{" "}
+            profesional dan penjualan{" "}
+            <span className="rounded-md bg-rose-100 px-1.5 py-0.5 font-extrabold text-rose-900">
+              alat-alat olahraga
+            </span>{" "}
+            yang dipercaya berbagai instansi.
             Kami menghadirkan solusi lengkap untuk kebutuhan rumah berbahan
-            besi seperti tralis, railing, grill, serta jasa perbaikan dengan
-            standar pengerjaan rapi, kuat, dan presisi.
+            besi seperti{" "}
+            <span className="rounded-md bg-amber-100 px-1.5 py-0.5 font-extrabold text-amber-900">
+              tralis
+            </span>
+            ,{" "}
+            <span className="rounded-md bg-lime-100 px-1.5 py-0.5 font-extrabold text-lime-900">
+              railing
+            </span>
+            ,{" "}
+            <span className="rounded-md bg-indigo-100 px-1.5 py-0.5 font-extrabold text-indigo-900">
+              grill
+            </span>
+            , serta{" "}
+            <span className="rounded-md bg-teal-100 px-1.5 py-0.5 font-extrabold text-teal-900">
+              jasa perbaikan
+            </span>{" "}
+            dengan standar fabrikasi industri{" "}
+            <span className="rounded-md bg-cyan-100 px-1.5 py-0.5 font-extrabold text-cyan-900">
+              rapi, kuat, dan presisi
+            </span>
+            .
           </p>
 
           <div className="mt-4 grid gap-3 md:grid-cols-2">
