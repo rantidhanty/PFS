@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import { ProductGalleryCarousel } from "@/components/ui/product-gallery-carousel";
 import { ProductImage } from "@/components/ui/product-image";
 import { SiteNavbar } from "@/components/layout/site-navbar";
@@ -34,6 +35,7 @@ const sportSummaries: Record<SportCategory, string> = {
 };
 
 export default function Home() {
+  const prefersReducedMotion = useReducedMotion();
   const [lightboxImage, setLightboxImage] = useState<{
     images: string[];
     activeIndex: number;
@@ -45,6 +47,38 @@ export default function Home() {
   } | null>(null);
   const [openSport, setOpenSport] = useState<SportCategory>("basketball");
   const activeProducts = groupedProducts[openSport] ?? [];
+  const revealUp = {
+    hidden: prefersReducedMotion
+      ? { opacity: 1, y: 0, scale: 1 }
+      : { opacity: 0, y: 56, scale: 0.97 },
+    show: { opacity: 1, y: 0 },
+  };
+  const revealLeft = {
+    hidden: prefersReducedMotion
+      ? { opacity: 1, x: 0, scale: 1 }
+      : { opacity: 0, x: -72, scale: 0.97 },
+    show: { opacity: 1, x: 0 },
+  };
+  const revealRight = {
+    hidden: prefersReducedMotion
+      ? { opacity: 1, x: 0, scale: 1 }
+      : { opacity: 0, x: 72, scale: 0.97 },
+    show: { opacity: 1, x: 0 },
+  };
+  const staggerWrap = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: prefersReducedMotion ? 0 : 0.14,
+      },
+    },
+  };
+  const cardReveal = {
+    hidden: prefersReducedMotion
+      ? { opacity: 1, y: 0, scale: 1 }
+      : { opacity: 0, y: 26, scale: 0.96 },
+    show: { opacity: 1, y: 0, scale: 1 },
+  };
 
   useEffect(() => {
     const scrollers = Array.from(
@@ -145,7 +179,14 @@ export default function Home() {
     <div className="min-h-screen bg-zinc-50 font-sans text-zinc-900">
       <SiteNavbar />
       <main className="mx-auto w-full max-w-6xl px-6 pt-3 pb-8 sm:pt-4 sm:pb-10">
-        <section className="mb-4 rounded-3xl border border-zinc-200 bg-white p-5 sm:mb-5 sm:p-6 md:p-6 lg:p-8">
+        <motion.section
+          className="mb-4 rounded-3xl border border-zinc-200 bg-white p-5 sm:mb-5 sm:p-6 md:p-6 lg:p-8"
+          variants={revealUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+        >
           <div className="grid items-start gap-4 sm:gap-5 md:grid-cols-2 md:gap-6 lg:gap-8">
             <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-3 sm:p-4">
               <div className="mx-auto flex w-full max-w-full items-center justify-center">
@@ -200,17 +241,32 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section id="produk" className="mb-5 scroll-mt-24 sm:mb-6">
+        <motion.section
+          id="produk"
+          className="mb-5 scroll-mt-24 sm:mb-6"
+          variants={revealUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.4 }}
+          transition={{ duration: 0.85, ease: "easeOut" }}
+        >
           <div className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-rose-50 via-orange-50 to-amber-50 px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_8px_24px_rgba(251,146,60,0.14)]">
             <h2 className="bg-gradient-to-r from-zinc-900 via-orange-700 to-amber-700 bg-clip-text text-center font-[family-name:var(--font-geist-sans)] text-2xl font-bold tracking-tight text-transparent sm:text-3xl">
               Gallery Produk
             </h2>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="mb-8 sm:mb-9 md:mb-10">
+        <motion.section
+          className="mb-8 sm:mb-9 md:mb-10"
+          variants={revealLeft}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+        >
           <div
             data-auto-scroll="true"
             className="grid grid-flow-col auto-cols-[64%] gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[42%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-3 md:overflow-visible lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
@@ -268,13 +324,19 @@ export default function Home() {
               ) : null}
             </div>
 
-            <div
+            <motion.div
               data-auto-scroll="true"
+              variants={staggerWrap}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.15 }}
               className="grid grid-flow-col auto-cols-[92%] gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[72%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-4 md:overflow-visible md:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden"
             >
               {activeProducts.map((product, index) => (
-                <article
+                <motion.article
                   key={product.id}
+                  variants={cardReveal}
+                  transition={{ duration: 0.55, ease: "easeOut" }}
                   className="snap-start rounded-2xl border border-zinc-200 bg-white p-2.5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-3"
                 >
                   {product.slug === "ring-basket-fiba-portable" ||
@@ -365,15 +427,20 @@ export default function Home() {
                       </p>
                     </>
                   )}
-                </article>
+                </motion.article>
               ))}
-            </div>
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
 
-        <section
+        <motion.section
           id="project"
           className="mb-8 scroll-mt-24 rounded-2xl border border-zinc-200 bg-white p-6 sm:mb-9"
+          variants={revealRight}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
         >
           <div className="rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 via-amber-50 to-zinc-50 p-4 sm:p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-orange-700">
@@ -389,9 +456,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div
+          <motion.div
             data-auto-scroll="true"
             data-scroll-direction="right"
+            variants={staggerWrap}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.2 }}
             className="mt-4 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] md:flex-wrap md:overflow-visible [&::-webkit-scrollbar]:hidden"
           >
             {[
@@ -400,8 +471,10 @@ export default function Home() {
               { name: "AEON Bekasi", tag: "Komersial" },
               { name: "Bank BRI", tag: "Perbankan" },
             ].map((project) => (
-              <div
+              <motion.div
                 key={project.name}
+                variants={cardReveal}
+                transition={{ duration: 0.5, ease: "easeOut" }}
                 className="inline-flex shrink-0 items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-2 text-xs font-semibold text-zinc-800 shadow-sm"
               >
                 <span
@@ -416,14 +489,19 @@ export default function Home() {
                   {project.tag}
                 </span>
                 <span>{project.name}</span>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
-        <section
+        <motion.section
           id="tentang"
           className="mb-8 scroll-mt-24 rounded-2xl border border-zinc-200 bg-white p-6 sm:mb-9"
+          variants={revealLeft}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
         >
           <h2 className="text-2xl font-semibold tracking-tight">
             Tentang{" "}
@@ -488,9 +566,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div
+          <motion.div
             data-auto-scroll="true"
             data-scroll-direction="right"
+            variants={staggerWrap}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.2 }}
             className="mt-4 grid grid-flow-col auto-cols-[78%] gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[46%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-3 md:overflow-visible lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
           >
             {[
@@ -499,19 +581,26 @@ export default function Home() {
               "Harga bersaing karena dikelola langsung",
               "Kualitas premium dengan material terpilih",
             ].map((point) => (
-              <div
+              <motion.div
                 key={point}
+                variants={cardReveal}
+                transition={{ duration: 0.5, ease: "easeOut" }}
                 className="snap-start rounded-xl border border-orange-200 bg-orange-50 px-3 py-2 text-sm font-semibold text-zinc-800"
               >
                 {point}
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
-        <section
+        <motion.section
           id="kontak"
           className="scroll-mt-24 rounded-2xl border border-orange-200 bg-orange-50 p-6"
+          variants={revealUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
         >
           <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">
             Kontak & Penawaran
@@ -556,7 +645,7 @@ export default function Home() {
           <p className="mt-3 text-sm text-zinc-700">
             ProFabric Steel siap melayani custom sesuai kebutuhan Anda.
           </p>
-        </section>
+        </motion.section>
       </main>
 
       {lightboxImage ? (
