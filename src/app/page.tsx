@@ -288,24 +288,22 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-4 grid grid-flow-col auto-cols-[82%] gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[48%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:overflow-visible lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
+          <div className="mt-4 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] md:flex-wrap md:overflow-visible [&::-webkit-scrollbar]:hidden">
             {[
               { name: "SDN Cilincing", tag: "Pendidikan" },
               { name: "SMA Wardaya", tag: "Pendidikan" },
               { name: "AEON Bekasi", tag: "Komersial" },
               { name: "Bank BRI", tag: "Perbankan" },
             ].map((project) => (
-              <article
+              <div
                 key={project.name}
-                className="snap-start rounded-xl border border-zinc-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-2 text-xs font-semibold text-zinc-800 shadow-sm"
               >
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">
+                <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-zinc-600">
                   {project.tag}
-                </p>
-                <h3 className="mt-2 text-lg font-bold tracking-tight text-zinc-900">
-                  {project.name}
-                </h3>
-              </article>
+                </span>
+                <span>{project.name}</span>
+              </div>
             ))}
           </div>
         </section>
