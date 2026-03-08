@@ -647,6 +647,48 @@ export default function Home() {
           </p>
         </motion.section>
       </main>
+      <footer className="border-t border-zinc-200 bg-white/90">
+        <div className="mx-auto grid w-full max-w-6xl gap-6 px-6 py-8 md:grid-cols-3">
+          <div>
+            <h3 className="text-base font-bold text-zinc-900">ProFabric Steel</h3>
+            <p className="mt-2 text-justify text-sm leading-relaxed text-zinc-600">
+              Spesialis fabrikasi besi, pengadaan alat olahraga, serta solusi
+              kebutuhan rumah seperti tralis, railing, grill, dan jasa
+              perbaikan.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-700">
+              Ringkasan Layanan
+            </h3>
+            <ul className="mt-2 space-y-1 text-justify text-sm leading-relaxed text-zinc-600">
+              <li>Penyediaan dan pengerjaan kebutuhan berbahan besi</li>
+              <li>Solusi custom untuk rumah, komersial, dan institusi</li>
+              <li>Layanan profesional dengan fokus kualitas dan ketepatan</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-700">
+              Kontak Cepat
+            </h3>
+            <p className="mt-2 text-sm text-zinc-600">
+              WhatsApp: 0896-7340-4972
+            </p>
+            <a
+              href="https://wa.me/6289673404972"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex rounded-full bg-orange-500 px-4 py-2 text-xs font-semibold text-white transition hover:bg-orange-600"
+            >
+              Chat Admin PFS
+            </a>
+          </div>
+        </div>
+        <div className="border-t border-zinc-200 px-6 py-3 text-center text-xs leading-relaxed text-zinc-500">
+          Copyright © {new Date().getFullYear()} ProFabric Steel. Solusi besi
+          kuat, presisi, dan rapi.
+        </div>
+      </footer>
 
       {lightboxImage ? (
         <div
