@@ -22,6 +22,14 @@ export type Product = {
     thumb: string;
     gallery: string[];
   };
+  description?: ProductDescription;
+};
+
+export type ProductDescription = {
+  intro: string;
+  details: string[];
+  notes: string[];
+  closing: string;
 };
 
 export const products: Product[] = [
@@ -45,6 +53,23 @@ export const products: Product[] = [
         "/images/products/basketball/ring-basket-fiba/portable/06.jpg",
       ],
     },
+    description: {
+      intro:
+        "Ring Basket Portable ini cocok untuk kebutuhan SD, SMP, hingga SMK. Desainnya kokoh, aman, dan tetap fleksibel untuk dipindahkan sesuai kebutuhan.",
+      details: [
+        "Papan pantul akrilik bening 8mm",
+        "Tinggi ring bisa diatur 260 - 290 cm",
+        "Ukuran papan 80 x 120 cm",
+        "Jarak dari tiang utama 120 cm",
+        "4 roda (2 mati, 2 hidup) + kunci/rem pengaman",
+      ],
+      notes: [
+        "Rangka menggunakan besi hollow 40x60, 25x50, dan 20x40 cm.",
+        "Bagian bawah dilapisi multiplek + busa tebal 3 cm agar lebih aman dan tahan lama.",
+        "Kotak pemberat 20x30x40 cm (2 pcs per tiang) dengan total beban 120 kg.",
+      ],
+      closing: "Warna dan ukuran bisa request. Bisa survey lokasi juga.",
+    },
   },
   {
     id: "prod-basketball-ring-fiba-tanam-dinding",
@@ -64,6 +89,22 @@ export const products: Product[] = [
         "/images/products/basketball/ring-basket-fiba/tanam-dinding/04.jpg",
       ],
     },
+    description: {
+      intro:
+        "Ring Basket Tanam Dinding cocok untuk area dengan ruang terbatas dan kebutuhan lapangan permanen yang rapi.",
+      details: [
+        "Sistem pemasangan tanam dinding yang kuat dan stabil",
+        "Papan pantul akrilik bening tebal",
+        "Posisi ring presisi untuk latihan dan pertandingan",
+        "Hemat ruang karena tanpa basis roda",
+      ],
+      notes: [
+        "Rangka utama menggunakan material besi tebal dengan finishing tahan cuaca.",
+        "Proses pemasangan menyesuaikan struktur dinding di lokasi.",
+      ],
+      closing:
+        "Warna, ukuran, dan titik pemasangan bisa disesuaikan kebutuhan proyek.",
+    },
   },
   {
     id: "prod-basketball-ring-fiba-tanam-tanah",
@@ -80,6 +121,22 @@ export const products: Product[] = [
         "/images/products/basketball/ring-basket-fiba/tanam-tanah/01.jpg",
         "/images/products/basketball/ring-basket-fiba/tanam-tanah/02.jpg",
       ],
+    },
+    description: {
+      intro:
+        "Ring Basket Tanam Tanah cocok untuk lapangan outdoor yang membutuhkan sistem permanen, kokoh, dan tahan lama.",
+      details: [
+        "Tiang utama ditanam ke pondasi tanah untuk kestabilan maksimal",
+        "Konstruksi kuat untuk pemakaian intensif",
+        "Ukuran dan tinggi ring bisa disesuaikan kebutuhan lapangan",
+        "Cocok untuk sekolah, lapangan umum, dan area komunitas",
+      ],
+      notes: [
+        "Material besi dipilih untuk ketahanan jangka panjang.",
+        "Pekerjaan pondasi mengikuti kondisi tanah dan layout lapangan.",
+      ],
+      closing:
+        "Menerima custom warna, spesifikasi, dan survey lokasi sebelum instalasi.",
     },
   },
   {

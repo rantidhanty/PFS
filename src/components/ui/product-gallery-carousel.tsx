@@ -9,6 +9,7 @@ type ProductGalleryCarouselProps = {
   className?: string;
   intervalMs?: number;
   priority?: boolean;
+  onImageClick?: (src: string, alt: string) => void;
 };
 
 export function ProductGalleryCarousel({
@@ -17,6 +18,7 @@ export function ProductGalleryCarousel({
   className = "",
   intervalMs = 6000,
   priority = false,
+  onImageClick,
 }: ProductGalleryCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState(0);
@@ -108,7 +110,8 @@ export function ProductGalleryCarousel({
             priority={priority && index === 0}
             loading="eager"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-            className={`object-cover transform-gpu transition-opacity duration-500 ease-in-out will-change-[opacity] ${stateClass}`}
+            onClick={() => onImageClick?.(src, `${alt} - ${index + 1}`)}
+            className={`object-cover transform-gpu transition-opacity duration-500 ease-in-out will-change-[opacity] ${stateClass} ${onImageClick ? "cursor-zoom-in" : ""}`}
             style={{ backfaceVisibility: "hidden", transform: "translateZ(0)" }}
           />
         );
@@ -132,7 +135,7 @@ export function ProductGalleryCarousel({
           >
             {">"}
           </button>
-          <div className="absolute bottom-3 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2 rounded-full bg-black/45 px-3 py-1.5 backdrop-blur-sm">
+          <div className="absolute bottom-2 left-1/2 z-30 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-black/40 px-2 py-1 backdrop-blur-sm">
             {images.map((_, index) => (
               <button
                 key={`dot-${index}`}
@@ -140,15 +143,15 @@ export function ProductGalleryCarousel({
                 onClick={() => goTo(index)}
                 aria-label={`Go to image ${index + 1}`}
                 aria-current={index === activeIndex}
-                className={`h-2.5 rounded-full border border-white/70 transition-all duration-300 ease-out ${
+                className={`h-2 rounded-full border border-white/70 transition-all duration-300 ease-out ${
                   index === activeIndex
-                    ? "w-6 bg-white"
-                    : "w-2.5 bg-white/35 hover:bg-white/60"
+                    ? "w-4 bg-white"
+                    : "w-2 bg-white/35 hover:bg-white/60"
                 }`}
               />
             ))}
-            <span className="ml-1 text-[10px] font-medium uppercase tracking-wide text-white/90">
-              {activeIndex + 1}/{images.length} - swipe
+            <span className="ml-1 text-[9px] font-medium uppercase tracking-wide text-white/85">
+              {activeIndex + 1}/{images.length}
             </span>
           </div>
         </>

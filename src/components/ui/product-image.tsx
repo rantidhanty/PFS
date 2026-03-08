@@ -5,6 +5,7 @@ type ProductImageProps = {
   alt: string;
   priority?: boolean;
   className?: string;
+  onImageClick?: (src: string, alt: string) => void;
 };
 
 export function ProductImage({
@@ -12,9 +13,10 @@ export function ProductImage({
   alt,
   priority = false,
   className = "",
+  onImageClick,
 }: ProductImageProps) {
   return (
-    <div className={`relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-zinc-100 ${className}`.trim()}>
+    <div className={`relative aspect-[4/4.4] w-full overflow-hidden rounded-xl bg-zinc-100 md:aspect-[4/5] ${className}`.trim()}>
       <Image
         src={src}
         alt={alt}
@@ -22,7 +24,8 @@ export function ProductImage({
         priority={priority}
         loading={priority ? "eager" : "lazy"}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-        className="object-cover"
+        onClick={() => onImageClick?.(src, alt)}
+        className={`object-cover ${onImageClick ? "cursor-zoom-in" : ""}`.trim()}
       />
     </div>
   );
