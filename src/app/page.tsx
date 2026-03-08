@@ -295,13 +295,53 @@ export default function Home() {
           id="tentang"
           className="mb-8 scroll-mt-24 rounded-2xl border border-zinc-200 bg-white p-6 sm:mb-9"
         >
-          <h2 className="text-2xl font-semibold tracking-tight">
-            Tentang Kami
-          </h2>
-          <p className="mt-2 max-w-3xl text-zinc-600">
-            Kami fokus pada pengadaan alat olahraga kompetisi dengan opsi custom
-            kebutuhan sekolah, klub, venue, dan proyek pemerintah.
+          <h2 className="text-2xl font-semibold tracking-tight">Tentang Kami</h2>
+          <p className="mt-2 text-justify text-zinc-700">
+            ProFabric Steel adalah spesialis fabrikasi besi profesional dan
+            penjualan alat-alat olahraga yang dipercaya berbagai instansi.
+            Kami menghadirkan solusi lengkap untuk kebutuhan rumah berbahan
+            besi seperti tralis, railing, grill, serta jasa perbaikan dengan
+            standar pengerjaan rapi, kuat, dan presisi.
           </p>
+
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
+            <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-700">
+                Sejarah Singkat
+              </h3>
+              <p className="mt-2 text-justify text-sm leading-relaxed text-zinc-600">
+                Berawal dari workshop lokal, ProFabric Steel tumbuh menjadi
+                mitra andalan berbagai proyek karena konsisten menjaga kualitas
+                hasil dan ketepatan pengerjaan.
+              </p>
+            </div>
+            <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4">
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-700">
+                Tim Profesional
+              </h3>
+              <p className="mt-2 text-justify text-sm leading-relaxed text-zinc-600">
+                Seluruh pekerjaan ditangani tenaga ahli profesional dengan
+                pengalaman lebih dari 15 tahun di bidang besi dan konstruksi
+                fabrikasi.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              "Spesialis besi & fabrikasi profesional",
+              "Penjualan alat olahraga unggulan",
+              "Harga bersaing karena dikelola langsung",
+              "Kualitas premium dengan material terpilih",
+            ].map((point) => (
+              <div
+                key={point}
+                className="rounded-xl border border-orange-200 bg-orange-50 px-3 py-2 text-sm font-semibold text-zinc-800"
+              >
+                {point}
+              </div>
+            ))}
+          </div>
         </section>
 
         <section
@@ -314,13 +354,39 @@ export default function Home() {
           <p className="mt-2 text-zinc-700">
             Konsultasi spesifikasi dan penawaran harga tersedia via WhatsApp.
           </p>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <div className="overflow-hidden rounded-xl border border-zinc-200 bg-white">
+              <div className="border-b border-zinc-200 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-zinc-600">
+                Maps Kantor
+              </div>
+              <iframe
+                title="Google Maps Kantor ProFabric Steel"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.25086886259!2d107.1709019592964!3d-6.19733893595498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698698688ca731%3A0x270147ffbc5c8b6c!2sJl.%20Mawar%20Raya%20No.1%2C%20Sukamanah%2C%20Kec.%20Sukatani%2C%20Kabupaten%20Bekasi%2C%20Jawa%20Barat%2017630!5e0!3m2!1sid!2sid!4v1772932288139!5m2!1sid!2sid"
+                className="h-56 w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <div className="overflow-hidden rounded-xl border border-zinc-200 bg-white">
+              <div className="border-b border-zinc-200 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-zinc-600">
+                Maps Workshop
+              </div>
+              <iframe
+                title="Google Maps Workshop ProFabric Steel"
+                src="https://www.google.com/maps/embed?pb=!4v1772932616945!6m8!1m7!1spIRVJXCEQ_AOmkNqCDVzqw!2m2!1d-6.205555313060802!2d107.1370350406779!3f45.777108114716874!4f-25.843992639573017!5f0.7820865974627469"
+                className="h-56 w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
           <a
             href="https://wa.me/6289673404972"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-600"
           >
-            Hubungi WhatsApp 0896-7340-4972
+            Admin PFS
           </a>
           <p className="mt-3 text-sm text-zinc-700">
             ProFabric Steel siap melayani custom sesuai kebutuhan Anda.
