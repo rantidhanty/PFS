@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ProductGalleryCarousel } from "@/components/ui/product-gallery-carousel";
 import { ProductImage } from "@/components/ui/product-image";
@@ -45,6 +45,101 @@ export default function Home() {
   } | null>(null);
   const [openSport, setOpenSport] = useState<SportCategory>("basketball");
   const activeProducts = groupedProducts[openSport] ?? [];
+
+  useEffect(() => {
+    const scrollers = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-auto-scroll="true"]'),
+    );
+
+    const pause = (event: Event) => {
+      const target = event.currentTarget as HTMLElement;
+      target.dataset.paused = "true";
+    };
+
+    const resume = (event: Event) => {
+      const target = event.currentTarget as HTMLElement;
+      target.dataset.paused = "false";
+    };
+
+    scrollers.forEach((scroller) => {
+      scroller.dataset.paused = "false";
+      scroller.addEventListener("mouseenter", pause);
+      scroller.addEventListener("mouseleave", resume);
+      scroller.addEventListener("touchstart", pause, { passive: true });
+      scroller.addEventListener("touchend", resume);
+      scroller.addEventListener("pointerdown", pause);
+      scroller.addEventListener("pointerup", resume);
+      scroller.addEventListener("focusin", pause);
+      scroller.addEventListener("focusout", resume);
+    });
+
+    let rafId = 0;
+    let lastTs = 0;
+    const speedPxPerSecond = 24;
+    const carryMap = new WeakMap<HTMLElement, number>();
+
+    const tick = (ts: number) => {
+      if (!lastTs) {
+        lastTs = ts;
+      }
+      const delta = ts - lastTs;
+      lastTs = ts;
+
+      scrollers.forEach((scroller) => {
+        if (scroller.dataset.paused === "true") {
+          return;
+        }
+        if (scroller.scrollWidth <= scroller.clientWidth + 8) {
+          return;
+        }
+
+        const direction = scroller.dataset.scrollDirection === "left" ? -1 : 1;
+        const maxLeft = scroller.scrollWidth - scroller.clientWidth;
+        const previousCarry = carryMap.get(scroller) ?? 0;
+        const rawMove = (speedPxPerSecond * delta) / 1000 + previousCarry;
+        const move = Math.floor(rawMove);
+        carryMap.set(scroller, rawMove - move);
+
+        if (move <= 0) {
+          return;
+        }
+
+        const nextLeft = scroller.scrollLeft + move * direction;
+
+        if (direction > 0) {
+          if (nextLeft >= maxLeft - 1) {
+            scroller.scrollLeft = 0;
+          } else {
+            scroller.scrollLeft = nextLeft;
+          }
+        } else {
+          if (nextLeft <= 1) {
+            scroller.scrollLeft = maxLeft;
+          } else {
+            scroller.scrollLeft = nextLeft;
+          }
+        }
+      });
+
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      scrollers.forEach((scroller) => {
+        scroller.removeEventListener("mouseenter", pause);
+        scroller.removeEventListener("mouseleave", resume);
+        scroller.removeEventListener("touchstart", pause);
+        scroller.removeEventListener("touchend", resume);
+        scroller.removeEventListener("pointerdown", pause);
+        scroller.removeEventListener("pointerup", resume);
+        scroller.removeEventListener("focusin", pause);
+        scroller.removeEventListener("focusout", resume);
+      });
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-zinc-50 font-sans text-zinc-900">
@@ -116,22 +211,25 @@ export default function Home() {
         </section>
 
         <section className="mb-8 sm:mb-9 md:mb-10">
-          <div className="grid grid-flow-col auto-cols-[78%] gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[48%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:overflow-visible lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
+          <div
+            data-auto-scroll="true"
+            className="grid grid-flow-col auto-cols-[64%] gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[42%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-3 md:overflow-visible lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
+          >
             {Object.entries(groupedProducts).map(([sport, sportProducts]) => (
               <button
                 key={sport}
                 type="button"
                 onClick={() => setOpenSport(sport as SportCategory)}
-                className={`rounded-2xl border p-4 text-left transition ${
+                className={`rounded-2xl border p-3 text-left transition ${
                   openSport === (sport as SportCategory)
                     ? "border-orange-300 bg-orange-50 shadow-sm"
                     : "border-zinc-200 bg-white hover:border-zinc-300"
                 }`}
               >
-                <h2 className="text-lg font-semibold tracking-tight sm:text-xl">
+                <h2 className="text-base font-semibold tracking-tight sm:text-lg">
                   {sportLabels[sport as SportCategory]}
                 </h2>
-                <p className="mt-1 text-sm text-zinc-600">
+                <p className="mt-1 text-justify text-xs leading-snug text-zinc-600 sm:text-sm">
                   {sportSummaries[sport as SportCategory]}
                 </p>
                 <p className="mt-2 text-xs font-medium uppercase tracking-wide text-zinc-500">
@@ -170,11 +268,14 @@ export default function Home() {
               ) : null}
             </div>
 
-            <div className="grid grid-flow-col auto-cols-[84%] gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[62%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-5 md:overflow-visible md:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden">
+            <div
+              data-auto-scroll="true"
+              className="grid grid-flow-col auto-cols-[92%] gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[72%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-4 md:overflow-visible md:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden"
+            >
               {activeProducts.map((product, index) => (
                 <article
                   key={product.id}
-                  className="snap-start rounded-2xl border border-zinc-200 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-4"
+                  className="snap-start rounded-2xl border border-zinc-200 bg-white p-2.5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-3"
                 >
                   {product.slug === "ring-basket-fiba-portable" ||
                   product.slug === "ring-basket-fiba-tanam-dinding" ||
@@ -251,15 +352,15 @@ export default function Home() {
                     </div>
                   ) : (
                     <>
-                      <div className="mt-4 flex flex-wrap items-center gap-2">
-                        <h3 className="text-lg font-semibold">{product.name}</h3>
+                      <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                        <h3 className="text-base font-semibold">{product.name}</h3>
                         {product.variant ? (
                           <span className="rounded-full bg-zinc-900 px-2.5 py-1 text-xs font-medium text-white">
                             {product.variant}
                           </span>
                         ) : null}
                       </div>
-                      <p className="mt-1 text-sm text-zinc-500">
+                      <p className="mt-0.5 text-xs text-zinc-500 sm:text-sm">
                         {product.standards.join(", ")} - {product.type}
                       </p>
                     </>
@@ -288,7 +389,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-4 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] md:flex-wrap md:overflow-visible [&::-webkit-scrollbar]:hidden">
+          <div
+            data-auto-scroll="true"
+            data-scroll-direction="right"
+            className="mt-4 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] md:flex-wrap md:overflow-visible [&::-webkit-scrollbar]:hidden"
+          >
             {[
               { name: "SDN Cilincing", tag: "Pendidikan" },
               { name: "SMA Wardaya", tag: "Pendidikan" },
@@ -344,7 +449,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div
+            data-auto-scroll="true"
+            data-scroll-direction="right"
+            className="mt-4 grid grid-flow-col auto-cols-[78%] gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[46%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-3 md:overflow-visible lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
+          >
             {[
               "Spesialis besi & fabrikasi profesional",
               "Penjualan alat olahraga unggulan",
@@ -353,7 +462,7 @@ export default function Home() {
             ].map((point) => (
               <div
                 key={point}
-                className="rounded-xl border border-orange-200 bg-orange-50 px-3 py-2 text-sm font-semibold text-zinc-800"
+                className="snap-start rounded-xl border border-orange-200 bg-orange-50 px-3 py-2 text-sm font-semibold text-zinc-800"
               >
                 {point}
               </div>
