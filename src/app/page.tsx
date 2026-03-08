@@ -23,6 +23,16 @@ const groupedProducts = products.reduce(
   {} as Record<SportCategory, (typeof products)[number][]>,
 );
 
+const sportSummaries: Record<SportCategory, string> = {
+  basketball: "Ring basket kompetisi, portable dan tanam.",
+  volleyball: "Tiang dan sistem net voli siap pakai.",
+  football: "Gawang sepak bola untuk lapangan sekolah dan venue.",
+  badminton: "Tiang badminton untuk latihan dan pertandingan.",
+  padel: "Tiang padel custom sesuai kebutuhan lapangan.",
+  tennis: "Tiang tenis kuat, rapi, dan presisi pemasangan.",
+  "official-equipment": "Kursi wasit dan perlengkapan resmi pertandingan.",
+};
+
 export default function Home() {
   const [lightboxImage, setLightboxImage] = useState<{
     images: string[];
@@ -33,6 +43,8 @@ export default function Home() {
     title: string;
     content: ProductDescription;
   } | null>(null);
+  const [openSport, setOpenSport] = useState<SportCategory>("basketball");
+  const activeProducts = groupedProducts[openSport] ?? [];
 
   return (
     <div className="min-h-screen bg-zinc-50 font-sans text-zinc-900">
@@ -103,20 +115,63 @@ export default function Home() {
           </div>
         </section>
 
-        {Object.entries(groupedProducts).map(([sport, sportProducts]) => (
-          <section key={sport} className="mb-8 sm:mb-9 md:mb-10">
-            <div className="mb-4 flex items-center justify-between gap-3 sm:gap-4">
-              <h2 className="text-2xl font-semibold tracking-tight">
-                {sportLabels[sport as SportCategory]}
-              </h2>
-              {sport === "basketball" ? (
+        <section className="mb-8 sm:mb-9 md:mb-10">
+          <div className="grid grid-flow-col auto-cols-[78%] gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[48%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:overflow-visible lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
+            {Object.entries(groupedProducts).map(([sport, sportProducts]) => (
+              <button
+                key={sport}
+                type="button"
+                onClick={() => setOpenSport(sport as SportCategory)}
+                className={`rounded-2xl border p-4 text-left transition ${
+                  openSport === (sport as SportCategory)
+                    ? "border-orange-300 bg-orange-50 shadow-sm"
+                    : "border-zinc-200 bg-white hover:border-zinc-300"
+                }`}
+              >
+                <h2 className="text-lg font-semibold tracking-tight sm:text-xl">
+                  {sportLabels[sport as SportCategory]}
+                </h2>
+                <p className="mt-1 text-sm text-zinc-600">
+                  {sportSummaries[sport as SportCategory]}
+                </p>
+                <p className="mt-2 text-xs font-medium uppercase tracking-wide text-zinc-500">
+                  {sportProducts.length} produk
+                </p>
+              </button>
+            ))}
+          </div>
+          <div className="mt-2 flex items-center justify-between md:hidden">
+            <p className="text-[11px] font-medium uppercase tracking-wide text-zinc-500">
+              Geser kategori
+            </p>
+            <div className="flex items-center gap-1.5">
+              {Object.keys(groupedProducts).map((sport) => (
+                <span
+                  key={`dot-${sport}`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    openSport === (sport as SportCategory)
+                      ? "w-4 bg-orange-500"
+                      : "w-1.5 bg-zinc-300"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 sm:p-5">
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
+                {sportLabels[openSport]}
+              </h3>
+              {openSport === "basketball" ? (
                 <div className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-700">
                   3 Tipe Ring Basket
                 </div>
               ) : null}
             </div>
+
             <div className="grid grid-flow-col auto-cols-[84%] gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[62%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-5 md:overflow-visible md:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden">
-              {sportProducts.map((product, index) => (
+              {activeProducts.map((product, index) => (
                 <article
                   key={product.id}
                   className="snap-start rounded-2xl border border-zinc-200 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-4"
@@ -155,7 +210,8 @@ export default function Home() {
                       }
                     />
                   )}
-                  {sport === "basketball" ? (
+
+                  {openSport === "basketball" ? (
                     <div className="mt-3">
                       <div className="flex items-center justify-between gap-2">
                         <h3 className="line-clamp-1 text-base font-semibold">
@@ -211,8 +267,8 @@ export default function Home() {
                 </article>
               ))}
             </div>
-          </section>
-        ))}
+          </div>
+        </section>
 
         <section
           id="standar"
