@@ -47,6 +47,10 @@ export default function Home() {
   } | null>(null);
   const [openSport, setOpenSport] = useState<SportCategory>("basketball");
   const activeProducts = groupedProducts[openSport] ?? [];
+  const isDetailedSport =
+    openSport === "basketball" ||
+    openSport === "volleyball" ||
+    openSport === "football";
   const revealUp = {
     hidden: prefersReducedMotion
       ? { opacity: 1, y: 0, scale: 1 }
@@ -317,14 +321,15 @@ export default function Home() {
               <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
                 {sportLabels[openSport]}
               </h3>
-              {openSport === "basketball" ? (
+              {isDetailedSport ? (
                 <div className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-700">
-                  3 Tipe Ring Basket
+                  {activeProducts.length} Produk {sportLabels[openSport]}
                 </div>
               ) : null}
             </div>
 
             <motion.div
+              key={`products-${openSport}`}
               data-auto-scroll="true"
               variants={staggerWrap}
               initial="hidden"
@@ -334,20 +339,21 @@ export default function Home() {
             >
               {activeProducts.map((product, index) => (
                 <motion.article
-                  key={product.id}
+                  key={`${openSport}-${product.id}`}
                   variants={cardReveal}
                   transition={{ duration: 0.55, ease: "easeOut" }}
                   className="snap-start rounded-2xl border border-zinc-200 bg-white p-2.5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-3"
                 >
-                  {product.slug === "ring-basket-fiba-portable" ||
-                  product.slug === "ring-basket-fiba-tanam-dinding" ||
-                  product.slug === "ring-basket-fiba-tanam-tanah" ? (
+                  {((product.sport === "basketball" ||
+                    product.sport === "volleyball" ||
+                    product.sport === "football") &&
+                    product.images.gallery.length > 1) ? (
                     <ProductGalleryCarousel
                       images={product.images.gallery}
                       alt={product.name}
                       className="!aspect-[4/4.1] md:!aspect-[4/4.6]"
                       priority={index === 0}
-                      intervalMs={5000}
+                      intervalMs={4000}
                       onImageClick={(src, alt) =>
                         setLightboxImage({
                           images: product.images.gallery,
@@ -374,11 +380,13 @@ export default function Home() {
                     />
                   )}
 
-                  {openSport === "basketball" ? (
+                  {isDetailedSport ? (
                     <div className="mt-3">
                       <div className="flex items-center justify-between gap-2">
                         <h3 className="line-clamp-1 text-base font-semibold">
-                          {product.name.replace("Ring Basket FIBA ", "Ring Basket ")}
+                          {openSport === "basketball"
+                            ? product.name.replace("Ring Basket FIBA ", "Ring Basket ")
+                            : product.name}
                         </h3>
                         {product.variant ? (
                           <span className="whitespace-nowrap rounded-full bg-zinc-900 px-2.5 py-1 text-[11px] font-semibold text-white">
@@ -387,21 +395,23 @@ export default function Home() {
                         ) : null}
                       </div>
                       <div className="mt-3 flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            if (!product.description) {
-                              return;
-                            }
-                            setSelectedDescription({
-                              title: product.name.replace("FIBA ", ""),
-                              content: product.description,
-                            });
-                          }}
-                          className="inline-flex rounded-full border border-zinc-300 px-3 py-1.5 text-xs font-semibold text-zinc-700 transition hover:bg-zinc-100"
-                        >
-                          Deskripsi Produk
-                        </button>
+                        {product.description ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setSelectedDescription({
+                                title:
+                                  product.slug === "ring-basket-fiba-tanam-dinding"
+                                    ? "Ring Basket Dinding standar FIBA"
+                                    : product.name.replace("FIBA ", ""),
+                                content: product.description,
+                              });
+                            }}
+                            className="inline-flex rounded-full bg-sky-600 px-3 py-1.5 text-xs font-extrabold tracking-wide text-white shadow-sm transition hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                          >
+                            Lihat Deskripsi Produk
+                          </button>
+                        ) : null}
                         <a
                           href="https://wa.me/6289673404972"
                           target="_blank"
@@ -829,14 +839,32 @@ export default function Home() {
                   <li key={detail}>{detail}</li>
                 ))}
               </ul>
-              {selectedDescription.content.notes.map((note) => (
-                <p
-                  key={note}
-                  className="mt-2 text-sm leading-relaxed text-zinc-700 sm:text-base"
-                >
-                  {note}
-                </p>
-              ))}
+              <p className="mt-4 text-sm font-semibold text-zinc-800 sm:text-base">
+                Material
+              </p>
+              <ul className="mt-2 space-y-2 text-sm leading-relaxed text-zinc-700 sm:text-base">
+                {selectedDescription.content.notes.map((note) => (
+                  <li key={note} className="flex items-start gap-2">
+                    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                      <svg
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        aria-hidden="true"
+                        className="h-3.5 w-3.5"
+                      >
+                        <path
+                          d="M5 10.5L8.2 13.5L15 6.5"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span>{note}</span>
+                  </li>
+                ))}
+              </ul>
               <p className="mt-3 text-sm font-medium leading-relaxed text-zinc-800 sm:text-base">
                 {selectedDescription.content.closing}
               </p>

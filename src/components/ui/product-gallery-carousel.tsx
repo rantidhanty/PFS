@@ -1,6 +1,4 @@
 "use client";
-
-import Image from "next/image";
 import { useEffect, useRef, useState, type TouchEvent } from "react";
 
 type ProductGalleryCarouselProps = {
@@ -102,16 +100,13 @@ export function ProductGalleryCarousel({
         }
 
         return (
-          <Image
+          <img
             key={src}
             src={src}
             alt={`${alt} - ${index + 1}`}
-            fill
-            priority={priority && index === 0}
-            loading="eager"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            loading={priority && index === 0 ? "eager" : "lazy"}
             onClick={() => onImageClick?.(src, `${alt} - ${index + 1}`)}
-            className={`object-cover transform-gpu transition-opacity duration-500 ease-in-out will-change-[opacity] ${stateClass} ${onImageClick ? "cursor-zoom-in" : ""}`}
+            className={`absolute inset-0 h-full w-full object-cover transform-gpu transition-opacity duration-500 ease-in-out will-change-[opacity] ${stateClass} ${onImageClick ? "cursor-zoom-in" : ""}`}
             style={{ backfaceVisibility: "hidden", transform: "translateZ(0)" }}
           />
         );
