@@ -270,11 +270,36 @@ export const products: Product[] = [
     standards: ["BWF"],
     sportTags: ["badminton"],
     images: {
-      thumb: "/images/placeholder-product.svg",
+      thumb: "/images/products/badminton/01.jpg",
       gallery: [
-        "/images/products/badminton/court-post-badminton/01.jpg",
-        "/images/products/badminton/court-post-badminton/02.jpg",
+        "/images/products/badminton/01.jpg",
+        "/images/products/badminton/02.jpg",
+        "/images/products/badminton/03.jpg",
+        "/images/products/badminton/04.jpg",
+        "/images/products/badminton/05.jpg",
+        "/images/products/badminton/06.jpg",
+        "/images/products/badminton/07.jpg",
       ],
+    },
+    description: {
+      intro:
+        "Tiang badminton ini dirancang untuk kebutuhan latihan hingga pertandingan dengan konstruksi kuat, stabil, dan rapi.",
+      details: [
+        "Mengacu pada standar ukuran lapangan badminton",
+        "Konstruksi material kokoh untuk pemakaian indoor maupun outdoor",
+        "Sistem pemasangan dan pelepasan net praktis untuk operasional harian",
+        "Finishing rapi dengan ketahanan yang baik untuk penggunaan intensif",
+      ],
+      notes: [
+        "Tiang badminton portable menggunakan material pipa besi 2 inci",
+        "Dilengkapi 1 kiatan untuk pengencang net, Terdapat 2 roda berukuran diameter 4 inci untuk memudahkan penggeseran tiang",
+        "Kotak berisi hollow dengan ukuran kotak panjang 50cm x Lebar 30cm x tinggi 20cm, berat kotak masing-masing per tiang 50kg",
+        "Tiang badminton portable dengan ketinggian tiang dari lantai ke net 155cm dilengkapi tiang utama dengan pelapis peding dengan berbahan kalap kulit yang kuat dan tahan lama",
+        "Dapat disesuaikan untuk kebutuhan proyek sekolah, klub, atau fasilitas olahraga.",
+        "Opsi warna dan spesifikasi material tersedia sesuai permintaan.",
+      ],
+      closing:
+        "Silakan konsultasikan kebutuhan spesifikasi agar tiang badminton sesuai kondisi lapangan Anda.",
     },
   },
   {

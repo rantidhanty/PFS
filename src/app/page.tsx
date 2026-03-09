@@ -50,7 +50,8 @@ export default function Home() {
   const isDetailedSport =
     openSport === "basketball" ||
     openSport === "volleyball" ||
-    openSport === "football";
+    openSport === "football" ||
+    openSport === "badminton";
   const revealUp = {
     hidden: prefersReducedMotion
       ? { opacity: 1, y: 0, scale: 1 }
