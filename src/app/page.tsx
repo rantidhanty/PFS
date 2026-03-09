@@ -399,12 +399,15 @@ export default function Home() {
                           <button
                             type="button"
                             onClick={() => {
+                              const description = product.description;
+                              if (!description) return;
+
                               setSelectedDescription({
                                 title:
                                   product.slug === "ring-basket-fiba-tanam-dinding"
                                     ? "Ring Basket Dinding standar FIBA"
                                     : product.name.replace("FIBA ", ""),
-                                content: product.description,
+                                content: description,
                               });
                             }}
                             className="inline-flex rounded-full bg-sky-600 px-3 py-1.5 text-xs font-extrabold tracking-wide text-white shadow-sm transition hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
