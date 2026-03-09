@@ -232,6 +232,12 @@ export const products: Product[] = [
         "/images/products/football/goal-post-11v11/gawang/01.jpg",
         "/images/products/football/goal-post-11v11/gawang/02.jpg",
         "/images/products/football/goal-post-11v11/gawang/03.jpg",
+        "/images/products/football/goal-post-11v11/gawang/04.jpg",
+        "/images/products/football/goal-post-11v11/gawang/05.jpg",
+        "/images/products/football/goal-post-11v11/gawang/06.jpg",
+        "/images/products/football/goal-post-11v11/gawang/07.jpg",
+        "/images/products/football/goal-post-11v11/gawang/08.jpg",
+        "/images/products/football/goal-post-11v11/gawang/09.jpg",
       ],
     },
     description: {
