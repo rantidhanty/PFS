@@ -54,15 +54,6 @@ export function SiteNavbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block md:pl-3 lg:pl-4">
-          <a
-            href="#kontak"
-            className="whitespace-nowrap rounded-full bg-orange-500 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-orange-600 lg:px-4 lg:py-2 lg:text-sm"
-          >
-            Minta Penawaran
-          </a>
-        </div>
-
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
@@ -92,13 +83,6 @@ export function SiteNavbar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#kontak"
-              onClick={() => setIsOpen(false)}
-              className="mt-1 inline-flex w-fit whitespace-nowrap rounded-full bg-orange-500 px-3 py-1.5 text-xs font-semibold text-white"
-            >
-              Minta Penawaran
-            </a>
           </nav>
         </div>
       ) : null}

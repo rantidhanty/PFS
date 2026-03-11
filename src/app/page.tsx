@@ -236,14 +236,43 @@ export default function Home() {
                   Dengan hasil kuat, presisi, dan rapi.
                 </p>
               </div>
-              <a
-                href="https://wa.me/6289673404972"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 text-sm font-bold tracking-wide text-white shadow-[0_8px_20px_rgba(234,88,12,0.35)] transition hover:from-orange-600 hover:to-orange-700"
-              >
-                Hubungi Kami
-              </a>
+              <div className="mt-4">
+                <p className="mb-2 text-sm font-bold uppercase tracking-[0.22em] text-orange-600 sm:text-base">
+                  Hubungi kami dan checkout
+                </p>
+                <div className="flex flex-wrap items-stretch gap-3">
+                  <a
+                    href="https://wa.me/6289673404972"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Hubungi kami via WhatsApp"
+                    className="inline-flex items-center justify-center transition hover:-translate-y-0.5"
+                  >
+                    <Image
+                      src="/images/logo/logo wa.png"
+                      alt="Logo WhatsApp"
+                      width={132}
+                      height={44}
+                      className="h-11 w-auto"
+                    />
+                  </a>
+                  <a
+                    href="https://tk.tokopedia.com/ZSuBFb7UA/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Kunjungi toko di Tokopedia TikTok Shop"
+                    className="inline-flex items-center justify-center transition hover:-translate-y-0.5"
+                  >
+                    <Image
+                      src="/images/logo/logo tiktokshop.png"
+                      alt="Logo Tokopedia TikTok Shop"
+                      width={132}
+                      height={44}
+                      className="h-11 w-auto"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </motion.section>
