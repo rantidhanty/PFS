@@ -663,7 +663,7 @@ export default function Home() {
 
         <motion.section
           id="kontak"
-          className="scroll-mt-24 rounded-2xl border border-orange-200 bg-orange-50 p-6"
+          className="scroll-mt-24 rounded-2xl border border-orange-200 bg-orange-50 p-4 sm:p-5"
           variants={revealUp}
           initial="hidden"
           whileInView="show"
@@ -676,19 +676,20 @@ export default function Home() {
           <p className="mt-2 text-zinc-700">
             Konsultasi spesifikasi dan penawaran harga tersedia via WhatsApp.
           </p>
-          <div className="mt-3 grid gap-3 sm:grid-cols-2">
-            <div className="overflow-hidden rounded-xl border border-zinc-200 bg-white">
+          <div className="mx-auto mt-3 w-full max-w-3xl">
+            <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
               <div className="border-b border-zinc-200 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-zinc-600">
                 Maps Kantor
               </div>
               <iframe
                 title="Google Maps Kantor ProFabric Steel"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.25086886259!2d107.1709019592964!3d-6.19733893595498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698698688ca731%3A0x270147ffbc5c8b6c!2sJl.%20Mawar%20Raya%20No.1%2C%20Sukamanah%2C%20Kec.%20Sukatani%2C%20Kabupaten%20Bekasi%2C%20Jawa%20Barat%2017630!5e0!3m2!1sid!2sid!4v1772932288139!5m2!1sid!2sid"
-                className="h-56 w-full"
+                className="h-[260px] w-full sm:h-[320px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
+            {/*
             <div className="overflow-hidden rounded-xl border border-zinc-200 bg-white">
               <div className="border-b border-zinc-200 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-zinc-600">
                 Maps Workshop
@@ -701,6 +702,7 @@ export default function Home() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
+            */}
           </div>
           <a
             href="https://wa.me/6289673404972"

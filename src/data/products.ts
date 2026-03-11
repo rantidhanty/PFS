@@ -89,12 +89,11 @@ export const products: Product[] = [
     sportTags: ["basketball"],
     images: {
       thumb:
-        "/images/products/basketball/ring-basket-fiba/tanam-dinding/01.jpg",
+        "/images/products/basketball/ring-basket-fiba/tanam-dinding/5.5.png",
       gallery: [
-        "/images/products/basketball/ring-basket-fiba/tanam-dinding/01.jpg",
-        "/images/products/basketball/ring-basket-fiba/tanam-dinding/02.jpg",
-        "/images/products/basketball/ring-basket-fiba/tanam-dinding/03.jpg",
-        "/images/products/basketball/ring-basket-fiba/tanam-dinding/04.jpg",
+        "/images/products/basketball/ring-basket-fiba/tanam-dinding/5.5.png",
+        "/images/products/basketball/ring-basket-fiba/tanam-dinding/6.6.png",
+        "/images/products/basketball/ring-basket-fiba/tanam-dinding/7.7.png",
       ],
     },
     description: {
