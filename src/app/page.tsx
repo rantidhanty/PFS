@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ProductGalleryCarousel } from "@/components/ui/product-gallery-carousel";
 import { ProductImage } from "@/components/ui/product-image";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { projectCards, supportingProjects } from "@/data/projects";
 import {
@@ -53,7 +54,10 @@ export default function Home() {
     openSport === "basketball" ||
     openSport === "volleyball" ||
     openSport === "football" ||
-    openSport === "badminton";
+    openSport === "badminton" ||
+    openSport === "padel" ||
+    openSport === "tennis" ||
+    openSport === "official-equipment";
   const revealUp = {
     hidden: prefersReducedMotion
       ? { opacity: 1, y: 0, scale: 1 }
@@ -248,30 +252,36 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Hubungi kami via WhatsApp"
-                    className="inline-flex items-center justify-center transition hover:-translate-y-0.5"
+                    className="group inline-flex flex-col items-center justify-center gap-1 transition hover:-translate-y-0.5"
                   >
                     <Image
                       src="/images/logo/logo wa.png"
                       alt="Logo WhatsApp"
-                      width={132}
-                      height={44}
-                      className="h-11 w-auto"
+                      width={150}
+                      height={50}
+                      className="h-12 w-auto"
                     />
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500 transition group-hover:text-emerald-700">
+                      Klik untuk chat WA
+                    </span>
                   </a>
                   <a
                     href="https://tk.tokopedia.com/ZSuBFb7UA/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Kunjungi toko di Tokopedia TikTok Shop"
-                    className="inline-flex items-center justify-center transition hover:-translate-y-0.5"
+                    className="group inline-flex flex-col items-center justify-center gap-1 transition hover:-translate-y-0.5"
                   >
                     <Image
                       src="/images/logo/logo tiktokshop.png"
                       alt="Logo Tokopedia TikTok Shop"
-                      width={132}
-                      height={44}
-                      className="h-11 w-auto"
+                      width={150}
+                      height={50}
+                      className="h-12 w-auto"
                     />
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500 transition group-hover:text-orange-700">
+                      Klik untuk checkout
+                    </span>
                   </a>
                 </div>
               </div>
@@ -381,7 +391,8 @@ export default function Home() {
                 >
                   {((product.sport === "basketball" ||
                     product.sport === "volleyball" ||
-                    product.sport === "football") &&
+                    product.sport === "football" ||
+                    product.sport === "padel") &&
                     product.images.gallery.length > 1) ? (
                     <ProductGalleryCarousel
                       images={product.images.gallery}
@@ -704,7 +715,7 @@ export default function Home() {
           </p>
         </motion.section>
       </main>
-      <footer className="border-t border-zinc-200 bg-white/90">
+      <footer className="hidden border-t border-zinc-200 bg-white/90">
         <div className="mx-auto grid w-full max-w-6xl gap-6 px-6 py-8 md:grid-cols-3">
           <div>
             <h3 className="text-base font-bold text-zinc-900">ProFabric Steel</h3>
@@ -746,6 +757,7 @@ export default function Home() {
           kuat, presisi, dan rapi.
         </div>
       </footer>
+      <SiteFooter />
 
       {lightboxImage ? (
         <div

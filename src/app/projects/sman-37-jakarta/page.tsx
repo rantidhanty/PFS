@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { ProjectMediaCarousel } from "@/components/ui/project-media-carousel";
 import { featuredProject, supportingProjects } from "@/data/projects";
@@ -145,6 +146,7 @@ export default function ProjectDetailPage() {
           </div>
         </section>
       </main>
+      <SiteFooter />
     </div>
   );
 }

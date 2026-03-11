@@ -311,11 +311,32 @@ export const products: Product[] = [
     standards: ["FIP"],
     sportTags: ["padel"],
     images: {
-      thumb: "/images/placeholder-product.svg",
+      thumb: "/images/products/padel/tiang-padel/01.jpeg",
       gallery: [
-        "/images/products/padel/tiang-padel/01.jpg",
-        "/images/products/padel/tiang-padel/02.jpg",
+        "/images/products/padel/tiang-padel/01.jpeg",
+        "/images/products/padel/tiang-padel/02.jpeg",
+        "/images/products/padel/tiang-padel/03.jpeg",
+        "/images/products/padel/tiang-padel/04.jpeg",
+        "/images/products/padel/tiang-padel/05.jpg",
+        "/images/products/padel/tiang-padel/06.jpg",
       ],
+    },
+    description: {
+      intro:
+        "Tiang padel ini dirancang untuk kebutuhan lapangan padel dengan konstruksi kokoh, presisi pemasangan, dan tampilan rapi untuk area permainan modern.",
+      details: [
+        "Tiat net padel ketinggian tiang dari lantai ke net 93cm",
+        "Keseluruhan tiang padel 96cm",
+        "Dibagian tengah terdapat 1 kaitan untuk pengencang net",
+        "Dibagian bawah tiang terdapat penopang",
+        "Di bagian net terdapat roda berukuran 6cm",
+      ],
+      notes: [
+        "Material menggunakan besi hollow berukuran 10cm x 10cm",
+        "Dilengkapi busa kalap sebagai pengaman body",
+      ],
+      closing:
+        "Silakan konsultasikan spesifikasi tiang padel agar sesuai dengan konsep lapangan Anda.",
     },
   },
   {
@@ -333,6 +354,25 @@ export const products: Product[] = [
         "/images/products/tennis/tiang-tennis/02.jpg",
       ],
     },
+    description: {
+      intro:
+        "Tiang tenis dirancang untuk kebutuhan lapangan tenis dengan konstruksi kokoh, tampilan rapi, dan kesiapan penggunaan untuk latihan maupun pertandingan.",
+      details: [
+        "Tiang tenis tersedia dalam pilihan portable dan tanam",
+        "Tinggi tiang dari lantai ke net 107 cm",
+        "Dilengkapi 1 kait untuk pengencang net",
+        "Bagian samping penopang tiang menggunakan besi hollow berukuran 10 cm x 10 cm",
+        "Dimensi pemberat 25 cm x 50 cm x 60 cm",
+        "Berat 1 tiang 120 kg",
+        "Dilengkapi 2 buah roda berukuran 6 inci",
+      ],
+      notes: [
+        "Material utama menggunakan besi pipa 3 inci",
+        "Tiang penopang/tiang penyangga menggunakan material pipa 1,5 inci",
+      ],
+      closing:
+        "Silakan konsultasikan kebutuhan tiang tenis agar sesuai dengan konsep lapangan Anda.",
+    },
   },
   {
     id: "prod-chair-volleyball",
@@ -349,6 +389,28 @@ export const products: Product[] = [
         "/images/products/official-equipment/kursi-volley-wasit/02.jpg",
       ],
     },
+    description: {
+      intro:
+        "Kursi wasit voli dirancang untuk mendukung pertandingan dan latihan dengan posisi pengawasan yang nyaman, aman, dan kokoh.",
+      details: [
+        "Tersedia kursi wasit voli portable",
+        "Ukuran rangka kursi 95 cm x 115 cm",
+        "Tinggi kursi 175 cm",
+        "Ukuran dudukan kursi 40 cm x 32 cm",
+        "Ukuran sandaran kursi 35 cm x 15 cm",
+        "Jok dudukan dan sandaran dilapisi multiplek dengan busa tebal 3 cm serta kalap kulit yang awet dan kuat",
+        "Ukuran landasan wasit berdiri 57 cm x 50 cm",
+        "Dimensi keseluruhan kursi wasit voli 115 cm x 85 cm x 215 cm",
+        "Warna dapat request sesuai kebutuhan",
+      ],
+      notes: [
+        "Material utama menggunakan besi pipa ukuran 1 inci",
+        "Plat besi landasan kaki menggunakan ketebalan 2 mm",
+        "Bagian bawah menggunakan material besi hollow 4 cm x 6 cm",
+      ],
+      closing:
+        "Silakan konsultasikan kebutuhan kursi wasit voli untuk menyesuaikan spesifikasi yang Anda perlukan.",
+    },
   },
   {
     id: "prod-chair-badminton",
@@ -364,6 +426,24 @@ export const products: Product[] = [
         "/images/products/official-equipment/kursi-badminton-wasit/01.jpg",
         "/images/products/official-equipment/kursi-badminton-wasit/02.jpg",
       ],
+    },
+    description: {
+      intro:
+        "Kursi wasit badminton ini cocok untuk lapangan indoor maupun outdoor dengan konstruksi kokoh, nyaman digunakan, dan tampilan rapi untuk area pertandingan.",
+      details: [
+        "Cocok untuk penggunaan lapangan indoor dan outdoor",
+        "Ukuran landasan kursi 40 cm x 60 cm",
+        "Tinggi duduk 150 cm dari lantai",
+        "Lebar kaki 75 cm x 45 cm",
+        "Warna dapat disesuaikan sesuai permintaan proyek",
+      ],
+      notes: [
+        "Material rangka menggunakan besi pipa yang kuat dan tahan lama",
+        "Landasan menggunakan besi pipa ukuran 1 inci",
+        "Konstruksi dirancang untuk mendukung kenyamanan dan keawetan penggunaan",
+      ],
+      closing:
+        "Silakan konsultasikan kebutuhan kursi wasit badminton agar sesuai dengan penggunaan lapangan Anda.",
     },
   },
 ];
