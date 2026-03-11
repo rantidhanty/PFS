@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Produk", href: "#produk" },
@@ -13,9 +14,10 @@ const navLinks = [
 
 export function SiteNavbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
   const handleBrandClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     setIsOpen(false);
-    if (window.location.pathname === "/") {
+    if (pathname === "/") {
       event.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -46,7 +48,7 @@ export function SiteNavbar() {
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={pathname === "/" ? link.href : `/${link.href}`}
               className="text-sm font-medium text-zinc-700 transition-colors hover:text-zinc-950"
             >
               {link.label}
@@ -76,7 +78,7 @@ export function SiteNavbar() {
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={pathname === "/" ? link.href : `/${link.href}`}
                 onClick={() => setIsOpen(false)}
                 className="rounded-lg px-2 py-1.5 text-sm font-medium text-zinc-700 hover:bg-zinc-100"
               >

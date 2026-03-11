@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ProductGalleryCarousel } from "@/components/ui/product-gallery-carousel";
 import { ProductImage } from "@/components/ui/product-image";
 import { SiteNavbar } from "@/components/layout/site-navbar";
+import { projectCards, supportingProjects } from "@/data/projects";
 import {
   products,
   sportLabels,
@@ -279,7 +281,7 @@ export default function Home() {
 
         <motion.section
           id="produk"
-          className="mb-5 scroll-mt-24 sm:mb-6"
+          className="mb-2 scroll-mt-24 sm:mb-3"
           variants={revealUp}
           initial="hidden"
           whileInView="show"
@@ -290,6 +292,9 @@ export default function Home() {
             <h2 className="bg-gradient-to-r from-zinc-900 via-orange-700 to-amber-700 bg-clip-text text-center font-[family-name:var(--font-geist-sans)] text-2xl font-bold tracking-tight text-transparent sm:text-3xl">
               Gallery Produk
             </h2>
+            <p className="mt-2 text-center text-sm font-medium text-zinc-600 sm:text-base">
+              Pilih kategori untuk melihat produk
+            </p>
           </div>
         </motion.section>
 
@@ -490,51 +495,60 @@ export default function Home() {
               Project Unggulan
             </p>
             <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-zinc-900 sm:text-3xl">
-              Dipercaya Menangani Proyek Instansi & Komersial
+              Lihat hasil project yang sudah kami tangani
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-zinc-700 sm:text-base md:text-justify">
-              Portofolio ini menunjukkan pengalaman nyata ProFabric Steel dalam
-              pengerjaan fasilitas berbahan besi dengan hasil presisi, rapi,
-              dan tepat guna di berbagai sektor.
+              Dokumentasi singkat project nyata dari PFS.
             </p>
           </div>
 
           <motion.div
-            data-auto-scroll="true"
-            data-scroll-direction="right"
+            key="projects-home"
             variants={staggerWrap}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.2 }}
-            className="mt-4 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] md:flex-wrap md:overflow-visible [&::-webkit-scrollbar]:hidden"
+            viewport={{ once: false, amount: 0.15 }}
+            className="mt-5 grid grid-flow-col auto-cols-[86%] gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[62%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-4 md:overflow-visible md:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden"
           >
-            {[
-              { name: "SDN Cilincing", tag: "Pendidikan" },
-              { name: "SMA Wardaya", tag: "Pendidikan" },
-              { name: "AEON Bekasi", tag: "Komersial" },
-              { name: "Bank BRI", tag: "Perbankan" },
-            ].map((project) => (
-              <motion.div
-                key={project.name}
+            {projectCards.map((project, index) => (
+              <motion.article
+                key={project.slug}
                 variants={cardReveal}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-2 text-xs font-semibold text-zinc-800 shadow-sm"
+                transition={{ duration: 0.55, ease: "easeOut" }}
+                className="snap-start rounded-2xl border border-zinc-200 bg-white p-2.5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-3"
               >
-                <span
-                  className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide ${
-                    project.tag === "Pendidikan"
-                      ? "bg-sky-100 text-sky-800"
-                      : project.tag === "Komersial"
-                        ? "bg-emerald-100 text-emerald-800"
-                        : "bg-amber-100 text-amber-800"
-                  }`}
-                >
-                  {project.tag}
-                </span>
-                <span>{project.name}</span>
-              </motion.div>
+                <Link href={`/projects/${project.slug}`} className="group block">
+                  <div className="relative aspect-[4/4.1] overflow-hidden rounded-2xl bg-zinc-100 md:aspect-[4/4.6]">
+                    <Image
+                      src={project.images[0]}
+                      alt={project.name}
+                      fill
+                      priority={index === 0}
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                    <h3 className="text-base font-semibold">{project.name}</h3>
+                    <span className="rounded-full bg-zinc-900 px-2.5 py-1 text-xs font-medium text-white">
+                      {project.tag}
+                    </span>
+                  </div>
+                  <p className="mt-0.5 text-xs text-zinc-500 sm:text-sm">
+                    {project.location} - Dokumentasi project nyata
+                  </p>
+                  <div className="mt-3 inline-flex rounded-full bg-sky-600 px-3 py-1.5 text-xs font-extrabold tracking-wide text-white shadow-sm transition group-hover:bg-sky-700">
+                    Lihat Detail Project
+                  </div>
+                </Link>
+              </motion.article>
             ))}
           </motion.div>
+
+          {supportingProjects.length ? (
+            <p className="mt-4 text-center text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
+              Project lain akan terus ditambahkan
+            </p>
+          ) : null}
         </motion.section>
 
         <motion.section
