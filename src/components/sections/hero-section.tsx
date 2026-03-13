@@ -72,7 +72,7 @@ export function HeroSection() {
             </p>
             <div className="flex flex-wrap items-stretch gap-3">
               <a
-                href="https://wa.me/6289673404972"
+                href="https://wa.me/6289673404972?text=Halo%20admin%20PFS%2C%20saya%20mau%20konsultasi%20project"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Hubungi kami via WhatsApp"

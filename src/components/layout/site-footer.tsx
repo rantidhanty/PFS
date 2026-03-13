@@ -47,14 +47,6 @@ export function SiteFooter() {
           <p className="mt-1 text-sm text-zinc-600">
             Siap melayani konsultasi dan penawaran project.
           </p>
-          <a
-            href="https://wa.me/6289673404972"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-600"
-          >
-            Chat Admin PFS
-          </a>
         </div>
       </div>
 

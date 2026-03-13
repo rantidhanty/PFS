@@ -154,7 +154,7 @@ export default function ProjectDetailPage() {
                 Anda?
               </p>
               <a
-                href="https://wa.me/6289673404972"
+                href="https://wa.me/6289673404972?text=Halo%20admin%20PFS%2C%20saya%20mau%20konsultasi%20project"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 inline-flex rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-zinc-800"
