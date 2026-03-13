@@ -96,7 +96,14 @@ const jsonLd = {
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ],
     opens: "08:00",
     closes: "17:00",
   },
@@ -104,13 +111,34 @@ const jsonLd = {
     "@type": "OfferCatalog",
     name: "Peralatan Olahraga Standar Kompetisi",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Ring Basket FIBA Portable" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Ring Basket FIBA Tanam" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Tiang Voli FIVB Portable" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Gawang Futsal FIFA" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Tiang Badminton BWF" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Tiang Padel FIP" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Tiang Tenis ITF" } },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Product", name: "Ring Basket FIBA Portable" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Product", name: "Ring Basket FIBA Tanam" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Product", name: "Tiang Voli FIVB Portable" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Product", name: "Gawang Futsal FIFA" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Product", name: "Tiang Badminton BWF" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Product", name: "Tiang Padel FIP" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Product", name: "Tiang Tenis ITF" },
+      },
     ],
   },
   sameAs: ["https://wa.me/6289673404972"],

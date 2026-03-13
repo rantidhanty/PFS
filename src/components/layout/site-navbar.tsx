@@ -30,7 +30,7 @@ export function SiteNavbar() {
           <div className="relative h-10 w-24 overflow-hidden sm:h-11 sm:w-32">
             <Image
               src="/images/logo/logo%20pfs.jpg"
-              alt="SportEquip Pro Logo"
+              alt="Logo ProFabric Steel"
               fill
               sizes="128px"
               className="object-contain object-left mix-blend-multiply contrast-125 saturate-125"
