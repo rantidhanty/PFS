@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { ProductGalleryCarousel } from "@/components/ui/product-gallery-carousel";
 import { ProductImage } from "@/components/ui/product-image";
 import {
@@ -255,6 +256,12 @@ export function ProductsSection() {
                             ) : null}
                           </div>
                           <div className="mt-3 flex items-center gap-2">
+                            <Link
+                              href={`/products/${product.slug}`}
+                              className="inline-flex rounded-full bg-sky-600 px-3 py-1.5 text-xs font-extrabold tracking-wide text-white shadow-sm transition hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                            >
+                              Lihat Detail
+                            </Link>
                             {product.description ? (
                               <button
                                 type="button"
@@ -270,9 +277,9 @@ export function ProductsSection() {
                                     content: description,
                                   });
                                 }}
-                                className="inline-flex rounded-full bg-sky-600 px-3 py-1.5 text-xs font-extrabold tracking-wide text-white shadow-sm transition hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                                className="inline-flex rounded-full border border-zinc-300 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-700 shadow-sm transition hover:border-zinc-400 focus-visible:outline-none"
                               >
-                                Lihat Deskripsi
+                                Deskripsi
                               </button>
                             ) : null}
                             <a
