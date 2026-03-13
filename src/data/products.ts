@@ -303,12 +303,13 @@ export const products: Product[] = [
     images: {
       thumb: "/images/products/padel/tiang-padel/01.jpeg",
       gallery: [
-        "/images/products/padel/tiang-padel/01.jpeg",
-        "/images/products/padel/tiang-padel/02.jpeg",
-        "/images/products/padel/tiang-padel/03.jpeg",
-        "/images/products/padel/tiang-padel/04.jpeg",
-        "/images/products/padel/tiang-padel/05.jpg",
-        "/images/products/padel/tiang-padel/06.jpg",
+        "/images/products/padel/tiang-padel/1.1.png",
+        "/images/products/padel/tiang-padel/2.2.png",
+        "/images/products/padel/tiang-padel/3.3.png",
+        "/images/products/padel/tiang-padel/4.4.png",
+        "/images/products/padel/tiang-padel/5.5.png",
+        "/images/products/padel/tiang-padel/6.6.png",
+        "/images/products/padel/tiang-padel/7.7.png",
       ],
     },
     description: {
