@@ -143,6 +143,36 @@ const jsonLd = {
     ],
   },
   sameAs: ["https://wa.me/6289673404972"],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "3",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: [
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Kepala Sekolah SMAN 37 Jakarta" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody:
+        "Hasil pengerjaan ring basket dan fasilitas olahraga sangat memuaskan. Material kuat, finishing rapi, dan tim PFS sangat profesional.",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Kepala Sekolah SDN Cilincing" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody:
+        "PFS sangat responsif dan memahami kebutuhan kami. Tiang voli yang dipasang kokoh dan presisi.",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Facility Manager AEON Bekasi" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody:
+        "ProFabric Steel menjadi pilihan tepat untuk project fabrikasi besi kami. Pengerjaan tepat waktu dan hasil sesuai spesifikasi.",
+    },
+  ],
 };
 
 export default function RootLayout({
