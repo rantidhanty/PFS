@@ -23,12 +23,7 @@ export function ProjectMediaCarousel({
   }
 
   const activeItem = items[activeIndex];
-  const imageItems = items.filter(
-    (item): item is Extract<ProjectMediaItem, { type: "image" }> =>
-      item.type === "image",
-  );
-  const activeLightboxItem =
-    lightboxIndex !== null ? imageItems[lightboxIndex] : null;
+  const activeLightboxItem = lightboxIndex !== null ? items[lightboxIndex] : null;
 
   const goPrev = () => {
     setActiveIndex((activeIndex - 1 + items.length) % items.length);
@@ -59,11 +54,8 @@ export function ProjectMediaCarousel({
     touchStartX.current = null;
   };
 
-  const openLightboxForImage = (src: string) => {
-    const index = imageItems.findIndex((item) => item.src === src);
-    if (index >= 0) {
-      setLightboxIndex(index);
-    }
+  const openLightboxAt = (index: number) => {
+    setLightboxIndex(index);
   };
 
   return (
@@ -78,7 +70,7 @@ export function ProjectMediaCarousel({
           {activeItem.type === "image" ? (
             <button
               type="button"
-              onClick={() => openLightboxForImage(activeItem.src)}
+              onClick={() => openLightboxAt(activeIndex)}
               className="absolute inset-0 cursor-zoom-in"
               aria-label="Lihat preview gambar"
             >
@@ -90,13 +82,25 @@ export function ProjectMediaCarousel({
               />
             </button>
           ) : (
-            <video
-              className="h-full w-full object-cover"
-              src={activeItem.src}
-              poster={activeItem.poster}
-              controls
-              playsInline
-            />
+            <div className="absolute inset-0 bg-black">
+              <video
+                className="h-full w-full object-contain bg-black"
+                src={activeItem.src}
+                poster={activeItem.poster}
+                controls
+                playsInline
+              />
+              <button
+                type="button"
+                onClick={() => openLightboxAt(activeIndex)}
+                className="absolute right-3 top-3 rounded-full bg-black/55 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-white transition hover:bg-black/70"
+              >
+                Preview
+              </button>
+              <span className="pointer-events-none absolute left-3 top-3 rounded-full bg-black/55 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-white">
+                PLAY
+              </span>
+            </div>
           )}
         </div>
 
@@ -205,15 +209,26 @@ export function ProjectMediaCarousel({
                 X
               </button>
               <div className="relative h-[62vh] w-full rounded-xl sm:h-[76vh]">
-                <Image
-                  src={activeLightboxItem.src}
-                  alt={activeLightboxItem.alt}
-                  fill
-                  sizes="100vw"
-                  className="object-contain"
-                  priority
-                />
-                {imageItems.length > 1 ? (
+                {activeLightboxItem.type === "image" ? (
+                  <Image
+                    src={activeLightboxItem.src}
+                    alt={activeLightboxItem.alt}
+                    fill
+                    sizes="100vw"
+                    className="object-contain"
+                    priority
+                  />
+                ) : (
+                  <video
+                    className="h-full w-full object-contain"
+                    src={activeLightboxItem.src}
+                    poster={activeLightboxItem.poster}
+                    controls
+                    autoPlay
+                    playsInline
+                  />
+                )}
+                {items.length > 1 ? (
                   <>
                     <button
                       type="button"
@@ -222,7 +237,7 @@ export function ProjectMediaCarousel({
                         setLightboxIndex((prev) =>
                           prev === null
                             ? prev
-                            : (prev - 1 + imageItems.length) % imageItems.length,
+                            : (prev - 1 + items.length) % items.length,
                         )
                       }
                       className="absolute left-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/55 px-3 py-1.5 text-lg font-semibold text-white"
@@ -234,7 +249,7 @@ export function ProjectMediaCarousel({
                       aria-label="Gambar berikutnya"
                       onClick={() =>
                         setLightboxIndex((prev) =>
-                          prev === null ? prev : (prev + 1) % imageItems.length,
+                          prev === null ? prev : (prev + 1) % items.length,
                         )
                       }
                       className="absolute right-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/55 px-3 py-1.5 text-lg font-semibold text-white"
@@ -244,13 +259,13 @@ export function ProjectMediaCarousel({
                   </>
                 ) : null}
               </div>
-              {imageItems.length > 1 ? (
+              {items.length > 1 ? (
                 <div className="mt-3">
                   <div className="mb-2 text-center text-xs font-medium text-zinc-200">
-                    {lightboxIndex! + 1}/{imageItems.length}
+                    {lightboxIndex! + 1}/{items.length}
                   </div>
                   <div className="flex justify-center gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-                    {imageItems.map((item, index) => (
+                    {items.map((item, index) => (
                       <button
                         key={`${item.src}-${index}`}
                         type="button"
@@ -261,12 +276,26 @@ export function ProjectMediaCarousel({
                             : "border-white/35"
                         }`}
                       >
-                        <Image
-                          src={item.src}
-                          alt={item.alt}
-                          fill
-                          className="object-cover"
-                        />
+                        {item.type === "image" ? (
+                          <Image
+                            src={item.src}
+                            alt={item.alt}
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <>
+                            <Image
+                              src={item.poster ?? "/images/logo/logo pfs.jpg"}
+                              alt={item.alt}
+                              fill
+                              className="object-cover"
+                            />
+                            <span className="absolute inset-0 flex items-center justify-center bg-black/25 text-base font-black text-white">
+                              PLAY
+                            </span>
+                          </>
+                        )}
                       </button>
                     ))}
                   </div>

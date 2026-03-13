@@ -49,14 +49,10 @@ export const products: Product[] = [
     standards: ["FIBA"],
     sportTags: ["basketball"],
     images: {
-      thumb: "/images/products/basketball/ring-basket-fiba/portable/01.jpg",
+      thumb: "/images/products/basketball/ring-basket-fiba/portable/2.2.png",
       gallery: [
-        "/images/products/basketball/ring-basket-fiba/portable/01.jpg",
-        "/images/products/basketball/ring-basket-fiba/portable/02.jpg",
-        "/images/products/basketball/ring-basket-fiba/portable/03.jpg",
-        "/images/products/basketball/ring-basket-fiba/portable/04.jpg",
-        "/images/products/basketball/ring-basket-fiba/portable/05.jpg",
-        "/images/products/basketball/ring-basket-fiba/portable/06.jpg",
+        "/images/products/basketball/ring-basket-fiba/portable/2.2.png",
+        "/images/products/basketball/ring-basket-fiba/portable/3.3.png",
       ],
     },
     description: {
@@ -123,10 +119,10 @@ export const products: Product[] = [
     standards: ["FIBA"],
     sportTags: ["basketball"],
     images: {
-      thumb: "/images/products/basketball/ring-basket-fiba/tanam-tanah/01.jpg",
+      thumb: "/images/products/basketball/ring-basket-fiba/tanam-tanah/1.1.png",
       gallery: [
-        "/images/products/basketball/ring-basket-fiba/tanam-tanah/01.jpg",
-        "/images/products/basketball/ring-basket-fiba/tanam-tanah/02.jpg",
+        "/images/products/basketball/ring-basket-fiba/tanam-tanah/1.1.png",
+        "/images/products/basketball/ring-basket-fiba/tanam-tanah/2.2.png",
       ],
     },
     description: {
