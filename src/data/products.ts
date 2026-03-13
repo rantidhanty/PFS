@@ -57,21 +57,20 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Ring Basket Portable ini cocok untuk kebutuhan Sekolah SD, SMP, hingga SMA/SMK. Desainnya kokoh, aman, dan tetap fleksibel untuk dipindahkan sesuai kebutuhan.",
+        "Pilihan tepat untuk sekolah yang butuh fleksibilitas — mudah dipindah saat ada kegiatan lain, dengan konstruksi kokoh dan tampilan rapi standar kompetisi.",
       details: [
-        "Papan pantul akrilik bening Ketebalan 8mm",
-        "Tinggi ring dapat diatur 260cm - 290cm",
-        "Ukuran papan pantul Tinggi 80cm x Lebar 120cm",
-        "Jarak dari ring ke lantai tinggi 260cm",
-        "Dilengkapi dengan 4 roda (2 mati, 2 hidup)",
+        "Papan pantul akrilik premium, jernih dan tahan benturan untuk pantulan optimal",
+        "Ketinggian ring dapat disesuaikan untuk berbagai jenjang usia dan kebutuhan",
+        "Dilengkapi sistem roda untuk mobilitas mudah tanpa alat tambahan",
+        "Pengaman body berbahan kulit sintetis berkualitas untuk keamanan pengguna",
+        "Sistem pemberat stabil mencegah tiang bergeser saat digunakan intensif",
       ],
       notes: [
-        "Rangka menggunakan besi hollow 40cm x 60cm dan 20cm x 40cm",
-        "Rangka utama menggunakan besi hollow 75cm x 75cm",
-        "Dibagian bawah dilengkapi pengaman body dengan berbahan busa kalap kulit dengan ketebalan 3cm (warna custom)",
-        "Kotak pemberat 20cm x30cm x 40cm (2 kotak per tiang) dengan total beban 120 kg.",
+        "Rangka utama dari besi hollow berpenampang besar, kokoh untuk penggunaan jangka panjang",
+        "Seluruh komponen menggunakan material besi pilihan dengan proses fabrikasi presisi",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing: "Warna Dapat Request",
+      closing: "Warna dan konfigurasi dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -94,19 +93,19 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Ring Basket Dinding cocok untuk area dengan ruang terbatas dan kebutuhan lapangan permanen yang rapi.",
+        "Solusi permanen untuk area dengan ruang terbatas — tampilan rapi menempel di dinding tanpa mengorbankan kualitas dan standar permainan.",
       details: [
-        "Sistem pemasangan dinding yang kuat dan stabil",
-        "Papan pantul akrilik bening 10mm",
-        "Posisi ring presisi untuk latihan dan pertandingan",
-        "Hemat ruang karena tanpa basis roda",
+        "Sistem pemasangan dinding yang kuat, stabil, dan tidak mudah bergeser",
+        "Papan pantul akrilik premium dengan kejernihan tinggi untuk visibilitas optimal",
+        "Posisi ring presisi sesuai standar untuk latihan maupun pertandingan resmi",
+        "Hemat ruang secara signifikan karena tidak memerlukan basis atau tiang berdiri",
       ],
       notes: [
-        "Rangka utama menggunakan material besi hollow ukuran 50cm x 50cm",
-        "Proses pemasangan menyesuaikan struktur dinding di lokasi.",
+        "Rangka utama dari besi hollow berpenampang besar untuk daya dukung maksimal",
+        "Proses pemasangan menyesuaikan struktur dinding di lokasi",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing:
-        "Warna, ukuran, dan titik pemasangan bisa disesuaikan kebutuhan proyek.",
+      closing: "Warna, konfigurasi, dan titik pemasangan dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -127,19 +126,19 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Ring Basket Tanam cocok untuk lapangan outdoor dan indoor yang membutuhkan sistem permanen, kokoh, dan tahan lama.",
+        "Untuk lapangan yang tidak butuh dipindah — sistem tanam memberikan kestabilan tertinggi, cocok untuk sekolah, lapangan umum, dan fasilitas komunitas.",
       details: [
-        "Tiang utama ditanam ke pondasi/angkur permanen untuk kestabilan maksimal",
-        "Konstruksi kuat untuk pemakaian intensif",
-        "Ukuran dan tinggi ring bisa disesuaikan kebutuhan lapangan pada saat pemasangan",
-        "Cocok untuk sekolah, lapangan umum, dan area komunitas",
+        "Tiang ditanam ke pondasi permanen untuk kestabilan maksimal jangka panjang",
+        "Konstruksi sangat kuat untuk pemakaian intensif setiap hari",
+        "Ketinggian dan posisi ring dapat disesuaikan saat proses instalasi",
+        "Tahan terhadap cuaca ekstrem, cocok untuk area outdoor dan indoor",
       ],
       notes: [
-        "Material besi menggunakan pipa 6 inc",
-        "Pemasangan pondasi/angkur mengikuti kondisi lokasi dan layout lapangan.",
+        "Tiang utama dari besi pipa berdiameter besar untuk kekuatan struktural optimal",
+        "Proses pemasangan pondasi menyesuaikan kondisi dan layout lapangan di lokasi",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing:
-        "Menerima custom warna, spesifikasi, dan survey lokasi sebelum instalasi.",
+      closing: "Tersedia survei lokasi sebelum instalasi — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -161,23 +160,20 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Tiang Voly Portable ini dirancang untuk latihan dan pertandingan dengan konstruksi kuat serta tampilan rapi.",
+        "Paket tiang dan net voli siap pakai — dirancang untuk kemudahan operasional harian dengan konstruksi kuat yang tetap bisa dipindah kapan pun dibutuhkan.",
       details: [
-        "Paket tiang dan net siap pasang untuk lapangan indoor maupun outdoor",
-        "Paket tiang voli portable ini menggunakan material besi, dengan tiang utama berupa pipa berdiameter 3 inci.",
-        "Tiang penyangga menggunakan material besi berupa pipa berdiameter 1,5 inci.",
-        "Tiang utama dilengkapi dengan 1 kait yang berfungsi sebagai pengencang net.",
-        "bagian tiang bawah terdapat penopang tiang menggunakan material besi hollow berukuran 10cm x 10cm",
-        "ukuran kotak pemberat 20cm x 50cm x 60cm",
-        "Dilengkapi 2 buah roda berukuran 6 inci masing-masing tiang memiliki beban berat 90kg - 100kg berisi cor-ran",
-        "Dilengkpai dengan pelapis tiang atau sarung berbahan kulit kalap awet dan tahan lama (warna dapat request)",
+        "Paket lengkap tiang dan net, siap pasang untuk lapangan indoor maupun outdoor",
+        "Sistem roda memudahkan pemindahan tiang tanpa tenaga ekstra",
+        "Sistem kait pengencang net yang praktis untuk pemasangan dan pelepasan cepat",
+        "Pelapis tiang berbahan kulit sintetis berkualitas untuk perlindungan dan tampilan rapi",
+        "Sistem pemberat berat untuk memastikan tiang tetap stabil selama permainan",
       ],
       notes: [
-        "Material utama menggunakan besi tebal dengan finishing tahan cuaca.",
-        "Komponen dirancang agar perawatan mudah dan umur pakai panjang.",
+        "Tiang utama dari besi pipa berdiameter besar dengan finishing tahan cuaca",
+        "Seluruh komponen dirancang untuk perawatan mudah dan umur pakai yang panjang",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing:
-        "Menerima penyesuaian ukuran dan konfigurasi sesuai kebutuhan lapangan.",
+      closing: "Konfigurasi dan warna dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -195,21 +191,20 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Tiang Voly Tanam cocok untuk lapangan dengan kebutuhan instalasi permanen yang kokoh dan stabil.",
+        "Untuk lapangan voli yang membutuhkan instalasi permanen — kokoh, stabil, dan siap digunakan intensif oleh sekolah, klub, maupun fasilitas umum.",
       details: [
-        "Sistem tanam permanen untuk kestabilan pemakaian jangka panjang",
-        "Konstruksi besi kuat untuk penggunaan rutin sekolah, klub, dan fasilitas umum",
-        "Ketinggian net dari lantai dapat diatur, yaitu 243 cm untuk kategori pria dan 235 cm untuk kategori wanita.",
-        "Finishing rapi dan tahan cuaca untuk penggunaan outdoor",
+        "Sistem tanam permanen memberikan kestabilan terbaik untuk pemakaian jangka panjang",
+        "Ketinggian net dapat dikonfigurasi sesuai kategori pertandingan pria maupun wanita",
+        "Sistem kait pengencang net yang presisi untuk hasil pemasangan yang konsisten",
+        "Pelapis pelindung tiang dari bahan kulit sintetis berkualitas, tahan lama dan rapi",
+        "Finishing tahan cuaca, cocok untuk penggunaan di area outdoor maupun indoor",
       ],
       notes: [
-        "Tiang utama menggunakan material besi pipa berdiameter 3 inci dan dilengkapi 1 kait pengencang net di bagian tengah",
-        "Dilengkapi pipa shock yang berfungsi sebagai dudukan tiang yang ditanam di lantai atau tanah, serta penutup lubang.",
-        "Tiang utama dilengkapi padding pelindung berbahan kulit atau kulit sintetis yang kuat dan tahan lama",
-        "Proses pemasangan mengikuti kondisi lokasi dan layout lapangan.",
+        "Tiang utama dari besi pipa berdiameter besar dengan sistem dudukan tanam di lantai",
+        "Proses pemasangan mengikuti kondisi lokasi dan layout lapangan yang ada",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing:
-        "Menerima penyesuaian spesifikasi dan survei lokasi sebelum instalasi.",
+      closing: "Tersedia survei lokasi sebelum instalasi — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -232,23 +227,20 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Gawang sepak bola dirancang untuk kebutuhan pertandingan dan latihan dengan konstruksi kokoh serta presisi dimensi.",
+        "Gawang futsal konstruksi besi solid — tersedia dalam pilihan permanen dan portable, siap untuk kebutuhan latihan intensif maupun pertandingan resmi.",
       details: [
-        "Tiang permanen atau portable tersedia di PSF",
-        "Sistem bongkar pasang memudahkan pengguna",
-        "Tiang Gawang futsal 1 set (2 Gawang) dengan ukuran tinggi tiang 2 meter dan lebar 3 meter",
-        "Tiang futsal panjang belakang bagian atas 40cm dan bawah berukuran 60cm, menggunakan material pipa 2,5 inci dan 1,5 inci",
-        "Ukuran gawang mengikuti standar untuk lapangan penuh",
-        "Rangka besi kuat untuk pemakaian intensif di sekolah dan fasilitas umum",
-        "Sistem sambungan rapi untuk menjaga stabilitas struktur",
-        "Cocok untuk penggunaan outdoor/indoor dengan finishing tahan cuaca",
+        "Tersedia pilihan sistem permanen dan portable sesuai kebutuhan lapangan",
+        "Dimensi gawang mengikuti standar lapangan futsal resmi",
+        "Sistem sambungan bongkar pasang yang praktis dan mudah dioperasikan",
+        "Konstruksi kokoh untuk pemakaian intensif di sekolah dan fasilitas umum",
+        "Finishing tahan cuaca untuk penggunaan outdoor maupun indoor",
       ],
       notes: [
-        "Material utama menggunakan besi pipa dengan proses fabrikasi presisi.",
-        "Konfigurasi pemasangan dapat disesuaikan kondisi lapangan.",
+        "Seluruh komponen dari besi pipa berkualitas dengan proses fabrikasi presisi",
+        "Konfigurasi dan ukuran dapat disesuaikan dengan kondisi lapangan",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing:
-        "Menerima penyesuaian spesifikasi, warna, dan kebutuhan instalasi proyek.",
+      closing: "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -273,23 +265,20 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Tiang badminton ini dirancang untuk kebutuhan latihan hingga pertandingan dengan konstruksi kuat, stabil, dan rapi.",
+        "Tiang badminton untuk kebutuhan latihan hingga pertandingan — konstruksi solid, mudah dioperasikan harian, dan rapi untuk semua jenis lapangan.",
       details: [
-        "Mengacu pada standar ukuran lapangan badminton",
-        "Konstruksi material kokoh untuk pemakaian indoor maupun outdoor",
-        "Sistem pemasangan dan pelepasan net praktis untuk operasional harian",
-        "Finishing rapi dengan ketahanan yang baik untuk penggunaan intensif",
+        "Mengacu pada standar dimensi lapangan badminton resmi",
+        "Sistem roda memudahkan pemindahan tiang antar lapangan tanpa usaha ekstra",
+        "Sistem kait pengencang net yang praktis untuk operasional harian yang efisien",
+        "Pelapis tiang berbahan kulit sintetis berkualitas untuk perlindungan dan tampilan profesional",
+        "Sistem pemberat stabil mencegah tiang bergeser saat permainan berlangsung",
       ],
       notes: [
-        "Tiang badminton portable menggunakan material pipa besi 2 inci",
-        "Dilengkapi 1 kiatan untuk pengencang net, Terdapat 2 roda berukuran diameter 4 inci untuk memudahkan penggeseran tiang",
-        "Kotak berisi hollow dengan ukuran kotak panjang 50cm x Lebar 30cm x tinggi 20cm, berat kotak masing-masing per tiang 50kg",
-        "Tiang badminton portable dengan ketinggian tiang dari lantai ke net 155cm dilengkapi tiang utama dengan pelapis peding dengan berbahan kalap kulit yang kuat dan tahan lama",
-        "Dapat disesuaikan untuk kebutuhan proyek sekolah, klub, atau fasilitas olahraga.",
-        "Opsi warna dan spesifikasi material tersedia sesuai permintaan.",
+        "Tiang utama dari besi pipa berkualitas dengan finishing tahan lama",
+        "Dapat disesuaikan untuk kebutuhan sekolah, klub, atau fasilitas olahraga",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing:
-        "Silakan konsultasikan kebutuhan spesifikasi agar tiang badminton sesuai kondisi lapangan Anda.",
+      closing: "Warna dan konfigurasi dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -314,20 +303,20 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Tiang padel ini dirancang untuk kebutuhan lapangan padel dengan konstruksi kokoh, presisi pemasangan, dan tampilan rapi untuk area permainan modern.",
+        "Tiang padel dengan konstruksi presisi untuk lapangan modern — tampilan bersih, pemasangan akurat, dan material solid yang mendukung estetika venue padel profesional.",
       details: [
-        "Tiat net padel ketinggian tiang dari lantai ke net 93cm",
-        "Keseluruhan tiang padel 96cm",
-        "Dibagian tengah terdapat 1 kaitan untuk pengencang net",
-        "Dibagian bawah tiang terdapat penopang",
-        "Di bagian net terdapat roda berukuran 6cm",
+        "Ketinggian tiang sesuai standar permainan padel resmi",
+        "Sistem kait pengencang net di posisi tengah untuk ketegangan net yang optimal",
+        "Penopang bawah yang kokoh memastikan tiang berdiri stabil di segala kondisi",
+        "Pengaman body berbahan kulit sintetis berkualitas untuk keamanan pemain",
+        "Desain ramping dan rapi yang sesuai dengan estetika lapangan padel modern",
       ],
       notes: [
-        "Material menggunakan besi hollow berukuran 10cm x 10cm",
-        "Dilengkapi busa kalap sebagai pengaman body",
+        "Rangka dari besi hollow berpenampang solid dengan proses fabrikasi presisi",
+        "Dapat dikustom sesuai konsep dan layout lapangan padel Anda",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing:
-        "Silakan konsultasikan spesifikasi tiang padel agar sesuai dengan konsep lapangan Anda.",
+      closing: "Konsultasikan konsep lapangan Anda — kami siap berikan penawaran terbaik.",
     },
   },
   {
@@ -347,22 +336,20 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Tiang tenis dirancang untuk kebutuhan lapangan tenis dengan konstruksi kokoh, tampilan rapi, dan kesiapan penggunaan untuk latihan maupun pertandingan.",
+        "Tiang tenis kokoh dan presisi — tersedia dalam pilihan portable maupun tanam, siap mendukung lapangan tenis dari level latihan hingga pertandingan resmi.",
       details: [
-        "Tiang tenis tersedia dalam pilihan portable dan tanam",
-        "Tinggi tiang dari lantai ke net 107 cm",
-        "Dilengkapi 1 kait untuk pengencang net",
-        "Bagian samping penopang tiang menggunakan besi hollow berukuran 10 cm x 10 cm",
-        "Dimensi pemberat 25 cm x 50 cm x 60 cm",
-        "Berat 1 tiang 120 kg",
-        "Dilengkapi 2 buah roda berukuran 6 inci",
+        "Tersedia pilihan portable dan tanam untuk fleksibilitas sesuai kebutuhan lapangan",
+        "Ketinggian tiang sesuai standar net tenis resmi ITF",
+        "Sistem roda memudahkan mobilitas untuk varian portable",
+        "Sistem kait pengencang net yang presisi untuk ketegangan net yang konsisten",
+        "Sistem pemberat berat memastikan stabilitas tiang selama pertandingan berlangsung",
       ],
       notes: [
-        "Material utama menggunakan besi pipa 3 inci",
-        "Tiang penopang/tiang penyangga menggunakan material pipa 1,5 inci",
+        "Tiang utama dan penopang dari besi pipa berkualitas dengan fabrikasi presisi",
+        "Konstruksi dirancang untuk penggunaan intensif jangka panjang",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing:
-        "Silakan konsultasikan kebutuhan tiang tenis agar sesuai dengan konsep lapangan Anda.",
+      closing: "Konsultasikan kebutuhan lapangan tenis Anda — kami siap berikan penawaran terbaik.",
     },
   },
   {
@@ -382,25 +369,20 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Kursi wasit voli dirancang untuk mendukung pertandingan dan latihan dengan posisi pengawasan yang nyaman, aman, dan kokoh.",
+        "Kursi wasit voli yang memberikan posisi pengawasan optimal — kokoh, nyaman untuk digunakan sepanjang pertandingan, dan tampil profesional di pinggir lapangan.",
       details: [
-        "Tersedia kursi wasit voli portable",
-        "Ukuran rangka kursi 95 cm x 115 cm",
-        "Tinggi kursi 175 cm",
-        "Ukuran dudukan kursi 40 cm x 32 cm",
-        "Ukuran sandaran kursi 35 cm x 15 cm",
-        "Jok dudukan dan sandaran dilapisi multiplek dengan busa tebal 3 cm serta kalap kulit yang awet dan kuat",
-        "Ukuran landasan wasit berdiri 57 cm x 50 cm",
-        "Dimensi keseluruhan kursi wasit voli 115 cm x 85 cm x 215 cm",
-        "Warna dapat request sesuai kebutuhan",
+        "Posisi duduk tinggi memberikan sudut pandang ideal untuk wasit selama pertandingan",
+        "Dudukan dan sandaran berlapisan busa tebal dengan kulit sintetis berkualitas untuk kenyamanan maksimal",
+        "Landasan kaki wasit yang luas untuk posisi berdiri yang aman dan stabil",
+        "Rangka kokoh mampu menopang beban berat tanpa goyah",
+        "Warna dapat disesuaikan dengan identitas venue atau klub",
       ],
       notes: [
-        "Material utama menggunakan besi pipa ukuran 1 inci",
-        "Plat besi landasan kaki menggunakan ketebalan 2 mm",
-        "Bagian bawah menggunakan material besi hollow 4 cm x 6 cm",
+        "Rangka dari besi pipa dan hollow berkualitas dengan konstruksi yang stabil",
+        "Seluruh komponen dirancang untuk keawetan jangka panjang dengan perawatan minimal",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing:
-        "Silakan konsultasikan kebutuhan kursi wasit voli untuk menyesuaikan spesifikasi yang Anda perlukan.",
+      closing: "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -420,21 +402,20 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Kursi wasit badminton ini cocok untuk lapangan indoor maupun outdoor dengan konstruksi kokoh, nyaman digunakan, dan tampilan rapi untuk area pertandingan.",
+        "Kursi wasit badminton dengan ketinggian ideal untuk pengawasan lapangan — kokoh, nyaman sepanjang pertandingan, dan tampilan rapi untuk venue indoor maupun outdoor.",
       details: [
-        "Cocok untuk penggunaan lapangan indoor dan outdoor",
-        "Ukuran landasan kursi 40 cm x 60 cm",
-        "Tinggi duduk 150 cm dari lantai",
-        "Lebar kaki 75 cm x 45 cm",
-        "Warna dapat disesuaikan sesuai permintaan proyek",
+        "Posisi duduk di ketinggian ideal untuk visibilitas penuh selama pertandingan",
+        "Rangka lebar dan stabil memberikan keseimbangan yang baik di segala jenis lantai",
+        "Konstruksi kokoh mampu menopang beban dengan aman dalam jangka panjang",
+        "Cocok untuk penggunaan di lapangan indoor maupun outdoor",
+        "Warna dapat disesuaikan dengan identitas lapangan atau institusi",
       ],
       notes: [
-        "Material rangka menggunakan besi pipa yang kuat dan tahan lama",
-        "Landasan menggunakan besi pipa ukuran 1 inci",
-        "Konstruksi dirancang untuk mendukung kenyamanan dan keawetan penggunaan",
+        "Rangka dari besi pipa berkualitas dengan proses fabrikasi yang rapi dan presisi",
+        "Dirancang untuk keawetan dan kemudahan perawatan dalam penggunaan rutin",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing:
-        "Silakan konsultasikan kebutuhan kursi wasit badminton agar sesuai dengan penggunaan lapangan Anda.",
+      closing: "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
 ];
