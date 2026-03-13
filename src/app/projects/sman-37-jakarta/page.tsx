@@ -1,8 +1,27 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { ProjectMediaCarousel } from "@/components/ui/project-media-carousel";
 import { featuredProject, supportingProjects } from "@/data/projects";
+
+export const metadata: Metadata = {
+  title: "Project Ring Basket SMAN 37 Jakarta",
+  description:
+    "Dokumentasi nyata proyek pemasangan ring basket dan fasilitas olahraga di SMAN 37 Jakarta oleh ProFabric Steel. Hasil rapi, kokoh, dan siap digunakan.",
+  alternates: { canonical: "/projects/sman-37-jakarta" },
+  openGraph: {
+    title: "Project Ring Basket SMAN 37 Jakarta | ProFabric Steel",
+    description:
+      "Dokumentasi nyata proyek pemasangan ring basket dan fasilitas olahraga di SMAN 37 Jakarta oleh ProFabric Steel.",
+    images: [
+      {
+        url: "/images/Projects/SMAN%2037%20Jakarta/01.jpg",
+        alt: "Hasil pemasangan ring basket SMAN 37 Jakarta oleh ProFabric Steel",
+      },
+    ],
+  },
+};
 
 export default function ProjectDetailPage() {
   const galleryItems = [
