@@ -5,6 +5,24 @@
  * Jangan mendefinisikan ulang konstanta ini di file lain.
  */
 
+export const admins = [
+  {
+    name: "Admin 1",
+    display: "+62 896-7340-4972",
+    wa: "6289673404972",
+  },
+  {
+    name: "Admin 2",
+    display: "+62 858-9079-5425",
+    wa: "6285890795425",
+  },
+  {
+    name: "Admin 3",
+    display: "+62 898-782-8580",
+    wa: "628987828580",
+  },
+] as const;
+
 export const siteConfig = {
   /** URL utama situs, tanpa trailing slash */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.profabricsteel.com",

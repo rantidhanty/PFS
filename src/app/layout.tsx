@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { WaFloat } from "@/components/ui/wa-float";
+import { WaAdminSheet } from "@/components/ui/wa-admin-sheet";
 import { siteConfig } from "@/config/site";
 
 const geistSans = Geist({
@@ -190,6 +191,7 @@ export default function RootLayout({
       >
         {children}
         <WaFloat />
+        <WaAdminSheet />
 
         {/* ── Google Analytics 4 ─────────────────────────────────────────── */}
         {ga4Id && (
