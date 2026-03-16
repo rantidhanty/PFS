@@ -171,7 +171,7 @@ export default async function ProductPage({
             Home
           </Link>
           <span>/</span>
-          <Link href="/#produk" className="transition hover:text-orange-700">
+          <Link href="/products" className="transition hover:text-orange-700">
             Produk
           </Link>
           <span>/</span>
