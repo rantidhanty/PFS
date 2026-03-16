@@ -5,6 +5,7 @@ import Image from "next/image";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { WaButton } from "@/components/ui/wa-button";
+import { ProductGallery } from "@/components/ui/product-gallery";
 import { products, sportLabels } from "@/data/products";
 import { siteConfig, waUrl } from "@/config/site";
 
@@ -180,35 +181,10 @@ export default async function ProductPage({
         <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Kolom kiri: galeri gambar */}
           <div className="rounded-3xl border border-zinc-200 bg-white p-4 shadow-[0_18px_42px_rgba(15,23,42,0.07)] sm:p-5">
-            <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-zinc-100">
-              <Image
-                src={product.images.thumb}
-                alt={`${product.name} - ProFabric Steel`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-contain"
-                priority
-              />
-            </div>
-
-            {product.images.gallery.length > 1 && (
-              <div className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-5">
-                {product.images.gallery.map((src, index) => (
-                  <div
-                    key={src}
-                    className="relative aspect-square overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50"
-                  >
-                    <Image
-                      src={src}
-                      alt={`${product.name} foto ${index + 1}`}
-                      fill
-                      sizes="80px"
-                      className="object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
+            <ProductGallery
+              images={product.images.gallery}
+              productName={product.name}
+            />
           </div>
 
           {/* Kolom kanan: detail produk */}
