@@ -52,7 +52,7 @@ export function BottomSections() {
         variants={revealRight}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.15 }}
+        viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
       >
         <div className="rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 via-amber-50 to-zinc-50 p-4 sm:p-5">
@@ -72,7 +72,7 @@ export function BottomSections() {
           variants={staggerWrap}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.15 }}
           className="mt-5 grid grid-flow-col auto-cols-[86%] gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[62%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-4 md:overflow-visible md:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden"
         >
           {projectCards.map((project, index) => (
@@ -123,7 +123,7 @@ export function BottomSections() {
         variants={revealLeft}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.15 }}
+        viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
       >
         <h2 className="text-2xl font-semibold tracking-tight">
@@ -194,7 +194,7 @@ export function BottomSections() {
           variants={staggerWrap}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="mt-4 grid grid-flow-col auto-cols-[78%] gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[46%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-3 md:overflow-visible lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
         >
           {[
@@ -222,7 +222,7 @@ export function BottomSections() {
         variants={revealUp}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
       >
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">

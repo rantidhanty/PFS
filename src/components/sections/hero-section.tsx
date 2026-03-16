@@ -213,7 +213,7 @@ export function HeroSection() {
       variants={fadeUp}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.08 }}
+      viewport={{ once: true, amount: 0.08 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       {/* ── Split: Teks kiri, Poster kanan ─────────────────────────────── */}
@@ -352,7 +352,7 @@ export function HeroSection() {
           variants={stagger}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           {categoryWithImage.map((cat) => (
             <motion.div

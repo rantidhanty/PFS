@@ -53,7 +53,7 @@ export function FaqSection() {
       variants={revealUp}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.9, ease: "easeOut" }}
     >
       {/* Header */}

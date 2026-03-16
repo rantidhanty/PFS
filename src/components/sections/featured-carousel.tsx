@@ -20,9 +20,11 @@ const featured = featuredSlugs
 
 export function FeaturedCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const isPausedRef = useRef(false);
+  const isHoveredRef = useRef(false);
+  const isVisibleRef = useRef(false);
 
   const total = featured.length;
 
@@ -31,31 +33,37 @@ export function FeaturedCarousel() {
     if (!track) return;
     const card = track.children[index] as HTMLElement;
     if (!card) return;
-    card.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+    track.scrollLeft = card.offsetLeft; // instant, no smooth — avoids mobile page scroll interference
     setActiveIndex(index);
   };
 
-  const next = () => {
-    const nextIndex = (activeIndex + 1) % total;
-    scrollToIndex(nextIndex);
-  };
+  const next = () => scrollToIndex((activeIndex + 1) % total);
+  const prev = () => scrollToIndex((activeIndex - 1 + total) % total);
 
-  const prev = () => {
-    const prevIndex = (activeIndex - 1 + total) % total;
-    scrollToIndex(prevIndex);
-  };
-
-  // Auto-advance every 3.5s
+  // Watch visibility — only auto-advance when carousel is on screen
   useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisibleRef.current = entry.isIntersecting; },
+      { threshold: 0.2 },
+    );
+    observer.observe(wrapper);
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-advance — desktop only, only when visible and not hovered
+  useEffect(() => {
+    const isDesktop = () => window.matchMedia("(min-width: 768px)").matches;
     const schedule = () => {
       timerRef.current = setTimeout(() => {
-        if (!isPausedRef.current) {
+        if (isDesktop() && isVisibleRef.current && !isHoveredRef.current) {
           setActiveIndex((i) => {
             const next = (i + 1) % total;
             const track = trackRef.current;
             if (track) {
               const card = track.children[next] as HTMLElement;
-              card?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+              if (card) track.scrollLeft = card.offsetLeft;
             }
             return next;
           });
@@ -67,15 +75,15 @@ export function FeaturedCarousel() {
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [total]);
 
-  // Track scroll position to update active dot
+  // Sync active dot when user swipes manually
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
     const onScroll = () => {
       const cardWidth = (track.children[0] as HTMLElement)?.offsetWidth ?? 0;
       if (!cardWidth) return;
-      const idx = Math.round(track.scrollLeft / cardWidth);
-      setActiveIndex(Math.min(idx, total - 1));
+      const idx = Math.round(track.scrollLeft / (cardWidth + 12)); // 12 = gap-3
+      setActiveIndex(Math.min(Math.max(idx, 0), total - 1));
     };
     track.addEventListener("scroll", onScroll, { passive: true });
     return () => track.removeEventListener("scroll", onScroll);
@@ -83,16 +91,15 @@ export function FeaturedCarousel() {
 
   return (
     <div
+      ref={wrapperRef}
       className="relative"
-      onMouseEnter={() => { isPausedRef.current = true; }}
-      onMouseLeave={() => { isPausedRef.current = false; }}
-      onTouchStart={() => { isPausedRef.current = true; }}
-      onTouchEnd={() => { isPausedRef.current = false; }}
+      onMouseEnter={() => { isHoveredRef.current = true; }}
+      onMouseLeave={() => { isHoveredRef.current = false; }}
     >
       {/* Carousel track */}
       <div
         ref={trackRef}
-        className="flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
       >
         {featured.map((product, i) => (
           <Link
@@ -127,7 +134,7 @@ export function FeaturedCarousel() {
         ))}
       </div>
 
-      {/* Prev / Next arrows — desktop only */}
+      {/* Prev / Next — desktop only */}
       <button
         type="button"
         aria-label="Sebelumnya"

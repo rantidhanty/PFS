@@ -168,7 +168,7 @@ export function TestimonialsSection() {
         variants={staggerWrap}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
         className="mb-4 grid grid-cols-2 gap-3 md:grid-cols-4"
       >
         {stats.map((stat) => (
@@ -197,7 +197,7 @@ export function TestimonialsSection() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.85, ease: "easeOut" }}
         className="rounded-2xl border border-zinc-200 bg-white p-5 sm:p-6"
       >

@@ -95,7 +95,7 @@ export function ProductsSection() {
         variants={revealUp}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.4 }}
+        viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.85, ease: "easeOut" }}
       >
         <div className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-rose-50 via-orange-50 to-amber-50 px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_8px_24px_rgba(251,146,60,0.14)]">
@@ -114,7 +114,7 @@ export function ProductsSection() {
         variants={revealLeft}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.15 }}
+        viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
       >
         {/* Kategori tabs */}
@@ -191,7 +191,7 @@ export function ProductsSection() {
                   variants={staggerWrap}
                   initial="hidden"
                   whileInView="show"
-                  viewport={{ once: false, amount: 0.15 }}
+                  viewport={{ once: true, amount: 0.15 }}
                   className="grid grid-flow-col auto-cols-[92%] gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[72%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-4 md:overflow-visible md:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden"
                 >
                   {sportProducts.map((product, index) => (
