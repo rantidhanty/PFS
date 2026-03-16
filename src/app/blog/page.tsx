@@ -127,98 +127,119 @@ export default async function BlogPage({ searchParams }: Props) {
             {featured && (
               <Link
                 href={`/blog/${featured.slug}`}
-                className="group mb-4 flex flex-col gap-4 rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md sm:flex-row sm:items-center sm:p-6"
+                className="group mb-4 flex items-center gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm transition-all duration-200 hover:border-zinc-300 hover:shadow-md sm:gap-4 sm:rounded-3xl sm:p-6"
               >
-                {/* Label featured */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-orange-500 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-white">
+                {/* Text */}
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className="rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-white">
                       Terbaru
                     </span>
-                    <span
-                      className={`rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wide ${categoryColor[featured.category] ?? "bg-zinc-100 text-zinc-700"}`}
-                    >
+                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide ${categoryColor[featured.category] ?? "bg-zinc-100 text-zinc-700"}`}>
                       {featured.category}
                     </span>
-                    <span className="text-[11px] text-zinc-400">
-                      {featured.readingTime} menit baca
-                    </span>
+                    <span className="text-[11px] text-zinc-400">{featured.readingTime} mnt</span>
                   </div>
-                  <h2 className="mt-3 text-xl font-extrabold leading-snug tracking-tight text-zinc-900 transition group-hover:text-orange-700 sm:text-2xl">
+                  <h2 className="mt-2 line-clamp-2 text-base font-extrabold leading-snug tracking-tight text-zinc-900 transition group-hover:text-orange-700 sm:text-xl sm:line-clamp-none">
                     {featured.title}
                   </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-500 sm:text-base line-clamp-3">
+                  <p className="mt-1 hidden text-sm leading-relaxed text-zinc-500 line-clamp-2 sm:block sm:text-base sm:line-clamp-3">
                     {featured.description}
                   </p>
-                  <div className="mt-4 flex items-center gap-3">
-                    <span className="text-xs text-zinc-400">
-                      {formatDate(featured.date)}
-                    </span>
-                    <span className="text-sm font-bold text-orange-600 transition group-hover:translate-x-0.5">
-                      Baca Artikel →
-                    </span>
+                  <div className="mt-2 flex items-center gap-2">
+                    <span className="text-xs text-zinc-400">{formatDate(featured.date)}</span>
+                    <span className="text-xs font-bold text-orange-600 transition group-hover:translate-x-0.5">Baca →</span>
                   </div>
                 </div>
-
                 {/* Cover image */}
-                <div className="relative hidden shrink-0 overflow-hidden rounded-2xl bg-zinc-100 sm:block sm:h-36 sm:w-36 lg:h-44 lg:w-44">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-zinc-100 sm:h-36 sm:w-36 sm:rounded-2xl lg:h-44 lg:w-44">
                   <Image
                     src={featured.image}
                     alt={featured.title}
                     fill
-                    sizes="176px"
-                    className="object-contain p-3 transition duration-300 group-hover:scale-105"
+                    sizes="(max-width: 640px) 80px, 176px"
+                    className="object-contain p-2 sm:p-3 transition duration-300 group-hover:scale-105"
                   />
                 </div>
               </Link>
             )}
 
-            {/* ── Grid artikel ───────────────────────────────────────────── */}
+            {/* ── Artikel: compact list (mobile) / grid (desktop) ────────── */}
             {rest.length > 0 && (
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {rest.map((post) => (
-                  <Link
-                    key={post.slug}
-                    href={`/blog/${post.slug}`}
-                    className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
-                  >
-                    {/* Thumbnail */}
-                    <div className="relative mb-3 aspect-video w-full overflow-hidden rounded-xl bg-zinc-100">
-                      <Image
-                        src={post.image}
-                        alt={post.title}
-                        fill
-                        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 300px"
-                        className="object-contain p-3 transition duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span
-                        className={`rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wide ${categoryColor[post.category] ?? "bg-zinc-100 text-zinc-700"}`}
-                      >
-                        {post.category}
-                      </span>
-                      <span className="text-[11px] text-zinc-400">
-                        {post.readingTime} menit baca
-                      </span>
-                    </div>
-                    <h2 className="mt-3 flex-1 text-base font-bold leading-snug text-zinc-900 transition group-hover:text-orange-700 sm:text-lg">
-                      {post.title}
-                    </h2>
-                    <p className="mt-2 text-sm leading-relaxed text-zinc-500 line-clamp-2">
-                      {post.description}
-                    </p>
-                    <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-3">
-                      <span className="text-xs text-zinc-400">
-                        {formatDate(post.date)}
-                      </span>
-                      <span className="text-xs font-semibold text-orange-600 transition group-hover:translate-x-0.5">
-                        Baca →
-                      </span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+              <>
+                {/* Mobile: compact list */}
+                <div className="flex flex-col divide-y divide-zinc-100 rounded-2xl border border-zinc-200 bg-white shadow-sm sm:hidden">
+                  {rest.map((post) => (
+                    <Link
+                      key={post.slug}
+                      href={`/blog/${post.slug}`}
+                      className="group flex items-center gap-3 px-4 py-3.5 transition hover:bg-zinc-50"
+                    >
+                      <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-zinc-100">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          sizes="56px"
+                          className="object-contain p-1.5"
+                        />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5">
+                          <span className={`rounded-full px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wide ${categoryColor[post.category] ?? "bg-zinc-100 text-zinc-700"}`}>
+                            {post.category}
+                          </span>
+                          <span className="text-[10px] text-zinc-400">{post.readingTime} mnt</span>
+                        </div>
+                        <p className="mt-1 line-clamp-2 text-sm font-semibold leading-snug text-zinc-900 transition group-hover:text-orange-700">
+                          {post.title}
+                        </p>
+                        <p className="mt-0.5 text-[11px] text-zinc-400">{formatDate(post.date)}</p>
+                      </div>
+                      <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0 text-zinc-300" aria-hidden="true">
+                        <path d="M8 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Desktop: grid */}
+                <div className="hidden gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
+                  {rest.map((post) => (
+                    <Link
+                      key={post.slug}
+                      href={`/blog/${post.slug}`}
+                      className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
+                    >
+                      <div className="relative mb-3 aspect-video w-full overflow-hidden rounded-xl bg-zinc-100">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          sizes="(max-width: 1024px) 45vw, 300px"
+                          className="object-contain p-3 transition duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wide ${categoryColor[post.category] ?? "bg-zinc-100 text-zinc-700"}`}>
+                          {post.category}
+                        </span>
+                        <span className="text-[11px] text-zinc-400">{post.readingTime} menit baca</span>
+                      </div>
+                      <h2 className="mt-3 flex-1 text-base font-bold leading-snug text-zinc-900 transition group-hover:text-orange-700 sm:text-lg">
+                        {post.title}
+                      </h2>
+                      <p className="mt-2 text-sm leading-relaxed text-zinc-500 line-clamp-2">
+                        {post.description}
+                      </p>
+                      <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-3">
+                        <span className="text-xs text-zinc-400">{formatDate(post.date)}</span>
+                        <span className="text-xs font-semibold text-orange-600 transition group-hover:translate-x-0.5">Baca →</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </>
             )}
 
             {/* ── Pagination ─────────────────────────────────────────────── */}

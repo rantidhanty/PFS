@@ -4,7 +4,10 @@ import createMDX from "@next/mdx";
 const withMDX = createMDX({
   options: {
     remarkPlugins: [["remark-gfm"]],
-    rehypePlugins: [["rehype-slug"], ["rehype-autolink-headings", { behavior: "wrap" }]],
+    rehypePlugins: [
+      ["rehype-slug"],
+      ["rehype-autolink-headings", { behavior: "wrap" }],
+    ],
   },
 });
 
@@ -24,13 +27,19 @@ const nextConfig: NextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(self)" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(self)",
+          },
         ],
       },
       {
         source: "/images/(.*)",
         headers: [
-          { key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=2592000, stale-while-revalidate=86400",
+          },
         ],
       },
     ];
