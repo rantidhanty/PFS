@@ -70,7 +70,8 @@ export const products: Product[] = [
         "Seluruh komponen menggunakan material besi pilihan dengan proses fabrikasi presisi",
         "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing: "Warna dan konfigurasi dapat disesuaikan — hubungi kami untuk penawaran.",
+      closing:
+        "Warna dan konfigurasi dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -105,7 +106,8 @@ export const products: Product[] = [
         "Proses pemasangan menyesuaikan struktur dinding di lokasi",
         "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing: "Warna, konfigurasi, dan titik pemasangan dapat disesuaikan — hubungi kami untuk penawaran.",
+      closing:
+        "Warna, konfigurasi, dan titik pemasangan dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -138,7 +140,8 @@ export const products: Product[] = [
         "Proses pemasangan pondasi menyesuaikan kondisi dan layout lapangan di lokasi",
         "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing: "Tersedia survei lokasi sebelum instalasi — hubungi kami untuk penawaran.",
+      closing:
+        "Tersedia survei lokasi sebelum instalasi — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -173,7 +176,8 @@ export const products: Product[] = [
         "Seluruh komponen dirancang untuk perawatan mudah dan umur pakai yang panjang",
         "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing: "Konfigurasi dan warna dapat disesuaikan — hubungi kami untuk penawaran.",
+      closing:
+        "Konfigurasi dan warna dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -204,7 +208,8 @@ export const products: Product[] = [
         "Proses pemasangan mengikuti kondisi lokasi dan layout lapangan yang ada",
         "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing: "Tersedia survei lokasi sebelum instalasi — hubungi kami untuk penawaran.",
+      closing:
+        "Tersedia survei lokasi sebelum instalasi — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -240,7 +245,8 @@ export const products: Product[] = [
         "Konfigurasi dan ukuran dapat disesuaikan dengan kondisi lapangan",
         "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing: "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
+      closing:
+        "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -278,7 +284,8 @@ export const products: Product[] = [
         "Dapat disesuaikan untuk kebutuhan sekolah, klub, atau fasilitas olahraga",
         "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing: "Warna dan konfigurasi dapat disesuaikan — hubungi kami untuk penawaran.",
+      closing:
+        "Warna dan konfigurasi dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -316,7 +323,8 @@ export const products: Product[] = [
         "Dapat dikustom sesuai konsep dan layout lapangan padel Anda",
         "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing: "Konsultasikan konsep lapangan Anda — kami siap berikan penawaran terbaik.",
+      closing:
+        "Konsultasikan konsep lapangan Anda — kami siap berikan penawaran terbaik.",
     },
   },
   {
@@ -349,7 +357,8 @@ export const products: Product[] = [
         "Konstruksi dirancang untuk penggunaan intensif jangka panjang",
         "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing: "Konsultasikan kebutuhan lapangan tenis Anda — kami siap berikan penawaran terbaik.",
+      closing:
+        "Konsultasikan kebutuhan lapangan tenis Anda — kami siap berikan penawaran terbaik.",
     },
   },
   {
@@ -382,7 +391,8 @@ export const products: Product[] = [
         "Seluruh komponen dirancang untuk keawetan jangka panjang dengan perawatan minimal",
         "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing: "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
+      closing:
+        "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
   {
@@ -415,7 +425,8 @@ export const products: Product[] = [
         "Dirancang untuk keawetan dan kemudahan perawatan dalam penggunaan rutin",
         "Spesifikasi teknis lengkap tersedia saat konsultasi",
       ],
-      closing: "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
+      closing:
+        "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
 ];
