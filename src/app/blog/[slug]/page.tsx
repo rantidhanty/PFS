@@ -5,7 +5,8 @@ import Image from "next/image";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { blogPosts, getBlogPost, formatDate } from "@/lib/blog";
-import { siteConfig, waUrl } from "@/config/site";
+import { siteConfig } from "@/config/site";
+import { waUrl } from "@/lib/wa";
 
 type Props = { params: Promise<{ slug: string }> };
 

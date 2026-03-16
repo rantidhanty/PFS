@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { products } from "@/data/products";
 import { stats } from "@/data/testimonials";
-import { waUrl } from "@/config/site";
+import { waUrl } from "@/lib/wa";
 import type { SportCategory } from "@/data/products";
 
 type MarqueeCat = {

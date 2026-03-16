@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { siteConfig, waUrl } from "@/config/site";
+import { siteConfig } from "@/config/site";
+import { waUrl } from "@/lib/wa";
 
 export const metadata: Metadata = {
   title: "Tentang Kami",

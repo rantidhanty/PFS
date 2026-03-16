@@ -4,7 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { waUrl } from "@/config/site";
+import { waUrl } from "@/lib/wa";
+import { useSearch } from "@/context/search-context";
 
 const PLACEHOLDERS = [
   "Cari apa yang kamu butuhkan...",
@@ -26,6 +27,7 @@ const navLinks = [
 export function SiteNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const { openSearch } = useSearch();
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const [placeholderVisible, setPlaceholderVisible] = useState(true);
 
@@ -129,7 +131,7 @@ export function SiteNavbar() {
         <div className="mx-auto flex w-full max-w-6xl items-center px-4 py-2 sm:px-6">
           <button
             type="button"
-            onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
+            onClick={openSearch}
             aria-label="Cari produk, artikel, halaman..."
             className="flex w-full items-center gap-2.5 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-left text-sm transition hover:border-zinc-300 hover:bg-white"
           >

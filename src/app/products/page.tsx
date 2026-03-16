@@ -7,7 +7,7 @@ import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { products, sportLabels } from "@/data/products";
 import type { SportCategory } from "@/data/products";
-import { waUrl } from "@/config/site";
+import { waUrl } from "@/lib/wa";
 
 const PRODUCTS_PER_PAGE = 9;
 

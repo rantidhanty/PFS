@@ -7,7 +7,8 @@ import { WaButton } from "@/components/ui/wa-button";
 import { ProductGallery } from "@/components/ui/product-gallery";
 import { ProductRelated } from "@/components/ui/product-related";
 import { products, sportLabels } from "@/data/products";
-import { siteConfig, waUrl } from "@/config/site";
+import { siteConfig } from "@/config/site";
+import { waUrl } from "@/lib/wa";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));

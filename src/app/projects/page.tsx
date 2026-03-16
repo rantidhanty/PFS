@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { projectCards, supportingProjects } from "@/data/projects";
-import { waUrl } from "@/config/site";
+import { waUrl } from "@/lib/wa";
 
 export const metadata: Metadata = {
   title: "Project",

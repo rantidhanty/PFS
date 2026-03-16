@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
-import { waUrl } from "@/config/site";
+import { waUrl } from "@/lib/wa";
 
 const faqs = [
   {

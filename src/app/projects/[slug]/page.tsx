@@ -6,7 +6,7 @@ import { SiteNavbar } from "@/components/layout/site-navbar";
 import { WaButton } from "@/components/ui/wa-button";
 import { ProjectMediaCarousel } from "@/components/ui/project-media-carousel";
 import { projectCards, supportingProjects } from "@/data/projects";
-import { waUrl } from "@/config/site";
+import { waUrl } from "@/lib/wa";
 
 export function generateStaticParams() {
   return projectCards.map((p) => ({ slug: p.slug }));

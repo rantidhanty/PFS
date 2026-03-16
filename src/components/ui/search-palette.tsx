@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { search, typeColor, typeLabel } from "@/lib/search";
 import type { SearchItem } from "@/lib/search";
+import { useSearch } from "@/context/search-context";
 
 const PLACEHOLDERS = [
   "Cari apa yang kamu butuhkan...",
@@ -15,7 +16,7 @@ const PLACEHOLDERS = [
 ];
 
 export function SearchPalette() {
-  const [open, setOpen] = useState(false);
+  const { isOpen: open, openSearch, closeSearch } = useSearch();
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
@@ -39,10 +40,10 @@ export function SearchPalette() {
   const results = search(query);
 
   const close = useCallback(() => {
-    setOpen(false);
+    closeSearch();
     setQuery("");
     setActiveIndex(0);
-  }, []);
+  }, [closeSearch]);
 
   const navigate = useCallback(
     (item: SearchItem) => {
@@ -52,28 +53,26 @@ export function SearchPalette() {
     [router, close],
   );
 
-  // Open via custom event (dispatched from navbar) or Ctrl+K
+  // Focus input ketika search terbuka
   useEffect(() => {
-    const onOpen = () => {
-      setOpen(true);
-      setTimeout(() => inputRef.current?.focus(), 50);
-    };
+    if (open) {
+      const timeout = setTimeout(() => inputRef.current?.focus(), 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [open]);
 
+  // Ctrl+K untuk buka, Escape untuk tutup
+  useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === "k") {
         e.preventDefault();
-        onOpen();
+        openSearch();
       }
       if (e.key === "Escape") close();
     };
-
-    window.addEventListener("open-search", onOpen);
     window.addEventListener("keydown", onKeyDown);
-    return () => {
-      window.removeEventListener("open-search", onOpen);
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [close]);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [close, openSearch]);
 
   // Arrow key + Enter navigation
   const onKeyDown = (e: React.KeyboardEvent) => {

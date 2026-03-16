@@ -6,6 +6,8 @@ import { WaFloat } from "@/components/ui/wa-float";
 import { WaAdminSheet } from "@/components/ui/wa-admin-sheet";
 import { SearchPalette } from "@/components/ui/search-palette";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
+import { ErrorBoundary } from "@/components/ui/error-boundary";
+import { SearchProvider } from "@/context/search-context";
 import { siteConfig } from "@/config/site";
 
 const geistSans = Geist({
@@ -191,11 +193,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-        <WaFloat />
-        <WaAdminSheet />
-        <SearchPalette />
-        <ScrollToTop />
+        <SearchProvider>
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
+          <WaFloat />
+          <WaAdminSheet />
+          <SearchPalette />
+          <ScrollToTop />
+        </SearchProvider>
 
         {/* ── Google Analytics 4 ─────────────────────────────────────────── */}
         {ga4Id && (

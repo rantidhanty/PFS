@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { waUrl } from "@/config/site";
+import { waUrl } from "@/lib/wa";
 
 export default function NotFound() {
   return (

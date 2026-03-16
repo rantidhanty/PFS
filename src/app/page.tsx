@@ -5,7 +5,7 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { FeaturedCarousel } from "@/components/sections/featured-carousel";
 import { AutoScrollInit } from "@/components/ui/auto-scroll-init";
-import { waUrl } from "@/config/site";
+import { waUrl } from "@/lib/wa";
 
 export default function Home() {
   return (
