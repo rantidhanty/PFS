@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { WaFloat } from "@/components/ui/wa-float";
 import { WaAdminSheet } from "@/components/ui/wa-admin-sheet";
+import { SearchPalette } from "@/components/ui/search-palette";
 import { siteConfig } from "@/config/site";
 
 const geistSans = Geist({
@@ -192,6 +193,7 @@ export default function RootLayout({
         {children}
         <WaFloat />
         <WaAdminSheet />
+        <SearchPalette />
 
         {/* ── Google Analytics 4 ─────────────────────────────────────────── */}
         {ga4Id && (
