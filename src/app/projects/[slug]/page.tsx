@@ -1,46 +1,69 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteNavbar } from "@/components/layout/site-navbar";
+import { WaButton } from "@/components/ui/wa-button";
 import { ProjectMediaCarousel } from "@/components/ui/project-media-carousel";
-import { featuredProject, supportingProjects } from "@/data/projects";
+import { projectCards, supportingProjects } from "@/data/projects";
+import { waUrl } from "@/config/site";
 
-export const metadata: Metadata = {
-  title: "Project Ring Basket SMAN 37 Jakarta",
-  description:
-    "Dokumentasi nyata proyek pemasangan ring basket dan fasilitas olahraga di SMAN 37 Jakarta oleh ProFabric Steel. Hasil rapi, kokoh, dan siap digunakan.",
-  alternates: { canonical: "/projects/sman-37-jakarta" },
-  openGraph: {
-    title: "Project Ring Basket SMAN 37 Jakarta | ProFabric Steel",
-    description:
-      "Dokumentasi nyata proyek pemasangan ring basket dan fasilitas olahraga di SMAN 37 Jakarta oleh ProFabric Steel.",
-    images: [
-      {
-        url: "/images/Projects/SMAN%2037%20Jakarta/01.jpg",
-        alt: "Hasil pemasangan ring basket SMAN 37 Jakarta oleh ProFabric Steel",
-      },
-    ],
-  },
-};
+export function generateStaticParams() {
+  return projectCards.map((p) => ({ slug: p.slug }));
+}
 
-export default function ProjectDetailPage() {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projectCards.find((p) => p.slug === slug);
+  if (!project) return {};
+
+  return {
+    title: `Project ${project.name}`,
+    description: project.summary,
+    alternates: { canonical: `/projects/${project.slug}` },
+    openGraph: {
+      title: `Project ${project.name} | ProFabric Steel`,
+      description: project.summary,
+      images: project.images[0]
+        ? [
+            {
+              url: encodeURI(project.images[0]),
+              alt: `Hasil pengerjaan ${project.name} oleh ProFabric Steel`,
+            },
+          ]
+        : [],
+    },
+  };
+}
+
+export default async function ProjectDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const project = projectCards.find((p) => p.slug === slug);
+  if (!project) notFound();
+
+  const consultWaUrl = waUrl(
+    `Halo admin PFS, saya mau konsultasi project seperti ${project.name}`,
+  );
+
   const galleryItems = [
-    {
+    ...project.videos.map((src, i) => ({
       type: "video" as const,
-      src: featuredProject.videos[0],
-      poster: featuredProject.images[0],
-      alt: `${featuredProject.name} video 1`,
-    },
-    {
-      type: "video" as const,
-      src: featuredProject.videos[1],
-      poster: featuredProject.images[1],
-      alt: `${featuredProject.name} video 2`,
-    },
-    ...featuredProject.images.map((imageSrc, index) => ({
+      src,
+      poster: project.images[i] ?? project.images[0],
+      alt: `${project.name} video ${i + 1}`,
+    })),
+    ...project.images.map((src, i) => ({
       type: "image" as const,
-      src: imageSrc,
-      alt: `${featuredProject.name} ${index + 1}`,
+      src,
+      alt: `${project.name} ${i + 1}`,
     })),
   ];
 
@@ -58,10 +81,10 @@ export default function ProjectDetailPage() {
 
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <span className="rounded-full bg-sky-100 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.16em] text-sky-800">
-              {featuredProject.tag}
+              {project.tag}
             </span>
             <span className="rounded-full bg-orange-100 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.16em] text-orange-800">
-              {featuredProject.location}
+              {project.location}
             </span>
             <span className="rounded-full bg-zinc-100 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.16em] text-zinc-700">
               Dokumentasi Project
@@ -69,10 +92,10 @@ export default function ProjectDetailPage() {
           </div>
 
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl">
-            {featuredProject.name}
+            {project.name}
           </h1>
           <p className="mt-4 text-justify text-sm leading-relaxed text-zinc-700 sm:text-lg">
-            {featuredProject.overview}
+            {project.overview}
           </p>
         </section>
 
@@ -97,11 +120,11 @@ export default function ProjectDetailPage() {
               Nilai utama yang langsung terlihat dari hasil pengerjaan
             </h2>
             <p className="mt-3 text-justify text-sm leading-relaxed text-zinc-700 sm:text-base">
-              {featuredProject.summary}
+              {project.summary}
             </p>
 
             <div className="mt-5 grid gap-3">
-              {featuredProject.scope.map((item) => (
+              {project.scope.map((item) => (
                 <div
                   key={item}
                   className="flex items-start gap-3 rounded-2xl border border-emerald-200 bg-gradient-to-r from-emerald-50 to-white px-4 py-3"
@@ -127,23 +150,23 @@ export default function ProjectDetailPage() {
               Project lain yang pernah ditangani
             </h2>
             <div className="mt-5 flex flex-wrap gap-2">
-              {supportingProjects.map((project) => (
+              {supportingProjects.map((p) => (
                 <div
-                  key={project.name}
+                  key={p.name}
                   className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-2 text-xs font-semibold text-zinc-800"
                 >
                   <span
                     className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide ${
-                      project.tag === "Pendidikan"
+                      p.tag === "Pendidikan"
                         ? "bg-sky-100 text-sky-800"
-                        : project.tag === "Komersial"
+                        : p.tag === "Komersial"
                           ? "bg-emerald-100 text-emerald-800"
                           : "bg-amber-100 text-amber-800"
                     }`}
                   >
-                    {project.tag}
+                    {p.tag}
                   </span>
-                  <span>{project.name}</span>
+                  <span>{p.name}</span>
                 </div>
               ))}
             </div>
@@ -153,14 +176,14 @@ export default function ProjectDetailPage() {
                 Ingin project seperti ini untuk sekolah, venue, atau fasilitas
                 Anda?
               </p>
-              <a
-                href="https://wa.me/6289673404972?text=Halo%20admin%20PFS%2C%20saya%20mau%20konsultasi%20project"
-                target="_blank"
-                rel="noopener noreferrer"
+              <WaButton
+                href={consultWaUrl}
+                productName={project.name}
+                variant="dark"
                 className="mt-3 inline-flex rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-zinc-800"
               >
                 Hubungi Admin PFS
-              </a>
+              </WaButton>
             </div>
           </div>
         </section>

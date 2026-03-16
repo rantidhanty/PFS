@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { WaFloat } from "@/components/ui/wa-float";
+import { siteConfig } from "@/config/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,13 +15,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Ganti dengan domain asli setelah deploy (contoh: https://www.profabricsteel.com)
-const siteUrl = "https://www.profabricsteel.com";
+// ID analytics dibaca dari environment variable (.env.local)
+// Lihat .env.example untuk cara mendapatkan ID yang benar
+const ga4Id = process.env.NEXT_PUBLIC_GA4_ID ?? "";
+const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "";
 
 export const metadata: Metadata = {
   title: {
-    default: "ProFabric Steel - Peralatan Olahraga & Fabrikasi Besi Bekasi",
-    template: "%s | ProFabric Steel",
+    default: `${siteConfig.name} - ${siteConfig.tagline}`,
+    template: `%s | ${siteConfig.name}`,
   },
   description:
     "Jual ring basket FIBA, tiang voli FIVB, gawang futsal FIFA, tiang badminton BWF, tiang tenis ITF di Bekasi. Fabrikasi besi profesional: tralis, railing, grill. Hubungi via WhatsApp!",
@@ -37,17 +41,17 @@ export const metadata: Metadata = {
     "tralis besi",
     "railing besi",
   ],
-  authors: [{ name: "ProFabric Steel" }],
-  creator: "ProFabric Steel",
-  publisher: "ProFabric Steel",
-  metadataBase: new URL(siteUrl),
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  metadataBase: new URL(siteConfig.url),
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: siteUrl,
-    siteName: "ProFabric Steel",
-    title: "ProFabric Steel - Peralatan Olahraga & Fabrikasi Besi Bekasi",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} - ${siteConfig.tagline}`,
     description:
       "Jual ring basket FIBA, tiang voli, gawang futsal, tiang badminton di Bekasi. Fabrikasi besi profesional untuk proyek sekolah, venue olahraga, dan rumah.",
     images: [
@@ -55,13 +59,13 @@ export const metadata: Metadata = {
         url: "/images/posters/poster%20PFS.jpg",
         width: 1536,
         height: 1024,
-        alt: "ProFabric Steel - Peralatan Olahraga Standar Kompetisi Bekasi",
+        alt: `${siteConfig.name} - Peralatan Olahraga Standar Kompetisi Bekasi`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ProFabric Steel - Peralatan Olahraga & Fabrikasi Besi Bekasi",
+    title: `${siteConfig.name} - ${siteConfig.tagline}`,
     description:
       "Jual ring basket FIBA, tiang voli, gawang futsal, tiang badminton di Bekasi. Hubungi via WhatsApp!",
     images: ["/images/posters/poster%20PFS.jpg"],
@@ -76,37 +80,30 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "ProFabric Steel",
-  alternateName: "PFS",
+  name: siteConfig.name,
+  alternateName: siteConfig.shortName,
   description:
     "Spesialis fabrikasi besi dan penjualan peralatan olahraga standar kompetisi di Bekasi, Jawa Barat.",
-  url: siteUrl,
-  telephone: "+6289673404972",
+  url: siteConfig.url,
+  telephone: siteConfig.phone.schema,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Jl. Mawar Raya No.1, Sukamanah",
-    addressLocality: "Sukatani, Kabupaten Bekasi",
-    addressRegion: "Jawa Barat",
-    postalCode: "17630",
-    addressCountry: "ID",
+    streetAddress: siteConfig.address.street,
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.province,
+    postalCode: siteConfig.address.postalCode,
+    addressCountry: siteConfig.address.country,
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: -6.19733893595498,
-    longitude: 107.1709019592964,
+    latitude: siteConfig.geo.latitude,
+    longitude: siteConfig.geo.longitude,
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ],
-    opens: "08:00",
-    closes: "17:00",
+    dayOfWeek: siteConfig.openingHours.days,
+    opens: siteConfig.openingHours.open,
+    closes: siteConfig.openingHours.close,
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -142,7 +139,7 @@ const jsonLd = {
       },
     ],
   },
-  sameAs: ["https://wa.me/6289673404972"],
+  sameAs: [`https://wa.me/${siteConfig.phone.wa}`],
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5",
@@ -193,6 +190,54 @@ export default function RootLayout({
       >
         {children}
         <WaFloat />
+
+        {/* ── Google Analytics 4 ─────────────────────────────────────────── */}
+        {ga4Id && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${ga4Id}', { send_page_view: true });
+              `}
+            </Script>
+          </>
+        )}
+
+        {/* ── Meta Pixel (Facebook / Instagram Ads) ──────────────────────── */}
+        {metaPixelId && (
+          <>
+            <Script id="meta-pixel" strategy="afterInteractive">
+              {`
+                !function(f,b,e,v,n,t,s){
+                  if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                  n.queue=[];t=b.createElement(e);t.async=!0;
+                  t.src=v;s=b.getElementsByTagName(e)[0];
+                  s.parentNode.insertBefore(t,s)
+                }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '${metaPixelId}');
+                fbq('track', 'PageView');
+              `}
+            </Script>
+            <noscript>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                height="1"
+                width="1"
+                style={{ display: "none" }}
+                src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`}
+                alt=""
+              />
+            </noscript>
+          </>
+        )}
       </body>
     </html>
   );

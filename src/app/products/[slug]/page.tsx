@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { WaButton } from "@/components/ui/wa-button";
 import { products, sportLabels } from "@/data/products";
-
-const siteUrl = "https://www.profabricsteel.com";
+import { siteConfig, waUrl } from "@/config/site";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -51,10 +51,9 @@ export default async function ProductPage({
   const product = products.find((p) => p.slug === slug);
   if (!product) notFound();
 
-  const waMessage = encodeURIComponent(
+  const productWaUrl = waUrl(
     `Halo admin PFS, saya mau konsultasi tentang ${product.name}`,
   );
-  const waUrl = `https://wa.me/6289673404972?text=${waMessage}`;
 
   const otherProducts = products.filter((p) => p.slug !== product.slug).slice(0, 4);
 
@@ -65,15 +64,63 @@ export default async function ProductPage({
     description:
       product.description?.intro ??
       `${product.name} standar ${product.standards.join("/")} oleh ProFabric Steel.`,
-    image: product.images.gallery.map((img) => `${siteUrl}${img}`),
+    image: product.images.gallery.map((img) => `${siteConfig.url}${img}`),
     brand: { "@type": "Brand", name: "ProFabric Steel" },
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/InStock",
       priceCurrency: "IDR",
       seller: { "@type": "Organization", name: "ProFabric Steel" },
-      url: `${siteUrl}/products/${product.slug}`,
+      url: `${siteConfig.url}/products/${product.slug}`,
     },
+  };
+
+  // FAQ Schema — meningkatkan CTR di Google dengan expanded FAQ di hasil pencarian
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `Apakah ${product.name} sudah memenuhi standar ${product.standards.join("/")}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Ya, ${product.name} dirancang dan diproduksi sesuai standar ${product.standards.join("/")} yang berlaku secara internasional, cocok untuk kebutuhan sekolah, klub, hingga venue kompetisi.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Apakah ${product.name} bisa dikirim ke luar Bekasi?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Ya, kami melayani pengiriman ke seluruh wilayah Indonesia. Estimasi pengiriman 2–7 hari kerja tergantung lokasi. Hubungi admin ProFabric Steel via WhatsApp di +6289673404972 untuk info ongkir dan jadwal pengiriman.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Apakah ukuran ${product.name} bisa dikustom?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Ya, kami menerima custom ukuran sesuai kebutuhan venue atau lapangan Anda. Tim fabrikasi kami siap menyesuaikan spesifikasi teknis. Konsultasikan kebutuhan Anda via WhatsApp untuk penawaran custom.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Bagaimana cara memesan ${product.name}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Cukup hubungi admin PFS via WhatsApp di nomor +6289673404972. Tim kami akan membantu proses konsultasi, kalkulasi biaya, hingga pengiriman dan pemasangan di lokasi Anda.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Berapa garansi untuk ${product.name}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Garansi dan ketentuan purna jual tersedia — hubungi admin ProFabric Steel via WhatsApp untuk informasi lengkap mengenai garansi produk dan layanan after-sales.`,
+        },
+      },
+    ],
   };
 
   const breadcrumbLd = {
@@ -84,19 +131,19 @@ export default async function ProductPage({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: siteUrl,
+        item: siteConfig.url,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Produk",
-        item: `${siteUrl}/#produk`,
+        item: `${siteConfig.url}/#produk`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: product.name,
-        item: `${siteUrl}/products/${product.slug}`,
+        item: `${siteConfig.url}/products/${product.slug}`,
       },
     ],
   };
@@ -110,6 +157,10 @@ export default async function ProductPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
       <SiteNavbar />
       <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
@@ -195,18 +246,12 @@ export default async function ProductPage({
 
               {/* CTA */}
               <div className="mt-5 flex flex-wrap gap-3">
-                <a
-                  href={waUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-[#20b558]"
-                  aria-label={`Konsultasi ${product.name} via WhatsApp`}
-                >
+                <WaButton href={productWaUrl} productName={product.name} variant="primary">
                   <svg viewBox="0 0 24 24" fill="white" aria-hidden="true" className="h-4 w-4">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                   </svg>
                   Konsultasi via WhatsApp
-                </a>
+                </WaButton>
                 <Link
                   href="/#produk"
                   className="inline-flex items-center rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-700 transition hover:border-zinc-400"
@@ -303,14 +348,14 @@ export default async function ProductPage({
             <p className="text-sm font-semibold text-zinc-900 sm:text-base">
               Butuh spesifikasi khusus atau ingin konsultasi dulu?
             </p>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <WaButton
+              href={productWaUrl}
+              productName={product.name}
+              variant="dark"
               className="mt-3 inline-flex rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-zinc-800"
             >
               Hubungi Admin PFS
-            </a>
+            </WaButton>
           </div>
         </section>
       </main>

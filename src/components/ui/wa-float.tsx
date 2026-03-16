@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 export function WaFloat() {
   return (
@@ -8,6 +11,7 @@ export function WaFloat() {
       rel="noopener noreferrer"
       aria-label="Konsultasi via WhatsApp"
       className="group fixed bottom-5 right-5 z-50 flex items-center gap-2.5 sm:bottom-6 sm:right-6"
+      onClick={() => trackWhatsAppClick("General", "float_button")}
     >
       {/* Label tooltip — muncul saat hover */}
       <span className="pointer-events-none invisible max-w-0 overflow-hidden whitespace-nowrap rounded-full bg-zinc-900 px-3 py-1.5 text-xs font-semibold text-white opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:max-w-xs group-hover:opacity-100">

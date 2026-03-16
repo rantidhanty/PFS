@@ -1,29 +1,31 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/data/products";
-
-const siteUrl = "https://www.profabricsteel.com";
+import { projectCards } from "@/data/projects";
+import { siteConfig } from "@/config/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const productUrls: MetadataRoute.Sitemap = products.map((product) => ({
-    url: `${siteUrl}/products/${product.slug}`,
+    url: `${siteConfig.url}/products/${product.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
+  const projectUrls: MetadataRoute.Sitemap = projectCards.map((project) => ({
+    url: `${siteConfig.url}/projects/${project.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   return [
     {
-      url: siteUrl,
+      url: siteConfig.url,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
     },
-    {
-      url: `${siteUrl}/projects/sman-37-jakarta`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    ...projectUrls,
     ...productUrls,
   ];
 }
