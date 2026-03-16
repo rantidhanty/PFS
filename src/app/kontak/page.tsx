@@ -36,9 +36,13 @@ export default function KontakPage() {
               <p className="text-sm font-semibold uppercase tracking-wide text-emerald-800">
                 WhatsApp
               </p>
-              <p className="mt-1 text-2xl font-extrabold tracking-tight text-zinc-900">
+              <a
+                href={`tel:${siteConfig.phone.schema}`}
+                className="mt-1 inline-block text-2xl font-extrabold tracking-tight text-zinc-900 hover:text-emerald-700"
+              >
                 {siteConfig.phone.display}
-              </p>
+              </a>
+              <p className="mt-1 text-xs text-zinc-400">Tap untuk menelepon</p>
               <p className="mt-1 text-sm text-zinc-600">
                 Respon cepat, hari kerja Senin–Sabtu
               </p>

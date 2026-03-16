@@ -127,12 +127,6 @@ export default function TentangPage() {
             <br />
             {siteConfig.address.province} {siteConfig.address.postalCode}
             <br />
-            <a
-              href={`tel:${siteConfig.phone.schema}`}
-              className="mt-1 inline-block font-semibold text-orange-700 hover:underline"
-            >
-              {siteConfig.phone.display}
-            </a>
           </address>
           <p className="mt-2 text-sm text-zinc-500">
             Jam operasional: {siteConfig.openingHours.open} –{" "}
