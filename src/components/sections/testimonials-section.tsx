@@ -5,6 +5,86 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { stats, testimonials, clientBadges } from "@/data/testimonials";
 import { CountUp } from "@/components/ui/count-up";
 
+function ClientMarquee() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const s = useRef({ offset: 0, dragging: false, paused: false, startX: 0, startOffset: 0 });
+  const rafRef = useRef(0);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const SPEED = 35;
+    let lastTs = 0;
+
+    const tick = (ts: number) => {
+      if (!lastTs) lastTs = ts;
+      const delta = ts - lastTs;
+      lastTs = ts;
+
+      if (!s.current.paused && !s.current.dragging) {
+        s.current.offset -= (SPEED * delta) / 1000;
+      }
+
+      const half = track.scrollWidth / 2;
+      if (half > 0) {
+        s.current.offset = s.current.offset % half;
+        if (s.current.offset > 0) s.current.offset -= half;
+      }
+
+      track.style.transform = `translateX(${s.current.offset}px)`;
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    clearTimeout(timerRef.current);
+    s.current.paused = true;
+    s.current.dragging = true;
+    s.current.startX = e.touches[0].clientX;
+    s.current.startOffset = s.current.offset;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (!s.current.dragging) return;
+    s.current.offset = s.current.startOffset + (e.touches[0].clientX - s.current.startX);
+  };
+
+  const onTouchEnd = () => {
+    s.current.dragging = false;
+    timerRef.current = setTimeout(() => { s.current.paused = false; }, 1500);
+  };
+
+  return (
+    <div
+      className="overflow-hidden"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      onTouchCancel={onTouchEnd}
+    >
+      <div
+        ref={trackRef}
+        className="flex gap-2 will-change-transform"
+        style={{ width: "max-content" }}
+      >
+        {[...clientBadges, ...clientBadges].map((client, i) => (
+          <span
+            key={`${client.name}-${i}`}
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-700"
+          >
+            <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${dotColor[client.tag]}`} />
+            {client.name}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const tagColor: Record<string, string> = {
   Pendidikan: "bg-sky-100 text-sky-800 border-sky-200",
   Komersial: "bg-emerald-100 text-emerald-800 border-emerald-200",
@@ -227,17 +307,7 @@ export function TestimonialsSection() {
           <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-400">
             Klien yang telah kami layani
           </p>
-          <div className="flex flex-wrap gap-2">
-            {clientBadges.map((client) => (
-              <span
-                key={client.name}
-                className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-700"
-              >
-                <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${dotColor[client.tag]}`} />
-                {client.name}
-              </span>
-            ))}
-          </div>
+          <ClientMarquee />
         </div>
       </motion.div>
     </section>
