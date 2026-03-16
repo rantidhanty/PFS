@@ -241,7 +241,7 @@ export default async function ProductPage({
                   Konsultasi via WhatsApp
                 </WaButton>
                 <Link
-                  href="/#produk"
+                  href="/products"
                   className="inline-flex items-center rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-700 transition hover:border-zinc-400"
                 >
                   Lihat Produk Lain
