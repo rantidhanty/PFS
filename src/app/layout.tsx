@@ -5,6 +5,7 @@ import "./globals.css";
 import { WaFloat } from "@/components/ui/wa-float";
 import { WaAdminSheet } from "@/components/ui/wa-admin-sheet";
 import { SearchPalette } from "@/components/ui/search-palette";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { siteConfig } from "@/config/site";
 
 const geistSans = Geist({
@@ -194,6 +195,7 @@ export default function RootLayout({
         <WaFloat />
         <WaAdminSheet />
         <SearchPalette />
+        <ScrollToTop />
 
         {/* ── Google Analytics 4 ─────────────────────────────────────────── */}
         {ga4Id && (
