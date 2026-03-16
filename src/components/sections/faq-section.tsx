@@ -7,7 +7,7 @@ import { waUrl } from "@/config/site";
 const faqs = [
   {
     q: "Apakah produk ProFabric Steel memenuhi standar internasional?",
-    a: "Ya, seluruh produk kami dirancang sesuai standar internasional yang berlaku — ring basket mengikuti standar FIBA, tiang voli FIVB, gawang futsal FIFA, tiang badminton BWF, tiang tenis ITF, dan tiang padel FIP. Cocok untuk keperluan sekolah, klub, hingga venue kompetisi.",
+    a: "Ya, seluruh produk kami dirancang sesuai standar internasional yang berlaku: ring basket standar FIBA, tiang voli FIVB, gawang futsal FIFA, tiang badminton BWF, tiang tenis ITF, dan tiang padel FIP. Cocok untuk keperluan sekolah, klub, hingga venue kompetisi.",
   },
   {
     q: "Apakah bisa dikirim ke luar Bekasi?",

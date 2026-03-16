@@ -69,7 +69,7 @@ export default function ProductsPage() {
             Peralatan Olahraga Standar Kompetisi
           </h1>
           <p className="mt-1.5 text-sm leading-relaxed text-zinc-600 sm:text-base">
-            Seluruh produk sesuai standar internasional — FIBA, FIVB, FIFA, BWF, FIP, ITF. Custom ukuran tersedia.
+            Seluruh produk sesuai standar internasional: FIBA, FIVB, FIFA, BWF, FIP, ITF. Custom ukuran tersedia.
           </p>
 
           {/* Category filter tabs */}

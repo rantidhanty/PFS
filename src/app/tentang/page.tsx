@@ -19,7 +19,7 @@ const strengths = [
   },
   {
     title: "Standar Kompetisi Internasional",
-    desc: "Semua produk olahraga dirancang mengikuti standar resmi — FIBA, FIVB, FIFA, BWF, FIP, dan ITF.",
+    desc: "Semua produk olahraga dirancang mengikuti standar resmi: FIBA, FIVB, FIFA, BWF, FIP, dan ITF.",
     color: "border-orange-200 bg-orange-50",
     badge: "bg-orange-100 text-orange-800",
   },

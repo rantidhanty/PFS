@@ -127,7 +127,7 @@ export default async function BlogPostPage({ params }: Props) {
         {/* CTA */}
         <div className="mt-6 rounded-3xl border border-orange-200 bg-orange-50 p-5 sm:p-6">
           <p className="font-semibold text-zinc-900">Ada pertanyaan seputar peralatan olahraga?</p>
-          <p className="mt-1 text-sm text-zinc-600">Konsultasi gratis dengan tim ProFabric Steel — kami siap bantu pilihkan produk yang sesuai kebutuhan kamu.</p>
+          <p className="mt-1 text-sm text-zinc-600">Konsultasi gratis dengan tim ProFabric Steel, kami siap bantu pilihkan produk yang sesuai kebutuhan kamu.</p>
           <a
             href={waUrl(`Halo admin PFS, saya baca artikel "${post.title}" dan ingin konsultasi`)}
             target="_blank"
