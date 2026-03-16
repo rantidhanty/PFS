@@ -24,7 +24,7 @@ export function SiteFooter() {
             pengerjaan rapi, presisi, dan siap digunakan.
           </p>
           <p className="mt-3 text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
-            Bekasi, Jawa Barat
+            Bekasi, Jawa Barat · Sukatani, Cikarang
           </p>
           <div className="mt-3 flex flex-wrap gap-2 text-xs font-semibold text-zinc-500">
             <span className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1.5 text-sky-800">

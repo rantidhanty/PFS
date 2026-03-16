@@ -155,7 +155,7 @@ export function SearchPalette() {
                     const globalIndex = results.indexOf(item);
                     return (
                       <button
-                        key={item.href}
+                        key={item.href + item.title}
                         onClick={() => navigate(item)}
                         onMouseEnter={() => setActiveIndex(globalIndex)}
                         className={`flex w-full items-center gap-3 px-4 py-3 text-left transition-colors ${

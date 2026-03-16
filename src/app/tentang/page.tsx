@@ -51,11 +51,11 @@ export default function TentangPage() {
             ProFabric{" "}
             <span className="text-orange-600">Steel</span>
           </h1>
-          <p className="mt-3 max-w-2xl text-justify text-base leading-relaxed text-zinc-700 sm:text-lg">
+          <p className="mt-3 text-justify text-base leading-relaxed text-zinc-700 sm:text-lg">
             ProFabric Steel adalah spesialis{" "}
             <strong>fabrikasi besi profesional</strong> dan penjualan{" "}
             <strong>peralatan olahraga standar kompetisi</strong> yang
-            berbasis di Bekasi, Jawa Barat. Dipercaya berbagai instansi
+            berbasis di Bekasi, Jawa Barat (Sukatani, Cikarang). Dipercaya berbagai instansi
             pendidikan, komersial, dan pemerintahan untuk menghadirkan
             fasilitas olahraga berkualitas tinggi.
           </p>
