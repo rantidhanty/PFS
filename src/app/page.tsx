@@ -1,26 +1,13 @@
 import Link from "next/link";
-import Image from "next/image";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { HeroSection } from "@/components/sections/hero-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { FeaturedCarousel } from "@/components/sections/featured-carousel";
 import { AutoScrollInit } from "@/components/ui/auto-scroll-init";
-import { products } from "@/data/products";
 import { waUrl } from "@/config/site";
 
-// 4 produk unggulan dari kategori berbeda
-const featuredSlugs = [
-  "ring-basket-fiba-portable",
-  "ring-basket-fiba-tanam-dinding",
-  "tiang-voli-fivb-portable",
-  "tiang-badminton-bwf-standar",
-];
-
 export default function Home() {
-  const featured = featuredSlugs
-    .map((slug) => products.find((p) => p.slug === slug))
-    .filter(Boolean);
-
   return (
     <div className="min-h-screen bg-zinc-50 font-sans text-zinc-900">
       <SiteNavbar />
@@ -29,8 +16,8 @@ export default function Home() {
         <HeroSection />
 
         {/* ── Produk Unggulan ──────────────────────────────────────────── */}
-        <section className="mb-4 rounded-2xl border border-zinc-200 bg-white p-5 sm:mb-5 sm:p-6">
-          <div className="flex items-center justify-between gap-4">
+        <section className="mb-4 rounded-2xl border border-zinc-200 bg-white px-5 pb-5 pt-5 sm:mb-5 sm:px-6 sm:pb-6">
+          <div className="mb-4 flex items-center justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-orange-600">
                 Produk Unggulan
@@ -46,37 +33,7 @@ export default function Home() {
               Lihat Semua →
             </Link>
           </div>
-
-          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {featured.map((product) => {
-              if (!product) return null;
-              return (
-                <Link
-                  key={product.slug}
-                  href={`/products/${product.slug}`}
-                  className="group rounded-2xl border border-zinc-100 bg-zinc-50 p-2.5 transition hover:-translate-y-0.5 hover:border-zinc-200 hover:shadow-sm"
-                >
-                  <div className="relative aspect-square overflow-hidden rounded-xl bg-white">
-                    <Image
-                      src={product.images.thumb}
-                      alt={product.name}
-                      fill
-                      sizes="(max-width: 640px) 42vw, 200px"
-                      className="object-contain p-1.5 transition duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <p className="mt-2 line-clamp-2 text-xs font-semibold text-zinc-800 transition group-hover:text-orange-700 sm:text-sm">
-                    {product.name}
-                  </p>
-                  {product.standards[0] && (
-                    <span className="mt-1 inline-block rounded-full bg-orange-100 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-orange-800">
-                      {product.standards[0]}
-                    </span>
-                  )}
-                </Link>
-              );
-            })}
-          </div>
+          <FeaturedCarousel />
         </section>
 
         {/* ── Testimoni ────────────────────────────────────────────────── */}

@@ -2,9 +2,17 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { waUrl } from "@/config/site";
+
+const PLACEHOLDERS = [
+  "Cari apa yang kamu butuhkan...",
+  "Coba: ring basket FIBA...",
+  "Coba: pengiriman luar kota...",
+  "Coba: custom ukuran lapangan...",
+  "Coba: harga gawang futsal...",
+];
 
 const navLinks = [
   { label: "Produk", href: "/products" },
@@ -18,6 +26,19 @@ const navLinks = [
 export function SiteNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const [placeholderVisible, setPlaceholderVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPlaceholderVisible(false);
+      setTimeout(() => {
+        setPlaceholderIndex((i) => (i + 1) % PLACEHOLDERS.length);
+        setPlaceholderVisible(true);
+      }, 300);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -116,7 +137,12 @@ export function SiteNavbar() {
               <circle cx="11" cy="11" r="8" />
               <path d="m21 21-4.35-4.35" />
             </svg>
-            <span className="flex-1 text-zinc-400">Cari produk, artikel, halaman...</span>
+            <span
+              className="flex-1 text-zinc-400 transition-opacity duration-300"
+              style={{ opacity: placeholderVisible ? 1 : 0 }}
+            >
+              {PLACEHOLDERS[placeholderIndex]}
+            </span>
             <kbd className="hidden rounded border border-zinc-200 bg-white px-1.5 py-0.5 text-[10px] font-medium text-zinc-400 sm:block">
               Ctrl K
             </kbd>

@@ -6,12 +6,35 @@ import { AnimatePresence, motion } from "framer-motion";
 import { search, typeColor, typeLabel } from "@/lib/search";
 import type { SearchItem } from "@/lib/search";
 
+const PLACEHOLDERS = [
+  "Cari apa yang kamu butuhkan...",
+  "Coba: ring basket FIBA...",
+  "Coba: pengiriman luar kota...",
+  "Coba: custom ukuran lapangan...",
+  "Coba: harga gawang futsal...",
+];
+
 export function SearchPalette() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const [placeholderVisible, setPlaceholderVisible] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
+
+  // Rotating placeholder — fade out → swap → fade in every 3s
+  useEffect(() => {
+    if (!open || query) return;
+    const interval = setInterval(() => {
+      setPlaceholderVisible(false);
+      setTimeout(() => {
+        setPlaceholderIndex((i) => (i + 1) % PLACEHOLDERS.length);
+        setPlaceholderVisible(true);
+      }, 300);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [open, query]);
 
   const results = search(query);
 
@@ -106,16 +129,26 @@ export function SearchPalette() {
                 <circle cx="11" cy="11" r="8" />
                 <path d="m21 21-4.35-4.35" />
               </svg>
-              <input
-                ref={inputRef}
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={onKeyDown}
-                placeholder="Cari produk, artikel, halaman..."
-                className="flex-1 bg-transparent text-sm text-zinc-900 placeholder-zinc-400 outline-none"
-                autoComplete="off"
-                spellCheck={false}
-              />
+              <div className="relative flex-1">
+                <input
+                  ref={inputRef}
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={onKeyDown}
+                  placeholder=""
+                  className="w-full bg-transparent text-sm text-zinc-900 outline-none"
+                  autoComplete="off"
+                  spellCheck={false}
+                />
+                {!query && (
+                  <span
+                    className="pointer-events-none absolute inset-y-0 left-0 flex items-center text-sm text-zinc-400 transition-opacity duration-300"
+                    style={{ opacity: placeholderVisible ? 1 : 0 }}
+                  >
+                    {PLACEHOLDERS[placeholderIndex]}
+                  </span>
+                )}
+              </div>
               {query && (
                 <button
                   onClick={() => setQuery("")}
