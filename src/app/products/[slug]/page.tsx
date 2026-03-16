@@ -106,7 +106,7 @@ export default async function ProductPage({
         name: `Apakah ${product.name} bisa dikirim ke luar Bekasi?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Ya, kami melayani pengiriman ke seluruh wilayah Indonesia. Estimasi pengiriman 2–7 hari kerja tergantung lokasi. Hubungi admin ProFabric Steel via WhatsApp di +6289673404972 untuk info ongkir dan jadwal pengiriman.`,
+          text: `Ya, kami melayani pengiriman ke seluruh wilayah Indonesia. Estimasi pengiriman 2–7 hari kerja tergantung lokasi. Hubungi admin ProFabric Steel via WhatsApp untuk info ongkir dan jadwal pengiriman.`,
         },
       },
       {
@@ -122,7 +122,7 @@ export default async function ProductPage({
         name: `Bagaimana cara memesan ${product.name}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Cukup hubungi admin PFS via WhatsApp di nomor +6289673404972. Tim kami akan membantu proses konsultasi, kalkulasi biaya, hingga pengiriman dan pemasangan di lokasi Anda.`,
+          text: `Cukup hubungi admin PFS via WhatsApp. Tim kami akan membantu proses konsultasi, kalkulasi biaya, hingga pengiriman dan pemasangan di lokasi Anda.`,
         },
       },
       {

@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "Bagaimana cara memesan atau konsultasi?",
-    a: "Cukup hubungi admin PFS via WhatsApp di nomor +62 896-7340-4972. Tim kami siap membantu mulai dari konsultasi spesifikasi, penawaran harga, proses produksi, hingga pengiriman ke lokasi Anda.",
+    a: "Cukup klik tombol WhatsApp yang tersedia. Tim kami siap membantu mulai dari konsultasi spesifikasi, penawaran harga, proses produksi, hingga pengiriman ke lokasi Anda.",
   },
   {
     q: "Berapa lama proses pengerjaan?",
