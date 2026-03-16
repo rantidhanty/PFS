@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { WaButton } from "@/components/ui/wa-button";
 import { ProductGallery } from "@/components/ui/product-gallery";
+import { ProductRelated } from "@/components/ui/product-related";
 import { products, sportLabels } from "@/data/products";
 import { siteConfig, waUrl } from "@/config/site";
 
@@ -56,7 +56,19 @@ export default async function ProductPage({
     `Halo admin PFS, saya mau konsultasi tentang ${product.name}`,
   );
 
-  const otherProducts = products.filter((p) => p.slug !== product.slug).slice(0, 4);
+  // Section 1: produk dari sport yang sama
+  const sameCategory = products.filter(
+    (p) => p.sport === product.sport && p.slug !== product.slug,
+  );
+
+  // Section 2: 1 produk representatif dari tiap sport lain
+  const crossCategory = products
+    .filter((p) => p.sport !== product.sport)
+    .reduce<typeof products>((acc, p) => {
+      if (!acc.find((x) => x.sport === p.sport)) acc.push(p);
+      return acc;
+    }, [])
+    .slice(0, 4);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -292,47 +304,25 @@ export default async function ProductPage({
           </section>
         )}
 
-        {/* Produk lainnya */}
-        <section className="mt-5 rounded-3xl border border-zinc-200 bg-white p-5 shadow-[0_18px_42px_rgba(15,23,42,0.07)]">
-          <h2 className="text-xl font-extrabold tracking-tight">
-            Produk Lainnya
-          </h2>
-          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {otherProducts.map((other) => (
-              <Link
-                key={other.slug}
-                href={`/products/${other.slug}`}
-                className="group rounded-2xl border border-zinc-200 bg-zinc-50 p-2.5 transition hover:-translate-y-0.5 hover:shadow-md"
-              >
-                <div className="relative aspect-square overflow-hidden rounded-xl bg-zinc-100">
-                  <Image
-                    src={other.images.thumb}
-                    alt={other.name}
-                    fill
-                    sizes="(max-width: 640px) 40vw, 180px"
-                    className="object-contain"
-                  />
-                </div>
-                <p className="mt-2 line-clamp-2 text-xs font-semibold text-zinc-800 transition group-hover:text-orange-700">
-                  {other.name}
-                </p>
-              </Link>
-            ))}
-          </div>
+        <ProductRelated
+          sportLabel={sportLabels[product.sport]}
+          sameCategory={sameCategory}
+          crossCategory={crossCategory}
+        />
 
-          <div className="mt-5 rounded-3xl border border-orange-200 bg-orange-50 px-4 py-4">
-            <p className="text-sm font-semibold text-zinc-900 sm:text-base">
-              Butuh spesifikasi khusus atau ingin konsultasi dulu?
-            </p>
-            <WaButton
-              href={productWaUrl}
-              productName={product.name}
-              variant="dark"
-              className="mt-3 inline-flex rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-zinc-800"
-            >
-              Hubungi Admin PFS
-            </WaButton>
-          </div>
+        {/* CTA konsultasi */}
+        <section className="mt-5 rounded-3xl border border-orange-200 bg-orange-50 p-5">
+          <p className="font-semibold text-zinc-900 sm:text-base">
+            Butuh spesifikasi khusus atau ingin konsultasi dulu?
+          </p>
+          <WaButton
+            href={productWaUrl}
+            productName={product.name}
+            variant="dark"
+            className="mt-3 inline-flex rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-zinc-800"
+          >
+            Hubungi Admin PFS
+          </WaButton>
         </section>
       </main>
       <SiteFooter />
