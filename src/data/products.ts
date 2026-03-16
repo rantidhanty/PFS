@@ -222,7 +222,7 @@ export const products: Product[] = [
     standards: ["FIFA"],
     sportTags: ["football"],
     images: {
-      thumb: "/images/products/football/goal-post-11v11/gawang/01.jpg",
+      thumb: "/images/products/football/goal-post-11v11/gawang/1.1.png",
       gallery: [
         "/images/products/football/goal-post-11v11/gawang/1.1.png",
         "/images/products/football/goal-post-11v11/gawang/2.2.png",
@@ -297,7 +297,7 @@ export const products: Product[] = [
     standards: ["FIP"],
     sportTags: ["padel"],
     images: {
-      thumb: "/images/products/padel/tiang-padel/01.jpeg",
+      thumb: "/images/products/padel/tiang-padel/1.1.png",
       gallery: [
         "/images/products/padel/tiang-padel/1.1.png",
         "/images/products/padel/tiang-padel/2.2.png",

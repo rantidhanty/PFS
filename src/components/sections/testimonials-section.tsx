@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { stats, testimonials, clientBadges } from "@/data/testimonials";
 import { CountUp } from "@/components/ui/count-up";
 
@@ -16,29 +17,69 @@ const dotColor: Record<string, string> = {
   Perbankan: "bg-amber-500",
 };
 
+const INTERVAL = 5000; // ms per slide
+
 export function TestimonialsSection() {
   const prefersReducedMotion = useReducedMotion();
+  const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 = forward, -1 = backward
+  const pausedRef = useRef(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
-  const revealUp = {
-    hidden: prefersReducedMotion
-      ? { opacity: 1, y: 0 }
-      : { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0 },
-  };
+  const goTo = useCallback(
+    (index: number, dir?: number) => {
+      setDirection(dir ?? (index > active ? 1 : -1));
+      setActive(index);
+    },
+    [active],
+  );
+
+  const next = useCallback(() => {
+    goTo((active + 1) % testimonials.length, 1);
+  }, [active, goTo]);
+
+  const prev = useCallback(() => {
+    goTo((active - 1 + testimonials.length) % testimonials.length, -1);
+  }, [active, goTo]);
+
+  // Auto-rotate
+  useEffect(() => {
+    const schedule = () => {
+      timerRef.current = setTimeout(() => {
+        if (!pausedRef.current) next();
+        schedule();
+      }, INTERVAL);
+    };
+    schedule();
+    return () => clearTimeout(timerRef.current);
+  }, [next]);
+
+  const pause = () => { pausedRef.current = true; };
+  const resume = () => { pausedRef.current = false; };
 
   const staggerWrap = {
     hidden: {},
-    show: {
-      transition: { staggerChildren: prefersReducedMotion ? 0 : 0.1 },
-    },
+    show: { transition: { staggerChildren: prefersReducedMotion ? 0 : 0.1 } },
   };
 
   const cardReveal = {
-    hidden: prefersReducedMotion
-      ? { opacity: 1, y: 0 }
-      : { opacity: 0, y: 24 },
+    hidden: prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 },
     show: { opacity: 1, y: 0 },
   };
+
+  const slideVariants = {
+    enter: (d: number) => ({
+      x: prefersReducedMotion ? 0 : d * 40,
+      opacity: 0,
+    }),
+    center: { x: 0, opacity: 1 },
+    exit: (d: number) => ({
+      x: prefersReducedMotion ? 0 : d * -40,
+      opacity: 0,
+    }),
+  };
+
+  const t = testimonials[active];
 
   return (
     <section id="testimoni" className="mb-8 scroll-mt-24 sm:mb-9">
@@ -59,7 +100,6 @@ export function TestimonialsSection() {
           >
             <p className="text-4xl font-extrabold tracking-tight text-orange-500">
               {prefersReducedMotion ? (
-                // Jika user prefer reduced motion, tampilkan statis
                 `${stat.numericValue}${stat.suffix}`
               ) : (
                 <CountUp target={stat.numericValue} suffix={stat.suffix} />
@@ -75,84 +115,112 @@ export function TestimonialsSection() {
 
       {/* Testimoni */}
       <motion.div
-        variants={revealUp}
-        initial="hidden"
-        whileInView="show"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.1 }}
         transition={{ duration: 0.85, ease: "easeOut" }}
         className="rounded-2xl border border-zinc-200 bg-white p-5 sm:p-6"
       >
         {/* Header */}
-        <div className="mb-5 rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 via-amber-50 to-zinc-50 p-4 sm:p-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-orange-700">
-            Testimoni Klien
-          </p>
-          <h2 className="mt-1 text-2xl font-extrabold tracking-tight text-zinc-900 sm:text-3xl">
-            Dipercaya berbagai institusi
-          </h2>
-          <p className="mt-1 text-sm leading-relaxed text-zinc-600">
-            Dari sekolah, venue komersial, hingga perbankan.
-          </p>
+        <div className="mb-5 flex items-start justify-between gap-4">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-orange-600">
+              Testimoni Klien
+            </p>
+            <h2 className="mt-0.5 text-xl font-extrabold tracking-tight text-zinc-900 sm:text-2xl">
+              Dipercaya berbagai institusi
+            </h2>
+          </div>
+          {/* Prev / Next */}
+          <div className="flex shrink-0 gap-2">
+            <button
+              onClick={() => { pause(); prev(); setTimeout(resume, 3000); }}
+              aria-label="Testimoni sebelumnya"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-500 transition hover:border-zinc-400 hover:text-zinc-900"
+            >
+              <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" aria-hidden="true">
+                <path d="M12 5l-5 5 5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button
+              onClick={() => { pause(); next(); setTimeout(resume, 3000); }}
+              aria-label="Testimoni berikutnya"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-500 transition hover:border-zinc-400 hover:text-zinc-900"
+            >
+              <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" aria-hidden="true">
+                <path d="M8 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* Kartu testimoni */}
-        <motion.div
-          variants={staggerWrap}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.1 }}
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        {/* Kartu aktif */}
+        <div
+          className="relative overflow-hidden"
+          onMouseEnter={pause}
+          onMouseLeave={resume}
+          onTouchStart={pause}
+          onTouchEnd={() => setTimeout(resume, 2000)}
         >
-          {testimonials.map((t) => (
+          <AnimatePresence mode="wait" custom={direction}>
             <motion.blockquote
               key={t.id}
-              variants={cardReveal}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="flex flex-col rounded-2xl border border-zinc-100 bg-zinc-50 p-4"
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.35, ease: "easeInOut" }}
+              className="rounded-2xl border border-zinc-100 bg-zinc-50 p-5 sm:p-6"
             >
               {/* Bintang */}
-              <div
-                className="flex gap-0.5"
-                aria-label="Rating 5 dari 5 bintang"
-              >
+              <div className="flex gap-0.5" aria-label="Rating 5 dari 5 bintang">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <svg
-                    key={i}
-                    viewBox="0 0 20 20"
-                    fill="#f97316"
-                    aria-hidden="true"
-                    className="h-4 w-4"
-                  >
+                  <svg key={i} viewBox="0 0 20 20" fill="#f97316" aria-hidden="true" className="h-4 w-4">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
               </div>
 
               {/* Kutipan */}
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-700">
+              <p className="mt-4 text-base leading-relaxed text-zinc-700 sm:text-lg">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
               {/* Produk tag */}
-              <p className="mt-3 text-[11px] font-semibold uppercase tracking-wide text-orange-600">
+              <p className="mt-4 text-[11px] font-semibold uppercase tracking-wide text-orange-600">
                 {t.product}
               </p>
 
               {/* Author */}
-              <footer className="mt-2 flex items-center justify-between gap-2 border-t border-zinc-200 pt-3">
+              <footer className="mt-3 flex items-center justify-between gap-2 border-t border-zinc-200 pt-3">
                 <div>
                   <p className="text-sm font-bold text-zinc-900">{t.name}</p>
                   <p className="text-xs text-zinc-500">{t.institution}</p>
                 </div>
-                <span
-                  className={`shrink-0 rounded-full border px-2 py-1 text-[10px] font-extrabold uppercase tracking-wide ${tagColor[t.tag]}`}
-                >
+                <span className={`shrink-0 rounded-full border px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wide ${tagColor[t.tag]}`}>
                   {t.tag}
                 </span>
               </footer>
             </motion.blockquote>
+          </AnimatePresence>
+        </div>
+
+        {/* Dot indicator */}
+        <div className="mt-4 flex items-center justify-center gap-2">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => { pause(); goTo(i); setTimeout(resume, 3000); }}
+              aria-label={`Testimoni ${i + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === active
+                  ? "w-6 bg-orange-500"
+                  : "w-2 bg-zinc-300 hover:bg-zinc-400"
+              }`}
+            />
           ))}
-        </motion.div>
+        </div>
 
         {/* Daftar klien */}
         <div className="mt-5 border-t border-zinc-100 pt-4">
@@ -165,9 +233,7 @@ export function TestimonialsSection() {
                 key={client.name}
                 className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-700"
               >
-                <span
-                  className={`h-1.5 w-1.5 shrink-0 rounded-full ${dotColor[client.tag]}`}
-                />
+                <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${dotColor[client.tag]}`} />
                 {client.name}
               </span>
             ))}
