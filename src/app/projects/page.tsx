@@ -7,7 +7,7 @@ import { projectCards, supportingProjects } from "@/data/projects";
 import { waUrl } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Proyek",
+  title: "Project",
   description:
     "Dokumentasi proyek nyata ProFabric Steel — pemasangan fasilitas olahraga di sekolah, venue komersial, dan institusi di Bekasi dan sekitarnya.",
   alternates: { canonical: "/projects" },
@@ -30,7 +30,7 @@ export default function ProjectsPage() {
             Portfolio
           </p>
           <h1 className="mt-1 text-2xl font-extrabold tracking-tight sm:text-3xl">
-            Proyek Yang Pernah Ditangani
+            Project Yang Pernah Ditangani
           </h1>
           <p className="mt-1.5 text-sm leading-relaxed text-zinc-600 sm:text-base">
             Dokumentasi nyata hasil pengerjaan ProFabric Steel di berbagai
@@ -49,7 +49,7 @@ export default function ProjectsPage() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-zinc-100">
                 <Image
                   src={project.images[0]}
-                  alt={`Proyek ${project.name} oleh ProFabric Steel`}
+                  alt={`Project ${project.name} oleh ProFabric Steel`}
                   fill
                   priority={index === 0}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

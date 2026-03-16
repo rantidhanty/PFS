@@ -22,7 +22,7 @@ const staticPages: SearchItem[] = [
   },
   {
     type: "page",
-    title: "Portfolio Proyek",
+    title: "Portfolio Project",
     subtitle: "Dokumentasi proyek yang telah kami kerjakan",
     badge: "Halaman",
     href: "/projects",
@@ -84,7 +84,7 @@ const projectItems: SearchItem[] = projectCards.map((p) => ({
   type: "project" as const,
   title: p.name,
   subtitle: p.location ?? p.tag,
-  badge: "Proyek",
+  badge: "Project",
   href: `/projects/${p.slug}`,
   keywords: [p.name, p.tag, p.location ?? "", p.summary ?? ""].join(" ").toLowerCase(),
 }));
@@ -120,7 +120,7 @@ export const typeLabel: Record<SearchItem["type"], string> = {
   product: "Produk",
   blog: "Blog",
   page: "Halaman",
-  project: "Proyek",
+  project: "Project",
 };
 
 export const typeColor: Record<SearchItem["type"], string> = {

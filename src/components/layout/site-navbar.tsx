@@ -8,7 +8,7 @@ import { waUrl } from "@/config/site";
 
 const navLinks = [
   { label: "Produk", href: "/products" },
-  { label: "Proyek", href: "/projects" },
+  { label: "Project", href: "/projects" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/faq" },
   { label: "Tentang", href: "/tentang" },

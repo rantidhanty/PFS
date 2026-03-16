@@ -28,7 +28,7 @@ export const featuredProject: ProjectCaseStudy = {
     "Didukung dokumentasi visual sebagai bukti hasil pengerjaan di lapangan",
   ],
   trustPoints: [
-    "Proyek nyata di lingkungan sekolah",
+    "Project nyata di lingkungan sekolah",
     "Tersedia dokumentasi foto dan video",
     "Pengerjaan presisi, rapi, dan kokoh",
     "Cocok untuk kebutuhan institusi dan komersial",
