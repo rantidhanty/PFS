@@ -102,8 +102,9 @@ export function SearchPalette() {
           >
             {/* Input */}
             <div className="flex items-center gap-3 border-b border-zinc-100 px-4 py-3.5">
-              <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0 text-zinc-400" aria-hidden="true">
-                <path d="M9 3a6 6 0 100 12A6 6 0 009 3zM3 9a6 6 0 1110.89 3.476l3.817 3.817a1 1 0 01-1.414 1.414l-3.817-3.817A6 6 0 013 9z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 shrink-0 text-zinc-900" aria-hidden="true">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
               </svg>
               <input
                 ref={inputRef}
