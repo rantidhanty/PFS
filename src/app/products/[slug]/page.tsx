@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { WaButton } from "@/components/ui/wa-button";
 import { ProductGallery } from "@/components/ui/product-gallery";
 import { ProductRelated } from "@/components/ui/product-related";
-import { StandardBadge, StandardsSection } from "@/components/ui/standard-badge";
+import { StandardBadge } from "@/components/ui/standard-badge";
 import { products, sportLabels } from "@/data/products";
 import { siteConfig } from "@/config/site";
 import { waUrl } from "@/lib/wa";
@@ -300,8 +300,6 @@ export default async function ProductPage({
             )}
           </section>
         )}
-
-        <StandardsSection standards={product.standards} />
 
         <ProductRelated
           sportLabel={sportLabels[product.sport]}

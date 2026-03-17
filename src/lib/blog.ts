@@ -121,6 +121,16 @@ export const blogPosts: BlogPost[] = [
     image: "/images/products/volleyball/net-volleyball-fivb/tanam/1.1.png",
   },
   {
+    slug: "mengenal-standar-internasional-olahraga-fiba-fivb-fifa-bwf-fip-itf",
+    title: "Mengenal FIBA, FIVB, FIFA, BWF, FIP, dan ITF: Standar Resmi di Balik Peralatan Olahraga",
+    description: "Apa itu FIBA, FIVB, FIFA, BWF, FIP, dan ITF? Panduan mudah memahami organisasi olahraga internasional dan mengapa standar mereka penting saat memilih peralatan.",
+    date: "2026-03-15",
+    category: "Edukasi",
+    readingTime: 5,
+    tags: ["FIBA", "FIVB", "FIFA", "BWF", "FIP", "ITF", "standar", "internasional"],
+    image: "/images/products/basketball/ring-basket-fiba/portable/2.2.png",
+  },
+  {
     slug: "tips-pengadaan-peralatan-olahraga-sekolah",
     title: "Tips Pengadaan Peralatan Olahraga untuk Sekolah dengan Budget Terbatas",
     description: "Cara cerdas memilih dan membeli peralatan olahraga sekolah — prioritas kebutuhan, standar minimum, dan cara nego harga terbaik.",

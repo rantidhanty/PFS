@@ -113,6 +113,39 @@ export default function TentangPage() {
           </div>
         </section>
 
+        {/* Standar Internasional */}
+        <section className="mb-5 rounded-3xl border border-zinc-200 bg-white p-6 sm:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">
+            Referensi Standar
+          </p>
+          <h2 className="mt-1 text-xl font-extrabold tracking-tight sm:text-2xl">
+            Organisasi Olahraga Internasional
+          </h2>
+          <p className="mt-2 text-justify text-sm leading-relaxed text-zinc-600">
+            Setiap produk PFS diproduksi mengikuti regulasi dari induk organisasi olahraga internasional.
+            Ini yang membuat produk kami layak dipakai untuk kebutuhan latihan hingga kompetisi resmi.
+          </p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { std: "FIBA", emoji: "🏀", full: "Fédération Internationale de Basketball", desc: "Induk basket dunia. Mengatur standar ring, papan pantul, dan dimensi lapangan untuk pertandingan internasional." },
+              { std: "FIVB", emoji: "🏐", full: "Fédération Internationale de Volleyball", desc: "Induk voli dunia. Mengatur standar net, tiang, ketinggian net, dan dimensi lapangan resmi." },
+              { std: "FIFA", emoji: "⚽", full: "Fédération Internationale de Football Association", desc: "Induk sepak bola dan futsal dunia. Mengatur standar gawang, lapangan, dan perlengkapan pertandingan." },
+              { std: "BWF",  emoji: "🏸", full: "Badminton World Federation", desc: "Induk badminton dunia. Mengatur standar tiang net, ketinggian net, dan dimensi lapangan resmi." },
+              { std: "FIP",  emoji: "🎾", full: "Federación Internacional de Pádel", desc: "Induk padel dunia. Mengatur standar konstruksi lapangan, dinding kaca, dan perlengkapan pertandingan." },
+              { std: "ITF",  emoji: "🎾", full: "International Tennis Federation", desc: "Induk tenis dunia. Mengatur standar tiang net, dimensi lapangan, dan perlengkapan pertandingan resmi." },
+            ].map((item) => (
+              <div key={item.std} className="rounded-2xl border border-zinc-100 bg-zinc-50 p-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-xl">{item.emoji}</span>
+                  <span className="font-extrabold tracking-wide text-zinc-900">{item.std}</span>
+                </div>
+                <p className="mt-1 text-[11px] font-semibold text-sky-600">{item.full}</p>
+                <p className="mt-2 text-xs leading-relaxed text-zinc-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Lokasi */}
         <section className="mb-5 rounded-3xl border border-zinc-200 bg-white p-6 sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">
