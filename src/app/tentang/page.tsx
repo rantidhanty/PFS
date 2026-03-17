@@ -163,12 +163,16 @@ export default function TentangPage() {
             {siteConfig.address.province} {siteConfig.address.postalCode}
             <br />
           </address>
-          <p className="mt-2 text-sm text-zinc-500">
-            Jam operasional: {siteConfig.openingHours.open} –{" "}
-            {siteConfig.openingHours.close} (
-            {siteConfig.openingHours.days.slice(0, 3).join(", ").replace("Monday", "Senin").replace("Tuesday", "Selasa").replace("Wednesday", "Rabu")}{" "}
-            – {siteConfig.openingHours.days[5].replace("Saturday", "Sabtu")})
-          </p>
+          <div className="mt-3 space-y-1 text-sm">
+            <div className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-zinc-400 shrink-0" />
+              <span className="text-zinc-600">Kantor: <span className="font-semibold text-zinc-800">Senin–Sabtu, 08.00–17.00</span></span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0" />
+              <span className="text-zinc-600">Chat WA: <span className="font-semibold text-emerald-700">Setiap hari, 24 jam</span></span>
+            </div>
+          </div>
         </section>
 
         {/* CTA */}

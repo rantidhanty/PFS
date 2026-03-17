@@ -86,23 +86,33 @@ export default function ProjectsPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">
             Klien Lainnya
           </p>
-          <h2 className="mt-1 text-lg font-extrabold tracking-tight">
-            Institusi yang juga telah menggunakan jasa PFS
-          </h2>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {supportingProjects.map((p) => (
-              <div
-                key={p.name}
-                className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-2 text-xs font-semibold text-zinc-800"
-              >
-                <span
-                  className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide ${tagColor[p.tag] ?? "bg-zinc-100 text-zinc-700"}`}
-                >
-                  {p.tag}
-                </span>
-                {p.name}
-              </div>
-            ))}
+          <div className="mt-3 flex flex-col gap-3">
+            {(["Pendidikan", "Komersial", "Perbankan"] as const).map((tag) => {
+              const items = supportingProjects.filter((p) => p.tag === tag);
+              if (items.length === 0) return null;
+              const labelColor: Record<string, string> = {
+                Pendidikan: "text-sky-600",
+                Komersial: "text-emerald-600",
+                Perbankan: "text-amber-600",
+              };
+              return (
+                <div key={tag}>
+                  <p className={`text-[11px] font-extrabold uppercase tracking-wide ${labelColor[tag]}`}>
+                    {tag}
+                  </p>
+                  <div className="mt-1.5 flex flex-wrap gap-1.5">
+                    {items.map((p) => (
+                      <span
+                        key={p.name}
+                        className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-semibold text-zinc-800"
+                      >
+                        {p.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
