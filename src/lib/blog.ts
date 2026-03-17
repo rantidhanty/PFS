@@ -118,7 +118,7 @@ export const blogPosts: BlogPost[] = [
     category: "Tips",
     readingTime: 3,
     tags: ["voli", "perawatan", "besi", "tiang"],
-    image: "/images/products/volleyball/net-volleyball-fivb/tanam/01.jpg",
+    image: "/images/products/volleyball/net-volleyball-fivb/tanam/1.1.png",
   },
   {
     slug: "tips-pengadaan-peralatan-olahraga-sekolah",

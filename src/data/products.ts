@@ -190,8 +190,11 @@ export const products: Product[] = [
     standards: ["FIVB"],
     sportTags: ["volleyball"],
     images: {
-      thumb: "/images/products/volleyball/net-volleyball-fivb/tanam/01.jpg",
-      gallery: ["/images/products/volleyball/net-volleyball-fivb/tanam/01.jpg"],
+      thumb: "/images/products/volleyball/net-volleyball-fivb/tanam/1.1.png",
+      gallery: [
+        "/images/products/volleyball/net-volleyball-fivb/tanam/1.1.png",
+        "/images/products/volleyball/net-volleyball-fivb/tanam/2.2.png",
+      ],
     },
     description: {
       intro:
@@ -251,7 +254,7 @@ export const products: Product[] = [
   },
   {
     id: "prod-badminton-post-bwf",
-    name: "Badminton Court Post",
+    name: "Tiang Net Bulu Tangkis Portable BWF",
     slug: "court-post-badminton",
     sport: "badminton",
     type: "court-post",
