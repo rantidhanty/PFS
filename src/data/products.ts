@@ -254,22 +254,19 @@ export const products: Product[] = [
   },
   {
     id: "prod-badminton-post-bwf",
-    name: "Tiang Net Bulu Tangkis Portable BWF",
+    name: "Tiang Net Badminton Portable BWF",
     slug: "court-post-badminton",
     sport: "badminton",
     type: "court-post",
     standards: ["BWF"],
     sportTags: ["badminton"],
     images: {
-      thumb: "/images/products/badminton/01.jpg",
+      thumb: "/images/products/badminton/portable/w.1.1.jpg",
       gallery: [
-        "/images/products/badminton/01.jpg",
-        "/images/products/badminton/02.jpg",
-        "/images/products/badminton/03.jpg",
-        "/images/products/badminton/04.jpg",
-        "/images/products/badminton/05.jpg",
-        "/images/products/badminton/06.jpg",
-        "/images/products/badminton/07.jpg",
+        "/images/products/badminton/portable/w.1.1.jpg",
+        "/images/products/badminton/portable/w2.2.jpg",
+        "/images/products/badminton/portable/w3.3.jpg",
+        "/images/products/badminton/portable/w4.4.jpg",
       ],
     },
     description: {

@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { WaButton } from "@/components/ui/wa-button";
 import { ProductGallery } from "@/components/ui/product-gallery";
 import { ProductRelated } from "@/components/ui/product-related";
+import { StandardBadge, StandardsSection } from "@/components/ui/standard-badge";
 import { products, sportLabels } from "@/data/products";
 import { siteConfig } from "@/config/site";
 import { waUrl } from "@/lib/wa";
@@ -209,12 +210,7 @@ export default async function ProductPage({
                   {sportLabels[product.sport]}
                 </span>
                 {product.standards.map((std) => (
-                  <span
-                    key={std}
-                    className="rounded-full bg-sky-100 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.16em] text-sky-800"
-                  >
-                    Standar {std}
-                  </span>
+                  <StandardBadge key={std} std={std} />
                 ))}
                 {product.variant && (
                   <span className="rounded-full bg-zinc-900 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.16em] text-white">
@@ -304,6 +300,8 @@ export default async function ProductPage({
             )}
           </section>
         )}
+
+        <StandardsSection standards={product.standards} />
 
         <ProductRelated
           sportLabel={sportLabels[product.sport]}

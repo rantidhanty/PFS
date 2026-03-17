@@ -68,7 +68,7 @@ export const blogPosts: BlogPost[] = [
     category: "Edukasi",
     readingTime: 5,
     tags: ["badminton", "BWF", "tiang", "net"],
-    image: "/images/products/badminton/01.jpg",
+    image: "/images/products/badminton/portable/w.1.1.jpg",
   },
   {
     slug: "tips-memilih-net-voli-untuk-sekolah",
@@ -108,7 +108,7 @@ export const blogPosts: BlogPost[] = [
     category: "Panduan",
     readingTime: 5,
     tags: ["badminton", "BWF", "lapangan", "ukuran"],
-    image: "/images/products/badminton/03.jpg",
+    image: "/images/products/badminton/portable/w3.3.jpg",
   },
   {
     slug: "tips-merawat-tiang-voli-agar-tahan-lama",
