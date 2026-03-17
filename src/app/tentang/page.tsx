@@ -14,25 +14,19 @@ export const metadata: Metadata = {
 const strengths = [
   {
     title: "Spesialis Besi & Fabrikasi",
-    desc: "Lebih dari 15 tahun pengalaman di bidang fabrikasi besi presisi untuk kebutuhan personal, komersial, dan institusional.",
+    desc: "15+ tahun pengalaman fabrikasi besi presisi untuk berbagai kebutuhan.",
     color: "border-sky-200 bg-sky-50",
     badge: "bg-sky-100 text-sky-800",
   },
   {
-    title: "Standar Kompetisi Internasional",
-    desc: "Semua produk olahraga dirancang mengikuti standar resmi: FIBA, FIVB, FIFA, BWF, FIP, dan ITF.",
-    color: "border-orange-200 bg-orange-50",
-    badge: "bg-orange-100 text-orange-800",
-  },
-  {
     title: "Custom Sesuai Kebutuhan",
-    desc: "Menerima pesanan custom ukuran, spesifikasi, dan finishing untuk berbagai venue dan lapangan.",
+    desc: "Terima pesanan custom ukuran, spesifikasi, dan finishing sesuai venue.",
     color: "border-emerald-200 bg-emerald-50",
     badge: "bg-emerald-100 text-emerald-800",
   },
   {
     title: "Harga Bersaing",
-    desc: "Dikelola langsung oleh tim profesional sehingga harga lebih efisien tanpa mengorbankan kualitas.",
+    desc: "Dikelola tim profesional — harga efisien tanpa mengorbankan kualitas.",
     color: "border-violet-200 bg-violet-50",
     badge: "bg-violet-100 text-violet-800",
   },
@@ -121,29 +115,36 @@ export default function TentangPage() {
           <h2 className="mt-1 text-xl font-extrabold tracking-tight sm:text-2xl">
             Organisasi Olahraga Internasional
           </h2>
-          <p className="mt-2 text-justify text-sm leading-relaxed text-zinc-600">
-            Setiap produk PFS diproduksi mengikuti regulasi dari induk organisasi olahraga internasional.
-            Ini yang membuat produk kami layak dipakai untuk kebutuhan latihan hingga kompetisi resmi.
+          <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+            Semua produk PFS mengikuti regulasi induk olahraga internasional berikut:
           </p>
-          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
             {[
-              { std: "FIBA", emoji: "🏀", full: "Fédération Internationale de Basketball", desc: "Induk basket dunia. Mengatur standar ring, papan pantul, dan dimensi lapangan untuk pertandingan internasional." },
-              { std: "FIVB", emoji: "🏐", full: "Fédération Internationale de Volleyball", desc: "Induk voli dunia. Mengatur standar net, tiang, ketinggian net, dan dimensi lapangan resmi." },
-              { std: "FIFA", emoji: "⚽", full: "Fédération Internationale de Football Association", desc: "Induk sepak bola dan futsal dunia. Mengatur standar gawang, lapangan, dan perlengkapan pertandingan." },
-              { std: "BWF",  emoji: "🏸", full: "Badminton World Federation", desc: "Induk badminton dunia. Mengatur standar tiang net, ketinggian net, dan dimensi lapangan resmi." },
-              { std: "FIP",  emoji: "🎾", full: "Federación Internacional de Pádel", desc: "Induk padel dunia. Mengatur standar konstruksi lapangan, dinding kaca, dan perlengkapan pertandingan." },
-              { std: "ITF",  emoji: "🎾", full: "International Tennis Federation", desc: "Induk tenis dunia. Mengatur standar tiang net, dimensi lapangan, dan perlengkapan pertandingan resmi." },
+              { std: "FIBA", emoji: "🏀", label: "Basket" },
+              { std: "FIVB", emoji: "🏐", label: "Voli" },
+              { std: "FIFA", emoji: "⚽", label: "Sepak Bola & Futsal" },
+              { std: "BWF",  emoji: "🏸", label: "Badminton" },
+              { std: "FIP",  emoji: "🎾", label: "Padel" },
+              { std: "ITF",  emoji: "🎾", label: "Tenis" },
             ].map((item) => (
-              <div key={item.std} className="rounded-2xl border border-zinc-100 bg-zinc-50 p-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-xl">{item.emoji}</span>
-                  <span className="font-extrabold tracking-wide text-zinc-900">{item.std}</span>
+              <div key={item.std} className="flex items-center gap-2.5 rounded-2xl border border-zinc-100 bg-zinc-50 px-3.5 py-3">
+                <span className="text-lg">{item.emoji}</span>
+                <div>
+                  <p className="text-xs font-extrabold text-zinc-900">{item.std}</p>
+                  <p className="text-[11px] text-zinc-500">{item.label}</p>
                 </div>
-                <p className="mt-1 text-[11px] font-semibold text-sky-600">{item.full}</p>
-                <p className="mt-2 text-xs leading-relaxed text-zinc-600">{item.desc}</p>
               </div>
             ))}
           </div>
+          <a
+            href="/blog/mengenal-standar-internasional-olahraga-fiba-fivb-fifa-bwf-fip-itf"
+            className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-orange-600 hover:text-orange-700"
+          >
+            Pelajari lebih lanjut
+            <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
         </section>
 
         {/* Lokasi */}
