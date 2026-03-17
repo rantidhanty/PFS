@@ -78,7 +78,7 @@ export const blogPosts: BlogPost[] = [
     category: "Panduan",
     readingTime: 4,
     tags: ["voli", "FIVB", "net", "tiang", "sekolah"],
-    image: "/images/products/volleyball/net-volleyball-fivb/portable/01.jpg",
+    image: "/images/products/volleyball/net-volleyball-fivb/portable/w1.1.png",
   },
   {
     slug: "cara-pasang-gawang-futsal-yang-benar",

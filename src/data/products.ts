@@ -154,11 +154,11 @@ export const products: Product[] = [
     standards: ["FIVB"],
     sportTags: ["volleyball"],
     images: {
-      thumb: "/images/products/volleyball/net-volleyball-fivb/portable/01.jpg",
+      thumb: "/images/products/volleyball/net-volleyball-fivb/portable/w1.1.png",
       gallery: [
-        "/images/products/volleyball/net-volleyball-fivb/portable/01.jpg",
-        "/images/products/volleyball/net-volleyball-fivb/portable/02.jpg",
-        "/images/products/volleyball/net-volleyball-fivb/portable/03.jpg",
+        "/images/products/volleyball/net-volleyball-fivb/portable/w1.1.png",
+        "/images/products/volleyball/net-volleyball-fivb/portable/w2.2.png",
+        "/images/products/volleyball/net-volleyball-fivb/portable/w3.3.png",
       ],
     },
     description: {
