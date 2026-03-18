@@ -41,7 +41,7 @@ export type ProductDescription = {
 export const products: Product[] = [
   {
     id: "prod-basketball-ring-fiba-portable",
-    name: "Ring Basket FIBA Portable",
+    name: "Ring Basket Portabel PFS V1",
     slug: "ring-basket-fiba-portable",
     sport: "basketball",
     type: "ring-and-board-system",
@@ -49,10 +49,10 @@ export const products: Product[] = [
     standards: ["FIBA"],
     sportTags: ["basketball"],
     images: {
-      thumb: "/images/products/basketball/ring-basket-fiba/portable/2.2.png",
+      thumb: "/images/products/basketball/ring-basket-fiba/portable/versi_1/2.2.png",
       gallery: [
-        "/images/products/basketball/ring-basket-fiba/portable/2.2.png",
-        "/images/products/basketball/ring-basket-fiba/portable/3.3.png",
+        "/images/products/basketball/ring-basket-fiba/portable/versi_1/2.2.png",
+        "/images/products/basketball/ring-basket-fiba/portable/versi_1/3.3.png",
       ],
     },
     description: {
@@ -72,6 +72,44 @@ export const products: Product[] = [
       ],
       closing:
         "Warna dan konfigurasi dapat disesuaikan — hubungi kami untuk penawaran.",
+    },
+  },
+  {
+    id: "prod-basketball-ring-fiba-portable-v2",
+    name: "Ring Basket Portabel PFS V2",
+    slug: "ring-basket-portabel-pfs-v2",
+    sport: "basketball",
+    type: "ring-and-board-system",
+    variant: "Portable",
+    standards: ["FIBA"],
+    sportTags: ["basketball"],
+    images: {
+      thumb: "/images/products/basketball/ring-basket-fiba/portable/versi_2/v2-1.png",
+      gallery: [
+        "/images/products/basketball/ring-basket-fiba/portable/versi_2/v2-1.png",
+        "/images/products/basketball/ring-basket-fiba/portable/versi_2/v2-2.png",
+        "/images/products/basketball/ring-basket-fiba/portable/versi_2/v2-3.png",
+        "/images/products/basketball/ring-basket-fiba/portable/versi_2/v2-4.png",
+      ],
+    },
+    description: {
+      intro:
+        "Generasi terbaru ring basket portabel PFS — konstruksi lebih masif, finishing lebih premium, dan sistem stabilisasi ditingkatkan untuk performa optimal di lapangan maupun kompetisi.",
+      details: [
+        "Rangka besi hollow penampang lebih besar dari V1, memberikan rigiditas dan ketahanan jangka panjang yang lebih baik",
+        "Sistem pemberat kapasitas lebih tinggi dengan desain base yang lebih lebar untuk stabilitas maksimal",
+        "Papan pantul akrilik tebal dengan bracket penguat — tahan benturan keras dan getaran intensif",
+        "Finishing cat powder coating premium, anti-karat, tahan cuaca untuk penggunaan indoor maupun semi-outdoor",
+        "Mekanisme pengatur ketinggian lebih presisi dengan sistem kunci ganda untuk keamanan ekstra",
+        "Sistem roda heavy-duty dengan rem pengunci, mudah dipindah namun terkunci kokoh saat digunakan",
+      ],
+      notes: [
+        "Material besi struktural grade premium, seluruh sambungan las penuh untuk kekuatan optimal",
+        "Semua komponen logam melalui proses anti-karat sebelum finishing powder coating",
+        "Bobot total lebih berat dari V1 — dirancang untuk stabilitas maksimal, bukan portabilitas ringan",
+      ],
+      closing:
+        "Tersedia dalam konfigurasi warna custom — hubungi admin PFS untuk penawaran dan jadwal produksi.",
     },
   },
   {
