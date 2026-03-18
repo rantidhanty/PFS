@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     category: "Panduan",
     readingTime: 5,
     tags: ["basket", "ring basket", "FIBA", "sekolah"],
-    image: "/images/products/basketball/ring-basket-fiba/portable/2.2.png",
+    image: "/images/products/basketball/ring-basket-fiba/portable/versi_1/2.2.png",
   },
   {
     slug: "ukuran-lapangan-futsal-standar-fifa",
@@ -128,7 +128,7 @@ export const blogPosts: BlogPost[] = [
     category: "Edukasi",
     readingTime: 5,
     tags: ["FIBA", "FIVB", "FIFA", "BWF", "FIP", "ITF", "standar", "internasional"],
-    image: "/images/products/basketball/ring-basket-fiba/portable/2.2.png",
+    image: "/images/products/basketball/ring-basket-fiba/portable/versi_1/2.2.png",
   },
   {
     slug: "tips-pengadaan-peralatan-olahraga-sekolah",
