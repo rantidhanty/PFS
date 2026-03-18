@@ -110,13 +110,13 @@ export default function ProductsPage() {
               href={`/products/${product.slug}`}
               className="group flex items-center gap-3 px-4 py-3.5 transition hover:bg-zinc-50"
             >
-              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-zinc-50">
+              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-white">
                 <Image
                   src={product.images.thumb}
                   alt={product.name}
                   fill
                   sizes="56px"
-                  className="object-contain p-1 transition duration-300 group-hover:scale-105"
+                  className="object-cover object-top transition duration-300 group-hover:scale-105"
                 />
               </div>
               <div className="min-w-0 flex-1">
@@ -155,13 +155,13 @@ export default function ProductsPage() {
               href={`/products/${product.slug}`}
               className="group rounded-2xl border border-zinc-200 bg-white p-3 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
             >
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-zinc-50">
+              <div className="relative aspect-square overflow-hidden rounded-xl bg-white">
                 <Image
                   src={product.images.thumb}
                   alt={product.name}
                   fill
                   sizes="(max-width: 1024px) 30vw, 280px"
-                  className="object-contain p-2 transition duration-300 group-hover:scale-105"
+                  className="object-cover object-top transition duration-300 group-hover:scale-105"
                 />
               </div>
               <div className="mt-3">
