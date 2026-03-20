@@ -61,6 +61,7 @@ export function SiteNavbar() {
               alt="Logo ProFabric Steel"
               fill
               sizes="112px"
+              priority
               className="object-contain object-left mix-blend-multiply contrast-125 saturate-125"
             />
           </div>
