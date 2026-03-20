@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteNavbar } from "@/components/layout/site-navbar";
@@ -19,7 +20,7 @@ const categoryTabs: Array<{ id: SportCategory | "all"; label: string }> = [
   { id: "badminton", label: "Badminton" },
   { id: "padel", label: "Padel" },
   { id: "tennis", label: "Tenis" },
-  { id: "official-equipment", label: "Accesories" },
+  { id: "official-equipment", label: "Accessories" },
 ];
 
 const standardColor: Record<string, string> = {
@@ -31,9 +32,17 @@ const standardColor: Record<string, string> = {
   ITF: "bg-amber-100 text-amber-800",
 };
 
-export default function ProductsPage() {
-  const [activeCategory, setActiveCategory] = useState<SportCategory | "all">("all");
+function ProductsPageContent() {
+  const searchParams = useSearchParams();
+  const catParam = searchParams.get("cat") as SportCategory | null;
+
+  const [activeCategory, setActiveCategory] = useState<SportCategory | "all">(catParam ?? "all");
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    setActiveCategory(catParam ?? "all");
+    setCurrentPage(1);
+  }, [catParam]);
 
   const filtered = useMemo(
     () => activeCategory === "all" ? products : products.filter((p) => p.sport === activeCategory),
@@ -61,33 +70,41 @@ export default function ProductsPage() {
       <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
 
         {/* Header */}
-        <div className="mb-6 rounded-3xl border border-zinc-200 bg-white p-5 sm:p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-orange-600">
-            Katalog Produk
-          </p>
-          <h1 className="mt-1 text-2xl font-extrabold tracking-tight sm:text-3xl">
-            Peralatan Olahraga Standar Kompetisi
-          </h1>
-          <p className="mt-1.5 text-sm leading-relaxed text-zinc-600 sm:text-base">
-            Seluruh produk sesuai standar internasional: FIBA, FIVB, FIFA, BWF, FIP, ITF. Custom ukuran tersedia.
-          </p>
-
-          {/* Category filter tabs */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {categoryTabs.map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => changeCategory(tab.id)}
-                className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors ${
-                  activeCategory === tab.id
-                    ? "bg-zinc-900 text-white"
-                    : "border border-zinc-200 bg-white text-zinc-600 hover:border-zinc-400 hover:text-zinc-900"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
+              Katalog Produk
+            </h1>
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {Object.entries(standardColor).map(([std, color]) => (
+                <span
+                  key={std}
+                  className={`rounded-full px-2.5 py-0.5 text-[11px] font-extrabold uppercase tracking-wide ${color}`}
+                >
+                  {std}
+                </span>
+              ))}
+              <span className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-[11px] font-bold text-zinc-500">
+                Custom order tersedia
+              </span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="flex items-center gap-1.5 text-xs font-semibold text-zinc-500">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5" aria-hidden="true">
+                <path d="M3 5h14M6 10h8M9 15h2" />
+              </svg>
+              Filter:
+            </span>
+            <select
+              value={activeCategory}
+              onChange={(e) => changeCategory(e.target.value as SportCategory | "all")}
+              className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-700 transition hover:border-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-300"
+            >
+              {categoryTabs.map((tab) => (
+                <option key={tab.id} value={tab.id}>{tab.label}</option>
+              ))}
+            </select>
           </div>
         </div>
 
@@ -100,6 +117,9 @@ export default function ProductsPage() {
           dari{" "}
           <span className="font-bold text-zinc-900">{filtered.length}</span>{" "}
           produk
+          {activeCategory !== "all" && (
+            <span className="ml-1 text-zinc-400">· {categoryTabs.find((t) => t.id === activeCategory)?.label}</span>
+          )}
         </p>
 
         {/* Mobile: compact list */}
@@ -108,39 +128,36 @@ export default function ProductsPage() {
             <Link
               key={product.slug}
               href={`/products/${product.slug}`}
-              className="group flex items-center gap-3 px-4 py-3.5 transition hover:bg-zinc-50"
+              className="group flex items-center gap-2.5 px-3 py-2.5 transition hover:bg-zinc-50"
             >
-              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-white">
+              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-lg bg-zinc-50">
                 <Image
                   src={product.images.thumb}
                   alt={product.name}
                   fill
-                  sizes="56px"
+                  sizes="44px"
                   className="object-cover object-top transition duration-300 group-hover:scale-105"
                 />
               </div>
               <div className="min-w-0 flex-1">
-                <div className="flex flex-wrap gap-1">
-                  <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-zinc-600">
+                <p className="line-clamp-1 text-sm font-semibold leading-snug text-zinc-900 transition group-hover:text-orange-700">
+                  {product.name}
+                </p>
+                <div className="mt-0.5 flex flex-wrap gap-1">
+                  <span className="rounded-full bg-zinc-100 px-1.5 py-px text-[9px] font-bold uppercase tracking-wide text-zinc-500">
                     {sportLabels[product.sport]}
                   </span>
                   {product.standards.map((std) => (
                     <span
                       key={std}
-                      className={`rounded-full px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wide ${standardColor[std] ?? "bg-zinc-100 text-zinc-700"}`}
+                      className={`rounded-full px-1.5 py-px text-[9px] font-extrabold uppercase tracking-wide ${standardColor[std] ?? "bg-zinc-100 text-zinc-700"}`}
                     >
                       {std}
                     </span>
                   ))}
                 </div>
-                <p className="mt-1 line-clamp-2 text-sm font-semibold leading-snug text-zinc-900 transition group-hover:text-orange-700">
-                  {product.name}
-                </p>
-                {product.variant && (
-                  <p className="text-[11px] text-zinc-400">{product.variant}</p>
-                )}
               </div>
-              <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0 text-zinc-300" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" className="h-3.5 w-3.5 shrink-0 text-zinc-300" aria-hidden="true">
                 <path d="M8 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
@@ -277,6 +294,15 @@ export default function ProductsPage() {
         </div>
       </main>
       <SiteFooter />
+
     </div>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense>
+      <ProductsPageContent />
+    </Suspense>
   );
 }

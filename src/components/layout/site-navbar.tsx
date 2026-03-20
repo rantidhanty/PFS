@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { waUrl } from "@/lib/wa";
 import { useSearch } from "@/context/search-context";
@@ -15,8 +15,18 @@ const PLACEHOLDERS = [
   "Coba: harga gawang futsal...",
 ];
 
-const navLinks = [
-  { label: "Produk", href: "/products" },
+const productCategories = [
+  { id: "all", label: "Semua Produk", href: "/products" },
+  { id: "basketball", label: "Basket", href: "/products?cat=basketball" },
+  { id: "volleyball", label: "Voli", href: "/products?cat=volleyball" },
+  { id: "football", label: "Futsal", href: "/products?cat=football" },
+  { id: "badminton", label: "Badminton", href: "/products?cat=badminton" },
+  { id: "padel", label: "Padel", href: "/products?cat=padel" },
+  { id: "tennis", label: "Tenis", href: "/products?cat=tennis" },
+  { id: "official-equipment", label: "Accessories", href: "/products?cat=official-equipment" },
+];
+
+const otherNavLinks = [
   { label: "Project", href: "/projects" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/faq" },
@@ -26,10 +36,13 @@ const navLinks = [
 
 export function SiteNavbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [productDropdownOpen, setProductDropdownOpen] = useState(false);
+  const [productMenuOpen, setProductMenuOpen] = useState(false);
   const pathname = usePathname();
   const { openSearch } = useSearch();
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const [placeholderVisible, setPlaceholderVisible] = useState(true);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,6 +57,8 @@ export function SiteNavbar() {
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+  const isProductsActive = pathname.startsWith("/products");
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/90 backdrop-blur-md">
@@ -77,7 +92,52 @@ export function SiteNavbar() {
 
         {/* Nav desktop */}
         <nav className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
+          {/* Produk with hover dropdown */}
+          <div
+            ref={dropdownRef}
+            className="relative"
+            onMouseEnter={() => setProductDropdownOpen(true)}
+            onMouseLeave={() => setProductDropdownOpen(false)}
+          >
+            <Link
+              href="/products"
+              className={`flex items-center gap-1 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
+                isProductsActive
+                  ? "bg-zinc-900 text-white"
+                  : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900"
+              }`}
+            >
+              Produk
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                className={`h-3 w-3 transition-transform duration-200 ${productDropdownOpen ? "rotate-180" : ""}`}
+                aria-hidden="true"
+              >
+                <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+
+            {productDropdownOpen && (
+              <div className="absolute left-0 top-full z-50 w-44 pt-1">
+              <div className="rounded-2xl border border-zinc-200 bg-white py-1.5 shadow-lg">
+                {productCategories.map((cat) => (
+                  <Link
+                    key={cat.id}
+                    href={cat.href}
+                    onClick={() => setProductDropdownOpen(false)}
+                    className="block px-4 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 hover:text-zinc-900"
+                  >
+                    {cat.label}
+                  </Link>
+                ))}
+              </div>
+              </div>
+            )}
+          </div>
+
+          {/* Other nav links */}
+          {otherNavLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -157,7 +217,45 @@ export function SiteNavbar() {
       {isOpen && (
         <div className="border-t border-zinc-100 bg-white px-4 py-3 md:hidden">
           <nav className="flex flex-col gap-1">
-            {navLinks.map((link) => (
+            {/* Produk accordion */}
+            <div>
+              <button
+                type="button"
+                onClick={() => setProductMenuOpen((prev) => !prev)}
+                className={`flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
+                  isProductsActive
+                    ? "bg-zinc-900 text-white"
+                    : "text-zinc-700 hover:bg-zinc-50"
+                }`}
+              >
+                Produk
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${productMenuOpen ? "rotate-180" : ""}`}
+                  aria-hidden="true"
+                >
+                  <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              {productMenuOpen && (
+                <div className="ml-4 mt-1 flex flex-col gap-0.5 border-l-2 border-zinc-100 pl-3">
+                  {productCategories.map((cat) => (
+                    <Link
+                      key={cat.id}
+                      href={cat.href}
+                      onClick={() => setIsOpen(false)}
+                      className="rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-50 hover:text-zinc-900"
+                    >
+                      {cat.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Other links */}
+            {otherNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -171,6 +269,7 @@ export function SiteNavbar() {
                 {link.label}
               </Link>
             ))}
+
             <a
               href={waUrl("Halo admin PFS, saya mau konsultasi")}
               target="_blank"
