@@ -10,12 +10,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/faq" },
 };
 
-export default function FaqPage() {
+export default async function FaqPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ open?: string }>;
+}) {
+  const params = await searchParams;
+  const initialOpen = params.open !== undefined ? parseInt(params.open) : null;
   return (
     <div className="min-h-screen bg-[linear-gradient(180deg,#fffaf5_0%,#ffffff_24%,#fff7ed_100%)] text-zinc-900">
       <SiteNavbar />
       <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
-        <FaqSection />
+        <FaqSection initialOpen={initialOpen} />
       </main>
       <SiteFooter />
     </div>

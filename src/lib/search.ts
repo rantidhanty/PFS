@@ -69,7 +69,7 @@ const faqItems: SearchItem[] = [
     title: "Apakah produk memenuhi standar internasional?",
     subtitle: "FIBA, FIVB, FIFA, BWF, FIP, ITF",
     badge: "FAQ",
-    href: "/faq",
+    href: "/faq?open=0",
     keywords: "standar internasional fiba fivb fifa bwf fip itf ring basket tiang voli badminton futsal padel tenis kompetisi sekolah klub venue",
   },
   {
@@ -77,7 +77,7 @@ const faqItems: SearchItem[] = [
     title: "Apakah bisa dikirim ke luar Bekasi?",
     subtitle: "Pengiriman ke seluruh Indonesia",
     badge: "FAQ",
-    href: "/faq",
+    href: "/faq?open=1",
     keywords: "kirim pengiriman luar bekasi seluruh indonesia ongkir ekspedisi estimasi 2 7 hari kerja",
   },
   {
@@ -85,7 +85,7 @@ const faqItems: SearchItem[] = [
     title: "Apakah ukuran bisa dikustom?",
     subtitle: "Custom ukuran, spesifikasi, dan finishing",
     badge: "FAQ",
-    href: "/faq",
+    href: "/faq?open=2",
     keywords: "custom kustom ukuran spesifikasi finishing desain material venue lapangan pesanan order",
   },
   {
@@ -93,7 +93,7 @@ const faqItems: SearchItem[] = [
     title: "Bagaimana cara memesan atau konsultasi?",
     subtitle: "Hubungi via WhatsApp",
     badge: "FAQ",
-    href: "/faq",
+    href: "/faq?open=3",
     keywords: "pesan order konsultasi whatsapp cara beli harga penawaran proses produksi",
   },
   {
@@ -101,7 +101,7 @@ const faqItems: SearchItem[] = [
     title: "Berapa lama proses pengerjaan?",
     subtitle: "3–7 hari kerja untuk produk standar",
     badge: "FAQ",
-    href: "/faq",
+    href: "/faq?open=4",
     keywords: "lama pengerjaan waktu proses produksi 3 7 hari kerja standar custom estimasi",
   },
   {
@@ -109,7 +109,7 @@ const faqItems: SearchItem[] = [
     title: "Apakah tersedia layanan pemasangan?",
     subtitle: "Tersedia untuk area Bekasi dan sekitarnya",
     badge: "FAQ",
-    href: "/faq",
+    href: "/faq?open=5",
     keywords: "pemasangan pasang instalasi jasa bekasi sekitar lokasi tim lapangan",
   },
 ];

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { waUrl } from "@/lib/wa";
 
@@ -31,9 +31,13 @@ const faqs = [
   },
 ];
 
-export function FaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+export function FaqSection({ initialOpen = null }: { initialOpen?: number | null }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(initialOpen);
   const prefersReducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    setOpenIndex(initialOpen);
+  }, [initialOpen]);
 
   const revealUp = {
     hidden: prefersReducedMotion
@@ -52,8 +56,7 @@ export function FaqSection() {
       className="mb-8 scroll-mt-24 rounded-2xl border border-zinc-200 bg-white p-6 sm:mb-9"
       variants={revealUp}
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.15 }}
+      animate="show"
       transition={{ duration: 0.9, ease: "easeOut" }}
     >
       {/* Header */}
