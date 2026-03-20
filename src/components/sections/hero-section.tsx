@@ -76,7 +76,7 @@ function CategoryMarquee({ categories }: { categories: MarqueeCat[] }) {
 
   return (
     <div
-      className="overflow-hidden sm:hidden"
+      className="overflow-hidden"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
@@ -205,12 +205,6 @@ export function HeroSection() {
     show: { opacity: 1, y: 0, scale: 1 },
   };
 
-  const stagger = {
-    hidden: {},
-    show: {
-      transition: { staggerChildren: prefersReducedMotion ? 0 : 0.07 },
-    },
-  };
 
   const categoryWithImage = sportCategories.map((cat) => {
     const thumb =
@@ -374,52 +368,8 @@ export function HeroSection() {
           Kategori Produk
         </p>
 
-        {/* Mobile: infinite marquee */}
+        {/* Semua ukuran: infinite marquee */}
         <CategoryMarquee categories={categoryWithImage} />
-
-        {/* Desktop: static grid */}
-        <motion.div
-          className="hidden sm:grid sm:grid-cols-4 sm:gap-2 sm:px-7 lg:grid-cols-8 lg:px-8 xl:px-10"
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          {categoryWithImage.map((cat) => (
-            <motion.div
-              key={cat.id}
-              variants={fadeUp}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            >
-              <Link
-                href={`/products?cat=${cat.id}`}
-                className={`group flex flex-col items-center gap-1.5 rounded-2xl border bg-white p-2.5 transition-all duration-200 ${cat.border} ${cat.hover}`}
-              >
-                <div className="relative h-14 w-full overflow-hidden rounded-xl bg-zinc-50">
-                  {cat.image ? (
-                    <Image
-                      src={cat.image}
-                      alt={cat.label}
-                      fill
-                      sizes="120px"
-                      className="object-contain p-1 transition duration-300 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center">
-                      <span className={`rounded-full px-2 py-1 text-[10px] font-extrabold uppercase tracking-wide ${cat.badge}`}>
-                        {cat.standard}
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <span className="text-xs font-bold text-zinc-800">{cat.label}</span>
-                <span className={`rounded-full px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wide ${cat.badge}`}>
-                  {cat.standard}
-                </span>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
 
     </motion.section>
