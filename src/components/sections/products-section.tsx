@@ -8,7 +8,6 @@ import { ProductGalleryCarousel } from "@/components/ui/product-gallery-carousel
 import { ProductImage } from "@/components/ui/product-image";
 import {
   products,
-  sportLabels,
   type ProductDescription,
   type SportCategory,
 } from "@/data/products";
@@ -16,29 +15,17 @@ import {
 const WA_URL =
   "https://wa.me/6289673404972?text=Halo%20admin%20PFS%2C%20saya%20mau%20konsultasi%20project";
 
-const groupedProducts = products.reduce(
-  (acc, product) => {
-    if (!acc[product.sport]) acc[product.sport] = [];
-    acc[product.sport].push(product);
-    return acc;
-  },
-  {} as Record<SportCategory, (typeof products)[number][]>,
-);
+type TabKey =
+  | "basketball"
+  | "volleyball"
+  | "football"
+  | "badminton"
+  | "padel"
+  | "tennis"
+  | "official-equipment"
+  | "referee-chair";
 
-const sportSummaries: Record<SportCategory, string> = {
-  basketball: "Ring basket kompetisi, portable dan tanam.",
-  volleyball: "Tiang dan sistem net voli siap pakai.",
-  football: "Gawang sepak bola untuk lapangan sekolah dan venue.",
-  badminton: "Tiang badminton untuk latihan dan pertandingan.",
-  padel: "Tiang padel custom sesuai kebutuhan lapangan.",
-  tennis: "Tiang tenis kuat, rapi, dan presisi pemasangan.",
-  "official-equipment": "Kursi wasit dan perlengkapan resmi pertandingan.",
-  "referee-chair-badminton": "Kursi wasit badminton untuk pertandingan resmi.",
-  "referee-chair-volleyball": "Kursi wasit voli untuk pertandingan resmi.",
-  "referee-chair-tennis": "Kursi wasit tenis untuk pertandingan resmi.",
-};
-
-const detailedSports: SportCategory[] = [
+const TAB_ORDER: TabKey[] = [
   "basketball",
   "volleyball",
   "football",
@@ -46,14 +33,47 @@ const detailedSports: SportCategory[] = [
   "padel",
   "tennis",
   "official-equipment",
-  "referee-chair-badminton",
-  "referee-chair-volleyball",
-  "referee-chair-tennis",
+  "referee-chair",
 ];
+
+const tabLabels: Record<TabKey, string> = {
+  basketball: "Basketball",
+  volleyball: "Volleyball",
+  football: "Sepak Bola",
+  badminton: "Badminton",
+  padel: "Padel",
+  tennis: "Tenis",
+  "official-equipment": "Accessories",
+  "referee-chair": "Kursi Wasit",
+};
+
+const tabSummaries: Record<TabKey, string> = {
+  basketball: "Ring basket kompetisi, portable dan tanam.",
+  volleyball: "Tiang dan sistem net voli siap pakai.",
+  football: "Gawang sepak bola untuk lapangan sekolah dan venue.",
+  badminton: "Tiang badminton untuk latihan dan pertandingan.",
+  padel: "Tiang padel custom sesuai kebutuhan lapangan.",
+  tennis: "Tiang tenis kuat, rapi, dan presisi pemasangan.",
+  "official-equipment": "Net dan aksesoris perlengkapan olahraga.",
+  "referee-chair": "Kursi wasit badminton, voli, dan tenis.",
+};
+
+const groupedByTab = TAB_ORDER.reduce(
+  (acc, key) => {
+    acc[key] =
+      key === "referee-chair"
+        ? products.filter((p) => (p.sport as string).startsWith("referee-chair-"))
+        : products.filter((p) => p.sport === (key as SportCategory));
+    return acc;
+  },
+  {} as Record<TabKey, (typeof products)[number][]>,
+);
+
+const activeTabs = TAB_ORDER.filter((key) => groupedByTab[key].length > 0);
 
 export function ProductsSection() {
   const prefersReducedMotion = useReducedMotion();
-  const [openSport, setOpenSport] = useState<SportCategory>("basketball");
+  const [openSport, setOpenSport] = useState<TabKey>("basketball");
   const [lightboxImage, setLightboxImage] = useState<{
     images: string[];
     activeIndex: number;
@@ -128,25 +148,25 @@ export function ProductsSection() {
           data-auto-scroll="true"
           className="grid grid-flow-col auto-cols-[64%] gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[42%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-3 md:overflow-visible lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
         >
-          {Object.entries(groupedProducts).map(([sport, sportProducts]) => (
+          {activeTabs.map((tab) => (
             <button
-              key={sport}
+              key={tab}
               type="button"
-              onClick={() => setOpenSport(sport as SportCategory)}
+              onClick={() => setOpenSport(tab)}
               className={`rounded-2xl border p-3 text-left transition ${
-                openSport === (sport as SportCategory)
+                openSport === tab
                   ? "border-orange-300 bg-orange-50 shadow-sm"
                   : "border-zinc-200 bg-white hover:border-zinc-300"
               }`}
             >
               <h2 className="text-base font-semibold tracking-tight sm:text-lg">
-                {sportLabels[sport as SportCategory]}
+                {tabLabels[tab]}
               </h2>
               <p className="mt-1 text-justify text-xs leading-snug text-zinc-600 sm:text-sm">
-                {sportSummaries[sport as SportCategory]}
+                {tabSummaries[tab]}
               </p>
               <p className="mt-2 text-xs font-medium uppercase tracking-wide text-zinc-500">
-                {sportProducts.length} produk
+                {groupedByTab[tab].length} produk
               </p>
             </button>
           ))}
@@ -158,11 +178,11 @@ export function ProductsSection() {
             Geser kategori
           </p>
           <div className="flex items-center gap-1.5">
-            {Object.keys(groupedProducts).map((sport) => (
+            {activeTabs.map((tab) => (
               <span
-                key={`dot-${sport}`}
+                key={`dot-${tab}`}
                 className={`h-1.5 rounded-full transition-all ${
-                  openSport === (sport as SportCategory)
+                  openSport === tab
                     ? "w-4 bg-orange-500"
                     : "w-1.5 bg-zinc-300"
                 }`}
@@ -173,45 +193,37 @@ export function ProductsSection() {
 
         {/* Panel produk per kategori — SEMUA dirender di HTML, hanya aktif yang tampil */}
         <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 sm:p-5">
-          {Object.entries(groupedProducts).map(([sport, sportProducts]) => {
-            const isActive = openSport === (sport as SportCategory);
-            const isDetailed = detailedSports.includes(sport as SportCategory);
+          {activeTabs.map((tab) => {
+            const tabProducts = groupedByTab[tab];
+            const isActive = openSport === tab;
 
             return (
-              <div key={sport} className={isActive ? "block" : "hidden"}>
+              <div key={tab} className={isActive ? "block" : "hidden"}>
                 <div className="mb-4 flex items-center justify-between gap-3">
                   <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
-                    {sportLabels[sport as SportCategory]}
+                    {tabLabels[tab]}
                   </h3>
-                  {isDetailed ? (
-                    <div className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-700">
-                      {sportProducts.length} Produk{" "}
-                      {sportLabels[sport as SportCategory]}
-                    </div>
-                  ) : null}
+                  <div className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-700">
+                    {tabProducts.length} Produk
+                  </div>
                 </div>
 
                 <motion.div
-                  key={`products-${sport}`}
+                  key={`products-${tab}`}
                   data-auto-scroll="true"
                   variants={staggerWrap}
                   initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.15 }}
+                  animate={openSport === tab ? "show" : "hidden"}
                   className="grid grid-flow-col auto-cols-[92%] gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] sm:auto-cols-[72%] md:grid-flow-row md:auto-cols-auto md:grid-cols-2 md:gap-4 md:overflow-visible md:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden"
                 >
-                  {sportProducts.map((product, index) => (
+                  {tabProducts.map((product, index) => (
                     <motion.article
-                      key={`${sport}-${product.id}`}
+                      key={`${tab}-${product.id}`}
                       variants={cardReveal}
                       transition={{ duration: 0.55, ease: "easeOut" }}
                       className="snap-start rounded-2xl border border-zinc-200 bg-white p-2.5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-3"
                     >
-                      {((product.sport === "basketball" ||
-                        product.sport === "volleyball" ||
-                        product.sport === "football" ||
-                        product.sport === "padel") &&
-                        product.images.gallery.length > 1) ? (
+                      {product.images.gallery.length > 1 ? (
                         <ProductGalleryCarousel
                           images={product.images.gallery}
                           alt={product.name}
@@ -244,80 +256,56 @@ export function ProductsSection() {
                         />
                       )}
 
-                      {isDetailed ? (
-                        <div className="mt-3">
-                          <div className="flex items-center justify-between gap-2">
-                            <h3 className="line-clamp-1 text-base font-semibold">
-                              {sport === "basketball"
-                                ? product.name.replace(
-                                    "Ring Basket FIBA ",
-                                    "Ring Basket ",
-                                  )
-                                : product.name}
-                            </h3>
-                            {product.variant ? (
-                              <span className="whitespace-nowrap rounded-full bg-zinc-900 px-2.5 py-1 text-[11px] font-semibold text-white">
-                                {product.variant}
-                              </span>
-                            ) : null}
-                          </div>
-                          <div className="mt-3 flex items-center gap-2">
-                            <Link
-                              href={`/products/${product.slug}`}
-                              className="inline-flex rounded-full bg-sky-600 px-3 py-1.5 text-xs font-extrabold tracking-wide text-white shadow-sm transition hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
-                            >
-                              Lihat Detail
-                            </Link>
-                            {product.description ? (
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  const description = product.description;
-                                  if (!description) return;
-                                  setSelectedDescription({
-                                    title:
-                                      product.slug ===
-                                      "ring-basket-fiba-tanam-dinding"
-                                        ? "Ring Basket Dinding standar FIBA"
-                                        : product.name.replace("FIBA ", ""),
-                                    content: description,
-                                  });
-                                }}
-                                className="inline-flex rounded-full border border-zinc-300 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-700 shadow-sm transition hover:border-zinc-400 focus-visible:outline-none"
-                              >
-                                Deskripsi
-                              </button>
-                            ) : null}
-                            <a
-                              href={WA_URL}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label="Konsultasi via WhatsApp"
-                              className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366] shadow-sm transition hover:scale-110 hover:shadow-[0_2px_10px_rgba(37,211,102,0.45)]"
-                            >
-                              <svg viewBox="0 0 24 24" fill="white" aria-hidden="true" className="h-4 w-4">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                              </svg>
-                            </a>
-                          </div>
+                      <div className="mt-3">
+                        <div className="flex items-center justify-between gap-2">
+                          <h3 className="line-clamp-1 text-base font-semibold">
+                            {product.name.replace("Ring Basket FIBA ", "Ring Basket ")}
+                          </h3>
+                          {product.variant ? (
+                            <span className="whitespace-nowrap rounded-full bg-zinc-900 px-2.5 py-1 text-[11px] font-semibold text-white">
+                              {product.variant}
+                            </span>
+                          ) : null}
                         </div>
-                      ) : (
-                        <>
-                          <div className="mt-3 flex flex-wrap items-center gap-1.5">
-                            <h3 className="text-base font-semibold">
-                              {product.name}
-                            </h3>
-                            {product.variant ? (
-                              <span className="rounded-full bg-zinc-900 px-2.5 py-1 text-xs font-medium text-white">
-                                {product.variant}
-                              </span>
-                            ) : null}
-                          </div>
-                          <p className="mt-0.5 text-xs text-zinc-500 sm:text-sm">
-                            {product.standards.join(", ")} - {product.type}
-                          </p>
-                        </>
-                      )}
+                        <div className="mt-3 flex items-center gap-2">
+                          <Link
+                            href={`/products/${product.slug}`}
+                            className="inline-flex rounded-full bg-sky-600 px-3 py-1.5 text-xs font-extrabold tracking-wide text-white shadow-sm transition hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                          >
+                            Lihat Detail
+                          </Link>
+                          {product.description ? (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const description = product.description;
+                                if (!description) return;
+                                setSelectedDescription({
+                                  title:
+                                    product.slug === "ring-basket-fiba-tanam-dinding"
+                                      ? "Ring Basket Dinding standar FIBA"
+                                      : product.name.replace("FIBA ", ""),
+                                  content: description,
+                                });
+                              }}
+                              className="inline-flex rounded-full border border-zinc-300 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-700 shadow-sm transition hover:border-zinc-400 focus-visible:outline-none"
+                            >
+                              Deskripsi
+                            </button>
+                          ) : null}
+                          <a
+                            href={WA_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Konsultasi via WhatsApp"
+                            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366] shadow-sm transition hover:scale-110 hover:shadow-[0_2px_10px_rgba(37,211,102,0.45)]"
+                          >
+                            <svg viewBox="0 0 24 24" fill="white" aria-hidden="true" className="h-4 w-4">
+                              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
                     </motion.article>
                   ))}
                 </motion.div>

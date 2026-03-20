@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { products } from "@/data/products";
-import { stats } from "@/data/testimonials";
 import { waUrl } from "@/lib/wa";
 import type { SportCategory } from "@/data/products";
 
@@ -91,7 +90,7 @@ function CategoryMarquee({ categories }: { categories: MarqueeCat[] }) {
         {[...categories, ...categories].map((cat, i) => (
           <Link
             key={`${cat.id}-${i}`}
-            href={`/products?kategori=${cat.id}`}
+            href={`/products?cat=${cat.id}`}
             className={`group flex w-28 shrink-0 flex-col items-center gap-1.5 rounded-2xl border bg-white p-2.5 transition-all duration-200 ${cat.border} ${cat.hover}`}
           >
             <div className="relative h-12 w-full overflow-hidden rounded-xl bg-zinc-50">
@@ -123,7 +122,7 @@ function CategoryMarquee({ categories }: { categories: MarqueeCat[] }) {
 }
 
 const sportCategories: Array<{
-  id: SportCategory;
+  id: SportCategory | "referee-chair";
   label: string;
   standard: string;
   border: string;
@@ -178,6 +177,22 @@ const sportCategories: Array<{
     badge: "bg-amber-100 text-amber-800",
     hover: "hover:border-amber-400 hover:bg-amber-50",
   },
+  {
+    id: "referee-chair",
+    label: "Kursi Wasit",
+    standard: "BWF/FIVB/ITF",
+    border: "border-rose-200",
+    badge: "bg-rose-100 text-rose-800",
+    hover: "hover:border-rose-400 hover:bg-rose-50",
+  },
+  {
+    id: "official-equipment",
+    label: "Accessories",
+    standard: "Multi",
+    border: "border-zinc-200",
+    badge: "bg-zinc-100 text-zinc-700",
+    hover: "hover:border-zinc-400 hover:bg-zinc-50",
+  },
 ];
 
 export function HeroSection() {
@@ -199,11 +214,12 @@ export function HeroSection() {
 
   const categoryWithImage = sportCategories.map((cat) => {
     const thumb =
-      products.find((p) => p.sport === cat.id)?.images.thumb ?? null;
+      cat.id === "referee-chair"
+        ? (products.find((p) => (p.sport as string).startsWith("referee-chair-"))?.images.thumb ?? null)
+        : (products.find((p) => p.sport === cat.id)?.images.thumb ?? null);
     return {
       ...cat,
-      image:
-        thumb && !thumb.includes("placeholder") ? thumb : null,
+      image: thumb && !thumb.includes("placeholder") ? thumb : null,
     };
   });
 
@@ -363,7 +379,7 @@ export function HeroSection() {
 
         {/* Desktop: static grid */}
         <motion.div
-          className="hidden sm:grid sm:grid-cols-6 sm:gap-2 sm:px-7 lg:px-8 xl:px-10"
+          className="hidden sm:grid sm:grid-cols-4 sm:gap-2 sm:px-7 lg:grid-cols-8 lg:px-8 xl:px-10"
           variants={stagger}
           initial="hidden"
           whileInView="show"
@@ -376,7 +392,7 @@ export function HeroSection() {
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
               <Link
-                href={`/products?kategori=${cat.id}`}
+                href={`/products?cat=${cat.id}`}
                 className={`group flex flex-col items-center gap-1.5 rounded-2xl border bg-white p-2.5 transition-all duration-200 ${cat.border} ${cat.hover}`}
               >
                 <div className="relative h-14 w-full overflow-hidden rounded-xl bg-zinc-50">
@@ -406,26 +422,6 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      {/* ── Stats Bar ───────────────────────────────────────────────────── */}
-      <div className="grid grid-cols-2 gap-px border-t border-zinc-100 sm:grid-cols-4">
-        {stats.map((stat, i) => (
-          <div
-            key={stat.label}
-            className={`flex flex-col items-center justify-center px-4 py-4 text-center ${
-              i < stats.length - 1 ? "sm:border-r sm:border-zinc-100" : ""
-            } ${i % 2 === 0 ? "border-r border-zinc-100 sm:border-r-0" : ""}`}
-          >
-            <span className="text-2xl font-extrabold text-zinc-900 sm:text-3xl">
-              {stat.numericValue}
-              {stat.suffix}
-            </span>
-            <span className="mt-0.5 text-xs font-semibold text-zinc-700">
-              {stat.label}
-            </span>
-            <span className="text-[10px] text-zinc-400">{stat.sublabel}</span>
-          </div>
-        ))}
-      </div>
     </motion.section>
   );
 }
