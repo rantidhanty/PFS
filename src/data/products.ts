@@ -5,7 +5,9 @@ export type SportCategory =
   | "badminton"
   | "padel"
   | "tennis"
-  | "official-equipment";
+  | "official-equipment"
+  | "referee-chair-badminton"
+  | "referee-chair-volleyball";
 
 export type ComplianceStandard =
   | "FIBA"
@@ -403,7 +405,7 @@ export const products: Product[] = [
     id: "prod-chair-volleyball",
     name: "Kursi Wasit Voli",
     slug: "kursi-volley-wasit",
-    sport: "official-equipment",
+    sport: "referee-chair-volleyball",
     type: "referee-chair",
     standards: ["FIVB"],
     sportTags: ["volleyball"],
@@ -437,7 +439,7 @@ export const products: Product[] = [
     id: "prod-chair-badminton",
     name: "Kursi Wasit Badminton",
     slug: "kursi-badminton-wasit",
-    sport: "official-equipment",
+    sport: "referee-chair-badminton",
     type: "referee-chair",
     standards: ["BWF"],
     sportTags: ["badminton"],
@@ -477,4 +479,6 @@ export const sportLabels: Record<SportCategory, string> = {
   padel: "Padel",
   tennis: "Tenis",
   "official-equipment": "Official Equipment",
+  "referee-chair-badminton": "Kursi Wasit Badminton",
+  "referee-chair-volleyball": "Kursi Wasit Voli",
 };

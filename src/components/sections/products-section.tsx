@@ -33,6 +33,8 @@ const sportSummaries: Record<SportCategory, string> = {
   padel: "Tiang padel custom sesuai kebutuhan lapangan.",
   tennis: "Tiang tenis kuat, rapi, dan presisi pemasangan.",
   "official-equipment": "Kursi wasit dan perlengkapan resmi pertandingan.",
+  "referee-chair-badminton": "Kursi wasit badminton untuk pertandingan resmi.",
+  "referee-chair-volleyball": "Kursi wasit voli untuk pertandingan resmi.",
 };
 
 const detailedSports: SportCategory[] = [
@@ -43,6 +45,8 @@ const detailedSports: SportCategory[] = [
   "padel",
   "tennis",
   "official-equipment",
+  "referee-chair-badminton",
+  "referee-chair-volleyball",
 ];
 
 export function ProductsSection() {

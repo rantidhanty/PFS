@@ -26,6 +26,12 @@ const productCategories = [
   { id: "official-equipment", label: "Accessories", href: "/products?cat=official-equipment" },
 ];
 
+const refereeChairCategories = [
+  { id: "referee-chair", label: "Semua Kursi Wasit", href: "/products?cat=referee-chair" },
+  { id: "referee-chair-badminton", label: "Kursi Wasit Badminton", href: "/products?cat=referee-chair-badminton" },
+  { id: "referee-chair-volleyball", label: "Kursi Wasit Voli", href: "/products?cat=referee-chair-volleyball" },
+];
+
 const otherNavLinks = [
   { label: "Project", href: "/projects" },
   { label: "Blog", href: "/blog" },
@@ -38,6 +44,8 @@ export function SiteNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [productDropdownOpen, setProductDropdownOpen] = useState(false);
   const [productMenuOpen, setProductMenuOpen] = useState(false);
+  const [refereeChairHover, setRefereeChairHover] = useState(false);
+  const [refereeChairMobileOpen, setRefereeChairMobileOpen] = useState(false);
   const pathname = usePathname();
   const { openSearch } = useSearch();
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
@@ -119,19 +127,51 @@ export function SiteNavbar() {
             </Link>
 
             {productDropdownOpen && (
-              <div className="absolute left-0 top-full z-50 w-44 pt-1">
-              <div className="rounded-2xl border border-zinc-200 bg-white py-1.5 shadow-lg">
-                {productCategories.map((cat) => (
-                  <Link
-                    key={cat.id}
-                    href={cat.href}
-                    onClick={() => setProductDropdownOpen(false)}
-                    className="block px-4 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 hover:text-zinc-900"
+              <div className="absolute left-0 top-full z-50 w-48 pt-1">
+                <div className="rounded-2xl border border-zinc-200 bg-white py-1.5 shadow-lg">
+                  {productCategories.map((cat) => (
+                    <Link
+                      key={cat.id}
+                      href={cat.href}
+                      onClick={() => setProductDropdownOpen(false)}
+                      className="block px-4 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 hover:text-zinc-900"
+                    >
+                      {cat.label}
+                    </Link>
+                  ))}
+                  {/* Kursi Wasit nested flyout */}
+                  <div
+                    className="relative"
+                    onMouseEnter={() => setRefereeChairHover(true)}
+                    onMouseLeave={() => setRefereeChairHover(false)}
                   >
-                    {cat.label}
-                  </Link>
-                ))}
-              </div>
+                    <button
+                      type="button"
+                      className="flex w-full items-center justify-between px-4 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 hover:text-zinc-900"
+                    >
+                      Kursi Wasit
+                      <svg viewBox="0 0 16 16" fill="none" className="h-3 w-3 shrink-0" aria-hidden="true">
+                        <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+                    {refereeChairHover && (
+                      <div className="absolute left-full top-0 w-52 pl-1">
+                        <div className="rounded-2xl border border-zinc-200 bg-white py-1.5 shadow-lg">
+                          {refereeChairCategories.map((cat) => (
+                            <Link
+                              key={cat.id}
+                              href={cat.href}
+                              onClick={() => { setProductDropdownOpen(false); setRefereeChairHover(false); }}
+                              className="block px-4 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 hover:text-zinc-900"
+                            >
+                              {cat.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -250,6 +290,38 @@ export function SiteNavbar() {
                       {cat.label}
                     </Link>
                   ))}
+                  {/* Kursi Wasit sub-accordion */}
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => setRefereeChairMobileOpen((prev) => !prev)}
+                      className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-50 hover:text-zinc-900"
+                    >
+                      Kursi Wasit
+                      <svg
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        className={`h-3 w-3 transition-transform duration-200 ${refereeChairMobileOpen ? "rotate-90" : ""}`}
+                        aria-hidden="true"
+                      >
+                        <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+                    {refereeChairMobileOpen && (
+                      <div className="ml-3 mt-0.5 flex flex-col gap-0.5 border-l-2 border-zinc-100 pl-3">
+                        {refereeChairCategories.map((cat) => (
+                          <Link
+                            key={cat.id}
+                            href={cat.href}
+                            onClick={() => setIsOpen(false)}
+                            className="rounded-lg px-3 py-2 text-sm font-medium text-zinc-500 transition hover:bg-zinc-50 hover:text-zinc-900"
+                          >
+                            {cat.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
             </div>

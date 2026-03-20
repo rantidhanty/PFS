@@ -12,7 +12,7 @@ import { waUrl } from "@/lib/wa";
 
 const PRODUCTS_PER_PAGE = 9;
 
-const categoryTabs: Array<{ id: SportCategory | "all"; label: string }> = [
+const mainTabs: Array<{ id: SportCategory | "all" | "referee-chair"; label: string }> = [
   { id: "all", label: "Semua" },
   { id: "basketball", label: "Basket" },
   { id: "volleyball", label: "Voli" },
@@ -21,7 +21,16 @@ const categoryTabs: Array<{ id: SportCategory | "all"; label: string }> = [
   { id: "padel", label: "Padel" },
   { id: "tennis", label: "Tenis" },
   { id: "official-equipment", label: "Accessories" },
+  { id: "referee-chair", label: "Kursi Wasit ▸" },
 ];
+
+const REFEREE_CHAIR_SPORTS: SportCategory[] = [
+  "referee-chair-badminton",
+  "referee-chair-volleyball",
+];
+
+const isRefereeChairActive = (cat: string) =>
+  cat === "referee-chair" || cat.startsWith("referee-chair-");
 
 const standardColor: Record<string, string> = {
   FIBA: "bg-orange-100 text-orange-800",
@@ -36,25 +45,27 @@ function ProductsPageContent() {
   const searchParams = useSearchParams();
   const catParam = searchParams.get("cat") as SportCategory | null;
 
-  const [activeCategory, setActiveCategory] = useState<SportCategory | "all">(catParam ?? "all");
+  const [activeCategory, setActiveCategory] = useState<SportCategory | "all" | "referee-chair">(catParam ?? "all");
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    setActiveCategory(catParam ?? "all");
+    setActiveCategory((catParam as SportCategory | "all" | "referee-chair") ?? "all");
     setCurrentPage(1);
   }, [catParam]);
 
-  const filtered = useMemo(
-    () => activeCategory === "all" ? products : products.filter((p) => p.sport === activeCategory),
-    [activeCategory],
-  );
+  const filtered = useMemo(() => {
+    if (activeCategory === "all") return products;
+    if (activeCategory === "referee-chair")
+      return products.filter((p) => REFEREE_CHAIR_SPORTS.includes(p.sport as SportCategory));
+    return products.filter((p) => p.sport === activeCategory);
+  }, [activeCategory]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PRODUCTS_PER_PAGE));
   const safePage = Math.min(currentPage, totalPages);
   const start = (safePage - 1) * PRODUCTS_PER_PAGE;
   const paginated = filtered.slice(start, start + PRODUCTS_PER_PAGE);
 
-  const changeCategory = (cat: SportCategory | "all") => {
+  const changeCategory = (cat: SportCategory | "all" | "referee-chair") => {
     setActiveCategory(cat);
     setCurrentPage(1);
   };
@@ -89,7 +100,7 @@ function ProductsPageContent() {
               </span>
             </div>
           </div>
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex flex-wrap items-center gap-2 shrink-0">
             <span className="flex items-center gap-1.5 text-xs font-semibold text-zinc-500">
               <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5" aria-hidden="true">
                 <path d="M3 5h14M6 10h8M9 15h2" />
@@ -97,14 +108,25 @@ function ProductsPageContent() {
               Filter:
             </span>
             <select
-              value={activeCategory}
-              onChange={(e) => changeCategory(e.target.value as SportCategory | "all")}
+              value={isRefereeChairActive(activeCategory) ? "referee-chair" : activeCategory}
+              onChange={(e) => changeCategory(e.target.value as SportCategory | "all" | "referee-chair")}
               className="rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-700 transition hover:border-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-300"
             >
-              {categoryTabs.map((tab) => (
+              {mainTabs.map((tab) => (
                 <option key={tab.id} value={tab.id}>{tab.label}</option>
               ))}
             </select>
+            {isRefereeChairActive(activeCategory) && (
+              <select
+                value={activeCategory}
+                onChange={(e) => changeCategory(e.target.value as SportCategory | "referee-chair")}
+                className="rounded-xl border border-orange-300 bg-orange-50 px-3 py-2 text-sm font-semibold text-orange-700 transition hover:border-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
+              >
+                <option value="referee-chair">Semua Kursi Wasit</option>
+                <option value="referee-chair-badminton">Kursi Wasit Badminton</option>
+                <option value="referee-chair-volleyball">Kursi Wasit Voli</option>
+              </select>
+            )}
           </div>
         </div>
 
@@ -118,7 +140,11 @@ function ProductsPageContent() {
           <span className="font-bold text-zinc-900">{filtered.length}</span>{" "}
           produk
           {activeCategory !== "all" && (
-            <span className="ml-1 text-zinc-400">· {categoryTabs.find((t) => t.id === activeCategory)?.label}</span>
+            <span className="ml-1 text-zinc-400">
+              · {mainTabs.find((t) => t.id === (isRefereeChairActive(activeCategory) ? "referee-chair" : activeCategory))?.label}
+              {activeCategory === "referee-chair-badminton" && " — Badminton"}
+              {activeCategory === "referee-chair-volleyball" && " — Voli"}
+            </span>
           )}
         </p>
 
