@@ -58,16 +58,23 @@ export default async function ProductPage({
     `Halo admin PFS, saya mau konsultasi tentang ${product.name}`,
   );
 
-  // Section 1: produk dari sport yang sama
-  const sameCategory = products.filter(
-    (p) => p.sport === product.sport && p.slug !== product.slug,
-  );
+  const isRefereeChair = (sport: string) => sport.startsWith("referee-chair-");
+
+  // Section 1: produk dari sport yang sama (semua kursi wasit dikelompokkan)
+  const sameCategory = isRefereeChair(product.sport)
+    ? products.filter((p) => isRefereeChair(p.sport) && p.slug !== product.slug)
+    : products.filter((p) => p.sport === product.sport && p.slug !== product.slug);
+
+  const sameCategoryLabel = isRefereeChair(product.sport)
+    ? "Kursi Wasit"
+    : sportLabels[product.sport];
 
   // Section 2: 1 produk representatif dari tiap sport lain
   const crossCategory = products
-    .filter((p) => p.sport !== product.sport)
+    .filter((p) => isRefereeChair(product.sport) ? !isRefereeChair(p.sport) : p.sport !== product.sport)
     .reduce<typeof products>((acc, p) => {
-      if (!acc.find((x) => x.sport === p.sport)) acc.push(p);
+      const key = isRefereeChair(p.sport) ? "referee-chair" : p.sport;
+      if (!acc.find((x) => (isRefereeChair(x.sport) ? "referee-chair" : x.sport) === key)) acc.push(p);
       return acc;
     }, [])
     .slice(0, 4);
@@ -302,7 +309,7 @@ export default async function ProductPage({
         )}
 
         <ProductRelated
-          sportLabel={sportLabels[product.sport]}
+          sportLabel={sameCategoryLabel}
           sameCategory={sameCategory}
           crossCategory={crossCategory}
         />

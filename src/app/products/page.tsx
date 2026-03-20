@@ -27,6 +27,7 @@ const mainTabs: Array<{ id: SportCategory | "all" | "referee-chair"; label: stri
 const REFEREE_CHAIR_SPORTS: SportCategory[] = [
   "referee-chair-badminton",
   "referee-chair-volleyball",
+  "referee-chair-tennis",
 ];
 
 const isRefereeChairActive = (cat: string) =>
@@ -125,6 +126,7 @@ function ProductsPageContent() {
                 <option value="referee-chair">Semua Kursi Wasit</option>
                 <option value="referee-chair-badminton">Kursi Wasit Badminton</option>
                 <option value="referee-chair-volleyball">Kursi Wasit Voli</option>
+                <option value="referee-chair-tennis">Kursi Wasit Tenis</option>
               </select>
             )}
           </div>
@@ -224,9 +226,6 @@ function ProductsPageContent() {
                 <h2 className="mt-2 text-sm font-bold leading-snug text-zinc-900 transition group-hover:text-orange-700 sm:text-base">
                   {product.name}
                 </h2>
-                {product.variant && (
-                  <p className="mt-0.5 text-xs text-zinc-500">{product.variant}</p>
-                )}
                 <p className="mt-2 text-xs font-semibold text-orange-600 sm:text-sm">
                   Lihat Detail →
                 </p>

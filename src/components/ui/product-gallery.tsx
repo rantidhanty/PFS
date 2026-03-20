@@ -8,7 +8,8 @@ type ProductGalleryProps = {
   productName: string;
 };
 
-export function ProductGallery({ images, productName }: ProductGalleryProps) {
+export function ProductGallery({ images: rawImages, productName }: ProductGalleryProps) {
+  const images = rawImages.length > 0 ? rawImages : ["/images/placeholder-product.svg"];
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);

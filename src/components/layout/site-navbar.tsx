@@ -30,6 +30,7 @@ const refereeChairCategories = [
   { id: "referee-chair", label: "Semua Kursi Wasit", href: "/products?cat=referee-chair" },
   { id: "referee-chair-badminton", label: "Kursi Wasit Badminton", href: "/products?cat=referee-chair-badminton" },
   { id: "referee-chair-volleyball", label: "Kursi Wasit Voli", href: "/products?cat=referee-chair-volleyball" },
+  { id: "referee-chair-tennis", label: "Kursi Wasit Tenis", href: "/products?cat=referee-chair-tennis" },
 ];
 
 const otherNavLinks = [

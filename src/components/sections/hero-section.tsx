@@ -303,6 +303,21 @@ export function HeroSection() {
               />
             </a>
             <a
+              href="https://id.shp.ee/VJqfdMyT"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Beli di Shopee"
+              className="transition hover:opacity-80"
+            >
+              <Image
+                src="/images/logo/logo shopee.png"
+                alt="Shopee"
+                width={120}
+                height={40}
+                className="h-auto w-auto max-h-9 max-w-[68px]"
+              />
+            </a>
+            <a
               href={waUrl("Halo admin PFS")}
               target="_blank"
               rel="noopener noreferrer"

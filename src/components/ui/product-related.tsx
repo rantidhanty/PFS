@@ -12,6 +12,37 @@ type Props = {
   crossCategory: Product[];
 };
 
+const MARQUEE_MIN_ITEMS = 4;
+
+function RelatedCard({ other }: { other: Product }) {
+  return (
+    <Link
+      href={`/products/${other.slug}`}
+      className="group w-36 shrink-0 rounded-2xl border border-zinc-200 bg-zinc-50 p-2.5 transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md sm:w-44"
+    >
+      <div className="relative aspect-square overflow-hidden rounded-xl bg-zinc-100">
+        <Image
+          src={other.images.thumb}
+          alt={other.name}
+          fill
+          sizes="176px"
+          className="object-contain p-1 transition duration-300 group-hover:scale-105"
+        />
+      </div>
+      <span className="mt-2 inline-block rounded-full bg-zinc-200 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-zinc-600">
+        {sportLabels[other.sport]}
+      </span>
+      <p className="mt-1 line-clamp-2 text-xs font-semibold leading-snug text-zinc-800 transition group-hover:text-orange-700">
+        {other.name}
+      </p>
+      {other.variant && (
+        <p className="mt-0.5 text-[10px] text-zinc-400">{other.variant}</p>
+      )}
+      <p className="mt-1.5 text-[11px] font-bold text-orange-600">Lihat →</p>
+    </Link>
+  );
+}
+
 function RelatedMarquee({ items }: { items: Product[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -19,14 +50,13 @@ function RelatedMarquee({ items }: { items: Product[] }) {
   const rafRef = useRef(0);
 
   useEffect(() => {
-    // reset offset when items change (tab switch)
     s.current.offset = 0;
     s.current.paused = false;
     s.current.dragging = false;
 
     const track = trackRef.current;
     if (!track) return;
-    const SPEED = 40; // px/s
+    const SPEED = 40;
     let lastTs = 0;
 
     const tick = (ts: number) => {
@@ -73,7 +103,6 @@ function RelatedMarquee({ items }: { items: Product[] }) {
     timerRef.current = setTimeout(() => { s.current.paused = false; }, 1500);
   };
 
-  // duplicate items for seamless loop
   const doubled = [...items, ...items];
 
   return (
@@ -90,39 +119,27 @@ function RelatedMarquee({ items }: { items: Product[] }) {
         style={{ width: "max-content" }}
       >
         {doubled.map((other, i) => (
-          <Link
-            key={`${other.slug}-${i}`}
-            href={`/products/${other.slug}`}
-            className="group w-36 shrink-0 rounded-2xl border border-zinc-200 bg-zinc-50 p-2.5 transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md sm:w-44"
-          >
-            <div className="relative aspect-square overflow-hidden rounded-xl bg-zinc-100">
-              <Image
-                src={other.images.thumb}
-                alt={other.name}
-                fill
-                sizes="176px"
-                className="object-contain p-1 transition duration-300 group-hover:scale-105"
-              />
-            </div>
-            <span className="mt-2 inline-block rounded-full bg-zinc-200 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-zinc-600">
-              {sportLabels[other.sport]}
-            </span>
-            <p className="mt-1 line-clamp-2 text-xs font-semibold leading-snug text-zinc-800 transition group-hover:text-orange-700">
-              {other.name}
-            </p>
-            {other.variant && (
-              <p className="mt-0.5 text-[10px] text-zinc-400">{other.variant}</p>
-            )}
-            <p className="mt-1.5 text-[11px] font-bold text-orange-600">Lihat →</p>
-          </Link>
+          <RelatedCard key={`${other.slug}-${i}`} other={other} />
         ))}
       </div>
     </div>
   );
 }
 
+function RelatedStatic({ items }: { items: Product[] }) {
+  return (
+    <div className="flex flex-wrap gap-3">
+      {items.map((other) => (
+        <RelatedCard key={other.slug} other={other} />
+      ))}
+    </div>
+  );
+}
+
 export function ProductRelated({ sportLabel, sameCategory, crossCategory }: Props) {
-  const [activeTab, setActiveTab] = useState<"same" | "cross">("same");
+  const [activeTab, setActiveTab] = useState<"same" | "cross">(
+    sameCategory.length > 0 ? "same" : "cross",
+  );
 
   const items = activeTab === "same" ? sameCategory : crossCategory;
 
@@ -162,7 +179,9 @@ export function ProductRelated({ sportLabel, sameCategory, crossCategory }: Prop
       </div>
 
       <div className="mt-4">
-        <RelatedMarquee key={activeTab} items={items} />
+        {items.length >= MARQUEE_MIN_ITEMS
+          ? <RelatedMarquee key={activeTab} items={items} />
+          : <RelatedStatic key={activeTab} items={items} />}
       </div>
 
       <div className="mt-2 text-right">

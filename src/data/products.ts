@@ -7,7 +7,8 @@ export type SportCategory =
   | "tennis"
   | "official-equipment"
   | "referee-chair-badminton"
-  | "referee-chair-volleyball";
+  | "referee-chair-volleyball"
+  | "referee-chair-tennis";
 
 export type ComplianceStandard =
   | "FIBA"
@@ -51,7 +52,8 @@ export const products: Product[] = [
     standards: ["FIBA"],
     sportTags: ["basketball"],
     images: {
-      thumb: "/images/products/basketball/ring-basket-fiba/portable/versi_1/2.2.png",
+      thumb:
+        "/images/products/basketball/ring-basket-fiba/portable/versi_1/2.2.png",
       gallery: [
         "/images/products/basketball/ring-basket-fiba/portable/versi_1/2.2.png",
         "/images/products/basketball/ring-basket-fiba/portable/versi_1/3.3.png",
@@ -86,7 +88,8 @@ export const products: Product[] = [
     standards: ["FIBA"],
     sportTags: ["basketball"],
     images: {
-      thumb: "/images/products/basketball/ring-basket-fiba/portable/versi_2/v2-1.png",
+      thumb:
+        "/images/products/basketball/ring-basket-fiba/portable/versi_2/v2-1.png",
       gallery: [
         "/images/products/basketball/ring-basket-fiba/portable/versi_2/v2-1.png",
         "/images/products/basketball/ring-basket-fiba/portable/versi_2/v2-2.png",
@@ -194,7 +197,8 @@ export const products: Product[] = [
     standards: ["FIVB"],
     sportTags: ["volleyball"],
     images: {
-      thumb: "/images/products/volleyball/net-volleyball-fivb/portable/w1.1.png",
+      thumb:
+        "/images/products/volleyball/net-volleyball-fivb/portable/w1.1.png",
       gallery: [
         "/images/products/volleyball/net-volleyball-fivb/portable/w1.1.png",
         "/images/products/volleyball/net-volleyball-fivb/portable/w2.2.png",
@@ -411,10 +415,7 @@ export const products: Product[] = [
     sportTags: ["volleyball"],
     images: {
       thumb: "/images/placeholder-product.svg",
-      gallery: [
-        "/images/products/official-equipment/kursi-volley-wasit/01.jpg",
-        "/images/products/official-equipment/kursi-volley-wasit/02.jpg",
-      ],
+      gallery: [],
     },
     description: {
       intro:
@@ -437,17 +438,18 @@ export const products: Product[] = [
   },
   {
     id: "prod-chair-badminton",
-    name: "Kursi Wasit Badminton",
+    name: "Kursi Wasit Badminton PFS V1",
     slug: "kursi-badminton-wasit",
     sport: "referee-chair-badminton",
     type: "referee-chair",
     standards: ["BWF"],
     sportTags: ["badminton"],
     images: {
-      thumb: "/images/placeholder-product.svg",
+      thumb:
+        "/images/products/kursi-wasit/kursi-badminton-wasit/V1/kursi%20Bandminton%20V01.png",
       gallery: [
-        "/images/products/official-equipment/kursi-badminton-wasit/01.jpg",
-        "/images/products/official-equipment/kursi-badminton-wasit/02.jpg",
+        "/images/products/kursi-wasit/kursi-badminton-wasit/V1/kursi%20Bandminton%20V01.png",
+        "/images/products/kursi-wasit/kursi-badminton-wasit/V1/kursi%20Bandminton%20V02.png",
       ],
     },
     description: {
@@ -469,6 +471,207 @@ export const products: Product[] = [
         "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
     },
   },
+  {
+    id: "prod-chair-badminton-v2",
+    name: "Kursi Wasit Badminton PFS V2",
+    slug: "kursi-badminton-wasit-v2",
+    sport: "referee-chair-badminton",
+    type: "referee-chair",
+    variant: "Stainless",
+    standards: ["BWF"],
+    sportTags: ["badminton"],
+    images: {
+      thumb: "/images/products/kursi-wasit/kursi-badminton-wasit/V2/kursi%20badminton%20PFS%201.png",
+      gallery: [
+        "/images/products/kursi-wasit/kursi-badminton-wasit/V2/kursi%20badminton%20PFS%201.png",
+        "/images/products/kursi-wasit/kursi-badminton-wasit/V2/kursi%20badminton%20PFS%202.png",
+      ],
+    },
+    description: {
+      intro:
+        "Kursi wasit badminton PFS V2 hadir dengan rangka bahan stainless steel — tampilan lebih modern, tahan karat, dan tetap kokoh untuk penggunaan intensif di lapangan indoor maupun outdoor.",
+      details: [
+        "Posisi duduk di ketinggian ideal untuk visibilitas penuh selama pertandingan",
+        "Rangka stainless steel anti-karat memberikan ketahanan jangka panjang tanpa perlu pengecatan ulang",
+        "Permukaan stainless yang halus mudah dibersihkan dan tetap tampil rapi",
+        "Dudukan dan sandaran berlapisan busa tebal dengan kulit sintetis berkualitas untuk kenyamanan maksimal",
+        "Konstruksi las presisi memastikan kekuatan sambungan di setiap titik rangka",
+        "Cocok untuk penggunaan di lapangan indoor maupun outdoor",
+      ],
+      notes: [
+        "Material utama: besi pipa stainless steel grade 304 tahan karat",
+        "Finishing poles stainless tanpa cat — tampilan natural metalik yang tahan lama",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+      ],
+      closing:
+        "Spesifikasi dimensi dapat disesuaikan — hubungi kami untuk penawaran.",
+    },
+  },
+  {
+    id: "prod-chair-badminton-v3",
+    name: "Kursi Wasit Badminton PFS V3",
+    slug: "kursi-badminton-wasit-v3",
+    sport: "referee-chair-badminton",
+    type: "referee-chair",
+    variant: "Stainless",
+    standards: ["BWF"],
+    sportTags: ["badminton"],
+    images: {
+      thumb: "/images/products/kursi-wasit/kursi-badminton-wasit/V3/kursi%20badminton%20PFS%203.png",
+      gallery: [
+        "/images/products/kursi-wasit/kursi-badminton-wasit/V3/kursi%20badminton%20PFS%203.png",
+        "/images/products/kursi-wasit/kursi-badminton-wasit/V3/kursi%20badminton%20PFS%204.png",
+      ],
+    },
+    description: {
+      intro:
+        "Kursi wasit badminton PFS V2 hadir dengan rangka bahan stainless steel — tampilan lebih modern, tahan karat, dan tetap kokoh untuk penggunaan intensif di lapangan indoor maupun outdoor.",
+      details: [
+        "Posisi duduk di ketinggian ideal untuk visibilitas penuh selama pertandingan",
+        "Rangka stainless steel anti-karat memberikan ketahanan jangka panjang tanpa perlu pengecatan ulang",
+        "Permukaan stainless yang halus mudah dibersihkan dan tetap tampil rapi",
+        "Dudukan dan sandaran berlapisan busa tebal dengan kulit sintetis berkualitas untuk kenyamanan maksimal",
+        "Konstruksi las presisi memastikan kekuatan sambungan di setiap titik rangka",
+        "Cocok untuk penggunaan di lapangan indoor maupun outdoor",
+      ],
+      notes: [
+        "Material utama: besi pipa stainless steel grade 304 tahan karat",
+        "Finishing poles stainless tanpa cat — tampilan natural metalik yang tahan lama",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+      ],
+      closing:
+        "Spesifikasi dimensi dapat disesuaikan — hubungi kami untuk penawaran.",
+    },
+  },
+  {
+    id: "prod-chair-tennis",
+    name: "Kursi Wasit Tenis",
+    slug: "kursi-wasit-tenis",
+    sport: "referee-chair-tennis",
+    type: "referee-chair",
+    standards: ["ITF"],
+    sportTags: ["tennis"],
+    images: {
+      thumb:
+        "/images/products/kursi-wasit/kursi-wasit-tenis/kursi%20tenis%201.png",
+      gallery: [
+        "/images/products/kursi-wasit/kursi-wasit-tenis/kursi%20tenis%201.png",
+        "/images/products/kursi-wasit/kursi-wasit-tenis/kursi%20tenis%202.png",
+      ],
+    },
+    description: {
+      intro:
+        "Kursi wasit tenis dengan ketinggian optimal untuk pengawasan lapangan — kokoh, nyaman sepanjang pertandingan, dan tampil profesional di venue indoor maupun outdoor.",
+      details: [
+        "Posisi duduk tinggi memberikan sudut pandang ideal untuk wasit selama pertandingan",
+        "Rangka besi pipa kokoh mampu menopang beban dengan aman dalam jangka panjang",
+        "Dudukan berlapisan busa tebal dengan penutup berkualitas untuk kenyamanan maksimal",
+        "Tangga naik yang aman dan stabil untuk kemudahan akses wasit",
+        "Cocok untuk penggunaan di lapangan indoor maupun outdoor",
+        "Warna dapat disesuaikan dengan identitas venue atau klub",
+      ],
+      notes: [
+        "Rangka dari besi pipa berkualitas dengan proses fabrikasi yang rapi dan presisi",
+        "Dirancang untuk keawetan dan kemudahan perawatan dalam penggunaan rutin",
+        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+      ],
+      closing:
+        "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
+    },
+  },
+  {
+    id: "prod-accessories-net-voli",
+    name: "Net Voli Standar",
+    slug: "net-voli-standar",
+    sport: "official-equipment",
+    type: "net",
+    standards: ["FIVB"],
+    sportTags: ["volleyball"],
+    images: {
+      thumb: "/images/placeholder-product.svg",
+      gallery: [],
+    },
+    description: {
+      intro:
+        "Net voli standar kompetisi dengan bahan nilon berkualitas tinggi — tahan lama, tegang optimal, dan cocok untuk lapangan indoor maupun outdoor.",
+      details: [
+        "Ukuran standar FIVB: panjang 9,5 m, lebar 1 m",
+        "Bahan rajutan nilon anti-putus untuk ketahanan jangka panjang",
+        "Tali atas dan bawah diperkuat untuk menjaga ketenangan net saat pertandingan",
+        "Tepian dikuatkan dengan pita kain putih lebar 5 cm sesuai regulasi",
+        "Cocok untuk penggunaan indoor dan outdoor",
+      ],
+      notes: [
+        "Tersedia dalam beberapa pilihan kelas: latihan dan kompetisi",
+        "Dapat dikombinasikan dengan tiang voli PFS untuk paket lapangan lengkap",
+        "Spesifikasi dan ketersediaan stok dapat dikonfirmasi via WhatsApp",
+      ],
+      closing:
+        "Hubungi kami untuk konsultasi kebutuhan net dan kelengkapan lapangan voli Anda.",
+    },
+  },
+  {
+    id: "prod-accessories-net-badminton",
+    name: "Net Badminton Standar",
+    slug: "net-badminton-standar",
+    sport: "official-equipment",
+    type: "net",
+    standards: ["BWF"],
+    sportTags: ["badminton"],
+    images: {
+      thumb: "/images/placeholder-product.svg",
+      gallery: [],
+    },
+    description: {
+      intro:
+        "Net badminton berstandar BWF dengan rajutan halus dan tegangan konsisten — pilihan tepat untuk latihan rutin hingga kompetisi resmi.",
+      details: [
+        "Ukuran standar BWF: panjang 6,1 m, tinggi 76 cm",
+        "Rajutan nilon halus dengan lubang jaring 19–20 mm",
+        "Pita kepala putih lebar 75 mm yang kokoh di bagian atas net",
+        "Tali pinggir kiri-kanan kuat untuk pemasangan di tiang lapangan standar",
+        "Ringan dan mudah dipasang maupun digulung kembali",
+      ],
+      notes: [
+        "Tersedia untuk lapangan tunggal maupun ganda",
+        "Cocok dipasang pada tiang badminton seri PFS",
+        "Stok dan spesifikasi lengkap dapat dikonfirmasi via WhatsApp",
+      ],
+      closing:
+        "Hubungi kami untuk konsultasi paket tiang dan net badminton lengkap.",
+    },
+  },
+  {
+    id: "prod-accessories-net-futsal",
+    name: "Jaring Gawang Futsal",
+    slug: "jaring-gawang-futsal",
+    sport: "official-equipment",
+    type: "net",
+    standards: ["FIFA"],
+    sportTags: ["football"],
+    images: {
+      thumb: "/images/placeholder-product.svg",
+      gallery: [],
+    },
+    description: {
+      intro:
+        "Jaring gawang futsal berbahan PE berkualitas — kuat menahan tembakan keras, tidak mudah robek, dan pas untuk gawang standar FIFA.",
+      details: [
+        "Material polyethylene (PE) berdiameter benang 3 mm untuk ketahanan optimal",
+        "Ukuran standar gawang futsal: 3 m × 2 m × kedalaman 1 m",
+        "Anyaman rapat mencegah bola menerobos tanpa merusak tampilan",
+        "Warna putih bersih yang kontras dan terlihat jelas di lapangan",
+        "Tahan terhadap perubahan cuaca untuk penggunaan indoor dan outdoor",
+      ],
+      notes: [
+        "Cocok dipasang pada gawang futsal seri PFS",
+        "Tersedia dalam pilihan kepadatan anyaman standar dan kompetisi",
+        "Spesifikasi dan ketersediaan stok dapat dikonfirmasi via WhatsApp",
+      ],
+      closing:
+        "Hubungi kami untuk informasi harga dan paket gawang beserta jaring.",
+    },
+  },
 ];
 
 export const sportLabels: Record<SportCategory, string> = {
@@ -481,4 +684,5 @@ export const sportLabels: Record<SportCategory, string> = {
   "official-equipment": "Official Equipment",
   "referee-chair-badminton": "Kursi Wasit Badminton",
   "referee-chair-volleyball": "Kursi Wasit Voli",
+  "referee-chair-tennis": "Kursi Wasit Tenis",
 };

@@ -35,6 +35,7 @@ const sportSummaries: Record<SportCategory, string> = {
   "official-equipment": "Kursi wasit dan perlengkapan resmi pertandingan.",
   "referee-chair-badminton": "Kursi wasit badminton untuk pertandingan resmi.",
   "referee-chair-volleyball": "Kursi wasit voli untuk pertandingan resmi.",
+  "referee-chair-tennis": "Kursi wasit tenis untuk pertandingan resmi.",
 };
 
 const detailedSports: SportCategory[] = [
@@ -47,6 +48,7 @@ const detailedSports: SportCategory[] = [
   "official-equipment",
   "referee-chair-badminton",
   "referee-chair-volleyball",
+  "referee-chair-tennis",
 ];
 
 export function ProductsSection() {
