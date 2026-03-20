@@ -24,7 +24,6 @@ export function FeaturedCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isHoveredRef = useRef(false);
-  const isVisibleRef = useRef(false);
 
   const total = featured.length;
 
@@ -40,24 +39,11 @@ export function FeaturedCarousel() {
   const next = () => scrollToIndex((activeIndex + 1) % total);
   const prev = () => scrollToIndex((activeIndex - 1 + total) % total);
 
-  // Watch visibility — only auto-advance when carousel is on screen
+  // Auto-advance every 3s, pause on hover
   useEffect(() => {
-    const wrapper = wrapperRef.current;
-    if (!wrapper) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { isVisibleRef.current = entry.isIntersecting; },
-      { threshold: 0.2 },
-    );
-    observer.observe(wrapper);
-    return () => observer.disconnect();
-  }, []);
-
-  // Auto-advance — desktop only, only when visible and not hovered
-  useEffect(() => {
-    const isDesktop = () => window.matchMedia("(min-width: 768px)").matches;
     const schedule = () => {
       timerRef.current = setTimeout(() => {
-        if (isDesktop() && isVisibleRef.current && !isHoveredRef.current) {
+        if (!isHoveredRef.current) {
           setActiveIndex((i) => {
             const next = (i + 1) % total;
             const track = trackRef.current;
@@ -69,7 +55,7 @@ export function FeaturedCarousel() {
           });
         }
         schedule();
-      }, 3500);
+      }, 3000);
     };
     schedule();
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
