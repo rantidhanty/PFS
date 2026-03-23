@@ -44,7 +44,6 @@ export function ProductGallery({ images: rawImages, productName }: ProductGaller
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-contain"
-          priority
         />
         {images.length > 1 && (
           <>
