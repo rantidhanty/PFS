@@ -38,9 +38,9 @@ export const featuredProject: ProjectCaseStudy = {
     "/images/Projects/SMAN 37 Jakarta/02.mp4",
   ],
   images: [
-    "/images/Projects/SMAN 37 Jakarta/01.jpg",
-    "/images/Projects/SMAN 37 Jakarta/02.jpg",
-    "/images/Projects/SMAN 37 Jakarta/03.jpg",
+    "/images/Projects/SMAN 37 Jakarta/1.png",
+    "/images/Projects/SMAN 37 Jakarta/2.png",
+    "/images/Projects/SMAN 37 Jakarta/3.png",
   ],
 };
 
