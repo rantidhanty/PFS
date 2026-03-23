@@ -80,6 +80,9 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
+  verification: {
+    google: "BaPHZwdsN8LeNoY4JcrjOBZZVO4EO0LJr9N1wON-G94",
+  },
 };
 
 const jsonLd = {
