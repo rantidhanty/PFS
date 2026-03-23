@@ -11,6 +11,9 @@ import type { SportCategory } from "@/data/products";
 import { waUrl } from "@/lib/wa";
 
 const PRODUCTS_PER_PAGE = 9;
+const PLACEHOLDER_SRC = "/images/placeholder-product.svg";
+const mainProducts = products.filter((p) => p.images.thumb !== PLACEHOLDER_SRC);
+const comingSoonProducts = products.filter((p) => p.images.thumb === PLACEHOLDER_SRC);
 
 const mainTabs: Array<{ id: SportCategory | "all" | "referee-chair"; label: string }> = [
   { id: "all", label: "Semua" },
@@ -20,7 +23,6 @@ const mainTabs: Array<{ id: SportCategory | "all" | "referee-chair"; label: stri
   { id: "badminton", label: "Badminton" },
   { id: "padel", label: "Padel" },
   { id: "tennis", label: "Tenis" },
-  { id: "official-equipment", label: "Accessories" },
   { id: "referee-chair", label: "Kursi Wasit ▸" },
 ];
 
@@ -55,10 +57,10 @@ function ProductsPageContent() {
   }, [catParam]);
 
   const filtered = useMemo(() => {
-    if (activeCategory === "all") return products;
+    if (activeCategory === "all") return mainProducts;
     if (activeCategory === "referee-chair")
-      return products.filter((p) => REFEREE_CHAIR_SPORTS.includes(p.sport as SportCategory));
-    return products.filter((p) => p.sport === activeCategory);
+      return mainProducts.filter((p) => REFEREE_CHAIR_SPORTS.includes(p.sport as SportCategory));
+    return mainProducts.filter((p) => p.sport === activeCategory);
   }, [activeCategory]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PRODUCTS_PER_PAGE));
@@ -294,6 +296,54 @@ function ProductsPageContent() {
                 </svg>
               </span>
             )}
+          </div>
+        )}
+
+        {/* Segera Hadir */}
+        {comingSoonProducts.length > 0 && (
+          <div className="mt-8 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-4 sm:px-5">
+            {/* Header */}
+            <div className="flex items-center gap-2">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-100">
+                <svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5 text-amber-600" aria-hidden="true">
+                  <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <h2 className="text-sm font-extrabold text-zinc-900">Segera Hadir</h2>
+            </div>
+
+            {/* List */}
+            <div className="mt-3 divide-y divide-zinc-200 rounded-xl border border-zinc-200 bg-white">
+              {comingSoonProducts.map((product) => (
+                <div key={product.slug} className="flex items-center justify-between gap-3 px-3.5 py-2.5">
+                  <span className="text-sm font-semibold text-zinc-700">{product.name}</span>
+                  <div className="flex shrink-0 flex-wrap gap-1">
+                    {product.standards.map((std) => (
+                      <span
+                        key={std}
+                        className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide ${standardColor[std] ?? "bg-zinc-100 text-zinc-700"}`}
+                      >
+                        {std}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Subtle hint */}
+            <p className="mt-2.5 text-right text-xs text-zinc-400">
+              Tertarik?{" "}
+              <a
+                href={waUrl("Halo admin PFS, saya ingin tanya produk yang segera hadir")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-zinc-500 underline underline-offset-2 transition hover:text-zinc-800"
+              >
+                Hubungi kami →
+              </a>
+            </p>
           </div>
         )}
 

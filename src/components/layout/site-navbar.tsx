@@ -23,7 +23,6 @@ const productCategories = [
   { id: "badminton", label: "Badminton", href: "/products?cat=badminton" },
   { id: "padel", label: "Padel", href: "/products?cat=padel" },
   { id: "tennis", label: "Tenis", href: "/products?cat=tennis" },
-  { id: "official-equipment", label: "Accessories", href: "/products?cat=official-equipment" },
 ];
 
 const refereeChairCategories = [
