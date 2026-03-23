@@ -23,7 +23,7 @@ const mainTabs: Array<{ id: SportCategory | "all" | "referee-chair"; label: stri
   { id: "badminton", label: "Badminton" },
   { id: "padel", label: "Padel" },
   { id: "tennis", label: "Tenis" },
-  { id: "referee-chair", label: "Kursi Wasit ▸" },
+  { id: "referee-chair", label: "Kursi Wasit" },
 ];
 
 const REFEREE_CHAIR_SPORTS: SportCategory[] = [
