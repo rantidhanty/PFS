@@ -285,23 +285,39 @@ function ProductsPageContent() {
               </span>
             )}
 
-            {/* Page numbers */}
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((pg) => (
-              <button
-                key={pg}
-                type="button"
-                onClick={() => changePage(pg)}
-                aria-label={`Halaman ${pg}`}
-                aria-current={pg === safePage ? "page" : undefined}
-                className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold transition ${
-                  pg === safePage
-                    ? "bg-zinc-900 text-white"
-                    : "border border-zinc-200 bg-white text-zinc-600 hover:border-zinc-400 hover:text-zinc-900"
-                }`}
-              >
-                {pg}
-              </button>
-            ))}
+            {/* Page numbers with ellipsis */}
+            {(() => {
+              const pages: (number | "...")[] = [];
+              if (totalPages <= 7) {
+                for (let i = 1; i <= totalPages; i++) pages.push(i);
+              } else {
+                pages.push(1);
+                if (safePage > 3) pages.push("...");
+                for (let i = Math.max(2, safePage - 1); i <= Math.min(totalPages - 1, safePage + 1); i++) pages.push(i);
+                if (safePage < totalPages - 2) pages.push("...");
+                pages.push(totalPages);
+              }
+              return pages.map((pg, i) =>
+                pg === "..." ? (
+                  <span key={`ellipsis-${i}`} className="flex h-9 w-9 items-center justify-center text-sm text-zinc-400">…</span>
+                ) : (
+                  <button
+                    key={pg}
+                    type="button"
+                    onClick={() => changePage(pg)}
+                    aria-label={`Halaman ${pg}`}
+                    aria-current={pg === safePage ? "page" : undefined}
+                    className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold transition ${
+                      pg === safePage
+                        ? "bg-zinc-900 text-white"
+                        : "border border-zinc-200 bg-white text-zinc-600 hover:border-zinc-400 hover:text-zinc-900"
+                    }`}
+                  >
+                    {pg}
+                  </button>
+                )
+              );
+            })()}
 
             {/* Next */}
             {safePage < totalPages ? (
