@@ -33,10 +33,7 @@ export const featuredProject: ProjectCaseStudy = {
     "Pengerjaan presisi, rapi, dan kokoh",
     "Cocok untuk kebutuhan institusi dan komersial",
   ],
-  videos: [
-    "/images/Projects/SMAN 37 Jakarta/01.mp4",
-    "/images/Projects/SMAN 37 Jakarta/02.mp4",
-  ],
+  videos: [], // video belum di-watermark
   images: [
     "/images/Projects/SMAN 37 Jakarta/1.png",
     "/images/Projects/SMAN 37 Jakarta/2.png",
