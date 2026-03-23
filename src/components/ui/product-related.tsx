@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import { sportLabels } from "@/data/products";
 import type { Product } from "@/data/products";
 
@@ -18,7 +20,8 @@ function RelatedCard({ other }: { other: Product }) {
   return (
     <Link
       href={`/products/${other.slug}`}
-      className="group w-36 shrink-0 rounded-2xl border border-zinc-200 bg-zinc-50 p-2.5 transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md sm:w-44"
+      draggable={false}
+      className="group flex h-full min-w-0 flex-col rounded-2xl border border-zinc-200 bg-zinc-50 p-2.5 transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
     >
       <div className="relative aspect-square overflow-hidden rounded-xl bg-zinc-100">
         <Image
@@ -26,6 +29,7 @@ function RelatedCard({ other }: { other: Product }) {
           alt={other.name}
           fill
           sizes="176px"
+          draggable={false}
           className="object-contain p-1 transition duration-300 group-hover:scale-105"
         />
       </div>
@@ -43,84 +47,119 @@ function RelatedCard({ other }: { other: Product }) {
   );
 }
 
-function RelatedMarquee({ items }: { items: Product[] }) {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-  const s = useRef({ offset: 0, dragging: false, paused: false, startX: 0, startOffset: 0 });
-  const rafRef = useRef(0);
+function RelatedCarousel({ items }: { items: Product[] }) {
+  const autoplay = useRef(
+    Autoplay({
+      delay: 2800,
+      stopOnInteraction: false,
+      playOnInit: true,
+      stopOnFocusIn: true,
+    }),
+  );
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: "start",
+      loop: items.length > 3,
+      dragFree: false,
+      slidesToScroll: 1,
+      containScroll: "trimSnaps",
+      skipSnaps: false,
+      watchDrag: true,
+    },
+    [autoplay.current],
+  );
 
   useEffect(() => {
-    s.current.offset = 0;
-    s.current.paused = false;
-    s.current.dragging = false;
+    if (!emblaApi) return;
 
-    const track = trackRef.current;
-    if (!track) return;
-    const SPEED = 40;
-    let lastTs = 0;
+    autoplay.current.play();
 
-    const tick = (ts: number) => {
-      if (!lastTs) lastTs = ts;
-      const delta = ts - lastTs;
-      lastTs = ts;
+    const onPointerDown = () => autoplay.current.stop();
+    const onPointerUp = () => autoplay.current.reset();
+    const onSettle = () => autoplay.current.play();
 
-      if (!s.current.paused && !s.current.dragging) {
-        s.current.offset -= (SPEED * delta) / 1000;
-      }
+    emblaApi.on("pointerDown", onPointerDown);
+    emblaApi.on("pointerUp", onPointerUp);
+    emblaApi.on("settle", onSettle);
 
-      const half = track.scrollWidth / 2;
-      if (half > 0) {
-        s.current.offset = s.current.offset % half;
-        if (s.current.offset > 0) s.current.offset -= half;
-      }
-
-      track.style.transform = `translateX(${s.current.offset}px)`;
-      rafRef.current = requestAnimationFrame(tick);
-    };
-
-    rafRef.current = requestAnimationFrame(tick);
     return () => {
-      cancelAnimationFrame(rafRef.current);
-      clearTimeout(timerRef.current);
+      emblaApi.off("pointerDown", onPointerDown);
+      emblaApi.off("pointerUp", onPointerUp);
+      emblaApi.off("settle", onSettle);
     };
-  }, [items]);
+  }, [emblaApi]);
 
-  const onTouchStart = (e: React.TouchEvent) => {
-    clearTimeout(timerRef.current);
-    s.current.paused = true;
-    s.current.dragging = true;
-    s.current.startX = e.touches[0].clientX;
-    s.current.startOffset = s.current.offset;
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    if (!s.current.dragging) return;
-    s.current.offset = s.current.startOffset + (e.touches[0].clientX - s.current.startX);
-  };
-
-  const onTouchEnd = () => {
-    s.current.dragging = false;
-    timerRef.current = setTimeout(() => { s.current.paused = false; }, 1500);
-  };
-
-  const doubled = [...items, ...items];
+  const scrollPrev = () => emblaApi?.scrollPrev();
+  const scrollNext = () => emblaApi?.scrollNext();
+  const pauseAutoplay = () => autoplay.current.stop();
+  const resumeAutoplay = () => autoplay.current.play();
 
   return (
-    <div
-      className="overflow-hidden"
-      onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd}
-      onTouchCancel={onTouchEnd}
-    >
+    <div className="relative">
       <div
-        ref={trackRef}
-        className="flex gap-3 pb-2 will-change-transform"
-        style={{ width: "max-content" }}
+        className="overflow-hidden cursor-grab select-none active:cursor-grabbing"
+        ref={emblaRef}
+        onMouseEnter={pauseAutoplay}
+        onMouseLeave={resumeAutoplay}
       >
-        {doubled.map((other, i) => (
-          <RelatedCard key={`${other.slug}-${i}`} other={other} />
-        ))}
+        <div className="-ml-3 flex [touch-action:pan-y]">
+          {items.map((other) => (
+            <div
+              key={other.slug}
+              className="min-w-0 flex-[0_0_46%] pl-3 sm:flex-[0_0_32%] lg:flex-[0_0_24%]"
+            >
+              <RelatedCard other={other} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {items.length > 2 && (
+        <>
+          <button
+            type="button"
+            aria-label="Produk terkait sebelumnya"
+            onClick={scrollPrev}
+            className="absolute -left-1 top-1/2 z-10 hidden h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-500 shadow-md transition hover:border-zinc-300 hover:text-zinc-900 md:flex"
+          >
+            <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" aria-hidden="true">
+              <path d="M12 5l-5 5 5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            aria-label="Produk terkait berikutnya"
+            onClick={scrollNext}
+            className="absolute -right-1 top-1/2 z-10 hidden h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-500 shadow-md transition hover:border-zinc-300 hover:text-zinc-900 md:flex"
+          >
+            <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" aria-hidden="true">
+              <path d="M8 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </>
+      )}
+
+      <div className="mt-3 flex gap-2 md:hidden">
+        <button
+          type="button"
+          aria-label="Produk terkait sebelumnya"
+          onClick={scrollPrev}
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-500 transition hover:border-zinc-300 hover:text-zinc-900"
+        >
+          <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" aria-hidden="true">
+            <path d="M12 5l-5 5 5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          aria-label="Produk terkait berikutnya"
+          onClick={scrollNext}
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-500 transition hover:border-zinc-300 hover:text-zinc-900"
+        >
+          <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" aria-hidden="true">
+            <path d="M8 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
       </div>
     </div>
   );
@@ -148,31 +187,43 @@ export function ProductRelated({ sportLabel, sameCategory, crossCategory }: Prop
   return (
     <section className="mt-5 overflow-hidden rounded-3xl border border-zinc-200 bg-white p-5 shadow-[0_18px_42px_rgba(15,23,42,0.07)]">
       {/* Header + tabs */}
-      <div className="flex flex-wrap items-center justify-between gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
         <h2 className="text-lg font-extrabold tracking-tight">Produk Terkait</h2>
-        <div className="flex rounded-full border border-zinc-200 bg-zinc-50 p-0.5 text-xs font-bold">
+        <div className="grid w-full grid-cols-2 gap-2 sm:w-auto sm:inline-flex sm:rounded-full sm:border sm:border-zinc-200 sm:bg-zinc-50 sm:p-0.5 sm:gap-0 text-xs font-bold">
           {sameCategory.length > 0 && (
             <button
               type="button"
               onClick={() => setActiveTab("same")}
-              className={`rounded-full px-3.5 py-1.5 transition-colors ${
-                activeTab === "same" ? "bg-zinc-900 text-white" : "text-zinc-500 hover:text-zinc-900"
+              className={`inline-flex items-center justify-center gap-1.5 rounded-2xl border px-3 py-2 transition-colors sm:rounded-full sm:border-transparent sm:px-3.5 sm:py-1.5 ${
+                activeTab === "same"
+                  ? "border-orange-200 bg-orange-50 text-orange-700 sm:bg-zinc-900 sm:text-white"
+                  : "border-zinc-200 bg-white text-zinc-500 hover:text-zinc-900 sm:bg-transparent"
               }`}
             >
-              {sportLabel}
-              <span className="ml-1.5 text-[10px] opacity-60">{sameCategory.length}</span>
+              <span className="truncate">{sportLabel}</span>
+              <span className={`rounded-full px-1.5 py-0.5 text-[10px] leading-none ${
+                activeTab === "same"
+                  ? "bg-orange-100 text-orange-700 sm:bg-white/15 sm:text-white"
+                  : "bg-zinc-100 text-zinc-500"
+              }`}>{sameCategory.length}</span>
             </button>
           )}
           {crossCategory.length > 0 && (
             <button
               type="button"
               onClick={() => setActiveTab("cross")}
-              className={`rounded-full px-3.5 py-1.5 transition-colors ${
-                activeTab === "cross" ? "bg-zinc-900 text-white" : "text-zinc-500 hover:text-zinc-900"
+              className={`inline-flex items-center justify-center gap-1.5 rounded-2xl border px-3 py-2 transition-colors sm:rounded-full sm:border-transparent sm:px-3.5 sm:py-1.5 ${
+                activeTab === "cross"
+                  ? "border-sky-200 bg-sky-50 text-sky-700 sm:bg-zinc-900 sm:text-white"
+                  : "border-zinc-200 bg-white text-zinc-500 hover:text-zinc-900 sm:bg-transparent"
               }`}
             >
-              Lainnya
-              <span className="ml-1.5 text-[10px] opacity-60">{crossCategory.length}</span>
+              <span>Lainnya</span>
+              <span className={`rounded-full px-1.5 py-0.5 text-[10px] leading-none ${
+                activeTab === "cross"
+                  ? "bg-sky-100 text-sky-700 sm:bg-white/15 sm:text-white"
+                  : "bg-zinc-100 text-zinc-500"
+              }`}>{crossCategory.length}</span>
             </button>
           )}
         </div>
@@ -180,7 +231,7 @@ export function ProductRelated({ sportLabel, sameCategory, crossCategory }: Prop
 
       <div className="mt-4">
         {items.length >= MARQUEE_MIN_ITEMS
-          ? <RelatedMarquee key={activeTab} items={items} />
+          ? <RelatedCarousel key={activeTab} items={items} />
           : <RelatedStatic key={activeTab} items={items} />}
       </div>
 

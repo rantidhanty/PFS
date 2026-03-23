@@ -6,6 +6,7 @@ export type SportCategory =
   | "padel"
   | "tennis"
   | "official-equipment"
+  | "referee-chair"
   | "referee-chair-badminton"
   | "referee-chair-volleyball"
   | "referee-chair-tennis";
@@ -61,18 +62,18 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Pilihan tepat untuk sekolah yang butuh fleksibilitas — mudah dipindah saat ada kegiatan lain, dengan konstruksi kokoh dan tampilan rapi standar kompetisi.",
+        "Ring basket portabel kokoh — mudah dipindah, rapi standar kompetisi.",
       details: [
-        "Papan pantul akrilik premium, jernih dan tahan benturan untuk pantulan optimal",
-        "Ketinggian ring dapat disesuaikan untuk berbagai jenjang usia dan kebutuhan",
-        "Dilengkapi sistem roda untuk mobilitas mudah tanpa alat tambahan",
-        "Pengaman body berbahan kulit sintetis berkualitas untuk keamanan pengguna",
-        "Sistem pemberat stabil mencegah tiang bergeser saat digunakan intensif",
+        "Papan akrilik premium, tahan benturan",
+        "Ketinggian ring adjustable semua usia",
+        "Roda built-in, pindah tanpa alat",
+        "Pengaman body kulit sintetis",
+        "Pemberat stabil anti-geser",
       ],
       notes: [
-        "Rangka utama dari besi hollow berpenampang besar, kokoh untuk penggunaan jangka panjang",
-        "Seluruh komponen menggunakan material besi pilihan dengan proses fabrikasi presisi",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Besi hollow penampang besar",
+        "Fabrikasi presisi, material pilihan",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Warna dan konfigurasi dapat disesuaikan — hubungi kami untuk penawaran.",
@@ -99,19 +100,19 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Generasi terbaru ring basket portabel PFS — konstruksi lebih masif, finishing lebih premium, dan sistem stabilisasi ditingkatkan untuk performa optimal di lapangan maupun kompetisi.",
+        "Versi terbaru — konstruksi lebih masif, stabilisasi lebih kuat dari V1.",
       details: [
-        "Rangka besi hollow penampang lebih besar dari V1, memberikan rigiditas dan ketahanan jangka panjang yang lebih baik",
-        "Sistem pemberat kapasitas lebih tinggi dengan desain base yang lebih lebar untuk stabilitas maksimal",
-        "Papan pantul akrilik tebal dengan bracket penguat — tahan benturan keras dan getaran intensif",
-        "Finishing cat powder coating premium, anti-karat, tahan cuaca untuk penggunaan indoor maupun semi-outdoor",
-        "Mekanisme pengatur ketinggian lebih presisi dengan sistem kunci ganda untuk keamanan ekstra",
-        "Sistem roda heavy-duty dengan rem pengunci, mudah dipindah namun terkunci kokoh saat digunakan",
+        "Besi hollow penampang lebih besar dari V1",
+        "Base lebih lebar, kapasitas pemberat lebih tinggi",
+        "Papan akrilik tebal dengan bracket penguat",
+        "Powder coating premium, anti-karat",
+        "Mekanisme ketinggian kunci ganda",
+        "Roda heavy-duty dengan rem pengunci",
       ],
       notes: [
-        "Material besi struktural grade premium, seluruh sambungan las penuh untuk kekuatan optimal",
-        "Semua komponen logam melalui proses anti-karat sebelum finishing powder coating",
-        "Bobot total lebih berat dari V1 — dirancang untuk stabilitas maksimal, bukan portabilitas ringan",
+        "Material struktural grade premium",
+        "Las penuh seluruh sambungan",
+        "Bobot lebih berat dari V1 — prioritas stabilitas",
       ],
       closing:
         "Tersedia dalam konfigurasi warna custom — hubungi admin PFS untuk penawaran dan jadwal produksi.",
@@ -137,17 +138,17 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Solusi permanen untuk area dengan ruang terbatas — tampilan rapi menempel di dinding tanpa mengorbankan kualitas dan standar permainan.",
+        "Solusi permanen untuk ruang terbatas — terpasang di dinding, hemat area lantai.",
       details: [
-        "Sistem pemasangan dinding yang kuat, stabil, dan tidak mudah bergeser",
-        "Papan pantul akrilik premium dengan kejernihan tinggi untuk visibilitas optimal",
-        "Posisi ring presisi sesuai standar untuk latihan maupun pertandingan resmi",
-        "Hemat ruang secara signifikan karena tidak memerlukan basis atau tiang berdiri",
+        "Pemasangan dinding kuat, tidak bergeser",
+        "Papan akrilik premium, visibilitas optimal",
+        "Posisi ring presisi standar FIBA",
+        "Tidak perlu tiang — hemat ruang signifikan",
       ],
       notes: [
-        "Rangka utama dari besi hollow berpenampang besar untuk daya dukung maksimal",
-        "Proses pemasangan menyesuaikan struktur dinding di lokasi",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Besi hollow penampang besar",
+        "Pemasangan menyesuaikan struktur dinding",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Warna, konfigurasi, dan titik pemasangan dapat disesuaikan — hubungi kami untuk penawaran.",
@@ -171,17 +172,17 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Untuk lapangan yang tidak butuh dipindah — sistem tanam memberikan kestabilan tertinggi, cocok untuk sekolah, lapangan umum, dan fasilitas komunitas.",
+        "Untuk lapangan permanen — kestabilan tertinggi, tahan pemakaian intensif harian.",
       details: [
-        "Tiang ditanam ke pondasi permanen untuk kestabilan maksimal jangka panjang",
-        "Konstruksi sangat kuat untuk pemakaian intensif setiap hari",
-        "Ketinggian dan posisi ring dapat disesuaikan saat proses instalasi",
-        "Tahan terhadap cuaca ekstrem, cocok untuk area outdoor dan indoor",
+        "Ditanam ke pondasi permanen",
+        "Konstruksi sangat kuat untuk pemakaian intensif",
+        "Ketinggian dikonfigurasi saat instalasi",
+        "Tahan cuaca ekstrem, indoor maupun outdoor",
       ],
       notes: [
-        "Tiang utama dari besi pipa berdiameter besar untuk kekuatan struktural optimal",
-        "Proses pemasangan pondasi menyesuaikan kondisi dan layout lapangan di lokasi",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Besi pipa berdiameter besar",
+        "Pondasi menyesuaikan kondisi lapangan",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Tersedia survei lokasi sebelum instalasi — hubungi kami untuk penawaran.",
@@ -207,18 +208,18 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Paket tiang dan net voli siap pakai — dirancang untuk kemudahan operasional harian dengan konstruksi kuat yang tetap bisa dipindah kapan pun dibutuhkan.",
+        "Paket tiang dan net voli siap pakai — kuat, bisa dipindah kapan pun.",
       details: [
-        "Paket lengkap tiang dan net, siap pasang untuk lapangan indoor maupun outdoor",
-        "Sistem roda memudahkan pemindahan tiang tanpa tenaga ekstra",
-        "Sistem kait pengencang net yang praktis untuk pemasangan dan pelepasan cepat",
-        "Pelapis tiang berbahan kulit sintetis berkualitas untuk perlindungan dan tampilan rapi",
-        "Sistem pemberat berat untuk memastikan tiang tetap stabil selama permainan",
+        "Paket lengkap tiang + net, siap pasang",
+        "Roda built-in untuk pemindahan mudah",
+        "Sistem kait net praktis, pasang-lepas cepat",
+        "Pelapis kulit sintetis berkualitas",
+        "Pemberat berat, stabil selama permainan",
       ],
       notes: [
-        "Tiang utama dari besi pipa berdiameter besar dengan finishing tahan cuaca",
-        "Seluruh komponen dirancang untuk perawatan mudah dan umur pakai yang panjang",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Besi pipa berdiameter besar",
+        "Finishing tahan cuaca",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Konfigurasi dan warna dapat disesuaikan — hubungi kami untuk penawaran.",
@@ -242,18 +243,18 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Untuk lapangan voli yang membutuhkan instalasi permanen — kokoh, stabil, dan siap digunakan intensif oleh sekolah, klub, maupun fasilitas umum.",
+        "Instalasi permanen untuk lapangan voli — kokoh, stabil, siap digunakan intensif.",
       details: [
-        "Sistem tanam permanen memberikan kestabilan terbaik untuk pemakaian jangka panjang",
-        "Ketinggian net dapat dikonfigurasi sesuai kategori pertandingan pria maupun wanita",
-        "Sistem kait pengencang net yang presisi untuk hasil pemasangan yang konsisten",
-        "Pelapis pelindung tiang dari bahan kulit sintetis berkualitas, tahan lama dan rapi",
-        "Finishing tahan cuaca, cocok untuk penggunaan di area outdoor maupun indoor",
+        "Tanam permanen, kestabilan jangka panjang",
+        "Ketinggian net sesuai kategori pria/wanita",
+        "Kait net presisi, hasil konsisten",
+        "Pelindung tiang kulit sintetis berkualitas",
+        "Finishing tahan cuaca indoor/outdoor",
       ],
       notes: [
-        "Tiang utama dari besi pipa berdiameter besar dengan sistem dudukan tanam di lantai",
-        "Proses pemasangan mengikuti kondisi lokasi dan layout lapangan yang ada",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Besi pipa berdiameter besar",
+        "Pemasangan menyesuaikan lokasi",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Tersedia survei lokasi sebelum instalasi — hubungi kami untuk penawaran.",
@@ -279,18 +280,18 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Gawang futsal konstruksi besi solid — tersedia dalam pilihan permanen dan portable, siap untuk kebutuhan latihan intensif maupun pertandingan resmi.",
+        "Gawang futsal besi solid — tersedia permanen dan portable, siap kompetisi.",
       details: [
-        "Tersedia pilihan sistem permanen dan portable sesuai kebutuhan lapangan",
-        "Dimensi gawang mengikuti standar lapangan futsal resmi",
-        "Sistem sambungan bongkar pasang yang praktis dan mudah dioperasikan",
-        "Konstruksi kokoh untuk pemakaian intensif di sekolah dan fasilitas umum",
-        "Finishing tahan cuaca untuk penggunaan outdoor maupun indoor",
+        "Pilihan sistem permanen atau portable",
+        "Dimensi standar lapangan futsal resmi",
+        "Sistem bongkar pasang praktis",
+        "Konstruksi kokoh pemakaian intensif",
+        "Finishing tahan cuaca indoor/outdoor",
       ],
       notes: [
-        "Seluruh komponen dari besi pipa berkualitas dengan proses fabrikasi presisi",
-        "Konfigurasi dan ukuran dapat disesuaikan dengan kondisi lapangan",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Besi pipa berkualitas, fabrikasi presisi",
+        "Ukuran dapat dikustomisasi",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
@@ -315,18 +316,18 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Tiang badminton untuk kebutuhan latihan hingga pertandingan — konstruksi solid, mudah dioperasikan harian, dan rapi untuk semua jenis lapangan.",
+        "Tiang badminton solid untuk latihan hingga pertandingan — mudah operasikan harian.",
       details: [
-        "Mengacu pada standar dimensi lapangan badminton resmi",
-        "Sistem roda memudahkan pemindahan tiang antar lapangan tanpa usaha ekstra",
-        "Sistem kait pengencang net yang praktis untuk operasional harian yang efisien",
-        "Pelapis tiang berbahan kulit sintetis berkualitas untuk perlindungan dan tampilan profesional",
-        "Sistem pemberat stabil mencegah tiang bergeser saat permainan berlangsung",
+        "Mengacu standar dimensi BWF",
+        "Roda built-in, pindah antar lapangan mudah",
+        "Kait net praktis untuk operasional harian",
+        "Pelapis kulit sintetis berkualitas",
+        "Pemberat stabil anti-geser",
       ],
       notes: [
-        "Tiang utama dari besi pipa berkualitas dengan finishing tahan lama",
-        "Dapat disesuaikan untuk kebutuhan sekolah, klub, atau fasilitas olahraga",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Besi pipa berkualitas",
+        "Untuk sekolah, klub, fasilitas olahraga",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Warna dan konfigurasi dapat disesuaikan — hubungi kami untuk penawaran.",
@@ -354,18 +355,18 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Tiang padel dengan konstruksi presisi untuk lapangan modern — tampilan bersih, pemasangan akurat, dan material solid yang mendukung estetika venue padel profesional.",
+        "Tiang padel presisi untuk lapangan modern — rapi, solid, estetika profesional.",
       details: [
-        "Ketinggian tiang sesuai standar permainan padel resmi",
-        "Sistem kait pengencang net di posisi tengah untuk ketegangan net yang optimal",
-        "Penopang bawah yang kokoh memastikan tiang berdiri stabil di segala kondisi",
-        "Pengaman body berbahan kulit sintetis berkualitas untuk keamanan pemain",
-        "Desain ramping dan rapi yang sesuai dengan estetika lapangan padel modern",
+        "Ketinggian sesuai standar padel resmi",
+        "Kait net di tengah, ketegangan optimal",
+        "Penopang bawah kokoh di segala kondisi",
+        "Pengaman kulit sintetis berkualitas",
+        "Desain ramping sesuai estetika padel",
       ],
       notes: [
-        "Rangka dari besi hollow berpenampang solid dengan proses fabrikasi presisi",
-        "Dapat dikustom sesuai konsep dan layout lapangan padel Anda",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Besi hollow solid, fabrikasi presisi",
+        "Dapat dikustom sesuai layout lapangan",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Konsultasikan konsep lapangan Anda — kami siap berikan penawaran terbaik.",
@@ -388,18 +389,18 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Tiang tenis kokoh dan presisi — tersedia dalam pilihan portable maupun tanam, siap mendukung lapangan tenis dari level latihan hingga pertandingan resmi.",
+        "Tiang tenis presisi — tersedia portable maupun tanam, standar ITF.",
       details: [
-        "Tersedia pilihan portable dan tanam untuk fleksibilitas sesuai kebutuhan lapangan",
-        "Ketinggian tiang sesuai standar net tenis resmi ITF",
-        "Sistem roda memudahkan mobilitas untuk varian portable",
-        "Sistem kait pengencang net yang presisi untuk ketegangan net yang konsisten",
-        "Sistem pemberat berat memastikan stabilitas tiang selama pertandingan berlangsung",
+        "Pilihan portable dan tanam",
+        "Ketinggian sesuai standar ITF",
+        "Roda built-in untuk varian portable",
+        "Kait net presisi, ketegangan konsisten",
+        "Pemberat berat, stabil saat pertandingan",
       ],
       notes: [
-        "Tiang utama dan penopang dari besi pipa berkualitas dengan fabrikasi presisi",
-        "Konstruksi dirancang untuk penggunaan intensif jangka panjang",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Besi pipa berkualitas, fabrikasi presisi",
+        "Untuk penggunaan intensif jangka panjang",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Konsultasikan kebutuhan lapangan tenis Anda — kami siap berikan penawaran terbaik.",
@@ -419,18 +420,18 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Kursi wasit voli yang memberikan posisi pengawasan optimal — kokoh, nyaman untuk digunakan sepanjang pertandingan, dan tampil profesional di pinggir lapangan.",
+        "Kursi wasit voli — posisi pengawasan optimal, kokoh dan nyaman sepanjang pertandingan.",
       details: [
-        "Posisi duduk tinggi memberikan sudut pandang ideal untuk wasit selama pertandingan",
-        "Dudukan dan sandaran berlapisan busa tebal dengan kulit sintetis berkualitas untuk kenyamanan maksimal",
-        "Landasan kaki wasit yang luas untuk posisi berdiri yang aman dan stabil",
-        "Rangka kokoh mampu menopang beban berat tanpa goyah",
-        "Warna dapat disesuaikan dengan identitas venue atau klub",
+        "Posisi duduk tinggi, sudut pandang ideal",
+        "Busa tebal + kulit sintetis, nyaman maksimal",
+        "Landasan kaki luas, posisi berdiri stabil",
+        "Rangka kokoh, tidak goyah under load",
+        "Warna dapat disesuaikan",
       ],
       notes: [
-        "Rangka dari besi pipa dan hollow berkualitas dengan konstruksi yang stabil",
-        "Seluruh komponen dirancang untuk keawetan jangka panjang dengan perawatan minimal",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Besi pipa dan hollow berkualitas",
+        "Komponen tahan lama, perawatan minimal",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
@@ -454,18 +455,18 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Kursi wasit badminton dengan ketinggian ideal untuk pengawasan lapangan — kokoh, nyaman sepanjang pertandingan, dan tampilan rapi untuk venue indoor maupun outdoor.",
+        "Kursi wasit badminton — visibilitas penuh lapangan, kokoh dan nyaman harian.",
       details: [
-        "Posisi duduk di ketinggian ideal untuk visibilitas penuh selama pertandingan",
-        "Rangka lebar dan stabil memberikan keseimbangan yang baik di segala jenis lantai",
-        "Konstruksi kokoh mampu menopang beban dengan aman dalam jangka panjang",
-        "Cocok untuk penggunaan di lapangan indoor maupun outdoor",
-        "Warna dapat disesuaikan dengan identitas lapangan atau institusi",
+        "Ketinggian ideal, visibilitas penuh pertandingan",
+        "Rangka lebar dan stabil di segala lantai",
+        "Konstruksi kokoh untuk beban jangka panjang",
+        "Cocok indoor dan outdoor",
+        "Warna dapat disesuaikan",
       ],
       notes: [
-        "Rangka dari besi pipa berkualitas dengan proses fabrikasi yang rapi dan presisi",
-        "Dirancang untuk keawetan dan kemudahan perawatan dalam penggunaan rutin",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Besi pipa, fabrikasi rapi dan presisi",
+        "Dirancang untuk perawatan mudah",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
@@ -489,19 +490,19 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Kursi wasit badminton PFS V2 hadir dengan rangka bahan stainless steel — tampilan lebih modern, tahan karat, dan tetap kokoh untuk penggunaan intensif di lapangan indoor maupun outdoor.",
+        "Kursi wasit V2 — rangka stainless steel, tahan karat tanpa pengecatan ulang.",
       details: [
-        "Posisi duduk di ketinggian ideal untuk visibilitas penuh selama pertandingan",
-        "Rangka stainless steel anti-karat memberikan ketahanan jangka panjang tanpa perlu pengecatan ulang",
-        "Permukaan stainless yang halus mudah dibersihkan dan tetap tampil rapi",
-        "Dudukan dan sandaran berlapisan busa tebal dengan kulit sintetis berkualitas untuk kenyamanan maksimal",
-        "Konstruksi las presisi memastikan kekuatan sambungan di setiap titik rangka",
-        "Cocok untuk penggunaan di lapangan indoor maupun outdoor",
+        "Ketinggian ideal, visibilitas penuh pertandingan",
+        "Stainless anti-karat, tahan jangka panjang",
+        "Permukaan mudah dibersihkan, tampil rapi",
+        "Busa tebal + kulit sintetis, nyaman maksimal",
+        "Las presisi di setiap titik sambungan",
+        "Cocok indoor dan outdoor",
       ],
       notes: [
-        "Material utama: besi pipa stainless steel grade 304 tahan karat",
-        "Finishing poles stainless tanpa cat — tampilan natural metalik yang tahan lama",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Stainless steel grade 304",
+        "Finishing poles natural metalik, tanpa cat",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Spesifikasi dimensi dapat disesuaikan — hubungi kami untuk penawaran.",
@@ -525,19 +526,19 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Kursi wasit badminton PFS V2 hadir dengan rangka bahan stainless steel — tampilan lebih modern, tahan karat, dan tetap kokoh untuk penggunaan intensif di lapangan indoor maupun outdoor.",
+        "Kursi wasit V3 — rangka stainless steel, modern dan tahan karat untuk pemakaian intensif.",
       details: [
-        "Posisi duduk di ketinggian ideal untuk visibilitas penuh selama pertandingan",
-        "Rangka stainless steel anti-karat memberikan ketahanan jangka panjang tanpa perlu pengecatan ulang",
-        "Permukaan stainless yang halus mudah dibersihkan dan tetap tampil rapi",
-        "Dudukan dan sandaran berlapisan busa tebal dengan kulit sintetis berkualitas untuk kenyamanan maksimal",
-        "Konstruksi las presisi memastikan kekuatan sambungan di setiap titik rangka",
-        "Cocok untuk penggunaan di lapangan indoor maupun outdoor",
+        "Ketinggian ideal, visibilitas penuh pertandingan",
+        "Stainless anti-karat, tahan jangka panjang",
+        "Permukaan mudah dibersihkan, tampil rapi",
+        "Busa tebal + kulit sintetis, nyaman maksimal",
+        "Las presisi di setiap titik sambungan",
+        "Cocok indoor dan outdoor",
       ],
       notes: [
-        "Material utama: besi pipa stainless steel grade 304 tahan karat",
-        "Finishing poles stainless tanpa cat — tampilan natural metalik yang tahan lama",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Stainless steel grade 304",
+        "Finishing poles natural metalik, tanpa cat",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Spesifikasi dimensi dapat disesuaikan — hubungi kami untuk penawaran.",
@@ -561,19 +562,19 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Kursi wasit tenis dengan ketinggian optimal untuk pengawasan lapangan — kokoh, nyaman sepanjang pertandingan, dan tampil profesional di venue indoor maupun outdoor.",
+        "Kursi wasit tenis — posisi tinggi optimal, nyaman sepanjang pertandingan.",
       details: [
-        "Posisi duduk tinggi memberikan sudut pandang ideal untuk wasit selama pertandingan",
-        "Rangka besi pipa kokoh mampu menopang beban dengan aman dalam jangka panjang",
-        "Dudukan berlapisan busa tebal dengan penutup berkualitas untuk kenyamanan maksimal",
-        "Tangga naik yang aman dan stabil untuk kemudahan akses wasit",
-        "Cocok untuk penggunaan di lapangan indoor maupun outdoor",
-        "Warna dapat disesuaikan dengan identitas venue atau klub",
+        "Posisi tinggi, sudut pandang ideal",
+        "Rangka besi pipa kokoh, aman under load",
+        "Busa tebal + penutup berkualitas",
+        "Tangga akses aman dan stabil",
+        "Cocok indoor dan outdoor",
+        "Warna dapat disesuaikan",
       ],
       notes: [
-        "Rangka dari besi pipa berkualitas dengan proses fabrikasi yang rapi dan presisi",
-        "Dirancang untuk keawetan dan kemudahan perawatan dalam penggunaan rutin",
-        "Spesifikasi teknis lengkap tersedia saat konsultasi",
+        "Besi pipa, fabrikasi rapi dan presisi",
+        "Dirancang untuk perawatan mudah",
+        "Spesifikasi via konsultasi",
       ],
       closing:
         "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
@@ -593,18 +594,18 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Net voli standar kompetisi dengan bahan nilon berkualitas tinggi — tahan lama, tegang optimal, dan cocok untuk lapangan indoor maupun outdoor.",
+        "Net voli nilon berkualitas — ukuran standar FIVB, tahan lama untuk kompetisi dan latihan.",
       details: [
-        "Ukuran standar FIVB: panjang 9,5 m, lebar 1 m",
-        "Bahan rajutan nilon anti-putus untuk ketahanan jangka panjang",
-        "Tali atas dan bawah diperkuat untuk menjaga ketenangan net saat pertandingan",
-        "Tepian dikuatkan dengan pita kain putih lebar 5 cm sesuai regulasi",
-        "Cocok untuk penggunaan indoor dan outdoor",
+        "Ukuran FIVB: 9,5m × 1m",
+        "Nilon anti-putus, tahan jangka panjang",
+        "Tali atas-bawah diperkuat",
+        "Pita putih 5cm sesuai regulasi",
+        "Cocok indoor dan outdoor",
       ],
       notes: [
-        "Tersedia dalam beberapa pilihan kelas: latihan dan kompetisi",
-        "Dapat dikombinasikan dengan tiang voli PFS untuk paket lapangan lengkap",
-        "Spesifikasi dan ketersediaan stok dapat dikonfirmasi via WhatsApp",
+        "Tersedia kelas latihan dan kompetisi",
+        "Kompatibel dengan tiang voli PFS",
+        "Stok dan spesifikasi via WhatsApp",
       ],
       closing:
         "Hubungi kami untuk konsultasi kebutuhan net dan kelengkapan lapangan voli Anda.",
@@ -624,18 +625,18 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Net badminton berstandar BWF dengan rajutan halus dan tegangan konsisten — pilihan tepat untuk latihan rutin hingga kompetisi resmi.",
+        "Net badminton standar BWF — rajutan halus, tegangan konsisten untuk latihan dan kompetisi.",
       details: [
-        "Ukuran standar BWF: panjang 6,1 m, tinggi 76 cm",
-        "Rajutan nilon halus dengan lubang jaring 19–20 mm",
-        "Pita kepala putih lebar 75 mm yang kokoh di bagian atas net",
-        "Tali pinggir kiri-kanan kuat untuk pemasangan di tiang lapangan standar",
-        "Ringan dan mudah dipasang maupun digulung kembali",
+        "Ukuran BWF: 6,1m × 76cm",
+        "Lubang jaring 19–20mm, rajutan nilon halus",
+        "Pita kepala putih 75mm di bagian atas",
+        "Tali pinggir kuat untuk tiang standar",
+        "Ringan, mudah dipasang dan digulung",
       ],
       notes: [
-        "Tersedia untuk lapangan tunggal maupun ganda",
-        "Cocok dipasang pada tiang badminton seri PFS",
-        "Stok dan spesifikasi lengkap dapat dikonfirmasi via WhatsApp",
+        "Untuk lapangan tunggal dan ganda",
+        "Kompatibel dengan tiang badminton PFS",
+        "Stok dan spesifikasi via WhatsApp",
       ],
       closing:
         "Hubungi kami untuk konsultasi paket tiang dan net badminton lengkap.",
@@ -655,18 +656,18 @@ export const products: Product[] = [
     },
     description: {
       intro:
-        "Jaring gawang futsal berbahan PE berkualitas — kuat menahan tembakan keras, tidak mudah robek, dan pas untuk gawang standar FIFA.",
+        "Jaring gawang futsal PE berkualitas — kuat menahan tembakan keras, standar FIFA.",
       details: [
-        "Material polyethylene (PE) berdiameter benang 3 mm untuk ketahanan optimal",
-        "Ukuran standar gawang futsal: 3 m × 2 m × kedalaman 1 m",
-        "Anyaman rapat mencegah bola menerobos tanpa merusak tampilan",
-        "Warna putih bersih yang kontras dan terlihat jelas di lapangan",
-        "Tahan terhadap perubahan cuaca untuk penggunaan indoor dan outdoor",
+        "PE 3mm, ketahanan optimal",
+        "Ukuran standar: 3m × 2m × 1m",
+        "Anyaman rapat, bola tidak tembus",
+        "Warna putih kontras terlihat di lapangan",
+        "Tahan cuaca indoor dan outdoor",
       ],
       notes: [
-        "Cocok dipasang pada gawang futsal seri PFS",
-        "Tersedia dalam pilihan kepadatan anyaman standar dan kompetisi",
-        "Spesifikasi dan ketersediaan stok dapat dikonfirmasi via WhatsApp",
+        "Kompatibel dengan gawang futsal PFS",
+        "Tersedia kelas standar dan kompetisi",
+        "Stok dan spesifikasi via WhatsApp",
       ],
       closing:
         "Hubungi kami untuk informasi harga dan paket gawang beserta jaring.",
@@ -682,6 +683,7 @@ export const sportLabels: Record<SportCategory, string> = {
   padel: "Padel",
   tennis: "Tenis",
   "official-equipment": "Official Equipment",
+  "referee-chair": "Kursi Wasit",
   "referee-chair-badminton": "Kursi Wasit Badminton",
   "referee-chair-volleyball": "Kursi Wasit Voli",
   "referee-chair-tennis": "Kursi Wasit Tenis",
