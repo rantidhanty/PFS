@@ -120,7 +120,7 @@ export const products: Product[] = [
   },
   {
     id: "prod-basketball-ring-fiba-tanam-dinding",
-    name: "Ring Basket FIBA Dinding",
+    name: "Ring Basket Dinding",
     slug: "ring-basket-fiba-tanam-dinding",
     sport: "basketball",
     type: "ring-and-board-system",
@@ -156,7 +156,7 @@ export const products: Product[] = [
   },
   {
     id: "prod-basketball-ring-fiba-tanam-tanah",
-    name: "Ring Basket FIBA Tanam",
+    name: "Ring Basket Tanam",
     slug: "ring-basket-fiba-tanam-tanah",
     sport: "basketball",
     type: "ring-and-board-system",
@@ -299,7 +299,7 @@ export const products: Product[] = [
   },
   {
     id: "prod-badminton-post-bwf",
-    name: "Tiang Net Badminton Portable BWF",
+    name: "Tiang Net Badminton Portable",
     slug: "court-post-badminton",
     sport: "badminton",
     type: "court-post",
