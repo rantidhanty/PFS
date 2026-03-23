@@ -208,7 +208,7 @@ function ProductsPageContent() {
                   alt={product.name}
                   fill
                   sizes="(max-width: 1024px) 30vw, 280px"
-                  className="object-cover object-top transition duration-300 group-hover:scale-105"
+                  className="object-contain transition duration-300 group-hover:scale-105"
                 />
               </div>
               <div className="mt-3">
