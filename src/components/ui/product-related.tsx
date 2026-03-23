@@ -72,8 +72,6 @@ function RelatedCarousel({ items }: { items: Product[] }) {
   useEffect(() => {
     if (!emblaApi) return;
 
-    autoplay.current.play();
-
     const onPointerDown = () => autoplay.current.stop();
     const onPointerUp = () => autoplay.current.reset();
     const onSettle = () => autoplay.current.play();
