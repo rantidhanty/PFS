@@ -682,9 +682,9 @@ export const sportLabels: Record<SportCategory, string> = {
   badminton: "Badminton",
   padel: "Padel",
   tennis: "Tenis",
-  "official-equipment": "Official Equipment",
+  "official-equipment": "Accessories",
   "referee-chair": "Kursi Wasit",
   "referee-chair-badminton": "Kursi Wasit Badminton",
-  "referee-chair-volleyball": "Kursi Wasit Voli",
+  "referee-chair-volleyball": "Kursi Wasit",
   "referee-chair-tennis": "Kursi Wasit Tenis",
 };

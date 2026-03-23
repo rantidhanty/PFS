@@ -317,7 +317,10 @@ function ProductsPageContent() {
             <div className="mt-3 divide-y divide-zinc-200 rounded-xl border border-zinc-200 bg-white">
               {comingSoonProducts.map((product) => (
                 <div key={product.slug} className="flex items-center justify-between gap-3 px-3.5 py-2.5">
-                  <span className="text-sm font-semibold text-zinc-700">{product.name}</span>
+                  <span className="text-sm font-semibold text-zinc-700">
+                    {product.name}
+                    <span className="ml-1.5 font-normal text-zinc-400">· {sportLabels[product.sport]}</span>
+                  </span>
                   <div className="flex shrink-0 flex-wrap gap-1">
                     {product.standards.map((std) => (
                       <span
