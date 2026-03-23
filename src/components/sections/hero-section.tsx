@@ -227,9 +227,9 @@ export function HeroSection() {
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       {/* ── Split: Teks kiri, Poster kanan ─────────────────────────────── */}
-      <div className="grid items-center gap-0 lg:grid-cols-[1fr_0.85fr]">
+      <div className="grid items-center gap-0 md:grid-cols-[1fr_0.85fr]">
         {/* Kiri: Konten utama */}
-        <div className="order-2 p-6 sm:p-7 lg:order-1 lg:p-8 xl:p-10">
+        <div className="order-2 p-6 sm:p-7 md:order-1 md:p-8 xl:p-10">
           {/* Location badge */}
           <span className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-600">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -346,18 +346,18 @@ export function HeroSection() {
         </div>
 
         {/* Kanan: Poster */}
-        <div className="order-1 h-full lg:order-2">
-          <div className="relative h-60 w-full overflow-hidden bg-zinc-50 sm:h-72 lg:h-full lg:min-h-105">
+        <div className="order-1 h-full md:order-2">
+          <div className="relative h-60 w-full overflow-hidden bg-zinc-50 md:h-full md:min-h-96 lg:min-h-105">
             <Image
               src="/images/posters/poster%20PFS.jpg"
               alt="ProFabric Steel — Semua Kebutuhan Olahraga Ada di Sini"
               fill
-              sizes="(max-width: 1024px) 100vw, 45vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 45vw, 45vw"
               className="object-contain object-center"
               priority
             />
-            {/* Gradient fade ke kiri hanya di desktop */}
-            <div className="absolute inset-y-0 left-0 hidden w-16 bg-linear-to-r from-white to-transparent lg:block" />
+            {/* Gradient fade ke kiri hanya di tablet ke atas */}
+            <div className="absolute inset-y-0 left-0 hidden w-16 bg-linear-to-r from-white to-transparent md:block" />
           </div>
         </div>
       </div>
