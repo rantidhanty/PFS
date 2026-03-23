@@ -415,8 +415,12 @@ export const products: Product[] = [
     standards: ["FIVB"],
     sportTags: ["volleyball"],
     images: {
-      thumb: "/images/placeholder-product.svg",
-      gallery: [],
+      thumb: "/images/products/kursi-wasit/kursi-volley-wasit/kursi wasit voly 1.png",
+      gallery: [
+        "/images/products/kursi-wasit/kursi-volley-wasit/kursi wasit voly 1.png",
+        "/images/products/kursi-wasit/kursi-volley-wasit/kursi wasit voly 2.png",
+        "/images/products/kursi-wasit/kursi-volley-wasit/kursi wasit voly 3.png",
+      ],
     },
     description: {
       intro:
