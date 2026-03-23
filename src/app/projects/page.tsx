@@ -88,7 +88,7 @@ export default function ProjectsPage() {
             href={waUrl("Halo admin PFS, saya mau konsultasi project")}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-zinc-700"
+            className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#20b558]"
           >
             Konsultasi Project
           </a>
