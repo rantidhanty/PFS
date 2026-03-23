@@ -124,7 +124,7 @@ export default function TentangPage() {
               { std: "FIVB", emoji: "🏐", label: "Voli" },
               { std: "FIFA", emoji: "⚽", label: "Sepak Bola & Futsal" },
               { std: "BWF",  emoji: "🏸", label: "Badminton" },
-              { std: "FIP",  emoji: "🎾", label: "Padel" },
+              { std: "FIP",  emoji: "🏓", label: "Padel" },
               { std: "ITF",  emoji: "🎾", label: "Tenis" },
             ].map((item) => (
               <div key={item.std} className="flex items-center gap-2.5 rounded-2xl border border-zinc-100 bg-zinc-50 px-3.5 py-3">
