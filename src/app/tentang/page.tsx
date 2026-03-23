@@ -46,7 +46,7 @@ export default function TentangPage() {
             ProFabric{" "}
             <span className="text-orange-600">Steel</span>
           </h1>
-          <p className="mt-3 text-justify text-base leading-relaxed text-zinc-700 sm:text-lg">
+          <p className="mt-3 text-base leading-relaxed text-zinc-700 sm:text-lg">
             ProFabric Steel adalah spesialis{" "}
             <strong>fabrikasi besi profesional</strong> dan penjualan{" "}
             <strong>peralatan olahraga standar kompetisi</strong> yang
@@ -60,7 +60,7 @@ export default function TentangPage() {
               <h2 className="text-sm font-bold uppercase tracking-wide text-zinc-600">
                 Sejarah Singkat
               </h2>
-              <p className="mt-2 text-justify text-sm leading-relaxed text-zinc-700">
+              <p className="mt-2 text-sm leading-relaxed text-zinc-700">
                 Berawal dari workshop lokal di Bekasi, ProFabric Steel tumbuh
                 menjadi mitra andalan berbagai proyek karena konsisten menjaga
                 kualitas hasil dan ketepatan pengerjaan di setiap tahap
@@ -71,7 +71,7 @@ export default function TentangPage() {
               <h2 className="text-sm font-bold uppercase tracking-wide text-zinc-600">
                 Tim Profesional
               </h2>
-              <p className="mt-2 text-justify text-sm leading-relaxed text-zinc-700">
+              <p className="mt-2 text-sm leading-relaxed text-zinc-700">
                 Seluruh pekerjaan ditangani tenaga ahli profesional dengan
                 pengalaman lebih dari 15 tahun di bidang besi dan konstruksi
                 fabrikasi. Rapi, kuat, dan tepat waktu.

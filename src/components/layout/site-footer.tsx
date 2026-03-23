@@ -19,7 +19,7 @@ export function SiteFooter() {
               Solusi fabrikasi besi dan peralatan olahraga
             </h3>
           </div>
-          <p className="mt-3 max-w-xl text-justify text-sm leading-relaxed text-zinc-600">
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-600">
             Melayani kebutuhan proyek institusi, komersial, dan custom dengan
             pengerjaan rapi, presisi, dan siap digunakan.
           </p>
