@@ -7,9 +7,9 @@ import { blogPosts, formatDate } from "@/lib/blog";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blog — Tips & Panduan Peralatan Olahraga Standar Kompetisi",
   description:
-    "Tips, panduan, dan edukasi seputar peralatan olahraga standar kompetisi dari ProFabric Steel.",
+    "Artikel dan panduan seputar ring basket FIBA, tiang voli FIVB, gawang futsal FIFA, kursi wasit BWF, dan fabrikasi besi dari ProFabric Steel Bekasi.",
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "Blog ProFabric Steel",

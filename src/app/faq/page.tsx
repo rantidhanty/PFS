@@ -4,9 +4,9 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { FaqSection } from "@/components/sections/faq-section";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "FAQ — Pertanyaan Umum Seputar Produk & Layanan ProFabric Steel",
   description:
-    "Pertanyaan yang sering ditanyakan seputar produk, pengiriman, custom order, dan layanan ProFabric Steel Bekasi.",
+    "Jawaban atas pertanyaan umum tentang produk peralatan olahraga, pengiriman, custom order, garansi, dan layanan ProFabric Steel Bekasi.",
   alternates: { canonical: "/faq" },
 };
 

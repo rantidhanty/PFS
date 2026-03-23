@@ -25,7 +25,7 @@ export const admins = [
 
 export const siteConfig = {
   /** URL utama situs, tanpa trailing slash */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.profabricsteel.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://profabricsteel.com",
 
   name: "ProFabric Steel",
   shortName: "PFS",

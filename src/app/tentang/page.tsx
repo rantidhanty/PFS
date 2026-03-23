@@ -5,9 +5,9 @@ import { siteConfig } from "@/config/site";
 import { waUrl } from "@/lib/wa";
 
 export const metadata: Metadata = {
-  title: "Tentang Kami",
+  title: "Tentang ProFabric Steel — Fabrikasi Besi & Peralatan Olahraga Bekasi",
   description:
-    "Kenali ProFabric Steel lebih dekat — spesialis fabrikasi besi dan peralatan olahraga standar kompetisi di Bekasi, Jawa Barat sejak lebih dari 15 tahun.",
+    "ProFabric Steel adalah spesialis fabrikasi besi dan peralatan olahraga standar kompetisi di Bekasi. Melayani sekolah, venue komersial, dan institusi seluruh Indonesia.",
   alternates: { canonical: "/tentang" },
 };
 

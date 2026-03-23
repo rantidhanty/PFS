@@ -7,9 +7,9 @@ import { projectCards, supportingProjects } from "@/data/projects";
 import { waUrl } from "@/lib/wa";
 
 export const metadata: Metadata = {
-  title: "Project",
+  title: "Portfolio Project — Pemasangan Fasilitas Olahraga ProFabric Steel",
   description:
-    "Dokumentasi proyek nyata ProFabric Steel — pemasangan fasilitas olahraga di sekolah, venue komersial, dan institusi di Bekasi dan sekitarnya.",
+    "Dokumentasi nyata pengerjaan ProFabric Steel: ring basket, tiang voli, gawang futsal di sekolah, bank, dan venue komersial seluruh Indonesia.",
   alternates: { canonical: "/projects" },
 };
 

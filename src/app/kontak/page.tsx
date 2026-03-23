@@ -5,9 +5,9 @@ import { siteConfig } from "@/config/site";
 import { waUrl } from "@/lib/wa";
 
 export const metadata: Metadata = {
-  title: "Kontak",
+  title: "Hubungi Kami — Konsultasi & Pemesanan ProFabric Steel",
   description:
-    "Hubungi ProFabric Steel via WhatsApp untuk konsultasi, penawaran harga, dan pemesanan produk. Lokasi di Bekasi, Jawa Barat.",
+    "Hubungi ProFabric Steel via WhatsApp untuk konsultasi ring basket, tiang voli, gawang futsal, kursi wasit, dan fabrikasi besi custom di Bekasi. Respon cepat.",
   alternates: { canonical: "/kontak" },
 };
 
