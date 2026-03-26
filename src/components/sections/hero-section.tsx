@@ -349,7 +349,7 @@ export function HeroSection() {
         <div className="order-1 h-full md:order-2">
           <div className="relative h-60 w-full overflow-hidden bg-zinc-50 md:h-full md:min-h-96 lg:min-h-105">
             <Image
-              src="/images/posters/poster%20PFS.jpg"
+              src="/images/posters/poster%20PFS.webp"
               alt="ProFabric Steel — Semua Kebutuhan Olahraga Ada di Sini"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 45vw, 45vw"

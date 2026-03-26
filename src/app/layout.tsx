@@ -67,7 +67,7 @@ export const metadata: Metadata = {
       "Jual ring basket FIBA, tiang voli, gawang futsal, tiang badminton di Bekasi. Fabrikasi besi profesional untuk proyek sekolah, venue olahraga, dan rumah.",
     images: [
       {
-        url: "/images/posters/poster%20PFS.jpg",
+        url: "/images/posters/poster%20PFS.webp",
         width: 1536,
         height: 1024,
         alt: `${siteConfig.name} - Peralatan Olahraga Standar Kompetisi Bekasi`,
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} - ${siteConfig.tagline}`,
     description:
       "Jual ring basket FIBA, tiang voli, gawang futsal, tiang badminton di Bekasi. Hubungi via WhatsApp!",
-    images: ["/images/posters/poster%20PFS.jpg"],
+    images: ["/images/posters/poster%20PFS.webp"],
   },
   robots: {
     index: true,
@@ -95,7 +95,13 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: siteConfig.name,
-  alternateName: ["Pro Fabric Steel", "Pro Fabrik Steel", "Pro Pabrik Steel", "PFS", "profabricsteel"],
+  alternateName: [
+    "Pro Fabric Steel",
+    "Pro Fabrik Steel",
+    "Pro Pabrik Steel",
+    "PFS",
+    "profabricsteel",
+  ],
   description:
     "Spesialis fabrikasi besi dan penjualan peralatan olahraga standar kompetisi di Bekasi, Jawa Barat.",
   url: siteConfig.url,
@@ -206,9 +212,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SearchProvider>
-          <ErrorBoundary>
-            {children}
-          </ErrorBoundary>
+          <ErrorBoundary>{children}</ErrorBoundary>
           <WaFloat />
           <WaAdminSheet />
           <SearchPalette />
