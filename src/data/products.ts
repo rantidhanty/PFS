@@ -190,7 +190,7 @@ export const products: Product[] = [
   },
   {
     id: "prod-volleyball-net-fivb",
-    name: "Tiang Voly Portable",
+    name: "Tiang Voli Portable",
     slug: "net-volleyball-fivb",
     sport: "volleyball",
     type: "net-and-post-system",
@@ -227,7 +227,7 @@ export const products: Product[] = [
   },
   {
     id: "prod-volleyball-net-fivb-tanam",
-    name: "Tiang Voly Tanam",
+    name: "Tiang Voli Tanam",
     slug: "net-volleyball-fivb-tanam",
     sport: "volleyball",
     type: "net-and-post-system",
@@ -262,7 +262,7 @@ export const products: Product[] = [
   },
   {
     id: "prod-football-goal-fifa",
-    name: "Tiang gawang futsal",
+    name: "Tiang Gawang Futsal",
     slug: "goal-post-11v11",
     sport: "football",
     type: "goal-post",
@@ -299,7 +299,7 @@ export const products: Product[] = [
   },
   {
     id: "prod-badminton-post-bwf",
-    name: "Tiang Net Badminton Portable",
+    name: "Tiang Badminton Portable",
     slug: "court-post-badminton",
     sport: "badminton",
     type: "court-post",

@@ -24,21 +24,24 @@ export async function generateMetadata({
   const product = products.find((p) => p.slug === slug);
   if (!product) return {};
 
-  const description =
+  const stdStr = product.standards.join("/");
+  const intro =
     product.description?.intro ??
-    `Jual ${product.name} standar ${product.standards.join("/")} di Bekasi. Fabrikasi besi profesional oleh ProFabric Steel.`;
+    `${product.name} standar ${stdStr} oleh ProFabric Steel`;
+  const description = `${intro} Standar ${stdStr}, jual di Bekasi. Pengiriman seluruh Indonesia.`;
+  const title = `${product.name} — ${stdStr}`;
 
   return {
-    title: product.name,
+    title,
     description,
     alternates: { canonical: `/products/${product.slug}` },
     openGraph: {
-      title: `${product.name} | ProFabric Steel`,
+      title: `${title} | ProFabric Steel`,
       description,
       images: [
         {
           url: product.images.thumb,
-          alt: `${product.name} - ProFabric Steel`,
+          alt: `${product.name} standar ${stdStr} - ProFabric Steel`,
         },
       ],
     },

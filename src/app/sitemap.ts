@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteConfig.url}/products/${product.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
-    priority: 0.7,
+    priority: 0.9,
   }));
 
   const projectUrls: MetadataRoute.Sitemap = projectCards.map((project) => ({
