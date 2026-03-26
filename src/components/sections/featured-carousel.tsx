@@ -100,7 +100,7 @@ export function FeaturedCarousel() {
                 fill
                 sizes="(max-width: 640px) 65vw, (max-width: 1024px) 40vw, 280px"
                 className="object-contain p-1.5 transition duration-300 group-hover:scale-105"
-                priority={i < 2}
+                loading="lazy"
               />
             </div>
             <p className="mt-2 line-clamp-2 text-xs font-semibold text-zinc-800 transition group-hover:text-orange-700 sm:text-sm">
