@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     "ProFabric Steel",
     "Pro Fabric Steel",
     "Pro Fabrik Steel",
+    "Pro Pabrik Steel",
     "profabricsteel",
     "PFS Bekasi",
     "ring basket FIBA",
@@ -94,7 +95,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: siteConfig.name,
-  alternateName: ["Pro Fabric Steel", "Pro Fabrik Steel", "PFS", "profabricsteel"],
+  alternateName: ["Pro Fabric Steel", "Pro Fabrik Steel", "Pro Pabrik Steel", "PFS", "profabricsteel"],
   description:
     "Spesialis fabrikasi besi dan penjualan peralatan olahraga standar kompetisi di Bekasi, Jawa Barat.",
   url: siteConfig.url,
