@@ -33,6 +33,11 @@ export const metadata: Metadata = {
   description:
     "Jual ring basket FIBA, tiang voli FIVB, gawang futsal FIFA, tiang badminton BWF, tiang tenis ITF di Bekasi. Fabrikasi besi profesional: tralis, railing, grill. Hubungi via WhatsApp!",
   keywords: [
+    "ProFabric Steel",
+    "Pro Fabric Steel",
+    "Pro Fabrik Steel",
+    "profabricsteel",
+    "PFS Bekasi",
     "ring basket FIBA",
     "tiang voli FIVB",
     "gawang futsal",
@@ -89,7 +94,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: siteConfig.name,
-  alternateName: siteConfig.shortName,
+  alternateName: ["Pro Fabric Steel", "Pro Fabrik Steel", "PFS", "profabricsteel"],
   description:
     "Spesialis fabrikasi besi dan penjualan peralatan olahraga standar kompetisi di Bekasi, Jawa Barat.",
   url: siteConfig.url,
@@ -147,7 +152,10 @@ const jsonLd = {
       },
     ],
   },
-  sameAs: [`https://wa.me/${siteConfig.phone.wa}`],
+  sameAs: [
+    `https://wa.me/${siteConfig.phone.wa}`,
+    "https://share.google/MldTGiDvUH6KVXMqx",
+  ],
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5",
