@@ -381,10 +381,11 @@ export const products: Product[] = [
     standards: ["ITF"],
     sportTags: ["tennis"],
     images: {
-      thumb: "/images/placeholder-product.svg",
+      thumb: "/images/products/tennis/tiang-tennis/1.png",
       gallery: [
-        "/images/products/tennis/tiang-tennis/01.jpg",
-        "/images/products/tennis/tiang-tennis/02.jpg",
+        "/images/products/tennis/tiang-tennis/1.png",
+        "/images/products/tennis/tiang-tennis/2.png",
+        "/images/products/tennis/tiang-tennis/3.png",
       ],
     },
     description: {
