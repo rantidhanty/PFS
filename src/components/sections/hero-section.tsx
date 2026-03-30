@@ -185,14 +185,6 @@ const sportCategories: Array<{
     badge: "bg-rose-100 text-rose-800",
     hover: "hover:border-rose-400 hover:bg-rose-50",
   },
-  {
-    id: "official-equipment",
-    label: "Accessories",
-    standard: "Multi",
-    border: "border-zinc-200",
-    badge: "bg-zinc-100 text-zinc-700",
-    hover: "hover:border-zinc-400 hover:bg-zinc-50",
-  },
 ];
 
 export function HeroSection() {

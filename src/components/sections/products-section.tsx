@@ -22,7 +22,6 @@ type TabKey =
   | "badminton"
   | "padel"
   | "tennis"
-  | "official-equipment"
   | "referee-chair";
 
 const TAB_ORDER: TabKey[] = [
@@ -32,7 +31,6 @@ const TAB_ORDER: TabKey[] = [
   "badminton",
   "padel",
   "tennis",
-  "official-equipment",
   "referee-chair",
 ];
 
@@ -43,7 +41,6 @@ const tabLabels: Record<TabKey, string> = {
   badminton: "Badminton",
   padel: "Padel",
   tennis: "Tenis",
-  "official-equipment": "Accessories",
   "referee-chair": "Kursi Wasit",
 };
 
@@ -54,7 +51,6 @@ const tabSummaries: Record<TabKey, string> = {
   badminton: "Tiang badminton untuk latihan dan pertandingan.",
   padel: "Tiang padel custom sesuai kebutuhan lapangan.",
   tennis: "Tiang tenis kuat, rapi, dan presisi pemasangan.",
-  "official-equipment": "Net dan aksesoris perlengkapan olahraga.",
   "referee-chair": "Kursi wasit badminton, voli, dan tenis.",
 };
 
