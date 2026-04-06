@@ -223,23 +223,28 @@ export default function ProductsPageContent() {
                   <path d="M8 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>
-              {/* Shopee — trust signal, area tap terpisah */}
-              <a
-                href="https://id.shp.ee/VJqfdMyT"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Beli di Shopee"
-                className="flex shrink-0 flex-col items-center gap-0.5 border-l border-zinc-100 px-3 py-2.5 transition hover:bg-orange-50"
-              >
-                <Image
-                  src="/images/logo/logo shopee.png"
-                  alt="Shopee"
-                  width={40}
-                  height={14}
-                  className="h-3.5 w-auto"
-                />
-                <span className="text-[9px] font-semibold text-orange-500">Aman</span>
-              </a>
+              {/* WA + Shopee */}
+              <div className="flex shrink-0 border-l border-zinc-100">
+                <a
+                  href={waUrl(`Halo admin PFS, saya mau konsultasi tentang ${product.name}`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Konsultasi WhatsApp"
+                  className="flex flex-col items-center justify-center gap-0.5 bg-[#f0fdf4] px-2.5 py-2.5 transition hover:bg-[#dcfce7]"
+                >
+                  <Image src="/images/logo/logo wa.png" alt="WhatsApp" width={16} height={16} className="h-4 w-4" />
+                </a>
+                <div className="w-px bg-zinc-100" />
+                <a
+                  href="https://id.shp.ee/VJqfdMyT"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Beli di Shopee"
+                  className="flex flex-col items-center justify-center gap-0.5 bg-orange-50 px-2.5 py-2.5 transition hover:bg-orange-100"
+                >
+                  <Image src="/images/logo/logo shopee.png" alt="Shopee" width={36} height={12} className="h-3.5 w-auto" />
+                </a>
+              </div>
             </div>
           ))}
         </div>
@@ -288,21 +293,29 @@ export default function ProductsPageContent() {
                   </p>
                 </div>
               </Link>
-              {/* Shopee — trust signal */}
-              <a
-                href="https://id.shp.ee/VJqfdMyT"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-b-2xl border-t border-zinc-100 bg-orange-50 px-3 py-2 text-[11px] font-semibold text-orange-600 transition hover:bg-orange-100"
-              >
-                <Image
-                  src="/images/logo/logo shopee.png"
-                  alt="Shopee"
-                  width={52}
-                  height={16}
-                  className="h-4 w-auto"
-                />
-              </a>
+              {/* WA + Shopee bar */}
+              <div className="flex rounded-b-2xl border-t border-zinc-100 overflow-hidden">
+                <a
+                  href={waUrl(`Halo admin PFS, saya mau konsultasi tentang ${product.name}`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Konsultasi WhatsApp"
+                  className="flex flex-1 items-center justify-center gap-1.5 bg-[#f0fdf4] py-2.5 text-[11px] font-semibold text-[#15803d] transition hover:bg-[#dcfce7]"
+                >
+                  <Image src="/images/logo/logo wa.png" alt="WhatsApp" width={16} height={16} className="h-4 w-4" />
+                  <span>WhatsApp</span>
+                </a>
+                <div className="w-px bg-zinc-100" />
+                <a
+                  href="https://id.shp.ee/VJqfdMyT"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Beli di Shopee"
+                  className="flex flex-1 items-center justify-center gap-1.5 bg-orange-50 py-2.5 transition hover:bg-orange-100"
+                >
+                  <Image src="/images/logo/logo shopee.png" alt="Shopee" width={52} height={16} className="h-4 w-auto" />
+                </a>
+              </div>
             </div>
           ))}
         </div>
