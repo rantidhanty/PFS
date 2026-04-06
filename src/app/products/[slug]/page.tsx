@@ -254,7 +254,6 @@ export default async function ProductPage({
                         {product.price.type === "from" ? "Mulai " : ""}{formatRupiah(product.price.base)}
                       </p>
                     </div>
-                    <span className="shrink-0 text-zinc-300">→</span>
                     <div className="shrink-0">
                       <p className="text-[9px] font-semibold uppercase tracking-wide text-sky-600">Web / WA</p>
                       <p className="whitespace-nowrap text-sm font-extrabold text-sky-700">
