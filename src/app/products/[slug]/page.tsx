@@ -283,6 +283,22 @@ export default async function ProductPage({
                     </span>
                   </div>
 
+                  {/* Shopee — trust signal */}
+                  <a
+                    href="https://id.shp.ee/VJqfdMyT"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 flex items-center gap-2 rounded-xl border border-orange-200 bg-white px-3 py-2 text-[11px] font-semibold text-orange-700 transition hover:bg-orange-50"
+                  >
+                    <img
+                      src="/images/logo/logo shopee.png"
+                      alt="Shopee"
+                      className="h-4 w-auto"
+                    />
+                    <span className="flex-1">Beli aman via Shopee</span>
+                    <span className="rounded-full bg-green-100 px-2 py-0.5 text-[9px] font-bold text-green-700">🛡️ Buyer Protection</span>
+                  </a>
+
                   {/* Benefit list */}
                   <ul className="mt-3 space-y-1.5">
                     {[

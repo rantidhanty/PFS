@@ -182,94 +182,129 @@ export default function ProductsPageContent() {
         {/* Mobile: compact list */}
         <div className="flex flex-col divide-y divide-zinc-100 rounded-2xl border border-zinc-200 bg-white shadow-sm sm:hidden">
           {paginated.map((product) => (
-            <Link
-              key={product.slug}
-              href={`/products/${product.slug}`}
-              className="group flex items-center gap-2.5 px-3 py-2.5 transition hover:bg-zinc-50"
-            >
-              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-lg bg-zinc-50">
-                <Image
-                  src={product.images.thumb}
-                  alt={product.name}
-                  fill
-                  sizes="44px"
-                  className="object-cover object-top transition duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="line-clamp-1 text-sm font-semibold leading-snug text-zinc-900 transition group-hover:text-orange-700">
-                  {product.name}
-                </p>
-                {product.price ? (
-                  <div className="mt-0.5">
-                    <ProductPriceDisplay price={product.price} size="sm" />
-                  </div>
-                ) : null}
-                <div className="mt-0.5 flex flex-wrap gap-1">
-                  <span className="rounded-full bg-zinc-100 px-1.5 py-px text-[9px] font-bold uppercase tracking-wide text-zinc-500">
-                    {sportLabels[product.sport]}
-                  </span>
-                  {product.standards.map((std) => (
-                    <span
-                      key={std}
-                      className={`rounded-full px-1.5 py-px text-[9px] font-extrabold uppercase tracking-wide ${standardColor[std] ?? "bg-zinc-100 text-zinc-700"}`}
-                    >
-                      {std}
-                    </span>
-                  ))}
+            <div key={product.slug} className="flex items-center">
+              <Link
+                href={`/products/${product.slug}`}
+                className="group flex min-w-0 flex-1 items-center gap-2.5 px-3 py-2.5 transition hover:bg-zinc-50"
+              >
+                <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-lg bg-zinc-50">
+                  <Image
+                    src={product.images.thumb}
+                    alt={product.name}
+                    fill
+                    sizes="44px"
+                    className="object-cover object-top transition duration-300 group-hover:scale-105"
+                  />
                 </div>
-              </div>
-              <svg viewBox="0 0 20 20" fill="none" className="h-3.5 w-3.5 shrink-0 text-zinc-300" aria-hidden="true">
-                <path d="M8 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
+                <div className="min-w-0 flex-1">
+                  <p className="line-clamp-1 text-sm font-semibold leading-snug text-zinc-900 transition group-hover:text-orange-700">
+                    {product.name}
+                  </p>
+                  {product.price ? (
+                    <div className="mt-0.5">
+                      <ProductPriceDisplay price={product.price} size="sm" />
+                    </div>
+                  ) : null}
+                  <div className="mt-0.5 flex flex-wrap gap-1">
+                    <span className="rounded-full bg-zinc-100 px-1.5 py-px text-[9px] font-bold uppercase tracking-wide text-zinc-500">
+                      {sportLabels[product.sport]}
+                    </span>
+                    {product.standards.map((std) => (
+                      <span
+                        key={std}
+                        className={`rounded-full px-1.5 py-px text-[9px] font-extrabold uppercase tracking-wide ${standardColor[std] ?? "bg-zinc-100 text-zinc-700"}`}
+                      >
+                        {std}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <svg viewBox="0 0 20 20" fill="none" className="h-3.5 w-3.5 shrink-0 text-zinc-300" aria-hidden="true">
+                  <path d="M8 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+              {/* Shopee — trust signal, area tap terpisah */}
+              <a
+                href="https://id.shp.ee/VJqfdMyT"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Beli di Shopee"
+                className="flex shrink-0 flex-col items-center gap-0.5 border-l border-zinc-100 px-3 py-2.5 transition hover:bg-orange-50"
+              >
+                <Image
+                  src="/images/logo/logo shopee.png"
+                  alt="Shopee"
+                  width={40}
+                  height={14}
+                  className="h-3.5 w-auto"
+                />
+                <span className="text-[9px] font-semibold text-orange-500">Aman</span>
+              </a>
+            </div>
           ))}
         </div>
 
         {/* Desktop: grid */}
         <div className="hidden gap-3 sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
           {paginated.map((product) => (
-            <Link
+            <div
               key={product.slug}
-              href={`/products/${product.slug}`}
-              className="group rounded-2xl border border-zinc-200 bg-white p-3 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
+              className="group flex flex-col rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
             >
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-white">
-                <Image
-                  src={product.images.thumb}
-                  alt={product.name}
-                  fill
-                  sizes="(max-width: 1024px) 30vw, 280px"
-                  className="object-contain transition duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="mt-3">
-                <div className="flex flex-wrap gap-1">
-                  <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-zinc-600">
-                    {sportLabels[product.sport]}
-                  </span>
-                  {product.standards.map((std) => (
-                    <span
-                      key={std}
-                      className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide ${standardColor[std] ?? "bg-zinc-100 text-zinc-700"}`}
-                    >
-                      {std}
-                    </span>
-                  ))}
+              <Link href={`/products/${product.slug}`} className="block p-3">
+                <div className="relative aspect-square overflow-hidden rounded-xl bg-white">
+                  <Image
+                    src={product.images.thumb}
+                    alt={product.name}
+                    fill
+                    sizes="(max-width: 1024px) 30vw, 280px"
+                    className="object-contain transition duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <h2 className="mt-2 text-sm font-bold leading-snug text-zinc-900 transition group-hover:text-orange-700 sm:text-base">
-                  {product.name}
-                </h2>
-                {product.price ? (
-                  <div className="mt-1.5">
-                    <ProductPriceDisplay price={product.price} size="md" />
+                <div className="mt-3">
+                  <div className="flex flex-wrap gap-1">
+                    <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-zinc-600">
+                      {sportLabels[product.sport]}
+                    </span>
+                    {product.standards.map((std) => (
+                      <span
+                        key={std}
+                        className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide ${standardColor[std] ?? "bg-zinc-100 text-zinc-700"}`}
+                      >
+                        {std}
+                      </span>
+                    ))}
                   </div>
-                ) : null}
-                <p className="mt-2 text-xs font-semibold text-orange-600 sm:text-sm">
-                  Lihat Detail →
-                </p>
-              </div>
-            </Link>
+                  <h2 className="mt-2 text-sm font-bold leading-snug text-zinc-900 transition group-hover:text-orange-700 sm:text-base">
+                    {product.name}
+                  </h2>
+                  {product.price ? (
+                    <div className="mt-1.5">
+                      <ProductPriceDisplay price={product.price} size="md" />
+                    </div>
+                  ) : null}
+                  <p className="mt-2 text-xs font-semibold text-orange-600 sm:text-sm">
+                    Lihat Detail →
+                  </p>
+                </div>
+              </Link>
+              {/* Shopee — trust signal */}
+              <a
+                href="https://id.shp.ee/VJqfdMyT"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-b-2xl border-t border-zinc-100 bg-orange-50 px-3 py-2 text-[11px] font-semibold text-orange-600 transition hover:bg-orange-100"
+              >
+                <Image
+                  src="/images/logo/logo shopee.png"
+                  alt="Shopee"
+                  width={52}
+                  height={16}
+                  className="h-4 w-auto"
+                />
+                <span>Beli Aman via Shopee</span>
+              </a>
+            </div>
           ))}
         </div>
 
