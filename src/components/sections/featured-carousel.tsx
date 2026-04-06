@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { products, sportLabels } from "@/data/products";
+import { ProductPriceDisplay } from "@/components/ui/product-price";
 
 const featuredSlugs = [
   "ring-basket-fiba-portable",
@@ -107,9 +108,9 @@ export function FeaturedCarousel() {
               {product.name}
             </p>
             {product.price ? (
-              <p className={`mt-0.5 text-xs font-bold ${product.price === "Hubungi Admin" ? "text-zinc-400" : "text-sky-600"}`}>
-                {product.price}
-              </p>
+              <div className="mt-1">
+                <ProductPriceDisplay price={product.price} size="sm" />
+              </div>
             ) : null}
             <div className="mt-1 flex flex-wrap items-center gap-1">
               {product.standards[0] && (

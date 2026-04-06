@@ -11,6 +11,7 @@ import {
   type ProductDescription,
   type SportCategory,
 } from "@/data/products";
+import { ProductPriceDisplay } from "@/components/ui/product-price";
 
 const WA_URL =
   "https://wa.me/6289673404972?text=Halo%20admin%20PFS%2C%20saya%20mau%20konsultasi%20project";
@@ -264,9 +265,9 @@ export function ProductsSection() {
                           ) : null}
                         </div>
                         {product.price ? (
-                          <p className={`mt-1.5 text-sm font-bold ${product.price === "Hubungi Admin" ? "text-zinc-400" : "text-sky-600"}`}>
-                            {product.price}
-                          </p>
+                          <div className="mt-1.5">
+                            <ProductPriceDisplay price={product.price} size="md" />
+                          </div>
                         ) : null}
                         <div className="mt-3 flex items-center gap-2">
                           <Link

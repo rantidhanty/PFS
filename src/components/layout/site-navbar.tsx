@@ -69,7 +69,7 @@ export function SiteNavbar() {
   const isProductsActive = pathname.startsWith("/products");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/90 backdrop-blur-md">
+    <header className="sticky top-8 z-50 border-b border-zinc-200/80 bg-white/90 backdrop-blur-md">
       {/* Row 1: Logo + Nav + CTA */}
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}

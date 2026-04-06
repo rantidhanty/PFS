@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { DiscountBanner } from "@/components/ui/discount-banner";
 import { WaFloat } from "@/components/ui/wa-float";
 import { WaAdminSheet } from "@/components/ui/wa-admin-sheet";
 import { SearchPalette } from "@/components/ui/search-palette";
@@ -212,6 +213,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SearchProvider>
+          <DiscountBanner />
           <ErrorBoundary>{children}</ErrorBoundary>
           <WaFloat />
           <WaAdminSheet />

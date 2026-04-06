@@ -8,6 +8,7 @@ import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { products, sportLabels } from "@/data/products";
 import type { SportCategory } from "@/data/products";
+import { ProductPriceDisplay } from "@/components/ui/product-price";
 import { waUrl } from "@/lib/wa";
 
 const PRODUCTS_PER_PAGE = 9;
@@ -200,9 +201,9 @@ export default function ProductsPageContent() {
                   {product.name}
                 </p>
                 {product.price ? (
-                  <p className={`text-xs font-bold ${product.price === "Hubungi Admin" ? "text-zinc-400" : "text-sky-600"}`}>
-                    {product.price}
-                  </p>
+                  <div className="mt-0.5">
+                    <ProductPriceDisplay price={product.price} size="sm" />
+                  </div>
                 ) : null}
                 <div className="mt-0.5 flex flex-wrap gap-1">
                   <span className="rounded-full bg-zinc-100 px-1.5 py-px text-[9px] font-bold uppercase tracking-wide text-zinc-500">
@@ -260,9 +261,9 @@ export default function ProductsPageContent() {
                   {product.name}
                 </h2>
                 {product.price ? (
-                  <p className={`mt-1 text-sm font-bold ${product.price === "Hubungi Admin" ? "text-zinc-400" : "text-sky-600"}`}>
-                    {product.price}
-                  </p>
+                  <div className="mt-1.5">
+                    <ProductPriceDisplay price={product.price} size="md" />
+                  </div>
                 ) : null}
                 <p className="mt-2 text-xs font-semibold text-orange-600 sm:text-sm">
                   Lihat Detail →
