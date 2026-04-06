@@ -295,7 +295,6 @@ export default async function ProductPage({
                       alt="Shopee"
                       className="h-4 w-auto"
                     />
-                    <span className="rounded-full bg-green-100 px-2 py-0.5 text-[9px] font-bold text-green-700">🛡️ Buyer Protection</span>
                   </a>
 
                   {/* Benefit list */}
