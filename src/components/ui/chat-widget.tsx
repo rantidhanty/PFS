@@ -263,7 +263,7 @@ export function ChatFloatWidget() {
   if (pathname === "/chat") return null;
 
   return (
-    <div className="fixed bottom-[5.5rem] right-5 z-50 sm:bottom-24 sm:right-6">
+    <div className="fixed bottom-[5.5rem] right-7 z-50 sm:bottom-24 sm:right-6">
       {/* Chat Panel */}
       <div
         className={`absolute bottom-16 right-0 transition-all duration-300 origin-bottom-right ${

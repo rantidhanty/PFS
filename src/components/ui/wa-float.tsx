@@ -14,7 +14,7 @@ export function WaFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Konsultasi via WhatsApp"
-      className="group fixed bottom-5 right-5 z-50 flex items-center gap-2.5 sm:bottom-6 sm:right-6"
+      className="group fixed bottom-5 right-7 z-50 flex items-center gap-2.5 sm:bottom-6 sm:right-6"
       onClick={() => trackWhatsAppClick("General", "float_button")}
     >
       {/* Label tooltip — muncul saat hover */}
