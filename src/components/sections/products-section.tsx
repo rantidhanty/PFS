@@ -263,6 +263,11 @@ export function ProductsSection() {
                             </span>
                           ) : null}
                         </div>
+                        {product.price ? (
+                          <p className={`mt-1.5 text-sm font-bold ${product.price === "Hubungi Admin" ? "text-zinc-400" : "text-sky-600"}`}>
+                            {product.price}
+                          </p>
+                        ) : null}
                         <div className="mt-3 flex items-center gap-2">
                           <Link
                             href={`/products/${product.slug}`}

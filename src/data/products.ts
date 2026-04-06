@@ -33,6 +33,7 @@ export type Product = {
     gallery: string[];
   };
   description?: ProductDescription;
+  price?: string;
 };
 
 export type ProductDescription = {
@@ -60,6 +61,7 @@ export const products: Product[] = [
         "/images/products/basketball/ring-basket-fiba/portable/versi_1/3.3.png",
       ],
     },
+    price: "Mulai dari Rp 7.499.000",
     description: {
       intro:
         "Ring basket portabel kokoh — mudah dipindah, rapi standar kompetisi.",
@@ -98,6 +100,7 @@ export const products: Product[] = [
         "/images/products/basketball/ring-basket-fiba/portable/versi_2/v2-4.png",
       ],
     },
+    price: "Mulai dari Rp 12.499.000",
     description: {
       intro:
         "Versi terbaru — konstruksi lebih masif, stabilisasi lebih kuat dari V1.",
@@ -136,6 +139,7 @@ export const products: Product[] = [
         "/images/products/basketball/ring-basket-fiba/tanam-dinding/7.7.png",
       ],
     },
+    price: "Mulai dari Rp 4.499.000",
     description: {
       intro:
         "Solusi permanen untuk ruang terbatas — terpasang di dinding, hemat area lantai.",
@@ -170,6 +174,7 @@ export const products: Product[] = [
         "/images/products/basketball/ring-basket-fiba/tanam-tanah/2.2.png",
       ],
     },
+    price: "Rp 12.499.000",
     description: {
       intro:
         "Untuk lapangan permanen — kestabilan tertinggi, tahan pemakaian intensif harian.",
@@ -206,6 +211,7 @@ export const products: Product[] = [
         "/images/products/volleyball/net-volleyball-fivb/portable/w3.3.png",
       ],
     },
+    price: "Rp 5.499.000",
     description: {
       intro:
         "Paket tiang dan net voli siap pakai — kuat, bisa dipindah kapan pun.",
@@ -241,6 +247,7 @@ export const products: Product[] = [
         "/images/products/volleyball/net-volleyball-fivb/tanam/2.2.png",
       ],
     },
+    price: "Rp 2.499.000",
     description: {
       intro:
         "Instalasi permanen untuk lapangan voli — kokoh, stabil, siap digunakan intensif.",
@@ -278,6 +285,7 @@ export const products: Product[] = [
         "/images/products/football/goal-post-11v11/gawang/4.4.png",
       ],
     },
+    price: "Rp 4.499.000",
     description: {
       intro:
         "Gawang futsal besi solid — tersedia permanen dan portable, siap kompetisi.",
@@ -314,6 +322,7 @@ export const products: Product[] = [
         "/images/products/badminton/portable/w4.4.jpg",
       ],
     },
+    price: "Rp 3.499.000",
     description: {
       intro:
         "Tiang badminton solid untuk latihan hingga pertandingan — mudah operasikan harian.",
@@ -353,6 +362,7 @@ export const products: Product[] = [
         "/images/products/padel/tiang-padel/7.7.png",
       ],
     },
+    price: "Rp 2.499.000",
     description: {
       intro:
         "Tiang padel presisi untuk lapangan modern — rapi, solid, estetika profesional.",
@@ -388,6 +398,7 @@ export const products: Product[] = [
         "/images/products/tennis/tiang-tennis/3.png",
       ],
     },
+    price: "Hubungi Admin",
     description: {
       intro:
         "Tiang tenis presisi — tersedia portable maupun tanam, standar ITF.",
@@ -423,6 +434,7 @@ export const products: Product[] = [
         "/images/products/kursi-wasit/kursi-volley-wasit/kursi wasit voly 3.png",
       ],
     },
+    price: "Rp 4.499.000",
     description: {
       intro:
         "Kursi wasit voli — posisi pengawasan optimal, kokoh dan nyaman sepanjang pertandingan.",
@@ -458,6 +470,7 @@ export const products: Product[] = [
         "/images/products/kursi-wasit/kursi-badminton-wasit/V1/kursi%20Bandminton%20V02.png",
       ],
     },
+    price: "Mulai dari Rp 2.699.000",
     description: {
       intro:
         "Kursi wasit badminton — visibilitas penuh lapangan, kokoh dan nyaman harian.",
@@ -493,6 +506,7 @@ export const products: Product[] = [
         "/images/products/kursi-wasit/kursi-badminton-wasit/V2/kursi%20badminton%20PFS%202.png",
       ],
     },
+    price: "Mulai dari Rp 4.499.000",
     description: {
       intro:
         "Kursi wasit V2 — rangka stainless steel, tahan karat tanpa pengecatan ulang.",
@@ -529,6 +543,7 @@ export const products: Product[] = [
         "/images/products/kursi-wasit/kursi-badminton-wasit/V3/kursi%20badminton%20PFS%204.png",
       ],
     },
+    price: "Mulai dari Rp 12.499.000",
     description: {
       intro:
         "Kursi wasit V3 — rangka stainless steel, modern dan tahan karat untuk pemakaian intensif.",
@@ -565,6 +580,7 @@ export const products: Product[] = [
         "/images/products/kursi-wasit/kursi-wasit-tenis/kursi%20tenis%202.png",
       ],
     },
+    price: "Rp 4.499.000",
     description: {
       intro:
         "Kursi wasit tenis — posisi tinggi optimal, nyaman sepanjang pertandingan.",
@@ -597,6 +613,7 @@ export const products: Product[] = [
       thumb: "/images/placeholder-product.svg",
       gallery: [],
     },
+    price: "Hubungi Admin",
     description: {
       intro:
         "Net voli nilon berkualitas — ukuran standar FIVB, tahan lama untuk kompetisi dan latihan.",
@@ -628,6 +645,7 @@ export const products: Product[] = [
       thumb: "/images/placeholder-product.svg",
       gallery: [],
     },
+    price: "Hubungi Admin",
     description: {
       intro:
         "Net badminton standar BWF — rajutan halus, tegangan konsisten untuk latihan dan kompetisi.",
@@ -659,6 +677,7 @@ export const products: Product[] = [
       thumb: "/images/placeholder-product.svg",
       gallery: [],
     },
+    price: "Hubungi Admin",
     description: {
       intro:
         "Jaring gawang futsal PE berkualitas — kuat menahan tembakan keras, standar FIFA.",

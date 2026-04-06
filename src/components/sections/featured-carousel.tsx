@@ -106,6 +106,11 @@ export function FeaturedCarousel() {
             <p className="mt-2 line-clamp-2 text-xs font-semibold text-zinc-800 transition group-hover:text-orange-700 sm:text-sm">
               {product.name}
             </p>
+            {product.price ? (
+              <p className={`mt-0.5 text-xs font-bold ${product.price === "Hubungi Admin" ? "text-zinc-400" : "text-sky-600"}`}>
+                {product.price}
+              </p>
+            ) : null}
             <div className="mt-1 flex flex-wrap items-center gap-1">
               {product.standards[0] && (
                 <span className="inline-block rounded-full bg-orange-100 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-orange-800">
