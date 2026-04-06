@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
 export function WaFloat() {
+  const pathname = usePathname();
+  if (pathname === "/chat") return null;
+
   return (
     <Link
       href="https://wa.me/6289673404972?text=Halo%20admin%20PFS%2C%20saya%20mau%20konsultasi%20project"

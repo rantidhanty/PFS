@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { getRandomSocialProof, type SocialProofEntry } from "@/data/social-proof";
 
 const VISIBLE_DURATION = 4500;   // berapa lama toast terlihat (ms)
@@ -12,6 +13,7 @@ function randomInterval() {
 }
 
 export function SocialProofToast() {
+  const pathname              = usePathname();
   const [entry, setEntry]     = useState<SocialProofEntry | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -43,7 +45,7 @@ export function SocialProofToast() {
 
   const dismiss = () => setVisible(false);
 
-  if (!entry) return null;
+  if (pathname === "/chat" || !entry) return null;
 
   return (
     <div

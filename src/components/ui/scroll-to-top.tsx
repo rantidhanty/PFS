@@ -18,7 +18,7 @@ export function ScrollToTop() {
       type="button"
       aria-label="Kembali ke atas"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-21 right-5 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-600 shadow-md transition-all duration-200 hover:border-zinc-300 hover:bg-zinc-50 hover:text-zinc-900 active:scale-95 sm:bottom-23 sm:right-6"
+      className="fixed bottom-[9rem] right-5 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-600 shadow-md transition-all duration-200 hover:border-zinc-300 hover:bg-zinc-50 hover:text-zinc-900 active:scale-95 sm:bottom-[10rem] sm:right-6"
     >
       <svg
         viewBox="0 0 20 20"

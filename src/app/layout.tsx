@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { DiscountBanner } from "@/components/ui/discount-banner";
 import { SocialProofToast } from "@/components/ui/social-proof-toast";
+import { ChatFloatWidget } from "@/components/ui/chat-widget";
 import { WaFloat } from "@/components/ui/wa-float";
 import { WaAdminSheet } from "@/components/ui/wa-admin-sheet";
 import { SearchPalette } from "@/components/ui/search-palette";
@@ -217,6 +218,7 @@ export default function RootLayout({
           <DiscountBanner />
           <ErrorBoundary>{children}</ErrorBoundary>
           <SocialProofToast />
+          <ChatFloatWidget />
           <WaFloat />
           <WaAdminSheet />
           <SearchPalette />

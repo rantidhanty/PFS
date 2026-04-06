@@ -32,12 +32,13 @@ const refereeChairCategories = [
   { id: "referee-chair-tennis", label: "Kursi Wasit Tenis", href: "/products?cat=referee-chair-tennis" },
 ];
 
-const otherNavLinks = [
+const otherNavLinks: { label: string; href: string; badge?: boolean }[] = [
   { label: "Project", href: "/projects" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/faq" },
   { label: "Tentang", href: "/tentang" },
   { label: "Kontak", href: "/kontak" },
+  { label: "Konsultasi AI", href: "/chat", badge: true },
 ];
 
 export function SiteNavbar() {
@@ -181,12 +182,22 @@ export function SiteNavbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
-                isActive(link.href)
-                  ? "bg-zinc-900 text-white"
-                  : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900"
+              className={`relative rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
+                link.badge
+                  ? isActive(link.href)
+                    ? "bg-sky-600 text-white"
+                    : "bg-sky-50 text-sky-700 hover:bg-sky-100"
+                  : isActive(link.href)
+                    ? "bg-zinc-900 text-white"
+                    : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900"
               }`}
             >
+              {link.badge && (
+                <span className="absolute -right-1 -top-1 flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-sky-500" />
+                </span>
+              )}
               {link.label}
             </Link>
           ))}
@@ -320,12 +331,21 @@ export function SiteNavbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
-                  isActive(link.href)
-                    ? "bg-zinc-900 text-white"
-                    : "text-zinc-700 hover:bg-zinc-50"
+                className={`relative rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
+                  link.badge
+                    ? isActive(link.href)
+                      ? "bg-sky-600 text-white"
+                      : "bg-sky-50 text-sky-700 hover:bg-sky-100"
+                    : isActive(link.href)
+                      ? "bg-zinc-900 text-white"
+                      : "text-zinc-700 hover:bg-zinc-50"
                 }`}
               >
+                {link.badge && (
+                  <span className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-sky-500 px-1.5 py-px text-[9px] font-bold text-white">
+                    AI
+                  </span>
+                )}
                 {link.label}
               </Link>
             ))}
