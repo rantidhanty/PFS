@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { DiscountBanner } from "@/components/ui/discount-banner";
+import { SocialProofToast } from "@/components/ui/social-proof-toast";
 import { WaFloat } from "@/components/ui/wa-float";
 import { WaAdminSheet } from "@/components/ui/wa-admin-sheet";
 import { SearchPalette } from "@/components/ui/search-palette";
@@ -215,6 +216,7 @@ export default function RootLayout({
         <SearchProvider>
           <DiscountBanner />
           <ErrorBoundary>{children}</ErrorBoundary>
+          <SocialProofToast />
           <WaFloat />
           <WaAdminSheet />
           <SearchPalette />
