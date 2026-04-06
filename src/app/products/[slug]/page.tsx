@@ -242,27 +242,35 @@ export default async function ProductPage({
               {/* Box Harga Terbaik — hanya untuk produk dengan harga numerik */}
               {product.price && product.price.type !== "contact" && (
                 <div className="mt-5 rounded-2xl border border-sky-100 bg-gradient-to-br from-sky-50 to-indigo-50 p-4">
-                  <p className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-normal text-sky-700">
-                    <span
-                      aria-hidden="true"
-                      className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-sky-100 text-sky-700"
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-normal text-sky-700">
+                      <span
+                        aria-hidden="true"
+                        className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-sky-100 text-sky-700"
+                      >
+                        <svg viewBox="0 0 16 16" fill="none" className="h-2.5 w-2.5">
+                          <path
+                            d="M6.2 3.2H4.7a1.5 1.5 0 00-1.5 1.5v1.5l4.9 4.9 1.5-1.5-4.9-4.9h1.5A1.5 1.5 0 007.7 3.2H6.2Z"
+                            stroke="currentColor"
+                            strokeWidth="1.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <circle cx="5.25" cy="5.25" r=".6" fill="currentColor" />
+                        </svg>
+                      </span>
+                      <span>Harga Terbaik - Pesan Langsung</span>
+                    </p>
+                    <a
+                      href="https://id.shp.ee/VJqfdMyT"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Beli di Shopee"
+                      className="shrink-0 transition hover:opacity-70"
                     >
-                      <svg viewBox="0 0 16 16" fill="none" className="h-2.5 w-2.5">
-                        <path
-                          d="M6.2 3.2H4.7a1.5 1.5 0 00-1.5 1.5v1.5l4.9 4.9 1.5-1.5-4.9-4.9h1.5A1.5 1.5 0 007.7 3.2H6.2Z"
-                          stroke="currentColor"
-                          strokeWidth="1.2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <circle cx="5.25" cy="5.25" r=".6" fill="currentColor" />
-                      </svg>
-                    </span>
-                    <span>Harga Terbaik - Pesan Langsung</span>
-                    <span aria-hidden="true" className="hidden">
-                    🏷️ Harga Terbaik — Pesan Langsung
-                    </span>
-                  </p>
+                      <img src="/images/logo/logo shopee.png" alt="Shopee" className="h-4 w-auto" />
+                    </a>
+                  </div>
 
                   {/* Perbandingan harga */}
                   <div className="mt-3 flex flex-wrap items-center gap-2 sm:flex-nowrap">
@@ -282,20 +290,6 @@ export default async function ProductPage({
                       HEMAT {formatRupiah(product.price.base - getDiscountedPrice(product.price.base))}
                     </span>
                   </div>
-
-                  {/* Shopee — trust signal */}
-                  <a
-                    href="https://id.shp.ee/VJqfdMyT"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 flex items-center gap-2 rounded-xl border border-orange-200 bg-white px-3 py-2 text-[11px] font-semibold text-orange-700 transition hover:bg-orange-50"
-                  >
-                    <img
-                      src="/images/logo/logo shopee.png"
-                      alt="Shopee"
-                      className="h-4 w-auto"
-                    />
-                  </a>
 
                   {/* Benefit list */}
                   <ul className="mt-3 space-y-1.5">
