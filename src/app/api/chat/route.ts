@@ -68,36 +68,46 @@ export async function POST(req: NextRequest) {
   try {
     const { messages } = await req.json();
 
-    // Ambil hanya 10 pesan terakhir — hemat token, konteks tetap relevan
+    // Ambil hanya 10 pesan terakhir — hemat token
     const recentMessages = messages.slice(-10);
 
-    // Stream response dari Claude Haiku (paling hemat, cukup untuk chat Q&A)
-    const stream = client.messages.stream({
+    // Buat stream — await di sini agar error API (key salah, saldo habis, dll)
+    // langsung tertangkap di catch, bukan di dalam ReadableStream
+    const stream = await client.messages.create({
       model: "claude-haiku-4-5-20251001",
       max_tokens: 400,
       system: SYSTEM_PROMPT,
       messages: recentMessages,
+      stream: true,
     });
 
-    // Kirim respons sebagai stream teks ke frontend
     const readable = new ReadableStream({
       async start(controller) {
-        for await (const chunk of stream) {
-          if (
-            chunk.type === "content_block_delta" &&
-            chunk.delta.type === "text_delta"
-          ) {
-            controller.enqueue(new TextEncoder().encode(chunk.delta.text));
+        try {
+          for await (const event of stream) {
+            if (
+              event.type === "content_block_delta" &&
+              event.delta.type === "text_delta"
+            ) {
+              controller.enqueue(new TextEncoder().encode(event.delta.text));
+            }
           }
+          controller.close();
+        } catch (err) {
+          controller.error(err);
         }
-        controller.close();
       },
     });
 
     return new Response(readable, {
       headers: { "Content-Type": "text/plain; charset=utf-8" },
     });
-  } catch {
-    return new Response("Gagal menghubungi asisten. Coba lagi.", { status: 500 });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : "Terjadi kesalahan";
+    console.error("[/api/chat]", msg);
+    return new Response(
+      JSON.stringify({ error: msg }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
+    );
   }
 }

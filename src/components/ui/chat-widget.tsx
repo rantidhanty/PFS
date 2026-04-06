@@ -41,6 +41,11 @@ function useChat() {
         }),
       });
 
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err?.error ?? `Server error ${res.status}`);
+      }
+
       if (!res.body) throw new Error("No stream");
 
       // Baca stream karakter per karakter — ini yang bikin efek "mengetik"
