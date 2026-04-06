@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { Fragment, useState, useRef, useEffect, useCallback, type ReactNode } from "react";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { waUrl } from "@/lib/wa";
 
@@ -14,6 +15,64 @@ const LIVE_CHAT_WELCOME: Message = {
   content:
     "Halo! Saya Live Chat PFS.\nAda yang bisa saya bantu seputar produk atau konsultasi peralatan olahraga?",
 };
+
+const URL_PATTERN = /(https?:\/\/[^\s]+)/g;
+const BOLD_PATTERN = /\*\*(.+?)\*\*/g;
+
+function renderInlineText(text: string): ReactNode[] {
+  const segments = text.split(BOLD_PATTERN);
+
+  return segments.map((segment, index) => {
+    if (!segment) return <Fragment key={`empty-${index}`} />;
+
+    if (index % 2 === 1) {
+      return <strong key={`bold-${index}`} className="font-bold">{segment}</strong>;
+    }
+
+    return <Fragment key={`text-${index}`}>{segment.replace(/\*\*/g, "")}</Fragment>;
+  });
+}
+
+function renderMessageContent(content: string): ReactNode {
+  const normalizedContent = content
+    .replace(/\*\*(https?:\/\/[^\s]+)\*\*/g, "$1")
+    .replace(/\*\*klik di sini\*\*/gi, "klik di sini");
+
+  const lines = normalizedContent.split("\n");
+
+  return lines.map((line, lineIndex) => {
+    const parts = line.split(URL_PATTERN);
+
+    return (
+      <Fragment key={`${line}-${lineIndex}`}>
+        {parts.map((part, partIndex) => {
+          if (!part) return null;
+
+          if (/^https?:\/\/[^\s]+$/.test(part)) {
+            return (
+              <a
+                key={`${part}-${partIndex}`}
+                href={part}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="break-all font-semibold underline underline-offset-2"
+              >
+                klik di sini
+              </a>
+            );
+          }
+
+          return (
+            <Fragment key={`${part}-${partIndex}`}>
+              {renderInlineText(part)}
+            </Fragment>
+          );
+        })}
+        {lineIndex < lines.length - 1 ? <br /> : null}
+      </Fragment>
+    );
+  });
+}
 
 const WELCOME: Message = {
   role: "assistant",
@@ -101,6 +160,7 @@ export function ChatPanel({ onClose, embedded = false }: ChatPanelProps) {
   const [input, setInput] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const shopeeLink = "https://id.shp.ee/VJqfdMyT";
 
   const waLink = waUrl("Halo kak PFS, saya mau konsultasi lebih lanjut 🙏");
 
@@ -181,7 +241,7 @@ export function ChatPanel({ onClose, embedded = false }: ChatPanelProps) {
                   : "rounded-bl-sm bg-zinc-100 text-zinc-800"
               }`}
             >
-              {msg.content}
+              {msg.role === "assistant" ? renderMessageContent(msg.content) : msg.content}
               {msg.role === "assistant" && loading && i === messages.length - 1 && (
                 <span className="ml-1 inline-block h-2 w-2 animate-pulse rounded-full bg-zinc-400" />
               )}
@@ -192,7 +252,7 @@ export function ChatPanel({ onClose, embedded = false }: ChatPanelProps) {
       </div>
 
       {/* WA CTA */}
-      <div className="border-t border-zinc-100 px-3 py-2">
+      <div className="space-y-2 border-t border-zinc-100 px-3 py-2">
         <a
           href={waLink}
           target="_blank"
@@ -203,6 +263,20 @@ export function ChatPanel({ onClose, embedded = false }: ChatPanelProps) {
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
           </svg>
           Lanjut Konsultasi via WhatsApp
+        </a>
+        <a
+          href={shopeeLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 rounded-xl border border-orange-200 bg-orange-50 py-1.5 text-[11px] font-bold text-orange-700 transition hover:border-orange-300 hover:bg-orange-100"
+        >
+          <Image
+            src="/images/logo/logo shopee.png"
+            alt="Shopee"
+            width={68}
+            height={20}
+            className="h-4 w-auto"
+          />
         </a>
       </div>
 
