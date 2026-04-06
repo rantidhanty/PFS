@@ -9,6 +9,12 @@ type Message = {
   content: string;
 };
 
+const LIVE_CHAT_WELCOME: Message = {
+  role: "assistant",
+  content:
+    "Halo! Saya Live Chat PFS.\nAda yang bisa saya bantu seputar produk atau konsultasi peralatan olahraga?",
+};
+
 const WELCOME: Message = {
   role: "assistant",
   content:
@@ -17,7 +23,7 @@ const WELCOME: Message = {
 
 // ─── Hook: kirim pesan ke API dan stream respons ─────────────────────────────
 function useChat() {
-  const [messages, setMessages] = useState<Message[]>([WELCOME]);
+  const [messages, setMessages] = useState<Message[]>([LIVE_CHAT_WELCOME]);
   const [loading, setLoading] = useState(false);
 
   const send = useCallback(async (text: string) => {
@@ -79,7 +85,7 @@ function useChat() {
     }
   }, [messages]);
 
-  const reset = useCallback(() => setMessages([WELCOME]), []);
+  const reset = useCallback(() => setMessages([LIVE_CHAT_WELCOME]), []);
 
   return { messages, loading, send, reset };
 }

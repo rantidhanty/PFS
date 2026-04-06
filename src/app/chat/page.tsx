@@ -19,7 +19,7 @@ export default function ChatPage() {
         <div className="mx-auto flex max-w-2xl items-center gap-2.5">
           <span className="text-xl">🤖</span>
           <div>
-            <p className="text-sm font-bold leading-tight">Asisten Virtual PFS</p>
+            <p className="text-sm font-bold leading-tight">Live Chat PFS</p>
             <p className="text-[11px] text-sky-200">Spesialis peralatan olahraga standar kompetisi</p>
           </div>
           <div className="ml-auto flex gap-1.5">

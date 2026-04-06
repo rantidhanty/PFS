@@ -38,7 +38,7 @@ const otherNavLinks: { label: string; href: string; badge?: boolean }[] = [
   { label: "FAQ", href: "/faq" },
   { label: "Tentang", href: "/tentang" },
   { label: "Kontak", href: "/kontak" },
-  { label: "Konsultasi AI", href: "/chat", badge: true },
+  { label: "Konsultasi", href: "/chat", badge: true },
 ];
 
 export function SiteNavbar() {
