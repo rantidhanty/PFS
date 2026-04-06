@@ -247,21 +247,21 @@ export default async function ProductPage({
                   </p>
 
                   {/* Perbandingan harga */}
-                  <div className="mt-3 flex items-center gap-3">
-                    <div className="text-center">
+                  <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <div>
                       <p className="text-[10px] font-semibold uppercase tracking-wide text-zinc-400">Marketplace</p>
-                      <p className="text-sm font-semibold text-zinc-400 line-through">
+                      <p className="whitespace-nowrap text-sm font-semibold text-zinc-400 line-through">
                         {product.price.type === "from" ? "Mulai " : ""}{formatRupiah(product.price.base)}
                       </p>
                     </div>
                     <span className="text-zinc-300">→</span>
-                    <div className="text-center">
+                    <div>
                       <p className="text-[10px] font-semibold uppercase tracking-wide text-sky-600">Web / WA</p>
-                      <p className="text-base font-extrabold text-sky-700">
+                      <p className="whitespace-nowrap text-base font-extrabold text-sky-700">
                         {product.price.type === "from" ? "Mulai " : ""}{formatRupiah(getDiscountedPrice(product.price.base))}
                       </p>
                     </div>
-                    <span className="ml-auto rounded-full bg-green-100 px-2.5 py-1 text-xs font-bold text-green-700">
+                    <span className="whitespace-nowrap rounded-full bg-green-100 px-2.5 py-1 text-xs font-bold text-green-700">
                       HEMAT {formatRupiah(product.price.base - getDiscountedPrice(product.price.base))}
                     </span>
                   </div>
