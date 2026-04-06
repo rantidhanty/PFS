@@ -7,7 +7,7 @@ import { WaButton } from "@/components/ui/wa-button";
 import { ProductGallery } from "@/components/ui/product-gallery";
 import { ProductRelated } from "@/components/ui/product-related";
 import { StandardBadge } from "@/components/ui/standard-badge";
-import { products, sportLabels } from "@/data/products";
+import { products, sportLabels, formatRupiah, getDiscountedPrice } from "@/data/products";
 import { siteConfig } from "@/config/site";
 import { waUrl } from "@/lib/wa";
 
@@ -237,6 +237,51 @@ export default async function ProductPage({
                 <p className="mt-3 text-sm leading-relaxed text-zinc-700 sm:text-base">
                   {product.description.intro}
                 </p>
+              )}
+
+              {/* Box Harga Terbaik — hanya untuk produk dengan harga numerik */}
+              {product.price && product.price.type !== "contact" && (
+                <div className="mt-5 rounded-2xl border border-sky-100 bg-gradient-to-br from-sky-50 to-indigo-50 p-4">
+                  <p className="text-xs font-extrabold uppercase tracking-widest text-sky-700">
+                    🏷️ Harga Terbaik — Pesan Langsung
+                  </p>
+
+                  {/* Perbandingan harga */}
+                  <div className="mt-3 flex items-center gap-3">
+                    <div className="text-center">
+                      <p className="text-[10px] font-semibold uppercase tracking-wide text-zinc-400">Marketplace</p>
+                      <p className="text-sm font-semibold text-zinc-400 line-through">
+                        {product.price.type === "from" ? "Mulai " : ""}{formatRupiah(product.price.base)}
+                      </p>
+                    </div>
+                    <span className="text-zinc-300">→</span>
+                    <div className="text-center">
+                      <p className="text-[10px] font-semibold uppercase tracking-wide text-sky-600">Web / WA</p>
+                      <p className="text-base font-extrabold text-sky-700">
+                        {product.price.type === "from" ? "Mulai " : ""}{formatRupiah(getDiscountedPrice(product.price.base))}
+                      </p>
+                    </div>
+                    <span className="ml-auto rounded-full bg-green-100 px-2.5 py-1 text-xs font-bold text-green-700">
+                      HEMAT {formatRupiah(product.price.base - getDiscountedPrice(product.price.base))}
+                    </span>
+                  </div>
+
+                  {/* Benefit list */}
+                  <ul className="mt-3 space-y-1.5">
+                    {[
+                      "DP 30%, sisa 70% dibayar saat barang siap dikirim",
+                      "Selesai dalam 2 hari kerja",
+                      "Garansi kepuasan 7 hari",
+                      "Langsung koordinasi dengan admin PFS",
+                      "Estimasi ongkir sesuai lokasi — konsultasi WA untuk penawaran lengkap",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-xs text-zinc-700">
+                        <span className="mt-0.5 shrink-0 text-sky-500">✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
 
               {/* CTA */}
