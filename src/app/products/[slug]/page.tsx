@@ -242,7 +242,7 @@ export default async function ProductPage({
               {/* Box Harga Terbaik — hanya untuk produk dengan harga numerik */}
               {product.price && product.price.type !== "contact" && (
                 <div className="mt-5 rounded-2xl border border-sky-100 bg-gradient-to-br from-sky-50 to-indigo-50 p-4">
-                  <p className="text-xs font-extrabold uppercase tracking-widest text-sky-700">
+                  <p className="text-xs font-extrabold uppercase tracking-wide text-sky-700">
                     🏷️ Harga Terbaik — Pesan Langsung
                   </p>
 
