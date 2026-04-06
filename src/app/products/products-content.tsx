@@ -302,7 +302,6 @@ export default function ProductsPageContent() {
                   height={16}
                   className="h-4 w-auto"
                 />
-                <span>Beli Aman via Shopee</span>
               </a>
             </div>
           ))}
