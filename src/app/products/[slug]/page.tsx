@@ -204,7 +204,7 @@ export default async function ProductPage({
 
         <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Kolom kiri: galeri gambar */}
-          <div className="rounded-3xl border border-zinc-200 bg-white p-4 shadow-[0_18px_42px_rgba(15,23,42,0.07)] sm:p-5">
+          <div className="min-w-0 rounded-3xl border border-zinc-200 bg-white p-4 shadow-[0_18px_42px_rgba(15,23,42,0.07)] sm:p-5">
             <ProductGallery
               images={product.images.gallery}
               productName={product.name}
@@ -212,8 +212,8 @@ export default async function ProductPage({
           </div>
 
           {/* Kolom kanan: detail produk */}
-          <div className="flex flex-col gap-4">
-            <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-[0_18px_42px_rgba(15,23,42,0.07)]">
+          <div className="min-w-0 flex flex-col gap-4">
+            <div className="min-w-0 rounded-3xl border border-zinc-200 bg-white p-5 shadow-[0_18px_42px_rgba(15,23,42,0.07)]">
               {/* Badges */}
               <div className="flex flex-wrap gap-2">
                 <span className="rounded-full bg-orange-100 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.16em] text-orange-800">
@@ -242,25 +242,43 @@ export default async function ProductPage({
               {/* Box Harga Terbaik — hanya untuk produk dengan harga numerik */}
               {product.price && product.price.type !== "contact" && (
                 <div className="mt-5 rounded-2xl border border-sky-100 bg-gradient-to-br from-sky-50 to-indigo-50 p-4">
-                  <p className="text-xs font-extrabold uppercase tracking-wide text-sky-700">
+                  <p className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-normal text-sky-700">
+                    <span
+                      aria-hidden="true"
+                      className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-sky-100 text-sky-700"
+                    >
+                      <svg viewBox="0 0 16 16" fill="none" className="h-2.5 w-2.5">
+                        <path
+                          d="M6.2 3.2H4.7a1.5 1.5 0 00-1.5 1.5v1.5l4.9 4.9 1.5-1.5-4.9-4.9h1.5A1.5 1.5 0 007.7 3.2H6.2Z"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <circle cx="5.25" cy="5.25" r=".6" fill="currentColor" />
+                      </svg>
+                    </span>
+                    <span>Harga Terbaik - Pesan Langsung</span>
+                    <span aria-hidden="true" className="hidden">
                     🏷️ Harga Terbaik — Pesan Langsung
+                    </span>
                   </p>
 
                   {/* Perbandingan harga */}
-                  <div className="mt-3 flex items-center gap-2">
-                    <div className="shrink-0">
+                  <div className="mt-3 flex flex-wrap items-center gap-2 sm:flex-nowrap">
+                    <div className="min-w-0 shrink-0">
                       <p className="text-[9px] font-semibold uppercase tracking-wide text-zinc-400">Marketplace</p>
-                      <p className="whitespace-nowrap text-xs font-semibold text-zinc-400 line-through">
+                      <p className="text-xs font-semibold text-zinc-400 line-through sm:whitespace-nowrap">
                         {product.price.type === "from" ? "Mulai " : ""}{formatRupiah(product.price.base)}
                       </p>
                     </div>
-                    <div className="shrink-0">
+                    <div className="min-w-0 shrink-0">
                       <p className="text-[9px] font-semibold uppercase tracking-wide text-sky-600">Web / WA</p>
-                      <p className="whitespace-nowrap text-sm font-extrabold text-sky-700">
+                      <p className="text-sm font-extrabold text-sky-700 sm:whitespace-nowrap">
                         {product.price.type === "from" ? "Mulai " : ""}{formatRupiah(getDiscountedPrice(product.price.base))}
                       </p>
                     </div>
-                    <span className="whitespace-nowrap rounded-full bg-green-100 px-2 py-0.5 text-[10px] font-bold text-green-700">
+                    <span className="rounded-full bg-green-100 px-2 py-0.5 text-[10px] font-bold text-green-700 sm:whitespace-nowrap">
                       HEMAT {formatRupiah(product.price.base - getDiscountedPrice(product.price.base))}
                     </span>
                   </div>
@@ -302,7 +320,7 @@ export default async function ProductPage({
 
             {/* Fitur & Spesifikasi — gabungan 1 card */}
             {(product.description?.details || product.description?.notes) && (
-              <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-[0_18px_42px_rgba(15,23,42,0.07)]">
+              <div className="min-w-0 rounded-3xl border border-zinc-200 bg-white p-5 shadow-[0_18px_42px_rgba(15,23,42,0.07)]">
                 {product.description?.details && (
                   <>
                     <h2 className="text-base font-bold uppercase tracking-wide text-zinc-500">

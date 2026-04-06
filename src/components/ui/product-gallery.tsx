@@ -33,7 +33,7 @@ export function ProductGallery({ images: rawImages, productName }: ProductGaller
     <>
       {/* Main image */}
       <div
-        className="relative aspect-square w-full overflow-hidden rounded-2xl bg-zinc-100 cursor-zoom-in"
+        className="relative aspect-square w-full max-w-full overflow-hidden rounded-2xl bg-zinc-100 cursor-zoom-in"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         onClick={() => setLightboxIndex(activeIndex)}
@@ -68,7 +68,7 @@ export function ProductGallery({ images: rawImages, productName }: ProductGaller
 
       {/* Thumbnails */}
       {images.length > 1 && (
-        <div className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-5">
+        <div className="mt-3 grid max-w-full grid-cols-4 gap-2 sm:grid-cols-5">
           {images.map((src, index) => (
             <button
               key={src}
@@ -98,7 +98,7 @@ export function ProductGallery({ images: rawImages, productName }: ProductGaller
           className="fixed inset-0 z-[80] bg-black/80 backdrop-blur-sm"
           onClick={() => setLightboxIndex(null)}
         >
-          <div className="flex h-full w-full items-center justify-center px-4 py-6">
+          <div className="flex h-full w-full items-center justify-center overflow-x-hidden px-4 py-6">
             <div
               className="relative w-full max-w-4xl"
               onClick={(e) => e.stopPropagation()}
