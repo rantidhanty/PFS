@@ -259,7 +259,7 @@ export default async function ProductPage({
                           <circle cx="5.25" cy="5.25" r=".6" fill="currentColor" />
                         </svg>
                       </span>
-                      <span>Harga Terbaik - Pesan Langsung</span>
+                      <span>Harga Terbaik</span>
                     </p>
                     <a
                       href="https://id.shp.ee/VJqfdMyT"
