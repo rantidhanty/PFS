@@ -298,7 +298,7 @@ export default async function ProductPage({
                       "Selesai dalam 2 hari kerja",
                       "Garansi kepuasan 7 hari",
                       "Langsung koordinasi dengan admin PFS",
-                      "Estimasi ongkir sesuai lokasi — konsultasi WA untuk penawaran lengkap",
+                      "Estimasi ongkir sesuai lokasi, konsultasi WA untuk penawaran lengkap",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-2 text-xs text-zinc-700">
                         <span className="mt-0.5 shrink-0 text-sky-500">✓</span>
