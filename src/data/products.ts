@@ -265,21 +265,21 @@ export const products: Product[] = [
     price: { type: "fixed", base: 2499000 },
     description: {
       intro:
-        "Tiang voli tanam standar FIVB dari ProFabric Steel Bekasi — konstruksi pipa besi 3 inci, sistem bongkar pasang praktis, cocok untuk sekolah, fasilitas olahraga, dan perumahan indoor maupun outdoor.",
+        "Tiang voli tanam standar FIVB buatan ProFabric Steel Bekasi dengan konstruksi pipa besi 3 inci dan sistem bongkar pasang praktis. Cocok untuk sekolah, fasilitas olahraga, dan perumahan baik indoor maupun outdoor.",
       details: [
-        "Pipa besi diameter 3 inci — kuat, stabil, dan tahan lama untuk pemakaian jangka panjang",
-        "Tinggi standar FIVB: 243 cm (putra) dan 235 cm (putri), sesuai regulasi resmi",
-        "Dilengkapi kait pengencang net untuk ketegangan net yang presisi dan konsisten",
-        "Sistem tanam menggunakan pipa soc — mudah dipasang dan dilepas sesuai kebutuhan",
-        "Penutup lubang lantai berlapiskan pelindung agar tampilan rapi dan aman saat tidak digunakan",
-        "Finishing tahan cuaca — cocok untuk lapangan indoor maupun outdoor",
-        "Bagian tiang dilapisi material pelindung awet, menjaga kualitas dalam pemakaian jangka panjang",
+        "Menggunakan pipa besi diameter 3 inci yang kuat, stabil, dan tahan lama untuk pemakaian jangka panjang",
+        "Tinggi standar FIVB 243 cm untuk putra dan 235 cm untuk putri sesuai regulasi resmi",
+        "Dilengkapi kait pengencang net untuk ketegangan yang presisi dan hasil yang konsisten",
+        "Sistem tanam menggunakan pipa soc sehingga mudah dipasang dan dilepas sesuai kebutuhan",
+        "Penutup lubang lantai berlapis pelindung agar tampilan rapi dan aman saat tidak digunakan",
+        "Finishing tahan cuaca cocok untuk lapangan indoor maupun outdoor",
+        "Bagian tiang dilapisi material pelindung yang awet sehingga kualitas terjaga dalam pemakaian jangka panjang",
         "Warna dapat dikustomisasi sesuai kebutuhan venue atau sekolah",
       ],
       notes: [
-        "Pipa besi diameter 3 inci, fabrikasi presisi",
-        "Sistem tanam pipa soc, bongkar pasang praktis",
-        "Ready stock & custom order tersedia",
+        "Pipa besi diameter 3 inci fabrikasi presisi",
+        "Sistem tanam pipa soc bongkar pasang praktis",
+        "Ready stock dan custom order tersedia",
         "Pengiriman ke seluruh Indonesia dari Bekasi",
       ],
       closing:
