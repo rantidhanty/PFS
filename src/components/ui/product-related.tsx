@@ -69,12 +69,15 @@ function RelatedCarousel({ items }: { items: Product[] }) {
     [autoplay.current],
   );
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getAutoplay = () => (emblaApi?.plugins() as any)?.autoplay;
+
   useEffect(() => {
     if (!emblaApi) return;
 
-    const onPointerDown = () => autoplay.current.stop();
-    const onPointerUp = () => autoplay.current.reset();
-    const onSettle = () => autoplay.current.play();
+    const onPointerDown = () => getAutoplay()?.stop();
+    const onPointerUp = () => getAutoplay()?.reset();
+    const onSettle = () => getAutoplay()?.play();
 
     emblaApi.on("pointerDown", onPointerDown);
     emblaApi.on("pointerUp", onPointerUp);
@@ -85,12 +88,13 @@ function RelatedCarousel({ items }: { items: Product[] }) {
       emblaApi.off("pointerUp", onPointerUp);
       emblaApi.off("settle", onSettle);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [emblaApi]);
 
   const scrollPrev = () => emblaApi?.scrollPrev();
   const scrollNext = () => emblaApi?.scrollNext();
-  const pauseAutoplay = () => autoplay.current.stop();
-  const resumeAutoplay = () => autoplay.current.play();
+  const pauseAutoplay = () => getAutoplay()?.stop();
+  const resumeAutoplay = () => getAutoplay()?.play();
 
   return (
     <div className="relative">
