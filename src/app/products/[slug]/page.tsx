@@ -203,8 +203,8 @@ export default async function ProductPage({
         </nav>
 
         <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-          {/* Kolom kiri: galeri gambar */}
-          <div className="min-w-0 rounded-3xl border border-zinc-200 bg-white p-4 shadow-[0_18px_42px_rgba(15,23,42,0.07)] sm:p-5">
+          {/* Kolom kiri: galeri gambar — sticky agar tetap terlihat saat scroll */}
+          <div className="min-w-0 rounded-3xl border border-zinc-200 bg-white p-4 shadow-[0_18px_42px_rgba(15,23,42,0.07)] sm:p-5 lg:self-start lg:sticky lg:top-[7rem]">
             <ProductGallery
               images={product.images.gallery}
               productName={product.name}
