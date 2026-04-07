@@ -265,21 +265,25 @@ export const products: Product[] = [
     price: { type: "fixed", base: 2499000 },
     description: {
       intro:
-        "Instalasi permanen untuk lapangan voli — kokoh, stabil, siap digunakan intensif.",
+        "Tiang voli tanam standar FIVB dari ProFabric Steel Bekasi — konstruksi pipa besi 3 inci, sistem bongkar pasang praktis, cocok untuk sekolah, fasilitas olahraga, dan perumahan indoor maupun outdoor.",
       details: [
-        "Tanam permanen, kestabilan jangka panjang",
-        "Ketinggian net sesuai kategori pria/wanita",
-        "Kait net presisi, hasil konsisten",
-        "Pelindung tiang kulit sintetis berkualitas",
-        "Finishing tahan cuaca indoor/outdoor",
+        "Pipa besi diameter 3 inci — kuat, stabil, dan tahan lama untuk pemakaian jangka panjang",
+        "Tinggi standar FIVB: 243 cm (putra) dan 235 cm (putri), sesuai regulasi resmi",
+        "Dilengkapi kait pengencang net untuk ketegangan net yang presisi dan konsisten",
+        "Sistem tanam menggunakan pipa soc — mudah dipasang dan dilepas sesuai kebutuhan",
+        "Penutup lubang lantai berlapiskan pelindung agar tampilan rapi dan aman saat tidak digunakan",
+        "Finishing tahan cuaca — cocok untuk lapangan indoor maupun outdoor",
+        "Bagian tiang dilapisi material pelindung awet, menjaga kualitas dalam pemakaian jangka panjang",
+        "Warna dapat dikustomisasi sesuai kebutuhan venue atau sekolah",
       ],
       notes: [
-        "Besi pipa berdiameter besar",
-        "Pemasangan menyesuaikan lokasi",
-        "Spesifikasi via konsultasi",
+        "Pipa besi diameter 3 inci, fabrikasi presisi",
+        "Sistem tanam pipa soc, bongkar pasang praktis",
+        "Ready stock & custom order tersedia",
+        "Pengiriman ke seluruh Indonesia dari Bekasi",
       ],
       closing:
-        "Tersedia survei lokasi sebelum instalasi — hubungi kami untuk penawaran.",
+        "Ready stock dan melayani custom sesuai kebutuhan. Hubungi admin PFS untuk konsultasi, survei lokasi, dan penawaran terbaik.",
     },
   },
   {
