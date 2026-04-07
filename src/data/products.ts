@@ -307,21 +307,23 @@ export const products: Product[] = [
     price: { type: "fixed", base: 4499000 },
     description: {
       intro:
-        "Gawang futsal besi solid — tersedia permanen dan portable, siap kompetisi.",
+        "Tiang gawang futsal standar FIFA buatan ProFabric Steel Bekasi dalam 1 set berisi 2 gawang siap pakai. Konstruksi solid dengan sistem bongkar pasang praktis sehingga cocok untuk lapangan yang digunakan bergantian maupun berpindah lokasi.",
       details: [
-        "Pilihan sistem permanen atau portable",
-        "Dimensi standar lapangan futsal resmi",
-        "Sistem bongkar pasang praktis",
-        "Konstruksi kokoh pemakaian intensif",
-        "Finishing tahan cuaca indoor/outdoor",
+        "1 set berisi 2 gawang dengan lebar sesuai regulasi lapangan futsal resmi standar FIFA",
+        "Sistem bongkar pasang yang praktis sehingga mudah dipasang dan dibongkar kapan saja",
+        "Material besi berkualitas dengan konstruksi kokoh dan tahan lama untuk pemakaian intensif",
+        "Cocok untuk lapangan indoor maupun outdoor",
+        "Ideal untuk sekolah, komunitas olahraga, dan penyewaan lapangan futsal",
+        "Warna dan spesifikasi dapat dikustomisasi sesuai kebutuhan",
       ],
       notes: [
-        "Besi pipa berkualitas, fabrikasi presisi",
-        "Ukuran dapat dikustomisasi",
-        "Spesifikasi via konsultasi",
+        "Besi berkualitas fabrikasi presisi",
+        "1 set 2 gawang siap pakai",
+        "Ready stock dan custom order tersedia",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
+        "Hubungi admin PFS untuk konsultasi spesifikasi, estimasi ongkir, dan penawaran terbaik.",
     },
   },
   {
