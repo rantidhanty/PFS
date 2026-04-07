@@ -29,7 +29,7 @@ export const siteConfig = {
 
   name: "ProFabric Steel",
   shortName: "PFS",
-  tagline: "Peralatan Olahraga Standar Kompetisi & Fabrikasi Besi Bekasi",
+  tagline: "Pabrik Peralatan Olahraga Standar Kompetisi di Bekasi",
 
   phone: {
     /** Format untuk ditampilkan ke user */
