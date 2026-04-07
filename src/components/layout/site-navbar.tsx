@@ -341,11 +341,6 @@ export function SiteNavbar() {
                       : "text-zinc-700 hover:bg-zinc-50"
                 }`}
               >
-                {link.badge && (
-                  <span className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-sky-500 px-1.5 py-px text-[9px] font-bold text-white">
-                    AI
-                  </span>
-                )}
                 {link.label}
               </Link>
             ))}
