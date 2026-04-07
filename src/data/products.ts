@@ -79,21 +79,24 @@ export const products: Product[] = [
     price: { type: "from", base: 7499000 },
     description: {
       intro:
-        "Ring basket portabel kokoh — mudah dipindah, rapi standar kompetisi.",
+        "Ring basket portabel standar FIBA buatan ProFabric Steel Bekasi dengan konstruksi kokoh dan sistem roda built-in. Dirancang untuk kemudahan mobilitas tanpa mengorbankan stabilitas sehingga cocok untuk sekolah, GOR, dan fasilitas olahraga multifungsi.",
       details: [
-        "Papan akrilik premium, tahan benturan",
-        "Ketinggian ring adjustable semua usia",
-        "Roda built-in, pindah tanpa alat",
-        "Pengaman body kulit sintetis",
-        "Pemberat stabil anti-geser",
+        "Memenuhi standar FIBA sehingga sesuai untuk pertandingan resmi maupun latihan rutin sehari-hari",
+        "Papan akrilik premium tahan benturan dengan visibilitas optimal dari segala sisi lapangan",
+        "Ketinggian ring dapat diatur untuk menyesuaikan usia dan kebutuhan sehingga cocok untuk semua kalangan",
+        "Dilengkapi roda built-in sehingga mudah dipindahkan ke berbagai posisi lapangan tanpa alat tambahan",
+        "Sistem pemberat yang stabil mencegah tiang bergeser saat digunakan secara intensif",
+        "Pelapis kulit sintetis berkualitas pada bagian badan tiang untuk keamanan pemain saat berada di dekat tiang",
+        "Warna dan konfigurasi dapat dikustomisasi sesuai kebutuhan sekolah atau fasilitas olahraga",
       ],
       notes: [
-        "Besi hollow penampang besar",
-        "Fabrikasi presisi, material pilihan",
-        "Spesifikasi via konsultasi",
+        "Besi hollow penampang besar fabrikasi presisi",
+        "Material pilihan dengan kualitas terjamin",
+        "Ready stock dan custom order tersedia",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Warna dan konfigurasi dapat disesuaikan — hubungi kami untuk penawaran.",
+        "Hubungi admin PFS untuk konsultasi spesifikasi, estimasi ongkir, dan penawaran terbaik.",
     },
   },
   {
@@ -118,22 +121,23 @@ export const products: Product[] = [
     price: { type: "from", base: 12499000 },
     description: {
       intro:
-        "Versi terbaru — konstruksi lebih masif, stabilisasi lebih kuat dari V1.",
+        "Ring basket portabel versi terbaru buatan ProFabric Steel Bekasi dengan konstruksi lebih masif dan stabilisasi lebih kuat dari V1. Cocok untuk fasilitas olahraga yang membutuhkan peralatan profesional dengan daya tahan tinggi untuk pemakaian intensif jangka panjang.",
       details: [
-        "Besi hollow penampang lebih besar dari V1",
-        "Base lebih lebar, kapasitas pemberat lebih tinggi",
-        "Papan akrilik tebal dengan bracket penguat",
-        "Powder coating premium, anti-karat",
-        "Mekanisme ketinggian kunci ganda",
-        "Roda heavy-duty dengan rem pengunci",
+        "Besi hollow berpenampang lebih besar dari V1 sehingga menghasilkan konstruksi yang lebih kokoh dan stabil",
+        "Base yang lebih lebar dengan kapasitas pemberat lebih tinggi untuk mencegah pergerakan saat digunakan intensif",
+        "Papan akrilik tebal dilengkapi bracket penguat untuk ketahanan maksimal dari benturan bola",
+        "Powder coating premium anti karat yang menjaga penampilan tetap baik dalam jangka panjang",
+        "Mekanisme ketinggian dengan kunci ganda untuk keamanan saat penyesuaian posisi ring",
+        "Roda heavy-duty dengan rem pengunci yang kuat memudahkan mobilitas sekaligus menjaga posisi tiang tetap stabil",
       ],
       notes: [
         "Material struktural grade premium",
-        "Las penuh seluruh sambungan",
-        "Bobot lebih berat dari V1 — prioritas stabilitas",
+        "Las penuh seluruh sambungan untuk kekuatan maksimal",
+        "Bobot lebih berat dari V1 dengan prioritas stabilitas",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Tersedia dalam konfigurasi warna custom — hubungi admin PFS untuk penawaran dan jadwal produksi.",
+        "Tersedia dalam konfigurasi warna custom. Hubungi admin PFS untuk penawaran dan jadwal produksi.",
     },
   },
   {
@@ -157,20 +161,22 @@ export const products: Product[] = [
     price: { type: "from", base: 4499000 },
     description: {
       intro:
-        "Solusi permanen untuk ruang terbatas — terpasang di dinding, hemat area lantai.",
+        "Ring basket dinding standar FIBA buatan ProFabric Steel Bekasi sebagai solusi permanen untuk ruang terbatas. Dipasang langsung ke dinding tanpa memerlukan tiang sehingga menghemat area lantai secara signifikan dan cocok untuk gymnasium sekolah, aula olahraga, dan ruang indoor yang terbatas.",
       details: [
-        "Pemasangan dinding kuat, tidak bergeser",
-        "Papan akrilik premium, visibilitas optimal",
-        "Posisi ring presisi standar FIBA",
-        "Tidak perlu tiang — hemat ruang signifikan",
+        "Pemasangan langsung ke dinding dengan sistem pengikat kuat sehingga ring tidak bergeser saat digunakan",
+        "Papan akrilik premium dengan visibilitas optimal yang memudahkan pemain dan penonton memantau jalannya permainan",
+        "Posisi ring yang presisi sesuai standar FIBA untuk konsistensi permainan baik latihan maupun pertandingan",
+        "Tidak memerlukan tiang sehingga menghemat ruang lantai secara signifikan dan memperluas area bermain",
+        "Cocok untuk gymnasium sekolah, aula serbaguna, dan ruang olahraga indoor dengan keterbatasan ruang",
       ],
       notes: [
-        "Besi hollow penampang besar",
-        "Pemasangan menyesuaikan struktur dinding",
-        "Spesifikasi via konsultasi",
+        "Besi hollow penampang besar fabrikasi presisi",
+        "Pemasangan menyesuaikan struktur dan kondisi dinding",
+        "Ready stock dan custom order tersedia",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Warna, konfigurasi, dan titik pemasangan dapat disesuaikan — hubungi kami untuk penawaran.",
+        "Warna, konfigurasi, dan titik pemasangan dapat disesuaikan. Hubungi kami untuk penawaran terbaik.",
     },
   },
   {
@@ -192,20 +198,23 @@ export const products: Product[] = [
     price: { type: "fixed", base: 12499000 },
     description: {
       intro:
-        "Untuk lapangan permanen — kestabilan tertinggi, tahan pemakaian intensif harian.",
+        "Ring basket tanam standar FIBA buatan ProFabric Steel Bekasi untuk lapangan permanen dengan kestabilan tertinggi dan ketahanan terhadap pemakaian intensif harian. Ideal untuk sekolah, universitas, GOR, dan fasilitas olahraga yang memerlukan instalasi basket jangka panjang.",
       details: [
-        "Ditanam ke pondasi permanen",
-        "Konstruksi sangat kuat untuk pemakaian intensif",
-        "Ketinggian dikonfigurasi saat instalasi",
-        "Tahan cuaca ekstrem, indoor maupun outdoor",
+        "Sistem penanaman ke pondasi permanen memberikan kestabilan tertinggi yang tidak bisa diperoleh dari tiang portabel",
+        "Konstruksi sangat kokoh yang dirancang untuk menahan pemakaian intensif setiap hari tanpa mengurangi keandalan",
+        "Ketinggian ring dikonfigurasi saat instalasi sesuai standar FIBA untuk konsistensi pertandingan",
+        "Tahan cuaca ekstrem baik indoor maupun outdoor sehingga tetap awet dalam berbagai kondisi lingkungan",
+        "Besi pipa berdiameter besar yang memberikan kekuatan struktural maksimal untuk beban jangka panjang",
+        "Cocok untuk lapangan basket sekolah, GOR, universitas, dan fasilitas olahraga profesional",
       ],
       notes: [
-        "Besi pipa berdiameter besar",
-        "Pondasi menyesuaikan kondisi lapangan",
-        "Spesifikasi via konsultasi",
+        "Besi pipa berdiameter besar fabrikasi presisi",
+        "Pondasi menyesuaikan kondisi dan struktur lapangan",
+        "Ready stock dan custom order tersedia",
+        "Tersedia survei lokasi sebelum instalasi",
       ],
       closing:
-        "Tersedia survei lokasi sebelum instalasi — hubungi kami untuk penawaran.",
+        "Hubungi kami untuk konsultasi, survei lokasi, dan penawaran terbaik.",
     },
   },
   {
@@ -349,21 +358,23 @@ export const products: Product[] = [
     price: { type: "fixed", base: 3499000 },
     description: {
       intro:
-        "Tiang badminton solid untuk latihan hingga pertandingan — mudah operasikan harian.",
+        "Tiang badminton portable standar BWF buatan ProFabric Steel Bekasi dengan konstruksi solid dan sistem roda built-in yang memudahkan mobilitas harian. Dirancang untuk GOR sekolah, klub badminton, dan fasilitas olahraga multifungsi yang membutuhkan peralatan andal setiap hari.",
       details: [
-        "Mengacu standar dimensi BWF",
-        "Roda built-in, pindah antar lapangan mudah",
-        "Kait net praktis untuk operasional harian",
-        "Pelapis kulit sintetis berkualitas",
-        "Pemberat stabil anti-geser",
+        "Mengacu pada standar dimensi BWF sehingga sesuai untuk pertandingan resmi maupun latihan harian",
+        "Dilengkapi roda built-in untuk memudahkan pemindahan tiang antar lapangan tanpa memerlukan alat tambahan",
+        "Sistem kait net yang praktis memudahkan pemasangan dan penyesuaian ketegangan net setiap hari",
+        "Pelapis kulit sintetis berkualitas pada bagian badan tiang untuk keamanan pemain selama aktivitas olahraga",
+        "Sistem pemberat yang cukup berat agar tiang tidak mudah bergeser saat pertandingan sedang berlangsung",
+        "Cocok untuk lapangan tunggal maupun ganda sesuai regulasi BWF",
       ],
       notes: [
-        "Besi pipa berkualitas",
-        "Untuk sekolah, klub, fasilitas olahraga",
-        "Spesifikasi via konsultasi",
+        "Besi pipa berkualitas fabrikasi presisi",
+        "Cocok untuk sekolah, klub, dan fasilitas olahraga",
+        "Ready stock dan custom order tersedia",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Warna dan konfigurasi dapat disesuaikan — hubungi kami untuk penawaran.",
+        "Warna dan konfigurasi dapat disesuaikan. Hubungi kami untuk penawaran terbaik.",
     },
   },
   {
@@ -389,21 +400,23 @@ export const products: Product[] = [
     price: { type: "fixed", base: 2499000 },
     description: {
       intro:
-        "Tiang padel presisi untuk lapangan modern — rapi, solid, estetika profesional.",
+        "Tiang padel standar FIP buatan ProFabric Steel Bekasi dengan desain modern dan konstruksi presisi untuk lapangan padel profesional. Dirancang untuk memberikan ketegangan net yang optimal dan estetika lapangan yang rapi sesuai standar internasional.",
       details: [
-        "Ketinggian sesuai standar padel resmi",
-        "Kait net di tengah, ketegangan optimal",
-        "Penopang bawah kokoh di segala kondisi",
-        "Pengaman kulit sintetis berkualitas",
-        "Desain ramping sesuai estetika padel",
+        "Ketinggian sesuai standar FIP untuk konsistensi permainan dan kenyamanan pemain di lapangan padel",
+        "Sistem kait net di bagian tengah untuk ketegangan yang optimal dan konsisten selama pertandingan",
+        "Penopang bawah yang kokoh memastikan stabilitas tiang di segala kondisi permukaan lapangan",
+        "Pelapis kulit sintetis berkualitas pada bagian badan tiang untuk keamanan pemain saat berada di dekat net",
+        "Desain ramping yang rapi mencerminkan estetika lapangan padel modern dan profesional",
+        "Material besi hollow solid dengan fabrikasi presisi yang menjamin ketahanan jangka panjang",
       ],
       notes: [
-        "Besi hollow solid, fabrikasi presisi",
-        "Dapat dikustom sesuai layout lapangan",
-        "Spesifikasi via konsultasi",
+        "Besi hollow solid fabrikasi presisi",
+        "Dapat dikustomisasi sesuai layout dan kebutuhan lapangan",
+        "Ready stock dan custom order tersedia",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Konsultasikan konsep lapangan Anda — kami siap berikan penawaran terbaik.",
+        "Konsultasikan kebutuhan lapangan padel Anda. Kami siap memberikan penawaran terbaik.",
     },
   },
   {
@@ -425,21 +438,23 @@ export const products: Product[] = [
     price: { type: "contact" },
     description: {
       intro:
-        "Tiang tenis presisi — tersedia portable maupun tanam, standar ITF.",
+        "Tiang tenis standar ITF buatan ProFabric Steel Bekasi tersedia dalam varian portable maupun tanam untuk lapangan tenis indoor dan outdoor. Dirancang untuk ketegangan net yang konsisten dan stabilitas tinggi selama pertandingan maupun sesi latihan intensif.",
       details: [
-        "Pilihan portable dan tanam",
-        "Ketinggian sesuai standar ITF",
-        "Roda built-in untuk varian portable",
-        "Kait net presisi, ketegangan konsisten",
-        "Pemberat berat, stabil saat pertandingan",
+        "Tersedia dalam pilihan varian portable dan tanam sehingga dapat disesuaikan dengan kebutuhan lapangan",
+        "Ketinggian sesuai standar ITF untuk konsistensi permainan baik pada pertandingan resmi maupun latihan",
+        "Varian portable dilengkapi roda built-in yang memudahkan pemindahan tiang tanpa alat tambahan",
+        "Sistem kait net yang presisi menghasilkan ketegangan net yang konsisten dari satu sesi ke sesi berikutnya",
+        "Sistem pemberat yang berat memastikan tiang tetap stabil selama pertandingan berlangsung",
+        "Besi pipa berkualitas dengan fabrikasi presisi yang dirancang untuk penggunaan intensif jangka panjang",
       ],
       notes: [
-        "Besi pipa berkualitas, fabrikasi presisi",
-        "Untuk penggunaan intensif jangka panjang",
-        "Spesifikasi via konsultasi",
+        "Besi pipa berkualitas fabrikasi presisi",
+        "Tersedia varian portable dan tanam",
+        "Ready stock dan custom order tersedia",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Konsultasikan kebutuhan lapangan tenis Anda — kami siap berikan penawaran terbaik.",
+        "Konsultasikan kebutuhan lapangan tenis Anda. Kami siap memberikan penawaran terbaik.",
     },
   },
   {
@@ -461,21 +476,23 @@ export const products: Product[] = [
     price: { type: "fixed", base: 4499000 },
     description: {
       intro:
-        "Kursi wasit voli — posisi pengawasan optimal, kokoh dan nyaman sepanjang pertandingan.",
+        "Kursi wasit voli standar FIVB buatan ProFabric Steel Bekasi dengan posisi duduk tinggi dan pandangan optimal ke seluruh lapangan. Dirancang untuk kenyamanan wasit selama pertandingan berlangsung dengan konstruksi kokoh yang mampu menahan beban jangka panjang.",
       details: [
-        "Posisi duduk tinggi, sudut pandang ideal",
-        "Busa tebal + kulit sintetis, nyaman maksimal",
-        "Landasan kaki luas, posisi berdiri stabil",
-        "Rangka kokoh, tidak goyah under load",
-        "Warna dapat disesuaikan",
+        "Posisi duduk yang tinggi memberikan sudut pandang ideal untuk memantau seluruh lapangan secara menyeluruh",
+        "Bantalan busa tebal dilapisi kulit sintetis berkualitas untuk kenyamanan wasit sepanjang pertandingan",
+        "Landasan kaki yang luas memudahkan wasit berdiri dengan posisi yang stabil saat memberikan keputusan",
+        "Rangka kokoh yang tidak goyah saat menopang beban penuh sehingga aman untuk pemakaian jangka panjang",
+        "Konstruksi besi pipa dan hollow berkualitas yang tahan lama dengan perawatan minimal",
+        "Warna dapat dikustomisasi sesuai identitas klub, sekolah, atau fasilitas olahraga",
       ],
       notes: [
-        "Besi pipa dan hollow berkualitas",
-        "Komponen tahan lama, perawatan minimal",
-        "Spesifikasi via konsultasi",
+        "Besi pipa dan hollow berkualitas fabrikasi presisi",
+        "Komponen tahan lama dengan perawatan minimal",
+        "Ready stock dan custom order tersedia",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
+        "Warna dan spesifikasi dapat disesuaikan. Hubungi kami untuk penawaran terbaik.",
     },
   },
   {
@@ -497,21 +514,22 @@ export const products: Product[] = [
     price: { type: "from", base: 2699000 },
     description: {
       intro:
-        "Kursi wasit badminton — visibilitas penuh lapangan, kokoh dan nyaman harian.",
+        "Kursi wasit badminton standar BWF buatan ProFabric Steel Bekasi dengan ketinggian ideal dan visibilitas penuh lapangan. Dirancang untuk kenyamanan dan keamanan wasit selama pertandingan dengan rangka yang lebar dan stabil di berbagai jenis permukaan lantai.",
       details: [
-        "Ketinggian ideal, visibilitas penuh pertandingan",
-        "Rangka lebar dan stabil di segala lantai",
-        "Konstruksi kokoh untuk beban jangka panjang",
-        "Cocok indoor dan outdoor",
-        "Warna dapat disesuaikan",
+        "Ketinggian yang ideal memberikan visibilitas penuh lapangan sehingga wasit dapat memantau permainan secara menyeluruh",
+        "Rangka lebar dan stabil yang tidak goyah di berbagai jenis permukaan lantai GOR maupun lapangan outdoor",
+        "Konstruksi kokoh untuk menopang beban jangka panjang tanpa mengurangi keamanan dan kenyamanan",
+        "Cocok untuk penggunaan di lapangan indoor maupun outdoor sesuai kebutuhan penyelenggaraan pertandingan",
+        "Warna dapat dikustomisasi sesuai identitas klub badminton, sekolah, atau fasilitas olahraga",
       ],
       notes: [
-        "Besi pipa, fabrikasi rapi dan presisi",
-        "Dirancang untuk perawatan mudah",
-        "Spesifikasi via konsultasi",
+        "Besi pipa fabrikasi rapi dan presisi",
+        "Dirancang untuk perawatan yang mudah",
+        "Ready stock dan custom order tersedia",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
+        "Warna dan spesifikasi dapat disesuaikan. Hubungi kami untuk penawaran terbaik.",
     },
   },
   {
@@ -533,22 +551,23 @@ export const products: Product[] = [
     price: { type: "from", base: 4499000 },
     description: {
       intro:
-        "Kursi wasit V2 — rangka stainless steel, tahan karat tanpa pengecatan ulang.",
+        "Kursi wasit badminton V2 buatan ProFabric Steel Bekasi dengan rangka stainless steel grade 304 yang tahan karat tanpa memerlukan pengecatan ulang. Pilihan ideal untuk fasilitas olahraga yang mengutamakan ketahanan material dan tampilan modern dengan perawatan minimal.",
       details: [
-        "Ketinggian ideal, visibilitas penuh pertandingan",
-        "Stainless anti-karat, tahan jangka panjang",
-        "Permukaan mudah dibersihkan, tampil rapi",
-        "Busa tebal + kulit sintetis, nyaman maksimal",
-        "Las presisi di setiap titik sambungan",
-        "Cocok indoor dan outdoor",
+        "Rangka stainless steel anti karat yang menjaga tampilan tetap bersih dan modern tanpa perlu pengecatan ulang",
+        "Ketinggian yang ideal memberikan visibilitas penuh lapangan untuk pemantauan pertandingan yang menyeluruh",
+        "Permukaan stainless yang mudah dibersihkan mempertahankan penampilan rapi meski digunakan setiap hari",
+        "Bantalan busa tebal dilapisi kulit sintetis berkualitas untuk kenyamanan wasit sepanjang pertandingan",
+        "Las presisi di setiap titik sambungan yang memastikan ketahanan struktural untuk pemakaian jangka panjang",
+        "Cocok untuk penggunaan di lapangan indoor maupun outdoor karena ketahanan material stainless terhadap cuaca",
       ],
       notes: [
         "Stainless steel grade 304",
-        "Finishing poles natural metalik, tanpa cat",
-        "Spesifikasi via konsultasi",
+        "Finishing poles natural metalik tanpa cat",
+        "Ready stock dan custom order tersedia",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Spesifikasi dimensi dapat disesuaikan — hubungi kami untuk penawaran.",
+        "Spesifikasi dimensi dapat disesuaikan. Hubungi kami untuk penawaran terbaik.",
     },
   },
   {
@@ -570,22 +589,23 @@ export const products: Product[] = [
     price: { type: "from", base: 12499000 },
     description: {
       intro:
-        "Kursi wasit V3 — rangka stainless steel, modern dan tahan karat untuk pemakaian intensif.",
+        "Kursi wasit badminton V3 buatan ProFabric Steel Bekasi merupakan varian premium dengan rangka stainless steel grade 304 dan desain modern untuk fasilitas olahraga profesional. Cocok untuk GOR, pusat pelatihan, dan fasilitas badminton bertaraf kompetisi yang mengutamakan kualitas terbaik.",
       details: [
-        "Ketinggian ideal, visibilitas penuh pertandingan",
-        "Stainless anti-karat, tahan jangka panjang",
-        "Permukaan mudah dibersihkan, tampil rapi",
-        "Busa tebal + kulit sintetis, nyaman maksimal",
-        "Las presisi di setiap titik sambungan",
-        "Cocok indoor dan outdoor",
+        "Rangka stainless steel anti karat yang tampil modern dan bersih tanpa memerlukan pengecatan ulang",
+        "Ketinggian yang ideal memberikan visibilitas penuh lapangan untuk pengawasan pertandingan yang optimal",
+        "Permukaan stainless yang mudah dibersihkan mempertahankan penampilan rapi meski digunakan setiap hari",
+        "Bantalan busa tebal dilapisi kulit sintetis premium untuk kenyamanan maksimal wasit sepanjang pertandingan",
+        "Las presisi di setiap titik sambungan memastikan ketahanan struktural untuk pemakaian intensif jangka panjang",
+        "Cocok untuk pertandingan resmi tingkat nasional maupun latihan di GOR dan fasilitas olahraga profesional",
       ],
       notes: [
         "Stainless steel grade 304",
-        "Finishing poles natural metalik, tanpa cat",
-        "Spesifikasi via konsultasi",
+        "Finishing poles natural metalik tanpa cat",
+        "Ready stock dan custom order tersedia",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Spesifikasi dimensi dapat disesuaikan — hubungi kami untuk penawaran.",
+        "Spesifikasi dimensi dapat disesuaikan. Hubungi kami untuk penawaran terbaik.",
     },
   },
   {
@@ -607,22 +627,23 @@ export const products: Product[] = [
     price: { type: "fixed", base: 4499000 },
     description: {
       intro:
-        "Kursi wasit tenis — posisi tinggi optimal, nyaman sepanjang pertandingan.",
+        "Kursi wasit tenis standar ITF buatan ProFabric Steel Bekasi dengan posisi tinggi yang memberikan pandangan optimal ke seluruh lapangan. Dirancang untuk kenyamanan wasit sepanjang pertandingan dengan rangka kokoh dan tangga akses yang aman untuk naik turun.",
       details: [
-        "Posisi tinggi, sudut pandang ideal",
-        "Rangka besi pipa kokoh, aman under load",
-        "Busa tebal + penutup berkualitas",
-        "Tangga akses aman dan stabil",
-        "Cocok indoor dan outdoor",
-        "Warna dapat disesuaikan",
+        "Posisi duduk yang tinggi memberikan sudut pandang ideal untuk memantau seluruh lapangan tenis secara menyeluruh",
+        "Rangka besi pipa kokoh yang aman menopang beban penuh tanpa goyah selama pertandingan berlangsung",
+        "Bantalan busa tebal dengan penutup berkualitas untuk kenyamanan wasit dalam sesi pertandingan yang panjang",
+        "Tangga akses yang aman dan stabil memudahkan wasit naik dan turun dari kursi dengan nyaman",
+        "Cocok untuk pertandingan tenis indoor maupun outdoor karena konstruksi yang tahan cuaca",
+        "Warna dapat dikustomisasi sesuai identitas klub tenis atau fasilitas olahraga",
       ],
       notes: [
-        "Besi pipa, fabrikasi rapi dan presisi",
-        "Dirancang untuk perawatan mudah",
-        "Spesifikasi via konsultasi",
+        "Besi pipa fabrikasi rapi dan presisi",
+        "Dirancang untuk perawatan yang mudah",
+        "Ready stock dan custom order tersedia",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Warna dan spesifikasi dapat disesuaikan — hubungi kami untuk penawaran.",
+        "Warna dan spesifikasi dapat disesuaikan. Hubungi kami untuk penawaran terbaik.",
     },
   },
   {
@@ -640,13 +661,14 @@ export const products: Product[] = [
     price: { type: "contact" },
     description: {
       intro:
-        "Net voli nilon berkualitas — ukuran standar FIVB, tahan lama untuk kompetisi dan latihan.",
+        "Net voli standar FIVB tersedia di ProFabric Steel Bekasi dengan material nilon berkualitas tinggi dan ukuran sesuai regulasi resmi. Cocok untuk pertandingan resmi maupun latihan rutin di GOR sekolah, fasilitas olahraga, dan lapangan voli komunitas.",
       details: [
-        "Ukuran FIVB: 9,5m × 1m",
-        "Nilon anti-putus, tahan jangka panjang",
-        "Tali atas-bawah diperkuat",
-        "Pita putih 5cm sesuai regulasi",
-        "Cocok indoor dan outdoor",
+        "Ukuran sesuai standar FIVB yaitu panjang 9,5 meter dan lebar 1 meter untuk pertandingan resmi",
+        "Material nilon anti putus yang tahan terhadap pemakaian intensif dalam jangka panjang",
+        "Tali penguat pada bagian atas dan bawah net untuk ketahanan yang lebih baik dari tarikan tiang",
+        "Pita putih selebar 5 cm pada bagian atas sesuai regulasi FIVB untuk visibilitas yang jelas",
+        "Cocok untuk penggunaan di lapangan indoor maupun outdoor dalam segala kondisi cuaca",
+        "Kompatibel dengan tiang voli PFS portable maupun tanam untuk sistem yang lengkap",
       ],
       notes: [
         "Tersedia kelas latihan dan kompetisi",
@@ -672,16 +694,17 @@ export const products: Product[] = [
     price: { type: "contact" },
     description: {
       intro:
-        "Net badminton standar BWF — rajutan halus, tegangan konsisten untuk latihan dan kompetisi.",
+        "Net badminton standar BWF tersedia di ProFabric Steel Bekasi dengan rajutan nilon halus dan ukuran sesuai regulasi resmi. Dirancang untuk memberikan ketegangan yang konsisten dan tahan lama untuk kebutuhan latihan maupun pertandingan resmi.",
       details: [
-        "Ukuran BWF: 6,1m × 76cm",
-        "Lubang jaring 19–20mm, rajutan nilon halus",
-        "Pita kepala putih 75mm di bagian atas",
-        "Tali pinggir kuat untuk tiang standar",
-        "Ringan, mudah dipasang dan digulung",
+        "Ukuran sesuai standar BWF yaitu panjang 6,1 meter dan lebar 76 cm untuk pertandingan resmi",
+        "Lubang jaring berukuran 19 hingga 20 mm dengan rajutan nilon halus yang memberikan ketegangan konsisten",
+        "Pita kepala putih selebar 75 mm di bagian atas sesuai regulasi BWF untuk batas net yang jelas",
+        "Tali pinggir yang kuat untuk pemasangan pada tiang badminton standar dengan ketegangan optimal",
+        "Bobot ringan yang memudahkan pemasangan dan penggulungan setelah selesai digunakan",
+        "Cocok untuk lapangan tunggal maupun ganda sesuai regulasi BWF",
       ],
       notes: [
-        "Untuk lapangan tunggal dan ganda",
+        "Tersedia untuk lapangan tunggal dan ganda",
         "Kompatibel dengan tiang badminton PFS",
         "Stok dan spesifikasi via WhatsApp",
       ],
@@ -704,13 +727,14 @@ export const products: Product[] = [
     price: { type: "contact" },
     description: {
       intro:
-        "Jaring gawang futsal PE berkualitas — kuat menahan tembakan keras, standar FIFA.",
+        "Jaring gawang futsal standar FIFA tersedia di ProFabric Steel Bekasi dengan material PE 3mm berkualitas tinggi yang kuat menahan tembakan keras. Dirancang untuk ketahanan optimal di lapangan futsal indoor maupun outdoor dengan ukuran sesuai regulasi resmi.",
       details: [
-        "PE 3mm, ketahanan optimal",
-        "Ukuran standar: 3m × 2m × 1m",
-        "Anyaman rapat, bola tidak tembus",
-        "Warna putih kontras terlihat di lapangan",
-        "Tahan cuaca indoor dan outdoor",
+        "Material PE berdiameter 3 mm yang memberikan kekuatan optimal dalam menahan tembakan keras dari jarak dekat",
+        "Ukuran standar FIFA yaitu lebar 3 meter, tinggi 2 meter, dan kedalaman 1 meter untuk lapangan futsal resmi",
+        "Anyaman rapat yang memastikan bola tidak menembus jaring sehingga hasil pertandingan terlihat jelas",
+        "Warna putih yang kontras memudahkan pemain, wasit, dan penonton memantau bola yang masuk gawang",
+        "Tahan terhadap cuaca indoor maupun outdoor sehingga tetap awet meski digunakan setiap hari",
+        "Kompatibel dengan gawang futsal PFS untuk sistem yang lengkap dan terintegrasi",
       ],
       notes: [
         "Kompatibel dengan gawang futsal PFS",
