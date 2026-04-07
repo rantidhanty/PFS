@@ -229,21 +229,24 @@ export const products: Product[] = [
     price: { type: "fixed", base: 5499000 },
     description: {
       intro:
-        "Paket tiang dan net voli siap pakai — kuat, bisa dipindah kapan pun.",
+        "Tiang voli portable standar FIVB buatan ProFabric Steel Bekasi dengan konstruksi kokoh dan sistem pemberat stabil. Dirancang untuk kemudahan mobilitas tanpa mengorbankan kekuatan sehingga cocok untuk GOR sekolah, komunitas, dan fasilitas olahraga multifungsi.",
       details: [
-        "Paket lengkap tiang + net, siap pasang",
-        "Roda built-in untuk pemindahan mudah",
-        "Sistem kait net praktis, pasang-lepas cepat",
-        "Pelapis kulit sintetis berkualitas",
-        "Pemberat berat, stabil selama permainan",
+        "Memenuhi standar FIVB sehingga sesuai untuk pertandingan resmi maupun latihan rutin",
+        "Dapat digunakan untuk lapangan voli dan badminton sehingga lebih efisien untuk fasilitas multifungsi",
+        "Dilengkapi roda built-in untuk kemudahan memindahkan tiang tanpa alat tambahan",
+        "Sistem pemberat yang cukup berat agar tiang tidak mudah bergeser saat pertandingan berlangsung",
+        "Pelapis pelindung pada badan tiang untuk keamanan pemain selama aktivitas olahraga",
+        "Material besi berkualitas dengan desain yang mempertimbangkan keamanan dan kenyamanan pengguna",
+        "Warna dapat dikustomisasi sesuai kebutuhan sekolah atau fasilitas olahraga",
       ],
       notes: [
-        "Besi pipa berdiameter besar",
-        "Finishing tahan cuaca",
-        "Spesifikasi via konsultasi",
+        "Besi pipa berkualitas fabrikasi presisi",
+        "Roda built-in mobilitas mudah",
+        "Ready stock dan custom order tersedia",
+        "Pengiriman menggunakan jasa kirim khusus, ongkos kirim menyesuaikan lokasi",
       ],
       closing:
-        "Konfigurasi dan warna dapat disesuaikan — hubungi kami untuk penawaran.",
+        "Hubungi admin PFS untuk konsultasi spesifikasi, estimasi ongkir, dan penawaran terbaik.",
     },
   },
   {
