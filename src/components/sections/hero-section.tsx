@@ -237,12 +237,33 @@ export function HeroSection() {
 
           {/* Tagline */}
           <p className="mt-3 max-w-sm text-base leading-relaxed text-zinc-600 sm:text-lg">
-            Peralatan olahraga standar kompetisi &amp; fabrikasi besi
-            profesional.{" "}
+            Pabrik sekaligus penjual langsung peralatan olahraga standar
+            kompetisi di Bekasi. Dari tiang voli, ring basket, hingga kursi
+            wasit, semua kami produksi sendiri.{" "}
             <span className="font-semibold text-zinc-800">
-              Custom sesuai kebutuhan.
+              Gratis konsultasi, custom sesuai kebutuhan dan budget.
             </span>
           </p>
+
+          {/* Keunggulan badges */}
+          <div className="mt-3.5 flex flex-wrap gap-1.5">
+            {[
+              { label: "Produksi Sendiri", color: "bg-orange-50 text-orange-700 ring-orange-200" },
+              { label: "Custom Order", color: "bg-sky-50 text-sky-700 ring-sky-200" },
+              { label: "Harga Tangan Pertama", color: "bg-emerald-50 text-emerald-700 ring-emerald-200" },
+              { label: "Kualitas Terjamin", color: "bg-violet-50 text-violet-700 ring-violet-200" },
+            ].map(({ label, color }) => (
+              <span
+                key={label}
+                className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold ring-1 ${color}`}
+              >
+                <svg viewBox="0 0 12 12" className="h-2.5 w-2.5 shrink-0" fill="none" aria-hidden="true">
+                  <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                {label}
+              </span>
+            ))}
+          </div>
 
           {/* CTA */}
           <div className="mt-5 flex gap-2.5">
