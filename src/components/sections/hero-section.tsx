@@ -310,7 +310,6 @@ export function HeroSection() {
             <span className="mr-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-400">
               Tersedia di
             </span>
-            {/* TODO: TikTok Shop Tokopedia — halaman belum tersedia, aktifkan kembali jika sudah siap
             <a
               href="https://tk.tokopedia.com/ZSuBFb7UA/"
               target="_blank"
@@ -326,7 +325,7 @@ export function HeroSection() {
                 className="h-9 w-auto"
               />
             </a>
-            */}
+            {/* TODO: Shopee — aktifkan kembali jika diperlukan
             <a
               href="https://id.shp.ee/VJqfdMyT"
               target="_blank"
@@ -342,6 +341,7 @@ export function HeroSection() {
                 className="h-auto w-auto max-h-9 max-w-[68px]"
               />
             </a>
+            */}
             <a
               href={waUrl("Halo admin PFS")}
               target="_blank"
