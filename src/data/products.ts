@@ -158,7 +158,7 @@ export const products: Product[] = [
         "/images/products/basketball/ring-basket-fiba/tanam-dinding/7.7.png",
       ],
     },
-    price: { type: "from", base: 4499000 },
+    price: { type: "from", base: 7799000 },
     description: {
       intro:
         "Ring basket dinding standar FIBA buatan ProFabric Steel Bekasi sebagai solusi permanen untuk ruang terbatas. Dipasang langsung ke dinding tanpa memerlukan tiang sehingga menghemat area lantai secara signifikan dan cocok untuk gymnasium sekolah, aula olahraga, dan ruang indoor yang terbatas.",
