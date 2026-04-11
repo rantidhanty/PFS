@@ -624,7 +624,7 @@ export const products: Product[] = [
         "/images/products/kursi-wasit/kursi-wasit-tenis/kursi%20tenis%202.png",
       ],
     },
-    price: { type: "fixed", base: 4499000 },
+    price: { type: "fixed", base: 3199000 },
     description: {
       intro:
         "Kursi wasit tenis standar ITF buatan ProFabric Steel Bekasi dengan posisi tinggi yang memberikan pandangan optimal ke seluruh lapangan. Dirancang untuk kenyamanan wasit sepanjang pertandingan dengan rangka kokoh dan tangga akses yang aman untuk naik turun.",
