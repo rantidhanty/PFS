@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, useMemo } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { siteConfig } from "@/config/site";
 import { products, sportLabels } from "@/data/products";
 import type { SportCategory } from "@/data/products";
 import { ProductPriceDisplay } from "@/components/ui/product-price";
@@ -46,16 +47,12 @@ const standardColor: Record<string, string> = {
 };
 
 export default function ProductsPageContent() {
+  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const catParam = searchParams.get("cat") as SportCategory | null;
-
-  const [activeCategory, setActiveCategory] = useState<SportCategory | "all" | "referee-chair">(catParam ?? "all");
+  const activeCategory = (catParam as SportCategory | "all" | "referee-chair") ?? "all";
   const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    setActiveCategory((catParam as SportCategory | "all" | "referee-chair") ?? "all");
-    setCurrentPage(1);
-  }, [catParam]);
 
   const filtered = useMemo(() => {
     if (activeCategory === "all") return mainProducts;
@@ -70,8 +67,17 @@ export default function ProductsPageContent() {
   const paginated = filtered.slice(start, start + PRODUCTS_PER_PAGE);
 
   const changeCategory = (cat: SportCategory | "all" | "referee-chair") => {
-    setActiveCategory(cat);
     setCurrentPage(1);
+
+    const nextParams = new URLSearchParams(searchParams.toString());
+    if (cat === "all") {
+      nextParams.delete("cat");
+    } else {
+      nextParams.set("cat", cat);
+    }
+
+    const nextQuery = nextParams.toString();
+    router.replace(nextQuery ? `${pathname}?${nextQuery}` : pathname, { scroll: false });
   };
 
   const changePage = (page: number) => {
@@ -236,7 +242,7 @@ export default function ProductsPageContent() {
                 </a>
                 <div className="w-px bg-zinc-100" />
                 <a
-                  href="https://id.shp.ee/VJqfdMyT"
+                  href={siteConfig.marketplace.shopee.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Beli di Shopee"
@@ -307,7 +313,7 @@ export default function ProductsPageContent() {
                 </a>
                 <div className="w-px bg-zinc-100" />
                 <a
-                  href="https://id.shp.ee/VJqfdMyT"
+                  href={siteConfig.marketplace.shopee.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Beli di Shopee"

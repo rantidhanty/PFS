@@ -262,7 +262,7 @@ export default async function ProductPage({
                       <span>Harga Terbaik</span>
                     </p>
                     <a
-                      href="https://id.shp.ee/VJqfdMyT"
+                      href={siteConfig.marketplace.shopee.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Beli di Shopee"

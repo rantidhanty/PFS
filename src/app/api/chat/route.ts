@@ -1,7 +1,9 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest } from "next/server";
+import { siteConfig } from "@/config/site";
 
 const client = new Anthropic();
+const shopee = siteConfig.marketplace.shopee;
 
 // ─── SYSTEM PROMPT ───────────────────────────────────────────────────────────
 // Inilah "otak" chatbot — semua aturan, data produk, dan batasan topik
@@ -42,8 +44,8 @@ INFO TOKO:
 - WhatsApp: tersedia via tombol di website
 - WhatsApp cocok untuk konsultasi langsung, penawaran spesial, custom kebutuhan, cek ongkir, dan bantuan pilih produk
 - Jam operasional: Senin–Sabtu, 08.00–17.00 WIB
-- Tersedia di: Shopee (profabricsteel)
-- Link Shopee: https://id.shp.ee/VJqfdMyT
+- Tersedia di: ${shopee.name} (${shopee.handle})
+- Link Shopee: ${shopee.url}
 - Shopee cocok untuk checkout cepat dan akses marketplace langsung
 
 PRODUK & HARGA (sudah termasuk diskon 3%):

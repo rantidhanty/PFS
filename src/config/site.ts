@@ -40,6 +40,14 @@ export const siteConfig = {
     schema: "+6289673404972",
   },
 
+  marketplace: {
+    shopee: {
+      name: "Shopee",
+      handle: "profabricsteel",
+      url: process.env.NEXT_PUBLIC_SHOPEE_URL ?? "https://id.shp.ee/VJqfdMyT",
+    },
+  },
+
   address: {
     street: "Jl. Mawar Raya No.1, Sukamanah",
     city: "Sukatani, Kabupaten Bekasi",
@@ -59,4 +67,3 @@ export const siteConfig = {
     close: "17:00",
   },
 } as const;
-

@@ -3,6 +3,7 @@
 import { Fragment, useState, useRef, useEffect, useCallback, type ReactNode } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { siteConfig } from "@/config/site";
 import { waUrl } from "@/lib/wa";
 
 type Message = {
@@ -160,7 +161,7 @@ export function ChatPanel({ onClose, embedded = false }: ChatPanelProps) {
   const [input, setInput] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const shopeeLink = "https://id.shp.ee/VJqfdMyT";
+  const shopeeLink = siteConfig.marketplace.shopee.url;
 
   const waLink = waUrl("Halo kak PFS, saya mau konsultasi lebih lanjut 🙏");
 

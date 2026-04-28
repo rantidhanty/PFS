@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { siteConfig } from "@/config/site";
 import { products } from "@/data/products";
 import { waUrl } from "@/lib/wa";
 import type { SportCategory } from "@/data/products";
@@ -326,7 +327,7 @@ export function HeroSection() {
               />
             </a>
             <a
-              href="https://id.shp.ee/VJqfdMyT"
+              href={siteConfig.marketplace.shopee.url}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Beli di Shopee"
