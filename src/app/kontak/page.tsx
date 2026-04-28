@@ -94,7 +94,7 @@ export default function KontakPage() {
             <div className="overflow-hidden rounded-2xl border border-zinc-100">
               <iframe
                 title="Google Maps Kantor ProFabric Steel"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.25086886259!2d107.1709019592964!3d-6.19733893595498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698698688ca731%3A0x270147ffbc5c8b6c!2sJl.%20Mawar%20Raya%20No.1%2C%20Sukamanah%2C%20Kec.%20Sukatani%2C%20Kabupaten%20Bekasi%2C%20Jawa%20Barat%2017630!5e0!3m2!1sid!2sid!4v1772932288139!5m2!1sid!2sid"
+                src={siteConfig.map.embedUrl}
                 className="h-[320px] w-full sm:h-[420px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

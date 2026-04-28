@@ -169,8 +169,13 @@ const jsonLd = {
     ],
   },
   sameAs: [
-    `https://wa.me/${siteConfig.phone.wa}`,
-    "https://share.google/MldTGiDvUH6KVXMqx",
+    siteConfig.social.instagram,
+    siteConfig.social.facebook,
+    siteConfig.social.tiktok,
+    siteConfig.social.youtube,
+    siteConfig.social.googleBusiness,
+    siteConfig.marketplace.shopee.url,
+    siteConfig.marketplace.tokopedia.url,
   ],
   aggregateRating: {
     "@type": "AggregateRating",

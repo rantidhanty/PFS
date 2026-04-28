@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { trackWhatsAppClick } from "@/lib/analytics";
+import { waUrl } from "@/lib/wa";
 
 export function WaFloat() {
   const pathname = usePathname();
@@ -10,7 +11,7 @@ export function WaFloat() {
 
   return (
     <Link
-      href="https://wa.me/6289673404972?text=Halo%20admin%20PFS%2C%20saya%20mau%20konsultasi%20project"
+      href={waUrl("Halo admin PFS, saya mau konsultasi project")}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Konsultasi via WhatsApp"

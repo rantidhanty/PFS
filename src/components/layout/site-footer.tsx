@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { siteConfig } from "@/config/site";
+import { waUrl } from "@/lib/wa";
 
 export function SiteFooter() {
   return (
@@ -60,7 +62,7 @@ export function SiteFooter() {
             ))}
           </nav>
           <a
-            href="https://wa.me/6289673404972?text=Halo%20admin%20PFS%2C%20saya%20mau%20konsultasi"
+            href={waUrl("Halo admin PFS, saya mau konsultasi")}
             className="inline-flex w-fit items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-bold text-white transition hover:bg-[#20b558]"
           >
             <svg viewBox="0 0 24 24" fill="white" aria-hidden="true" className="h-4 w-4 shrink-0">
@@ -75,7 +77,7 @@ export function SiteFooter() {
             <div className="flex gap-2">
               {/* Instagram */}
               <a
-                href="https://www.instagram.com/profabricsteel"
+                href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram ProFabric Steel"
@@ -87,7 +89,7 @@ export function SiteFooter() {
               </a>
               {/* Facebook */}
               <a
-                href="https://www.facebook.com/share/14Y8MUm7qbZ/"
+                href={siteConfig.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook Pro Fabric Steel"
@@ -99,7 +101,7 @@ export function SiteFooter() {
               </a>
               {/* TikTok */}
               <a
-                href="https://www.tiktok.com/@profabricsteel"
+                href={siteConfig.social.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok Pro Fabric Steel"
@@ -111,7 +113,7 @@ export function SiteFooter() {
               </a>
               {/* YouTube */}
               <a
-                href="https://youtube.com/@profabricsteel"
+                href={siteConfig.social.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube ProFabric Steel"

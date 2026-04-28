@@ -3,7 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import { siteConfig } from "@/config/site";
 import { projectCards, supportingProjects } from "@/data/projects";
+import { waUrl } from "@/lib/wa";
 
 export function BottomSections() {
   const prefersReducedMotion = useReducedMotion();
@@ -238,7 +240,7 @@ export function BottomSections() {
             </div>
             <iframe
               title="Google Maps Kantor ProFabric Steel"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.25086886259!2d107.1709019592964!3d-6.19733893595498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698698688ca731%3A0x270147ffbc5c8b6c!2sJl.%20Mawar%20Raya%20No.1%2C%20Sukamanah%2C%20Kec.%20Sukatani%2C%20Kabupaten%20Bekasi%2C%20Jawa%20Barat%2017630!5e0!3m2!1sid!2sid!4v1772932288139!5m2!1sid!2sid"
+              src={siteConfig.map.embedUrl}
               className="h-[260px] w-full sm:h-[320px]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -246,7 +248,7 @@ export function BottomSections() {
           </div>
         </div>
         <a
-          href="https://wa.me/6289673404972?text=Halo%20admin%20PFS%2C%20saya%20mau%20konsultasi%20project"
+          href={waUrl("Halo admin PFS, saya mau konsultasi project")}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-flex rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-600"

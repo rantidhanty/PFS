@@ -12,9 +12,9 @@ import {
   type SportCategory,
 } from "@/data/products";
 import { ProductPriceDisplay } from "@/components/ui/product-price";
+import { waUrl } from "@/lib/wa";
 
-const WA_URL =
-  "https://wa.me/6289673404972?text=Halo%20admin%20PFS%2C%20saya%20mau%20konsultasi%20project";
+const WA_URL = waUrl("Halo admin PFS, saya mau konsultasi project");
 
 type TabKey =
   | "basketball"

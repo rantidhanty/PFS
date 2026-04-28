@@ -312,7 +312,7 @@ export function HeroSection() {
               Tersedia di
             </span>
             <a
-              href="https://tk.tokopedia.com/ZSuBFb7UA/"
+              href={siteConfig.marketplace.tokopedia.url}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Beli di Tokopedia TikTok Shop"
